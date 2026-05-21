@@ -1,0 +1,19 @@
+{
+  "gesture_map": {
+    "hello": "Bonjour",
+    "thank you": "Merci",
+    "yes": "Oui",
+    "no": "Non",
+    "finish": "Au revoir"
+  },
+  "spelled_word_map": {
+    "BONJOUR": "Bonjour",
+    "BONSOIR": "Bonsoir",
+    "JEMAPPELLE": "Je m'appelle...",
+    "MERCI": "Merci",
+    "OUI": "Oui",
+    "NON": "Non",
+    "COMMENTCAVA": "Comment ca va ?",
+    "AUREVOIR": "Au revoir"
+  }
+}

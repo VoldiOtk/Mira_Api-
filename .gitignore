@@ -1,0 +1,88 @@
+# ─── Secrets (ne jamais committer) ───
+.env
+.env.*
+!.env.example
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+.installed.cfg
+dist/
+build/
+eggs/
+*.egg
+
+# Tests & qualité
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ─── IDE / éditeur / OS ───
+.history/
+.cursor/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Logs & fichiers temporaires projet ───
+*.log
+asl-recognition/err.txt
+asl-recognition/error.log
+asl-recognition/process_log.txt
+asl-recognition/models.txt
+
+# ─── Poids de modèles ML (réentraîner ou fournir via release) ───
+*.pth
+*.pt
+*.onnx
+*.h5
+*.ckpt
+*.safetensors
+
+# ─── Données volumineuses (WLASL, alphabet, keypoints) ───
+# À préparer localement avec model/process_wlasl.py et process_alphabet.py
+asl-recognition/data/knowledge/asl_videos/
+asl-recognition/data/knowledge/asl_images/
+asl-recognition/data/knowledge/asl_data/
+asl-recognition/data/knowledge/asl_data_hands/
+
+# Médias
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.wmv
+
+# Archives datasets
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Cache outils
+*.cache
+.cache/

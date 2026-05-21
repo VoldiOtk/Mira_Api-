@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="container">
+        <header>
+            <h1><span class="gradient-text">Mira</span> AI</h1>
+            <p>Traduction de la Langue des Signes en Temps Réel <br> <strong>par GV TECH</strong></p>
+        </header>
+
+        <div class="controls">
+            <button id="btnHands" class="mode-btn">Signes (Hands Only)</button> 
+            <button id="btnHolistic" class="mode-btn active">Corps Entier (Holistic)</button>
+            <button id="btnAudio" class="mode-btn audio-btn">🔊 Audio: Actif</button>
+        </div>
+
+        <main class="main-content">
+            <div class="video-section">
+                <!-- Video invisible feed to capture web cam -->
+                <video id="videoElement" autoplay playsinline style="display:none;"></video>
+                <!-- Canvas to show the annotated feed from the backend -->
+                <img id="outputImage" alt="Webcam Feed" src="" />
+                <div class="status-badge" id="connStatus">En attente de Caméra...</div>
+            </div>
+
+            <div class="translation-section">
+                <div class="translation-card">
+                    <h2 class="label-heading">Signe ASL Détecté</h2>
+                    <div id="detectedSign" class="sign-value">--</div>
+                    
+                    <div class="divider"></div>
+                    
+                    <h2 class="label-heading">Traduction en Français</h2>
+                    <div id="translationFr" class="fr-value">Prêt.</div>
+
+                    <div class="confidence-wrapper">
+                        <span>Séquence de Mots (Buffer)</span>
+                        <div id="wordBuffer" style="color: var(--secondary); font-family: monospace; min-height: 1.5rem;">[ ... ]</div>
+                        <br>
+                        <span>Indice de Confiance de l'IA</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="confidenceFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="translation-card sentence-card" style="margin-top: 1.5rem;">
+                    <h2 class="label-heading"> Phrase Reconstituée (IA locale/cloud)</h2>
+                    <div id="aiSentence" class="sentence-value">Commencez à signer...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/static/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "actions": [
+    "all",
+    "book",
+    "drink",
+    "eat",
+    "family",
+    "finish",
+    "go",
+    "hello",
+    "help",
+    "no",
+    "thank you",
+    "walk",
+    "want",
+    "woman",
+    "yes"
+  ],
+  "num_classes": 15,
+  "input_size": 1662
+}

@@ -1,0 +1,17 @@
+{
+  "book":       {"en": "Book",       "fr": "Livre"},
+  "drink":      {"en": "Drink",      "fr": "Boire"},
+  "go":         {"en": "Go",         "fr": "Aller"},
+  "help":       {"en": "Help",       "fr": "Aider"},
+  "no":         {"en": "No",         "fr": "Non"},
+  "yes":        {"en": "Yes",        "fr": "Oui"},
+  "all":        {"en": "All",        "fr": "Tout"},
+  "finish":     {"en": "Finish",     "fr": "Terminer"},
+  "family":     {"en": "Family",     "fr": "Famille"},
+  "eat":        {"en": "Eat",        "fr": "Manger"},
+  "woman":      {"en": "Woman",      "fr": "Femme"},
+  "want":       {"en": "Want",       "fr": "Vouloir"},
+  "hello":      {"en": "Hello",      "fr": "Bonjour"},
+  "thank you":  {"en": "Thank you",  "fr": "Merci"},
+  "walk":       {"en": "Walk",       "fr": "Marcher"}
+}

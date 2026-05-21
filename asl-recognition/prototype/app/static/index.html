@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoFaLink Prototype</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>VoFaLink - Prototype</h1>
+    <p>Alphabet, assemblage de lettres, et expressions simples.</p>
+
+    <div class="controls">
+      <button id="modeAlphabet" class="active">Mode Alphabet</button>
+      <button id="modePhrase">Mode Gestes Simples</button>
+      <button id="audioToggle">Audio: Actif</button>
+    </div>
+
+    <section class="grid">
+      <article class="card">
+        <img id="outputImage" alt="Flux annoté" />
+        <video id="video" autoplay playsinline muted style="display:none;"></video>
+      </article>
+
+      <article class="card">
+        <h2>Sortie</h2>
+        <div><strong>Lettre détectée:</strong> <span id="letter">--</span></div>
+        <div><strong>Confiance:</strong> <span id="confidence">0%</span></div>
+        <div><strong>Mot en cours:</strong> <span id="currentWord">--</span></div>
+        <div><strong>Texte assemblé:</strong> <span id="builtText">--</span></div>
+        <div><strong>Expression reconnue:</strong> <span id="phrase">--</span></div>
+        <div><strong>Mode:</strong> <span id="modeLabel">alphabet</span></div>
+        <div><strong>Etat:</strong> <span id="status">Initialisation...</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
