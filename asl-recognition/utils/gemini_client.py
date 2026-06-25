@@ -172,39 +172,36 @@ class GeminiTranslator:
             return "Bonjour !"
         return f"Je veux {' '.join(converted)}."
 
-    def _build_structured_payload(self, signs: list, kb_context: dict, lang: str) -> dict:
-        sign_details = kb_context.get("sign_details", {})
-        kb_lines = []
-        for sign in signs:
-            detail = sign_details.get(sign, {})
-            translations = detail.get("translations", [sign])
-            kb_lines.append(f"  - {sign}: {', '.join(translations) if translations else sign}")
-        kb_block = "\n".join(kb_lines) if kb_lines else "  (no KB data)"
+    def _build_structured_payload(self, signs: list, kb_context_str: str, lang: str) -> dict:
+        lang_names = {"en": "English", "fr": "French", "sw": "Swahili"}
+        lang_name = lang_names.get(lang, lang.capitalize())
 
-        schema = (
-            '{\n'
-            '  "natural_translation": "...",\n'
-            '  "literal_translation": "...",\n'
-            '  "intent": "greeting|request_help|statement|question|confirmation|unknown",\n'
-            '  "confidence": 0.85,\n'
-            '  "reconstructed": true,\n'
-            '  "reasoning_summary": "...",\n'
-            '  "suggested_missing_signs": []\n'
-            '}'
+        signs_arrow = " → ".join(signs)
+        kb_block = kb_context_str if kb_context_str else "No KB context available."
+
+        structured_system = (
+            "You are an expert ASL (American Sign Language) interpreter and multilingual translator.\n"
+            "You will receive a sequence of detected ASL signs and contextual information about each sign "
+            "from a knowledge base.\n"
+            "Your job is to reconstruct the speaker's intended natural message and translate it to the "
+            "target language.\n"
+            "IMPORTANT: Output ONLY valid JSON. No markdown, no explanation, no code blocks."
         )
 
         user_text = (
-            f"Signs detected: {signs}\n\n"
-            f"Knowledge base descriptions:\n{kb_block}\n\n"
-            f"Target language: {lang}\n\n"
-            f"Respond ONLY with valid JSON matching this schema:\n{schema}"
-        )
-
-        structured_system = (
-            "You are an expert ASL interpreter and translator. "
-            "Given a sequence of ASL signs and their meanings from a knowledge base, "
-            "reconstruct the speaker's intended message as a natural sentence in the target language. "
-            "Respond ONLY with valid JSON matching the required schema."
+            f"Signs detected (in order): {signs_arrow}\n\n"
+            f"Knowledge base context:\n{kb_block}\n\n"
+            f"Target language: {lang_name}\n\n"
+            f"Reconstruct the speaker's intended message. Output ONLY this JSON object:\n"
+            "{{\n"
+            f'  "natural_translation": "<natural sentence in {lang}>",\n'
+            '  "literal_translation": "<word-for-word translation>",\n'
+            '  "intent": "<greeting|request_help|statement|question|confirmation|action|unknown>",\n'
+            '  "confidence": <0.0-1.0>,\n'
+            '  "reconstructed": <true if gaps were filled>,\n'
+            '  "reasoning_summary": "<one sentence>",\n'
+            '  "suggested_missing_signs": []\n'
+            "}}"
         )
 
         return {
@@ -236,7 +233,7 @@ class GeminiTranslator:
     async def translate_sequence_structured(
         self,
         signs: list,
-        kb_context: dict,
+        kb_context: str = "",
         lang: str = "fr",
     ) -> dict:
         sign_sequence = " ".join(signs)

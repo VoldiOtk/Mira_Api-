@@ -32,7 +32,7 @@ class LLMTranslationProvider(ABC):
     async def translate_sequence(
         self,
         signs: list[str],
-        kb_context: dict,
+        kb_context,  # dict (legacy) or str (KB context string)
         lang: str = "fr",
     ) -> dict:
         ...
@@ -42,9 +42,11 @@ class LocalFallbackTranslationProvider(LLMTranslationProvider):
     async def translate_sequence(
         self,
         signs: list[str],
-        kb_context: dict,
+        kb_context,
         lang: str = "fr",
     ) -> dict:
+        if not isinstance(kb_context, dict):
+            kb_context = {}
         sign_details = kb_context.get("sign_details", {})
 
         literal_parts = []
@@ -89,11 +91,36 @@ class GeminiTranslationProvider(LLMTranslationProvider):
         kb_context: dict,
         lang: str = "fr",
     ) -> dict:
+        # Build the KB context string if a dict was passed (legacy path);
+        # callers can also pass kb_context_str as a keyword argument.
+        kb_context_str: str = ""
+        if isinstance(kb_context, dict):
+            # Derive a compact string from the dict the old way
+            sign_details = kb_context.get("sign_details", {})
+            lines = []
+            for sign in signs:
+                detail = sign_details.get(sign, {})
+                translations = detail.get("translations", {})
+                if isinstance(translations, dict):
+                    tr = translations.get(lang, sign)
+                elif isinstance(translations, list):
+                    tr = translations[0] if translations else sign
+                else:
+                    tr = sign
+                desc = detail.get("description", "")
+                line = f"- {sign} ({tr})"
+                if desc:
+                    line += ": " + desc
+                lines.append(line)
+            kb_context_str = "\n".join(lines) if lines else ""
+        elif isinstance(kb_context, str):
+            kb_context_str = kb_context
+
         fell_back = False
         try:
             import asyncio
             core = await asyncio.wait_for(
-                self._translator.translate_sequence_structured(signs, kb_context, lang),
+                self._translator.translate_sequence_structured(signs, kb_context_str, lang),
                 timeout=_LLM_TIMEOUT,
             )
             fell_back = core.get("confidence", 1.0) < 0.5 and not core.get("natural_translation", "").strip()
