@@ -382,5 +382,125 @@
     "description": "The act of sleeping or resting",
     "intent": "action",
     "related_signs": ["bed", "night", "tired"]
+  },
+  "love": {
+    "en": "Love",
+    "fr": "Aimer",
+    "sw": "Kupenda",
+    "description": "Strong affection or deep care for someone",
+    "intent": "statement",
+    "related_signs": ["like", "happy", "you", "me"]
+  },
+  "good": {
+    "en": "Good",
+    "fr": "Bon",
+    "sw": "Nzuri",
+    "description": "Positive quality or approval",
+    "intent": "statement",
+    "related_signs": ["great", "nice", "yes"]
+  },
+  "bad": {
+    "en": "Bad",
+    "fr": "Mauvais",
+    "sw": "Mbaya",
+    "description": "Negative quality or disapproval",
+    "intent": "statement",
+    "related_signs": ["no", "wrong", "stop"]
+  },
+  "happy": {
+    "en": "Happy",
+    "fr": "Heureux",
+    "sw": "Furaha",
+    "description": "Feeling joy or contentment",
+    "intent": "statement",
+    "related_signs": ["good", "love", "birthday"]
+  },
+  "sad": {
+    "en": "Sad",
+    "fr": "Triste",
+    "sw": "Huzuni",
+    "description": "Feeling sorrow or unhappiness",
+    "intent": "statement",
+    "related_signs": ["sorry", "bad", "cry"]
+  },
+  "sick": {
+    "en": "Sick",
+    "fr": "Malade",
+    "sw": "Mgonjwa",
+    "description": "Feeling unwell or ill",
+    "intent": "statement",
+    "related_signs": ["help", "medicine", "doctor"]
+  },
+  "work": {
+    "en": "Work",
+    "fr": "Travailler",
+    "sw": "Kazi",
+    "description": "Doing a job or task",
+    "intent": "action",
+    "related_signs": ["school", "go", "finish"]
+  },
+  "school": {
+    "en": "School",
+    "fr": "École",
+    "sw": "Shule",
+    "description": "A place of learning and education",
+    "intent": "object",
+    "related_signs": ["work", "book", "learn"]
+  },
+  "time": {
+    "en": "Time",
+    "fr": "Temps",
+    "sw": "Wakati",
+    "description": "A reference to time or the clock",
+    "intent": "question",
+    "related_signs": ["when", "before", "now"]
+  },
+  "friend": {
+    "en": "Friend",
+    "fr": "Ami",
+    "sw": "Rafiki",
+    "description": "A person who is close and trusted",
+    "intent": "person",
+    "related_signs": ["you", "me", "family"]
+  },
+  "need": {
+    "en": "Need",
+    "fr": "Avoir besoin",
+    "sw": "Hitaji",
+    "description": "Expressing necessity or requirement",
+    "intent": "statement",
+    "related_signs": ["want", "help", "please"]
+  },
+  "like": {
+    "en": "Like",
+    "fr": "Apprécier",
+    "sw": "Kupenda",
+    "description": "Expressing preference or enjoyment",
+    "intent": "statement",
+    "related_signs": ["love", "want", "good"]
+  },
+  "cold": {
+    "en": "Cold",
+    "fr": "Froid",
+    "sw": "Baridi",
+    "description": "Low temperature or feeling cold",
+    "intent": "statement",
+    "related_signs": ["hot", "water", "sick"]
+  },
+  "hot": {
+    "en": "Hot",
+    "fr": "Chaud",
+    "sw": "Moto",
+    "description": "High temperature or feeling hot",
+    "intent": "statement",
+    "related_signs": ["cold", "food", "water"]
+  },
+  "again": {
+    "en": "Again",
+    "fr": "Encore",
+    "sw": "Tena",
+    "description": "Repeating an action or event",
+    "intent": "statement",
+    "related_signs": ["more", "stop", "finish"]
   }
 }

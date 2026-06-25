@@ -1301,3 +1301,48 @@ async def build_sentence(
         "lang": lang,
         "gemini_used": True,
     }
+
+
+# ─── Sequence simulation (test LLM translation without camera) ───────────
+
+
+class SimulateRequest(_BaseModel):
+    signs: List[str]
+    lang: str = "fr"
+
+
+@router.post("/translate/simulate", tags=["Translate"])
+async def simulate_sequence_translation(
+    body: SimulateRequest,
+    client=Depends(get_current_client_any),
+):
+    """Translate a manually-provided sign sequence using the LLM provider + KB resolver.
+
+    Useful for testing the translation pipeline without a live camera session.
+    Returns the same structured dict as the /finalize endpoint.
+    """
+    signs = [s.strip() for s in body.signs if s.strip()]
+    if not signs:
+        return {
+            "signs": [],
+            "natural_translation": "",
+            "literal_translation": "",
+            "intent": "",
+            "confidence": 0.0,
+            "provider": "none",
+            "fallback": True,
+            "message": "Empty sign list.",
+        }
+
+    lang = body.lang if body.lang in ("en", "fr", "sw") else "fr"
+
+    kb_resolver = get_knowledge_resolver()
+    kb_context = kb_resolver.resolve_signs(signs)
+
+    llm_provider = get_llm_provider()
+    translation = await llm_provider.translate_sequence(signs, kb_context, lang=lang)
+
+    return {
+        "signs": signs,
+        **translation,
+    }
