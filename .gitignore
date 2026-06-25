@@ -48,6 +48,7 @@ asl-recognition/err.txt
 asl-recognition/error.log
 asl-recognition/process_log.txt
 asl-recognition/models.txt
+asl-recognition/data/api_access.json
 
 # ─── Poids de modèles ML (réentraîner ou fournir via release) ───
 *.pth
@@ -86,3 +87,4 @@ asl-recognition/data/knowledge/asl_data_hands/
 # Cache outils
 *.cache
 .cache/
+.worktrees/
