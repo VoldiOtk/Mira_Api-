@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+import json
 import os
 import re
 import httpx
@@ -168,6 +171,114 @@ class GeminiTranslator:
                 return f"Bonjour, je veux {' '.join(tail)}."
             return "Bonjour !"
         return f"Je veux {' '.join(converted)}."
+
+    def _build_structured_payload(self, signs: list, kb_context_str: str, lang: str) -> dict:
+        lang_names = {"en": "English", "fr": "French", "sw": "Swahili"}
+        lang_name = lang_names.get(lang, lang.capitalize())
+
+        signs_arrow = " → ".join(signs)
+        kb_block = kb_context_str if kb_context_str else "No KB context available."
+
+        structured_system = (
+            "You are an expert ASL (American Sign Language) interpreter and multilingual translator.\n"
+            "You will receive a sequence of detected ASL signs and contextual information about each sign "
+            "from a knowledge base.\n"
+            "Your job is to reconstruct the speaker's intended natural message and translate it to the "
+            "target language.\n"
+            "IMPORTANT: Output ONLY valid JSON. No markdown, no explanation, no code blocks."
+        )
+
+        user_text = (
+            f"Signs detected (in order): {signs_arrow}\n\n"
+            f"Knowledge base context:\n{kb_block}\n\n"
+            f"Target language: {lang_name}\n\n"
+            f"Reconstruct the speaker's intended message. Output ONLY this JSON object:\n"
+            "{{\n"
+            f'  "natural_translation": "<natural sentence in {lang}>",\n'
+            '  "literal_translation": "<word-for-word translation>",\n'
+            '  "intent": "<greeting|request_help|statement|question|confirmation|action|unknown>",\n'
+            '  "confidence": <0.0-1.0>,\n'
+            '  "reconstructed": <true if gaps were filled>,\n'
+            '  "reasoning_summary": "<one sentence>",\n'
+            '  "suggested_missing_signs": []\n'
+            "}}"
+        )
+
+        return {
+            "system_instruction": {"parts": [{"text": structured_system}]},
+            "contents": [{"parts": [{"text": user_text}]}],
+            "generationConfig": {
+                "temperature": 0.2,
+                "topP": 0.9,
+                "maxOutputTokens": 256,
+            },
+        }
+
+    @staticmethod
+    def _extract_json(raw: str) -> dict | None:
+        raw = raw.strip()
+        raw = re.sub(r"^```(?:json)?", "", raw).strip()
+        raw = re.sub(r"```$", "", raw).strip()
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            match = re.search(r"\{.*\}", raw, re.DOTALL)
+            if match:
+                try:
+                    return json.loads(match.group(0))
+                except json.JSONDecodeError:
+                    pass
+        return None
+
+    async def translate_sequence_structured(
+        self,
+        signs: list,
+        kb_context: str = "",
+        lang: str = "fr",
+    ) -> dict:
+        sign_sequence = " ".join(signs)
+        payload = self._build_structured_payload(signs, kb_context, lang)
+
+        parsed = None
+        if API_KEY:
+            try:
+                async with httpx.AsyncClient() as client:
+                    for model_name in self.fallback_models:
+                        try:
+                            url = self._build_url(model_name)
+                            response = await client.post(url, json=payload, timeout=12.0)
+                            if response.status_code == 200:
+                                raw_text = self._extract_text(response.json())
+                                parsed = self._extract_json(raw_text)
+                                if parsed:
+                                    self.model_name = model_name
+                                    break
+                        except Exception as e:
+                            print(f"[Gemini structured] Erreur modèle ({model_name}): {e}")
+            except Exception as e:
+                print(f"[Gemini structured] Exception globale: {e}")
+
+        if parsed:
+            return {
+                "natural_translation": str(parsed.get("natural_translation", "")),
+                "literal_translation": str(parsed.get("literal_translation", sign_sequence)),
+                "intent": str(parsed.get("intent", "unknown")),
+                "confidence": float(parsed.get("confidence", 0.75)),
+                "reconstructed": bool(parsed.get("reconstructed", True)),
+                "reasoning_summary": str(parsed.get("reasoning_summary", "")),
+                "suggested_missing_signs": list(parsed.get("suggested_missing_signs", [])),
+            }
+
+        natural = self._local_fallback(sign_sequence)
+        return {
+            "natural_translation": natural,
+            "literal_translation": sign_sequence,
+            "intent": "unknown",
+            "confidence": 0.45,
+            "reconstructed": False,
+            "reasoning_summary": "Gemini unavailable; used local fallback.",
+            "suggested_missing_signs": [],
+        }
 
     async def translate_asl(self, sign_sequence):
         if not API_KEY:

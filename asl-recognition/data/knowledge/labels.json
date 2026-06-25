@@ -1,17 +1,506 @@
 {
-  "book":       {"en": "Book",       "fr": "Livre"},
-  "drink":      {"en": "Drink",      "fr": "Boire"},
-  "go":         {"en": "Go",         "fr": "Aller"},
-  "help":       {"en": "Help",       "fr": "Aider"},
-  "no":         {"en": "No",         "fr": "Non"},
-  "yes":        {"en": "Yes",        "fr": "Oui"},
-  "all":        {"en": "All",        "fr": "Tout"},
-  "finish":     {"en": "Finish",     "fr": "Terminer"},
-  "family":     {"en": "Family",     "fr": "Famille"},
-  "eat":        {"en": "Eat",        "fr": "Manger"},
-  "woman":      {"en": "Woman",      "fr": "Femme"},
-  "want":       {"en": "Want",       "fr": "Vouloir"},
-  "hello":      {"en": "Hello",      "fr": "Bonjour"},
-  "thank you":  {"en": "Thank you",  "fr": "Merci"},
-  "walk":       {"en": "Walk",       "fr": "Marcher"}
+  "hello": {
+    "en": "Hello",
+    "fr": "Bonjour",
+    "sw": "Habari",
+    "description": "A common greeting sign",
+    "intent": "greeting",
+    "related_signs": ["hi", "bye", "goodbye"]
+  },
+  "help": {
+    "en": "Help",
+    "fr": "Aider",
+    "sw": "Saidia",
+    "description": "Requesting assistance from someone",
+    "intent": "request_help",
+    "related_signs": ["me", "you", "please", "emergency"]
+  },
+  "book": {
+    "en": "Book",
+    "fr": "Livre",
+    "sw": "Kitabu",
+    "description": "A book or reading material",
+    "intent": "object",
+    "related_signs": ["read", "library"]
+  },
+  "drink": {
+    "en": "Drink",
+    "fr": "Boire",
+    "sw": "Kunywa",
+    "description": "The action of drinking a liquid",
+    "intent": "action",
+    "related_signs": ["water", "eat", "thirsty"]
+  },
+  "go": {
+    "en": "Go",
+    "fr": "Aller",
+    "sw": "Nenda",
+    "description": "Moving away or traveling somewhere",
+    "intent": "action",
+    "related_signs": ["come", "walk", "where"]
+  },
+  "no": {
+    "en": "No",
+    "fr": "Non",
+    "sw": "Hapana",
+    "description": "Negation or refusal",
+    "intent": "confirmation",
+    "related_signs": ["yes", "stop", "never"]
+  },
+  "yes": {
+    "en": "Yes",
+    "fr": "Oui",
+    "sw": "Ndiyo",
+    "description": "Affirmation or agreement",
+    "intent": "confirmation",
+    "related_signs": ["no", "ok", "agree"]
+  },
+  "all": {
+    "en": "All",
+    "fr": "Tout",
+    "sw": "Yote",
+    "description": "Everything or everyone included",
+    "intent": "statement",
+    "related_signs": ["more", "none", "every"]
+  },
+  "finish": {
+    "en": "Finish",
+    "fr": "Terminer",
+    "sw": "Maliza",
+    "description": "Completion of an action or task",
+    "intent": "action",
+    "related_signs": ["done", "stop", "end"]
+  },
+  "family": {
+    "en": "Family",
+    "fr": "Famille",
+    "sw": "Familia",
+    "description": "A group of related people",
+    "intent": "person",
+    "related_signs": ["mother", "father", "home"]
+  },
+  "eat": {
+    "en": "Eat",
+    "fr": "Manger",
+    "sw": "Kula",
+    "description": "The action of eating food",
+    "intent": "action",
+    "related_signs": ["food", "hungry", "drink"]
+  },
+  "woman": {
+    "en": "Woman",
+    "fr": "Femme",
+    "sw": "Mwanamke",
+    "description": "An adult female person",
+    "intent": "person",
+    "related_signs": ["man", "girl", "mother"]
+  },
+  "want": {
+    "en": "Want",
+    "fr": "Vouloir",
+    "sw": "Taka",
+    "description": "Expressing desire for something",
+    "intent": "statement",
+    "related_signs": ["need", "like", "please"]
+  },
+  "thank you": {
+    "en": "Thank you",
+    "fr": "Merci",
+    "sw": "Asante",
+    "description": "Expression of gratitude",
+    "intent": "greeting",
+    "related_signs": ["please", "welcome", "appreciate"]
+  },
+  "walk": {
+    "en": "Walk",
+    "fr": "Marcher",
+    "sw": "Tembea",
+    "description": "Moving on foot at a normal pace",
+    "intent": "action",
+    "related_signs": ["run", "go", "move"]
+  },
+  "black": {
+    "en": "Black",
+    "fr": "Noir",
+    "sw": "Nyeusi",
+    "description": "The color black",
+    "intent": "color",
+    "related_signs": ["white", "dark"]
+  },
+  "blue": {
+    "en": "Blue",
+    "fr": "Bleu",
+    "sw": "Buluu",
+    "description": "The color blue",
+    "intent": "color",
+    "related_signs": ["green", "red"]
+  },
+  "brown": {
+    "en": "Brown",
+    "fr": "Marron",
+    "sw": "Kahawia",
+    "description": "The color brown",
+    "intent": "color",
+    "related_signs": ["black", "white"]
+  },
+  "bed": {
+    "en": "Bed",
+    "fr": "Lit",
+    "sw": "Kitanda",
+    "description": "A bed or sleeping place",
+    "intent": "object",
+    "related_signs": ["sleep", "night"]
+  },
+  "bird": {
+    "en": "Bird",
+    "fr": "Oiseau",
+    "sw": "Ndege",
+    "description": "A bird or flying animal",
+    "intent": "object",
+    "related_signs": ["animal", "fly"]
+  },
+  "birthday": {
+    "en": "Birthday",
+    "fr": "Anniversaire",
+    "sw": "Siku ya kuzaliwa",
+    "description": "A birthday celebration",
+    "intent": "statement",
+    "related_signs": ["party", "cake", "happy"]
+  },
+  "before": {
+    "en": "Before",
+    "fr": "Avant",
+    "sw": "Kabla",
+    "description": "Time reference — before something",
+    "intent": "statement",
+    "related_signs": ["after", "time"]
+  },
+  "but": {
+    "en": "But",
+    "fr": "Mais",
+    "sw": "Lakini",
+    "description": "Conjunction indicating contrast",
+    "intent": "statement",
+    "related_signs": []
+  },
+  "can": {
+    "en": "Can",
+    "fr": "Pouvoir",
+    "sw": "Weza",
+    "description": "Ability or permission — can do something",
+    "intent": "statement",
+    "related_signs": ["want", "need"]
+  },
+  "accident": {
+    "en": "Accident",
+    "fr": "Accident",
+    "sw": "Ajali",
+    "description": "An unexpected incident or mishap",
+    "intent": "statement",
+    "related_signs": ["help", "emergency"]
+  },
+  "africa": {
+    "en": "Africa",
+    "fr": "Afrique",
+    "sw": "Afrika",
+    "description": "The continent Africa",
+    "intent": "object",
+    "related_signs": []
+  },
+  "apple": {
+    "en": "Apple",
+    "fr": "Pomme",
+    "sw": "Tofaa",
+    "description": "The fruit apple",
+    "intent": "object",
+    "related_signs": ["fruit", "eat"]
+  },
+  "basketball": {
+    "en": "Basketball",
+    "fr": "Basketball",
+    "sw": "Mpira wa kikapu",
+    "description": "The sport basketball",
+    "intent": "action",
+    "related_signs": ["sport", "play", "ball"]
+  },
+  "bowling": {
+    "en": "Bowling",
+    "fr": "Bowling",
+    "sw": "Mchezo wa bowling",
+    "description": "The sport bowling",
+    "intent": "action",
+    "related_signs": ["sport", "ball"]
+  },
+  "please": {
+    "en": "Please",
+    "fr": "S'il vous plaît",
+    "sw": "Tafadhali",
+    "description": "Polite request or asking nicely",
+    "intent": "request_help",
+    "related_signs": ["thank you", "help", "want"]
+  },
+  "sorry": {
+    "en": "Sorry",
+    "fr": "Désolé",
+    "sw": "Samahani",
+    "description": "Expressing apology or remorse",
+    "intent": "statement",
+    "related_signs": ["please", "thank you"]
+  },
+  "water": {
+    "en": "Water",
+    "fr": "Eau",
+    "sw": "Maji",
+    "description": "The liquid water for drinking",
+    "intent": "object",
+    "related_signs": ["drink", "thirsty"]
+  },
+  "food": {
+    "en": "Food",
+    "fr": "Nourriture",
+    "sw": "Chakula",
+    "description": "General term for food or a meal",
+    "intent": "object",
+    "related_signs": ["eat", "hungry", "cook"]
+  },
+  "mother": {
+    "en": "Mother",
+    "fr": "Mère",
+    "sw": "Mama",
+    "description": "A female parent or mother figure",
+    "intent": "person",
+    "related_signs": ["father", "family", "woman"]
+  },
+  "father": {
+    "en": "Father",
+    "fr": "Père",
+    "sw": "Baba",
+    "description": "A male parent or father figure",
+    "intent": "person",
+    "related_signs": ["mother", "family", "man"]
+  },
+  "home": {
+    "en": "Home",
+    "fr": "Maison",
+    "sw": "Nyumba",
+    "description": "A place of residence or dwelling",
+    "intent": "object",
+    "related_signs": ["family", "bed", "sleep"]
+  },
+  "where": {
+    "en": "Where",
+    "fr": "Où",
+    "sw": "Wapi",
+    "description": "Question asking about location",
+    "intent": "question",
+    "related_signs": ["what", "when", "how"]
+  },
+  "what": {
+    "en": "What",
+    "fr": "Quoi",
+    "sw": "Nini",
+    "description": "Question asking for identification or clarification",
+    "intent": "question",
+    "related_signs": ["where", "when", "who"]
+  },
+  "when": {
+    "en": "When",
+    "fr": "Quand",
+    "sw": "Lini",
+    "description": "Question asking about time",
+    "intent": "question",
+    "related_signs": ["before", "after", "time"]
+  },
+  "who": {
+    "en": "Who",
+    "fr": "Qui",
+    "sw": "Nani",
+    "description": "Question asking about a person",
+    "intent": "question",
+    "related_signs": ["what", "where", "person"]
+  },
+  "how": {
+    "en": "How",
+    "fr": "Comment",
+    "sw": "Jinsi",
+    "description": "Question asking about manner or method",
+    "intent": "question",
+    "related_signs": ["what", "why", "when"]
+  },
+  "why": {
+    "en": "Why",
+    "fr": "Pourquoi",
+    "sw": "Kwa nini",
+    "description": "Question asking for a reason or cause",
+    "intent": "question",
+    "related_signs": ["how", "what", "because"]
+  },
+  "come": {
+    "en": "Come",
+    "fr": "Venir",
+    "sw": "Kuja",
+    "description": "Moving towards someone or a place",
+    "intent": "action",
+    "related_signs": ["go", "here", "walk"]
+  },
+  "stop": {
+    "en": "Stop",
+    "fr": "Arrêter",
+    "sw": "Simama",
+    "description": "Ceasing an action or halting",
+    "intent": "action",
+    "related_signs": ["no", "finish", "wait"]
+  },
+  "me": {
+    "en": "Me",
+    "fr": "Moi",
+    "sw": "Mimi",
+    "description": "Self-reference sign",
+    "intent": "statement",
+    "related_signs": ["you", "we", "I"]
+  },
+  "you": {
+    "en": "You",
+    "fr": "Vous",
+    "sw": "Wewe",
+    "description": "Referring to another person",
+    "intent": "statement",
+    "related_signs": ["me", "we", "them"]
+  },
+  "more": {
+    "en": "More",
+    "fr": "Plus",
+    "sw": "Zaidi",
+    "description": "Requesting an additional amount",
+    "intent": "statement",
+    "related_signs": ["all", "enough", "again"]
+  },
+  "sleep": {
+    "en": "Sleep",
+    "fr": "Dormir",
+    "sw": "Kulala",
+    "description": "The act of sleeping or resting",
+    "intent": "action",
+    "related_signs": ["bed", "night", "tired"]
+  },
+  "love": {
+    "en": "Love",
+    "fr": "Aimer",
+    "sw": "Kupenda",
+    "description": "Strong affection or deep care for someone",
+    "intent": "statement",
+    "related_signs": ["like", "happy", "you", "me"]
+  },
+  "good": {
+    "en": "Good",
+    "fr": "Bon",
+    "sw": "Nzuri",
+    "description": "Positive quality or approval",
+    "intent": "statement",
+    "related_signs": ["great", "nice", "yes"]
+  },
+  "bad": {
+    "en": "Bad",
+    "fr": "Mauvais",
+    "sw": "Mbaya",
+    "description": "Negative quality or disapproval",
+    "intent": "statement",
+    "related_signs": ["no", "wrong", "stop"]
+  },
+  "happy": {
+    "en": "Happy",
+    "fr": "Heureux",
+    "sw": "Furaha",
+    "description": "Feeling joy or contentment",
+    "intent": "statement",
+    "related_signs": ["good", "love", "birthday"]
+  },
+  "sad": {
+    "en": "Sad",
+    "fr": "Triste",
+    "sw": "Huzuni",
+    "description": "Feeling sorrow or unhappiness",
+    "intent": "statement",
+    "related_signs": ["sorry", "bad", "cry"]
+  },
+  "sick": {
+    "en": "Sick",
+    "fr": "Malade",
+    "sw": "Mgonjwa",
+    "description": "Feeling unwell or ill",
+    "intent": "statement",
+    "related_signs": ["help", "medicine", "doctor"]
+  },
+  "work": {
+    "en": "Work",
+    "fr": "Travailler",
+    "sw": "Kazi",
+    "description": "Doing a job or task",
+    "intent": "action",
+    "related_signs": ["school", "go", "finish"]
+  },
+  "school": {
+    "en": "School",
+    "fr": "École",
+    "sw": "Shule",
+    "description": "A place of learning and education",
+    "intent": "object",
+    "related_signs": ["work", "book", "learn"]
+  },
+  "time": {
+    "en": "Time",
+    "fr": "Temps",
+    "sw": "Wakati",
+    "description": "A reference to time or the clock",
+    "intent": "question",
+    "related_signs": ["when", "before", "now"]
+  },
+  "friend": {
+    "en": "Friend",
+    "fr": "Ami",
+    "sw": "Rafiki",
+    "description": "A person who is close and trusted",
+    "intent": "person",
+    "related_signs": ["you", "me", "family"]
+  },
+  "need": {
+    "en": "Need",
+    "fr": "Avoir besoin",
+    "sw": "Hitaji",
+    "description": "Expressing necessity or requirement",
+    "intent": "statement",
+    "related_signs": ["want", "help", "please"]
+  },
+  "like": {
+    "en": "Like",
+    "fr": "Apprécier",
+    "sw": "Kupenda",
+    "description": "Expressing preference or enjoyment",
+    "intent": "statement",
+    "related_signs": ["love", "want", "good"]
+  },
+  "cold": {
+    "en": "Cold",
+    "fr": "Froid",
+    "sw": "Baridi",
+    "description": "Low temperature or feeling cold",
+    "intent": "statement",
+    "related_signs": ["hot", "water", "sick"]
+  },
+  "hot": {
+    "en": "Hot",
+    "fr": "Chaud",
+    "sw": "Moto",
+    "description": "High temperature or feeling hot",
+    "intent": "statement",
+    "related_signs": ["cold", "food", "water"]
+  },
+  "again": {
+    "en": "Again",
+    "fr": "Encore",
+    "sw": "Tena",
+    "description": "Repeating an action or event",
+    "intent": "statement",
+    "related_signs": ["more", "stop", "finish"]
+  }
 }
