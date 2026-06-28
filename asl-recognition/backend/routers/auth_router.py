@@ -358,9 +358,13 @@ async def admin_forgot_password(body: ForgotPasswordRequest, db: Session = Depen
         pass
 
     reset_url = f"{os.getenv('APP_BASE_URL', 'http://127.0.0.1:8000')}/admin/reset-password?token={raw_token}"
-    print(f"[AdminReset] Token URL (dev only): {reset_url}")
 
-    return {"ok": True, "message": "Si l'email est correct, un lien a été envoyé.", "dev_token": raw_token}
+    _app_env = os.getenv("APP_ENV", "production").strip().lower()
+    if _app_env == "development":
+        print(f"[AdminReset][DEV] Token URL: {reset_url}")
+        return {"ok": True, "message": "Si l'email est correct, un lien a été envoyé.", "dev_reset_link": reset_url}
+
+    return {"ok": True, "message": "Si l'email est correct, un lien a été envoyé."}
 
 
 @router.post("/admin/reset-password")
