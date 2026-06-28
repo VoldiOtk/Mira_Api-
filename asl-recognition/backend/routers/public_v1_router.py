@@ -8,6 +8,7 @@ Authentication is via X-API-Key header (or open if API_KEYS_REQUIRED=false).
 """
 from __future__ import annotations
 
+import hashlib
 from typing import Optional
 
 from fastapi import APIRouter, Depends, Header, HTTPException, Query
@@ -18,10 +19,26 @@ from backend.deps.auth import require_api_key
 router = APIRouter(prefix="/v1", tags=["Public API"])
 
 
+def _key_hash(key: str) -> str:
+    return hashlib.sha256(key.encode()).hexdigest() if key else ""
+
+
+def _verify_session_owner(sess: dict, api_key: str) -> None:
+    """Raise 403 if the session belongs to a different API key.
+
+    Ownership is only enforced when the session was created with a non-empty
+    key (i.e., when API_KEYS_REQUIRED=true). In open-auth mode all keys are
+    empty strings and ownership is not checked.
+    """
+    owner = sess.get("_owner_hash", "")
+    if owner and owner != _key_hash(api_key):
+        raise HTTPException(status_code=403, detail="Accès refusé")
+
+
 # ── GET /v1/models ────────────────────────────────────────────────────────────
 
-@router.get("/models", dependencies=[Depends(require_api_key)])
-async def public_list_models():
+@router.get("/models")
+async def public_list_models(api_key: str = Depends(require_api_key)):
     """List all published sign language models available via the public API."""
     try:
         from backend.database.session import SessionLocal
@@ -65,8 +82,8 @@ class InferenceRequest(BaseModel):
     model_id: Optional[str] = None
 
 
-@router.post("/inference", dependencies=[Depends(require_api_key)])
-async def public_inference(body: InferenceRequest):
+@router.post("/inference")
+async def public_inference(body: InferenceRequest, api_key: str = Depends(require_api_key)):
     """Run sign language inference on a single base64 image frame."""
     try:
         from backend.services.recognition_engine import predict_frame, decode_image_b64
@@ -87,12 +104,12 @@ async def public_inference(body: InferenceRequest):
 
 
 # ── Realtime sessions (/v1/realtime/sessions) ─────────────────────────────────
-# These delegate to the same session store as /api/v1/realtime/sessions.
 
-@router.post("/realtime/sessions", status_code=201, dependencies=[Depends(require_api_key)])
+@router.post("/realtime/sessions", status_code=201)
 async def public_create_session(
     mode: str = Query("holistic"),
     lang: str = Query("fr"),
+    api_key: str = Depends(require_api_key),
 ):
     """Create a realtime recognition session."""
     import uuid
@@ -105,16 +122,22 @@ async def public_create_session(
         "created_at": datetime.datetime.utcnow().isoformat(),
         "frames_processed": 0,
         "predictions": [],
+        "_owner_hash": _key_hash(api_key),
     }
     return {"session_id": session_id, "mode": mode, "lang": lang}
 
 
-@router.post("/realtime/sessions/{session_id}/frames", dependencies=[Depends(require_api_key)])
-async def public_push_frame(session_id: str, body: InferenceRequest):
+@router.post("/realtime/sessions/{session_id}/frames")
+async def public_push_frame(
+    session_id: str,
+    body: InferenceRequest,
+    api_key: str = Depends(require_api_key),
+):
     """Send a frame to an existing realtime session."""
     from backend.routers.inference_router import _RT_SESSIONS
     if session_id not in _RT_SESSIONS:
         raise HTTPException(status_code=404, detail=f"Session '{session_id}' introuvable")
+    _verify_session_owner(_RT_SESSIONS[session_id], api_key)
     try:
         from backend.services.recognition_engine import predict_frame, decode_image_b64
         import asyncio
@@ -137,13 +160,17 @@ async def public_push_frame(session_id: str, body: InferenceRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@router.get("/realtime/sessions/{session_id}/results", dependencies=[Depends(require_api_key)])
-async def public_get_results(session_id: str):
+@router.get("/realtime/sessions/{session_id}/results")
+async def public_get_results(
+    session_id: str,
+    api_key: str = Depends(require_api_key),
+):
     """Get recent predictions from a realtime session."""
     from backend.routers.inference_router import _RT_SESSIONS
     if session_id not in _RT_SESSIONS:
         raise HTTPException(status_code=404, detail=f"Session '{session_id}' introuvable")
     sess = _RT_SESSIONS[session_id]
+    _verify_session_owner(sess, api_key)
     return {
         "session_id": session_id,
         "frames_processed": sess.get("frames_processed", 0),
@@ -152,8 +179,14 @@ async def public_get_results(session_id: str):
     }
 
 
-@router.delete("/realtime/sessions/{session_id}", status_code=204, dependencies=[Depends(require_api_key)])
-async def public_delete_session(session_id: str):
+@router.delete("/realtime/sessions/{session_id}", status_code=204)
+async def public_delete_session(
+    session_id: str,
+    api_key: str = Depends(require_api_key),
+):
     """Remove a realtime session."""
     from backend.routers.inference_router import _RT_SESSIONS
-    _RT_SESSIONS.pop(session_id, None)
+    sess = _RT_SESSIONS.get(session_id)
+    if sess is not None:
+        _verify_session_owner(sess, api_key)
+        _RT_SESSIONS.pop(session_id, None)
