@@ -1,12 +1,16 @@
 fastapi
 uvicorn
+a2wsgi
 websockets
 mediapipe==0.10.5
 opencv-python
 numpy
 torch
-pyttsx3
 python-multipart
 httpx
 python-dotenv
 edge-tts
+slowapi
+sqlalchemy
+email-validator
+apscheduler

@@ -7,15 +7,16 @@ class TTSEngine:
         self.voice = voice
         self.rate = rate
 
-    async def generate_audio_b64(self, text):
+    async def generate_audio_b64(self, text, voice=None):
         """
         Génère un fichier audio MP3 de manière asynchrone via Edge TTS (Microsoft Azure Neural)
         et le convertit en Base64 pour contourner les API vocales basiques du navigateur.
         """
         if not text:
             return ""
-        
-        communicate = edge_tts.Communicate(text, self.voice, rate=self.rate)
+
+        use_voice = voice or self.voice
+        communicate = edge_tts.Communicate(text, use_voice, rate=self.rate)
         
         audio_data = b""
         try:

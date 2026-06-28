@@ -1,12 +1,20 @@
-# VoFaLink / AIEKTalk
+# Mira AI — AIEKTalk / GV Tech
 
-Projet de reconnaissance de la langue des signes (ASL) avec API temps réel, traduction et synthèse vocale.
+Traduction langue des signes américaine (ASL) : reconnaissance temps réel, API REST, site web et synthèse vocale.
 
 ## Dossier principal
 
-Tout le code applicatif se trouve dans [`asl-recognition/`](asl-recognition/).
+Tout le code est dans [`asl-recognition/`](asl-recognition/).
 
-## Démarrage rapide
+## Démarrage rapide (local)
+
+**Windows** — à la racine du repo :
+
+```powershell
+.\start_api.ps1
+```
+
+**Ou manuellement :**
 
 ```bash
 cd asl-recognition
@@ -17,16 +25,27 @@ cp .env.example .env   # puis renseigner les clés
 python -m uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
 ```
 
+- Site : http://127.0.0.1:8000/
+- App : http://127.0.0.1:8000/app
+- API : http://127.0.0.1:8000/docs
+- Admin : http://127.0.0.1:8000/admin
+
+## Déploiement PlanetHoster
+
+- VPS / SSH : [`asl-recognition/docs/DEPLOY_PLANETHOSTER.md`](asl-recognition/docs/DEPLOY_PLANETHOSTER.md)
+- Passenger N0C : [`asl-recognition/deploy/planethoster-n0c.md`](asl-recognition/deploy/planethoster-n0c.md)
+
 ## Données & modèles
 
-Les dossiers lourds (`asl_videos`, `asl_images`, `asl_data`, `*.pth`) sont **ignorés par Git** (voir `.gitignore`).
+Les dossiers lourds (`asl_videos`, `asl_data`, `*.pth`) sont ignorés par Git (voir `.gitignore`).
 
-Après clonage, préparer localement :
+Après clonage : placer les datasets, lancer `model/process_wlasl.py`, puis `model/train.py`.
 
-1. Placer les datasets sous `asl-recognition/data/knowledge/`
-2. `python model/process_wlasl.py` et `python model/process_alphabet.py`
-3. `python model/train.py` et `python model/train_alphabet.py`
+## Documentation
 
-## Configuration
+| Fichier | Contenu |
+|---------|---------|
+| `asl-recognition/docs/API.md` | API REST v1 |
+| `asl-recognition/docs/PLAN_ASL_FR.md` | Plan vocabulaire WLASL |
 
-Copier `asl-recognition/.env.example` vers `asl-recognition/.env` (jamais committer `.env`).
+Copier `asl-recognition/.env.example` vers `.env` — **ne jamais committer** `.env`.

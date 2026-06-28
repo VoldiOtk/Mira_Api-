@@ -19,12 +19,21 @@ class OllamaTranslator:
         self.model_name = model_name
         self.generate_timeout = float(os.getenv("OLLAMA_TIMEOUT_SECONDS", generate_timeout))
 
-    async def translate_asl(self, sign_sequence):
+    async def translate_asl(self, sign_sequence, lang="fr"):
         """
-        Envoie les signes bruts détectés par l'IA de vision pour qu'Ollama
-        génère une phrase en français complètement fluide et naturelle.
+        Transforme une séquence ASL brute en une phrase fluide (FR ou EN).
         """
-        prompt = f"""Tu es un traducteur expert ASL vers français conversationnel.
+        lang = "en" if lang == "en" else "fr"
+        if lang == "en":
+            prompt = f"""You are an expert ASL to English conversational translator.
+Turn the raw sign sequence into exactly ONE natural, short English sentence (4-14 words).
+No list, no JSON, no explanation.
+Example: HELLO DRINK -> Hello, I would like a drink.
+
+Detected signs: {sign_sequence}
+Final answer:"""
+        else:
+            prompt = f"""Tu es un traducteur expert ASL vers français conversationnel.
 Transforme la séquence brute en exactement UNE phrase naturelle, courte (4 à 14 mots), sans commentaire.
 Pas de liste, pas de JSON, pas d'explication.
 Exemple: HELLO DRINK -> Bonjour, je veux boire.
