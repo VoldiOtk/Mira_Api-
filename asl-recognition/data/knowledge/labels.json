@@ -1,506 +1,10002 @@
 {
-  "hello": {
-    "en": "Hello",
-    "fr": "Bonjour",
-    "sw": "Habari",
-    "description": "A common greeting sign",
-    "intent": "greeting",
-    "related_signs": ["hi", "bye", "goodbye"]
+  "accident": {
+    "en": "Accident",
+    "fr": "Accident",
+    "sw": "Ajali"
   },
-  "help": {
-    "en": "Help",
-    "fr": "Aider",
-    "sw": "Saidia",
-    "description": "Requesting assistance from someone",
-    "intent": "request_help",
-    "related_signs": ["me", "you", "please", "emergency"]
-  },
-  "book": {
-    "en": "Book",
-    "fr": "Livre",
-    "sw": "Kitabu",
-    "description": "A book or reading material",
-    "intent": "object",
-    "related_signs": ["read", "library"]
-  },
-  "drink": {
-    "en": "Drink",
-    "fr": "Boire",
-    "sw": "Kunywa",
-    "description": "The action of drinking a liquid",
-    "intent": "action",
-    "related_signs": ["water", "eat", "thirsty"]
-  },
-  "go": {
-    "en": "Go",
-    "fr": "Aller",
-    "sw": "Nenda",
-    "description": "Moving away or traveling somewhere",
-    "intent": "action",
-    "related_signs": ["come", "walk", "where"]
-  },
-  "no": {
-    "en": "No",
-    "fr": "Non",
-    "sw": "Hapana",
-    "description": "Negation or refusal",
-    "intent": "confirmation",
-    "related_signs": ["yes", "stop", "never"]
-  },
-  "yes": {
-    "en": "Yes",
-    "fr": "Oui",
-    "sw": "Ndiyo",
-    "description": "Affirmation or agreement",
-    "intent": "confirmation",
-    "related_signs": ["no", "ok", "agree"]
+  "africa": {
+    "en": "Africa",
+    "fr": "Africa",
+    "sw": "Afrika"
   },
   "all": {
     "en": "All",
     "fr": "Tout",
-    "sw": "Yote",
-    "description": "Everything or everyone included",
-    "intent": "statement",
-    "related_signs": ["more", "none", "every"]
-  },
-  "finish": {
-    "en": "Finish",
-    "fr": "Terminer",
-    "sw": "Maliza",
-    "description": "Completion of an action or task",
-    "intent": "action",
-    "related_signs": ["done", "stop", "end"]
-  },
-  "family": {
-    "en": "Family",
-    "fr": "Famille",
-    "sw": "Familia",
-    "description": "A group of related people",
-    "intent": "person",
-    "related_signs": ["mother", "father", "home"]
-  },
-  "eat": {
-    "en": "Eat",
-    "fr": "Manger",
-    "sw": "Kula",
-    "description": "The action of eating food",
-    "intent": "action",
-    "related_signs": ["food", "hungry", "drink"]
-  },
-  "woman": {
-    "en": "Woman",
-    "fr": "Femme",
-    "sw": "Mwanamke",
-    "description": "An adult female person",
-    "intent": "person",
-    "related_signs": ["man", "girl", "mother"]
-  },
-  "want": {
-    "en": "Want",
-    "fr": "Vouloir",
-    "sw": "Taka",
-    "description": "Expressing desire for something",
-    "intent": "statement",
-    "related_signs": ["need", "like", "please"]
-  },
-  "thank you": {
-    "en": "Thank you",
-    "fr": "Merci",
-    "sw": "Asante",
-    "description": "Expression of gratitude",
-    "intent": "greeting",
-    "related_signs": ["please", "welcome", "appreciate"]
-  },
-  "walk": {
-    "en": "Walk",
-    "fr": "Marcher",
-    "sw": "Tembea",
-    "description": "Moving on foot at a normal pace",
-    "intent": "action",
-    "related_signs": ["run", "go", "move"]
-  },
-  "black": {
-    "en": "Black",
-    "fr": "Noir",
-    "sw": "Nyeusi",
-    "description": "The color black",
-    "intent": "color",
-    "related_signs": ["white", "dark"]
-  },
-  "blue": {
-    "en": "Blue",
-    "fr": "Bleu",
-    "sw": "Buluu",
-    "description": "The color blue",
-    "intent": "color",
-    "related_signs": ["green", "red"]
-  },
-  "brown": {
-    "en": "Brown",
-    "fr": "Marron",
-    "sw": "Kahawia",
-    "description": "The color brown",
-    "intent": "color",
-    "related_signs": ["black", "white"]
-  },
-  "bed": {
-    "en": "Bed",
-    "fr": "Lit",
-    "sw": "Kitanda",
-    "description": "A bed or sleeping place",
-    "intent": "object",
-    "related_signs": ["sleep", "night"]
-  },
-  "bird": {
-    "en": "Bird",
-    "fr": "Oiseau",
-    "sw": "Ndege",
-    "description": "A bird or flying animal",
-    "intent": "object",
-    "related_signs": ["animal", "fly"]
-  },
-  "birthday": {
-    "en": "Birthday",
-    "fr": "Anniversaire",
-    "sw": "Siku ya kuzaliwa",
-    "description": "A birthday celebration",
-    "intent": "statement",
-    "related_signs": ["party", "cake", "happy"]
-  },
-  "before": {
-    "en": "Before",
-    "fr": "Avant",
-    "sw": "Kabla",
-    "description": "Time reference — before something",
-    "intent": "statement",
-    "related_signs": ["after", "time"]
-  },
-  "but": {
-    "en": "But",
-    "fr": "Mais",
-    "sw": "Lakini",
-    "description": "Conjunction indicating contrast",
-    "intent": "statement",
-    "related_signs": []
-  },
-  "can": {
-    "en": "Can",
-    "fr": "Pouvoir",
-    "sw": "Weza",
-    "description": "Ability or permission — can do something",
-    "intent": "statement",
-    "related_signs": ["want", "need"]
-  },
-  "accident": {
-    "en": "Accident",
-    "fr": "Accident",
-    "sw": "Ajali",
-    "description": "An unexpected incident or mishap",
-    "intent": "statement",
-    "related_signs": ["help", "emergency"]
-  },
-  "africa": {
-    "en": "Africa",
-    "fr": "Afrique",
-    "sw": "Afrika",
-    "description": "The continent Africa",
-    "intent": "object",
-    "related_signs": []
+    "sw": "Yote"
   },
   "apple": {
     "en": "Apple",
-    "fr": "Pomme",
-    "sw": "Tofaa",
-    "description": "The fruit apple",
-    "intent": "object",
-    "related_signs": ["fruit", "eat"]
+    "fr": "Apple",
+    "sw": "Tofaa"
   },
   "basketball": {
     "en": "Basketball",
     "fr": "Basketball",
-    "sw": "Mpira wa kikapu",
-    "description": "The sport basketball",
-    "intent": "action",
-    "related_signs": ["sport", "play", "ball"]
+    "sw": "Mpira wa kikapu"
+  },
+  "bed": {
+    "en": "Bed",
+    "fr": "Bed",
+    "sw": "Kitanda"
+  },
+  "before": {
+    "en": "Before",
+    "fr": "Before",
+    "sw": "Kabla"
+  },
+  "bird": {
+    "en": "Bird",
+    "fr": "Bird",
+    "sw": "Ndege"
+  },
+  "birthday": {
+    "en": "Birthday",
+    "fr": "Birthday",
+    "sw": "Siku ya kuzaliwa"
+  },
+  "black": {
+    "en": "Black",
+    "fr": "Black",
+    "sw": "Nyeusi"
+  },
+  "blue": {
+    "en": "Blue",
+    "fr": "Blue",
+    "sw": "Bluu"
+  },
+  "book": {
+    "en": "Book",
+    "fr": "Livre",
+    "sw": "Kitabu"
   },
   "bowling": {
     "en": "Bowling",
     "fr": "Bowling",
-    "sw": "Mchezo wa bowling",
-    "description": "The sport bowling",
-    "intent": "action",
-    "related_signs": ["sport", "ball"]
+    "sw": "Bowling"
   },
-  "please": {
-    "en": "Please",
-    "fr": "S'il vous plaît",
-    "sw": "Tafadhali",
-    "description": "Polite request or asking nicely",
-    "intent": "request_help",
-    "related_signs": ["thank you", "help", "want"]
+  "brown": {
+    "en": "Brown",
+    "fr": "Brown",
+    "sw": "Kahawia"
   },
-  "sorry": {
-    "en": "Sorry",
-    "fr": "Désolé",
-    "sw": "Samahani",
-    "description": "Expressing apology or remorse",
-    "intent": "statement",
-    "related_signs": ["please", "thank you"]
+  "but": {
+    "en": "But",
+    "fr": "But",
+    "sw": "But"
   },
-  "water": {
-    "en": "Water",
-    "fr": "Eau",
-    "sw": "Maji",
-    "description": "The liquid water for drinking",
-    "intent": "object",
-    "related_signs": ["drink", "thirsty"]
+  "can": {
+    "en": "Can",
+    "fr": "Can",
+    "sw": "Naweza"
   },
-  "food": {
-    "en": "Food",
-    "fr": "Nourriture",
-    "sw": "Chakula",
-    "description": "General term for food or a meal",
-    "intent": "object",
-    "related_signs": ["eat", "hungry", "cook"]
+  "candy": {
+    "en": "Candy",
+    "fr": "Candy",
+    "sw": "Candy"
+  },
+  "chair": {
+    "en": "Chair",
+    "fr": "Chair",
+    "sw": "Chair"
+  },
+  "change": {
+    "en": "Change",
+    "fr": "Change",
+    "sw": "Change"
+  },
+  "cheat": {
+    "en": "Cheat",
+    "fr": "Cheat",
+    "sw": "Cheat"
+  },
+  "city": {
+    "en": "City",
+    "fr": "City",
+    "sw": "City"
+  },
+  "clothes": {
+    "en": "Clothes",
+    "fr": "Clothes",
+    "sw": "Clothes"
+  },
+  "color": {
+    "en": "Color",
+    "fr": "Color",
+    "sw": "Rangi"
+  },
+  "computer": {
+    "en": "Computer",
+    "fr": "Ordinateur",
+    "sw": "Kompyuta"
+  },
+  "cook": {
+    "en": "Cook",
+    "fr": "Cook",
+    "sw": "Kupika"
+  },
+  "cool": {
+    "en": "Cool",
+    "fr": "Cool",
+    "sw": "Nzuri"
+  },
+  "corn": {
+    "en": "Corn",
+    "fr": "Corn",
+    "sw": "Corn"
+  },
+  "cousin": {
+    "en": "Cousin",
+    "fr": "Cousin",
+    "sw": "Binamu"
+  },
+  "cow": {
+    "en": "Cow",
+    "fr": "Cow",
+    "sw": "Cow"
+  },
+  "dance": {
+    "en": "Dance",
+    "fr": "Dance",
+    "sw": "Dance"
+  },
+  "dark": {
+    "en": "Dark",
+    "fr": "Dark",
+    "sw": "Dark"
+  },
+  "deaf": {
+    "en": "Deaf",
+    "fr": "Sourd",
+    "sw": "Kiziwi"
+  },
+  "decide": {
+    "en": "Decide",
+    "fr": "Decide",
+    "sw": "Decide"
+  },
+  "doctor": {
+    "en": "Doctor",
+    "fr": "Doctor",
+    "sw": "Daktari"
+  },
+  "dog": {
+    "en": "Dog",
+    "fr": "Dog",
+    "sw": "Mbwa"
+  },
+  "drink": {
+    "en": "Drink",
+    "fr": "Boire",
+    "sw": "Kunywa"
+  },
+  "eat": {
+    "en": "Eat",
+    "fr": "Manger",
+    "sw": "Kula"
+  },
+  "enjoy": {
+    "en": "Enjoy",
+    "fr": "Enjoy",
+    "sw": "Furaha"
+  },
+  "family": {
+    "en": "Family",
+    "fr": "Famille",
+    "sw": "Familia"
+  },
+  "fine": {
+    "en": "Fine",
+    "fr": "Ça va",
+    "sw": "Nzuri"
+  },
+  "finish": {
+    "en": "Finish",
+    "fr": "Terminer",
+    "sw": "Finish"
+  },
+  "fish": {
+    "en": "Fish",
+    "fr": "Fish",
+    "sw": "Samaki"
+  },
+  "forget": {
+    "en": "Forget",
+    "fr": "Forget",
+    "sw": "Kusahau"
+  },
+  "full": {
+    "en": "Full",
+    "fr": "Full",
+    "sw": "Full"
+  },
+  "give": {
+    "en": "Give",
+    "fr": "Give",
+    "sw": "Give"
+  },
+  "go": {
+    "en": "Go",
+    "fr": "Aller",
+    "sw": "Kwenda"
+  },
+  "graduate": {
+    "en": "Graduate",
+    "fr": "Graduate",
+    "sw": "Kuhitimu"
+  },
+  "hat": {
+    "en": "Hat",
+    "fr": "Hat",
+    "sw": "Hat"
+  },
+  "hearing": {
+    "en": "Hearing",
+    "fr": "Entendant",
+    "sw": "Hearing"
+  },
+  "help": {
+    "en": "Help",
+    "fr": "Aide",
+    "sw": "Msaada"
+  },
+  "hot": {
+    "en": "Hot",
+    "fr": "Hot",
+    "sw": "Hot"
+  },
+  "how": {
+    "en": "How",
+    "fr": "How",
+    "sw": "How"
+  },
+  "jacket": {
+    "en": "Jacket",
+    "fr": "Jacket",
+    "sw": "Jacket"
+  },
+  "kiss": {
+    "en": "Kiss",
+    "fr": "Kiss",
+    "sw": "Kiss"
+  },
+  "language": {
+    "en": "Language",
+    "fr": "Language",
+    "sw": "Language"
+  },
+  "last": {
+    "en": "Last",
+    "fr": "Last",
+    "sw": "Last"
+  },
+  "later": {
+    "en": "Later",
+    "fr": "Later",
+    "sw": "Baadaye"
+  },
+  "letter": {
+    "en": "Letter",
+    "fr": "Letter",
+    "sw": "Letter"
+  },
+  "like": {
+    "en": "Like",
+    "fr": "Like",
+    "sw": "Kupenda"
+  },
+  "man": {
+    "en": "Man",
+    "fr": "Homme",
+    "sw": "Mwanaume"
+  },
+  "many": {
+    "en": "Many",
+    "fr": "Many",
+    "sw": "Many"
+  },
+  "medicine": {
+    "en": "Medicine",
+    "fr": "Medicine",
+    "sw": "Medicine"
+  },
+  "meet": {
+    "en": "Meet",
+    "fr": "Meet",
+    "sw": "Meet"
   },
   "mother": {
     "en": "Mother",
     "fr": "Mère",
-    "sw": "Mama",
-    "description": "A female parent or mother figure",
-    "intent": "person",
-    "related_signs": ["father", "family", "woman"]
+    "sw": "Mama"
   },
-  "father": {
-    "en": "Father",
-    "fr": "Père",
-    "sw": "Baba",
-    "description": "A male parent or father figure",
-    "intent": "person",
-    "related_signs": ["mother", "family", "man"]
+  "need": {
+    "en": "Need",
+    "fr": "Besoin",
+    "sw": "Need"
   },
-  "home": {
-    "en": "Home",
-    "fr": "Maison",
-    "sw": "Nyumba",
-    "description": "A place of residence or dwelling",
-    "intent": "object",
-    "related_signs": ["family", "bed", "sleep"]
+  "no": {
+    "en": "No",
+    "fr": "Non",
+    "sw": "Hapana"
   },
-  "where": {
-    "en": "Where",
-    "fr": "Où",
-    "sw": "Wapi",
-    "description": "Question asking about location",
-    "intent": "question",
-    "related_signs": ["what", "when", "how"]
+  "now": {
+    "en": "Now",
+    "fr": "Now",
+    "sw": "Sasa"
   },
-  "what": {
-    "en": "What",
-    "fr": "Quoi",
-    "sw": "Nini",
-    "description": "Question asking for identification or clarification",
-    "intent": "question",
-    "related_signs": ["where", "when", "who"]
+  "orange": {
+    "en": "Orange",
+    "fr": "Orange",
+    "sw": "Chungwa"
   },
-  "when": {
-    "en": "When",
-    "fr": "Quand",
-    "sw": "Lini",
-    "description": "Question asking about time",
-    "intent": "question",
-    "related_signs": ["before", "after", "time"]
+  "paint": {
+    "en": "Paint",
+    "fr": "Paint",
+    "sw": "Paint"
   },
-  "who": {
-    "en": "Who",
-    "fr": "Qui",
-    "sw": "Nani",
-    "description": "Question asking about a person",
-    "intent": "question",
-    "related_signs": ["what", "where", "person"]
+  "paper": {
+    "en": "Paper",
+    "fr": "Paper",
+    "sw": "Paper"
   },
-  "how": {
-    "en": "How",
-    "fr": "Comment",
-    "sw": "Jinsi",
-    "description": "Question asking about manner or method",
-    "intent": "question",
-    "related_signs": ["what", "why", "when"]
+  "pink": {
+    "en": "Pink",
+    "fr": "Pink",
+    "sw": "Waridi"
   },
-  "why": {
-    "en": "Why",
-    "fr": "Pourquoi",
-    "sw": "Kwa nini",
-    "description": "Question asking for a reason or cause",
-    "intent": "question",
-    "related_signs": ["how", "what", "because"]
+  "pizza": {
+    "en": "Pizza",
+    "fr": "Pizza",
+    "sw": "Pizza"
   },
-  "come": {
-    "en": "Come",
-    "fr": "Venir",
-    "sw": "Kuja",
-    "description": "Moving towards someone or a place",
-    "intent": "action",
-    "related_signs": ["go", "here", "walk"]
+  "play": {
+    "en": "Play",
+    "fr": "Play",
+    "sw": "Play"
   },
-  "stop": {
-    "en": "Stop",
-    "fr": "Arrêter",
-    "sw": "Simama",
-    "description": "Ceasing an action or halting",
-    "intent": "action",
-    "related_signs": ["no", "finish", "wait"]
+  "pull": {
+    "en": "Pull",
+    "fr": "Pull",
+    "sw": "Pull"
   },
-  "me": {
-    "en": "Me",
-    "fr": "Moi",
-    "sw": "Mimi",
-    "description": "Self-reference sign",
-    "intent": "statement",
-    "related_signs": ["you", "we", "I"]
+  "purple": {
+    "en": "Purple",
+    "fr": "Purple",
+    "sw": "Zambarau"
   },
-  "you": {
-    "en": "You",
-    "fr": "Vous",
-    "sw": "Wewe",
-    "description": "Referring to another person",
-    "intent": "statement",
-    "related_signs": ["me", "we", "them"]
+  "right": {
+    "en": "Right",
+    "fr": "Right",
+    "sw": "Right"
   },
-  "more": {
-    "en": "More",
-    "fr": "Plus",
-    "sw": "Zaidi",
-    "description": "Requesting an additional amount",
-    "intent": "statement",
-    "related_signs": ["all", "enough", "again"]
-  },
-  "sleep": {
-    "en": "Sleep",
-    "fr": "Dormir",
-    "sw": "Kulala",
-    "description": "The act of sleeping or resting",
-    "intent": "action",
-    "related_signs": ["bed", "night", "tired"]
-  },
-  "love": {
-    "en": "Love",
-    "fr": "Aimer",
-    "sw": "Kupenda",
-    "description": "Strong affection or deep care for someone",
-    "intent": "statement",
-    "related_signs": ["like", "happy", "you", "me"]
-  },
-  "good": {
-    "en": "Good",
-    "fr": "Bon",
-    "sw": "Nzuri",
-    "description": "Positive quality or approval",
-    "intent": "statement",
-    "related_signs": ["great", "nice", "yes"]
-  },
-  "bad": {
-    "en": "Bad",
-    "fr": "Mauvais",
-    "sw": "Mbaya",
-    "description": "Negative quality or disapproval",
-    "intent": "statement",
-    "related_signs": ["no", "wrong", "stop"]
-  },
-  "happy": {
-    "en": "Happy",
-    "fr": "Heureux",
-    "sw": "Furaha",
-    "description": "Feeling joy or contentment",
-    "intent": "statement",
-    "related_signs": ["good", "love", "birthday"]
-  },
-  "sad": {
-    "en": "Sad",
-    "fr": "Triste",
-    "sw": "Huzuni",
-    "description": "Feeling sorrow or unhappiness",
-    "intent": "statement",
-    "related_signs": ["sorry", "bad", "cry"]
-  },
-  "sick": {
-    "en": "Sick",
-    "fr": "Malade",
-    "sw": "Mgonjwa",
-    "description": "Feeling unwell or ill",
-    "intent": "statement",
-    "related_signs": ["help", "medicine", "doctor"]
-  },
-  "work": {
-    "en": "Work",
-    "fr": "Travailler",
-    "sw": "Kazi",
-    "description": "Doing a job or task",
-    "intent": "action",
-    "related_signs": ["school", "go", "finish"]
+  "same": {
+    "en": "Same",
+    "fr": "Same",
+    "sw": "Sawa"
   },
   "school": {
     "en": "School",
     "fr": "École",
-    "sw": "Shule",
-    "description": "A place of learning and education",
-    "intent": "object",
-    "related_signs": ["work", "book", "learn"]
+    "sw": "Shule"
+  },
+  "secretary": {
+    "en": "Secretary",
+    "fr": "Secretary",
+    "sw": "Secretary"
+  },
+  "shirt": {
+    "en": "Shirt",
+    "fr": "Shirt",
+    "sw": "Shati"
+  },
+  "short": {
+    "en": "Short",
+    "fr": "Short",
+    "sw": "Fupi"
+  },
+  "son": {
+    "en": "Son",
+    "fr": "Son",
+    "sw": "Son"
+  },
+  "study": {
+    "en": "Study",
+    "fr": "Study",
+    "sw": "Kusoma"
+  },
+  "table": {
+    "en": "Table",
+    "fr": "Table",
+    "sw": "Table"
+  },
+  "tall": {
+    "en": "Tall",
+    "fr": "Tall",
+    "sw": "Tall"
+  },
+  "tell": {
+    "en": "Tell",
+    "fr": "Tell",
+    "sw": "Tell"
+  },
+  "thanksgiving": {
+    "en": "Thanksgiving",
+    "fr": "Thanksgiving",
+    "sw": "Thanksgiving"
+  },
+  "thin": {
+    "en": "Thin",
+    "fr": "Thin",
+    "sw": "Thin"
+  },
+  "thursday": {
+    "en": "Thursday",
+    "fr": "Thursday",
+    "sw": "Thursday"
   },
   "time": {
     "en": "Time",
     "fr": "Temps",
-    "sw": "Wakati",
-    "description": "A reference to time or the clock",
-    "intent": "question",
-    "related_signs": ["when", "before", "now"]
+    "sw": "Wakati"
+  },
+  "walk": {
+    "en": "Walk",
+    "fr": "Marcher",
+    "sw": "Kutembea"
+  },
+  "want": {
+    "en": "Want",
+    "fr": "Vouloir",
+    "sw": "Want"
+  },
+  "what": {
+    "en": "What",
+    "fr": "What",
+    "sw": "Nini"
+  },
+  "white": {
+    "en": "White",
+    "fr": "White",
+    "sw": "Nyeupe"
+  },
+  "who": {
+    "en": "Who",
+    "fr": "Who",
+    "sw": "Nani"
+  },
+  "woman": {
+    "en": "Woman",
+    "fr": "Femme",
+    "sw": "Mwanamke"
+  },
+  "work": {
+    "en": "Work",
+    "fr": "Travailler",
+    "sw": "Kazi"
+  },
+  "wrong": {
+    "en": "Wrong",
+    "fr": "Wrong",
+    "sw": "Wrong"
+  },
+  "year": {
+    "en": "Year",
+    "fr": "Year",
+    "sw": "Year"
+  },
+  "yes": {
+    "en": "Yes",
+    "fr": "Oui",
+    "sw": "Ndiyo"
+  },
+  "hello": {
+    "en": "Hello",
+    "fr": "Salut",
+    "sw": "Habari"
+  },
+  "thank you": {
+    "en": "Thank You",
+    "fr": "Merci",
+    "sw": "Asante"
+  },
+  "a": {
+    "en": "A",
+    "fr": "A",
+    "sw": "A"
+  },
+  "a lot": {
+    "en": "A Lot",
+    "fr": "A Lot",
+    "sw": "A Lot"
+  },
+  "abdomen": {
+    "en": "Abdomen",
+    "fr": "Abdomen",
+    "sw": "Abdomen"
+  },
+  "able": {
+    "en": "Able",
+    "fr": "Able",
+    "sw": "Able"
+  },
+  "about": {
+    "en": "About",
+    "fr": "About",
+    "sw": "About"
+  },
+  "above": {
+    "en": "Above",
+    "fr": "Above",
+    "sw": "Above"
+  },
+  "accent": {
+    "en": "Accent",
+    "fr": "Accent",
+    "sw": "Accent"
+  },
+  "accept": {
+    "en": "Accept",
+    "fr": "Accept",
+    "sw": "Accept"
+  },
+  "accomplish": {
+    "en": "Accomplish",
+    "fr": "Accomplish",
+    "sw": "Accomplish"
+  },
+  "accountant": {
+    "en": "Accountant",
+    "fr": "Accountant",
+    "sw": "Accountant"
+  },
+  "across": {
+    "en": "Across",
+    "fr": "Across",
+    "sw": "Across"
+  },
+  "act": {
+    "en": "Act",
+    "fr": "Act",
+    "sw": "Act"
+  },
+  "action": {
+    "en": "Action",
+    "fr": "Action",
+    "sw": "Action"
+  },
+  "active": {
+    "en": "Active",
+    "fr": "Active",
+    "sw": "Active"
+  },
+  "activity": {
+    "en": "Activity",
+    "fr": "Activity",
+    "sw": "Activity"
+  },
+  "actor": {
+    "en": "Actor",
+    "fr": "Actor",
+    "sw": "Actor"
+  },
+  "adapt": {
+    "en": "Adapt",
+    "fr": "Adapt",
+    "sw": "Adapt"
+  },
+  "add": {
+    "en": "Add",
+    "fr": "Add",
+    "sw": "Add"
+  },
+  "address": {
+    "en": "Address",
+    "fr": "Address",
+    "sw": "Address"
+  },
+  "adjective": {
+    "en": "Adjective",
+    "fr": "Adjective",
+    "sw": "Adjective"
+  },
+  "adjust": {
+    "en": "Adjust",
+    "fr": "Adjust",
+    "sw": "Adjust"
+  },
+  "admire": {
+    "en": "Admire",
+    "fr": "Admire",
+    "sw": "Admire"
+  },
+  "admit": {
+    "en": "Admit",
+    "fr": "Admit",
+    "sw": "Admit"
+  },
+  "adopt": {
+    "en": "Adopt",
+    "fr": "Adopt",
+    "sw": "Adopt"
+  },
+  "adult": {
+    "en": "Adult",
+    "fr": "Adult",
+    "sw": "Adult"
+  },
+  "advanced": {
+    "en": "Advanced",
+    "fr": "Advanced",
+    "sw": "Advanced"
+  },
+  "advantage": {
+    "en": "Advantage",
+    "fr": "Advantage",
+    "sw": "Advantage"
+  },
+  "adverb": {
+    "en": "Adverb",
+    "fr": "Adverb",
+    "sw": "Adverb"
+  },
+  "affect": {
+    "en": "Affect",
+    "fr": "Affect",
+    "sw": "Affect"
+  },
+  "afraid": {
+    "en": "Afraid",
+    "fr": "Afraid",
+    "sw": "Afraid"
+  },
+  "after": {
+    "en": "After",
+    "fr": "After",
+    "sw": "After"
+  },
+  "afternoon": {
+    "en": "Afternoon",
+    "fr": "Afternoon",
+    "sw": "Afternoon"
+  },
+  "again": {
+    "en": "Again",
+    "fr": "Again",
+    "sw": "Again"
+  },
+  "against": {
+    "en": "Against",
+    "fr": "Against",
+    "sw": "Against"
+  },
+  "age": {
+    "en": "Age",
+    "fr": "Age",
+    "sw": "Age"
+  },
+  "agenda": {
+    "en": "Agenda",
+    "fr": "Agenda",
+    "sw": "Agenda"
+  },
+  "ago": {
+    "en": "Ago",
+    "fr": "Ago",
+    "sw": "Ago"
+  },
+  "agree": {
+    "en": "Agree",
+    "fr": "Agree",
+    "sw": "Agree"
+  },
+  "agreement": {
+    "en": "Agreement",
+    "fr": "Agreement",
+    "sw": "Agreement"
+  },
+  "ahead": {
+    "en": "Ahead",
+    "fr": "Ahead",
+    "sw": "Ahead"
+  },
+  "aid": {
+    "en": "Aid",
+    "fr": "Aid",
+    "sw": "Aid"
+  },
+  "aim": {
+    "en": "Aim",
+    "fr": "Aim",
+    "sw": "Aim"
+  },
+  "airplane": {
+    "en": "Airplane",
+    "fr": "Airplane",
+    "sw": "Airplane"
+  },
+  "alarm": {
+    "en": "Alarm",
+    "fr": "Alarm",
+    "sw": "Alarm"
+  },
+  "alcohol": {
+    "en": "Alcohol",
+    "fr": "Alcohol",
+    "sw": "Alcohol"
+  },
+  "algebra": {
+    "en": "Algebra",
+    "fr": "Algebra",
+    "sw": "Algebra"
+  },
+  "all day": {
+    "en": "All Day",
+    "fr": "All Day",
+    "sw": "All Day"
+  },
+  "allergy": {
+    "en": "Allergy",
+    "fr": "Allergy",
+    "sw": "Allergy"
+  },
+  "alligator": {
+    "en": "Alligator",
+    "fr": "Alligator",
+    "sw": "Alligator"
+  },
+  "allow": {
+    "en": "Allow",
+    "fr": "Allow",
+    "sw": "Allow"
+  },
+  "almost": {
+    "en": "Almost",
+    "fr": "Almost",
+    "sw": "Almost"
+  },
+  "alone": {
+    "en": "Alone",
+    "fr": "Alone",
+    "sw": "Alone"
+  },
+  "alphabet": {
+    "en": "Alphabet",
+    "fr": "Alphabet",
+    "sw": "Alphabet"
+  },
+  "already": {
+    "en": "Already",
+    "fr": "Already",
+    "sw": "Already"
+  },
+  "also": {
+    "en": "Also",
+    "fr": "Also",
+    "sw": "Also"
+  },
+  "always": {
+    "en": "Always",
+    "fr": "Always",
+    "sw": "Always"
+  },
+  "amazing": {
+    "en": "Amazing",
+    "fr": "Amazing",
+    "sw": "Amazing"
+  },
+  "america": {
+    "en": "America",
+    "fr": "America",
+    "sw": "America"
+  },
+  "amputate": {
+    "en": "Amputate",
+    "fr": "Amputate",
+    "sw": "Amputate"
+  },
+  "analyze": {
+    "en": "Analyze",
+    "fr": "Analyze",
+    "sw": "Analyze"
+  },
+  "anatomy": {
+    "en": "Anatomy",
+    "fr": "Anatomy",
+    "sw": "Anatomy"
+  },
+  "and": {
+    "en": "And",
+    "fr": "And",
+    "sw": "And"
+  },
+  "angel": {
+    "en": "Angel",
+    "fr": "Angel",
+    "sw": "Angel"
+  },
+  "angle": {
+    "en": "Angle",
+    "fr": "Angle",
+    "sw": "Angle"
+  },
+  "angry": {
+    "en": "Angry",
+    "fr": "Angry",
+    "sw": "Angry"
+  },
+  "animal": {
+    "en": "Animal",
+    "fr": "Animal",
+    "sw": "Animal"
+  },
+  "anniversary": {
+    "en": "Anniversary",
+    "fr": "Anniversary",
+    "sw": "Anniversary"
+  },
+  "announce": {
+    "en": "Announce",
+    "fr": "Announce",
+    "sw": "Announce"
+  },
+  "annoy": {
+    "en": "Annoy",
+    "fr": "Annoy",
+    "sw": "Annoy"
+  },
+  "another": {
+    "en": "Another",
+    "fr": "Another",
+    "sw": "Another"
+  },
+  "answer": {
+    "en": "Answer",
+    "fr": "Answer",
+    "sw": "Answer"
+  },
+  "any": {
+    "en": "Any",
+    "fr": "Any",
+    "sw": "Any"
+  },
+  "anyway": {
+    "en": "Anyway",
+    "fr": "Anyway",
+    "sw": "Anyway"
+  },
+  "apart": {
+    "en": "Apart",
+    "fr": "Apart",
+    "sw": "Apart"
+  },
+  "apartment": {
+    "en": "Apartment",
+    "fr": "Apartment",
+    "sw": "Apartment"
+  },
+  "apostrophe": {
+    "en": "Apostrophe",
+    "fr": "Apostrophe",
+    "sw": "Apostrophe"
+  },
+  "appear": {
+    "en": "Appear",
+    "fr": "Appear",
+    "sw": "Appear"
+  },
+  "appetite": {
+    "en": "Appetite",
+    "fr": "Appetite",
+    "sw": "Appetite"
+  },
+  "appointment": {
+    "en": "Appointment",
+    "fr": "Appointment",
+    "sw": "Appointment"
+  },
+  "appreciate": {
+    "en": "Appreciate",
+    "fr": "Appreciate",
+    "sw": "Appreciate"
+  },
+  "approach": {
+    "en": "Approach",
+    "fr": "Approach",
+    "sw": "Approach"
+  },
+  "appropriate": {
+    "en": "Appropriate",
+    "fr": "Appropriate",
+    "sw": "Appropriate"
+  },
+  "approve": {
+    "en": "Approve",
+    "fr": "Approve",
+    "sw": "Approve"
+  },
+  "april": {
+    "en": "April",
+    "fr": "April",
+    "sw": "April"
+  },
+  "archery": {
+    "en": "Archery",
+    "fr": "Archery",
+    "sw": "Archery"
+  },
+  "area": {
+    "en": "Area",
+    "fr": "Area",
+    "sw": "Area"
+  },
+  "argue": {
+    "en": "Argue",
+    "fr": "Argue",
+    "sw": "Argue"
+  },
+  "arizona": {
+    "en": "Arizona",
+    "fr": "Arizona",
+    "sw": "Arizona"
+  },
+  "arm": {
+    "en": "Arm",
+    "fr": "Arm",
+    "sw": "Arm"
+  },
+  "army": {
+    "en": "Army",
+    "fr": "Army",
+    "sw": "Army"
+  },
+  "around": {
+    "en": "Around",
+    "fr": "Around",
+    "sw": "Around"
+  },
+  "arrest": {
+    "en": "Arrest",
+    "fr": "Arrest",
+    "sw": "Arrest"
+  },
+  "arrive": {
+    "en": "Arrive",
+    "fr": "Arrive",
+    "sw": "Arrive"
+  },
+  "arrogant": {
+    "en": "Arrogant",
+    "fr": "Arrogant",
+    "sw": "Arrogant"
+  },
+  "art": {
+    "en": "Art",
+    "fr": "Art",
+    "sw": "Art"
+  },
+  "article": {
+    "en": "Article",
+    "fr": "Article",
+    "sw": "Article"
+  },
+  "artist": {
+    "en": "Artist",
+    "fr": "Artist",
+    "sw": "Artist"
+  },
+  "asia": {
+    "en": "Asia",
+    "fr": "Asia",
+    "sw": "Asia"
+  },
+  "ask": {
+    "en": "Ask",
+    "fr": "Ask",
+    "sw": "Ask"
+  },
+  "asl": {
+    "en": "Asl",
+    "fr": "Asl",
+    "sw": "Asl"
+  },
+  "assist": {
+    "en": "Assist",
+    "fr": "Assist",
+    "sw": "Assist"
+  },
+  "assistant": {
+    "en": "Assistant",
+    "fr": "Assistant",
+    "sw": "Assistant"
+  },
+  "assume": {
+    "en": "Assume",
+    "fr": "Assume",
+    "sw": "Assume"
+  },
+  "attend": {
+    "en": "Attend",
+    "fr": "Attend",
+    "sw": "Attend"
+  },
+  "attention": {
+    "en": "Attention",
+    "fr": "Attention",
+    "sw": "Attention"
+  },
+  "attitude": {
+    "en": "Attitude",
+    "fr": "Attitude",
+    "sw": "Attitude"
+  },
+  "attorney": {
+    "en": "Attorney",
+    "fr": "Attorney",
+    "sw": "Attorney"
+  },
+  "attract": {
+    "en": "Attract",
+    "fr": "Attract",
+    "sw": "Attract"
+  },
+  "auction": {
+    "en": "Auction",
+    "fr": "Auction",
+    "sw": "Auction"
+  },
+  "audience": {
+    "en": "Audience",
+    "fr": "Audience",
+    "sw": "Audience"
+  },
+  "audiologist": {
+    "en": "Audiologist",
+    "fr": "Audiologist",
+    "sw": "Audiologist"
+  },
+  "audiology": {
+    "en": "Audiology",
+    "fr": "Audiology",
+    "sw": "Audiology"
+  },
+  "august": {
+    "en": "August",
+    "fr": "August",
+    "sw": "August"
+  },
+  "aunt": {
+    "en": "Aunt",
+    "fr": "Aunt",
+    "sw": "Aunt"
+  },
+  "australia": {
+    "en": "Australia",
+    "fr": "Australia",
+    "sw": "Australia"
+  },
+  "austria": {
+    "en": "Austria",
+    "fr": "Austria",
+    "sw": "Austria"
+  },
+  "author": {
+    "en": "Author",
+    "fr": "Author",
+    "sw": "Author"
+  },
+  "authority": {
+    "en": "Authority",
+    "fr": "Authority",
+    "sw": "Authority"
+  },
+  "autumn": {
+    "en": "Autumn",
+    "fr": "Autumn",
+    "sw": "Autumn"
+  },
+  "available": {
+    "en": "Available",
+    "fr": "Available",
+    "sw": "Available"
+  },
+  "average": {
+    "en": "Average",
+    "fr": "Average",
+    "sw": "Average"
+  },
+  "avoid": {
+    "en": "Avoid",
+    "fr": "Avoid",
+    "sw": "Avoid"
+  },
+  "awake": {
+    "en": "Awake",
+    "fr": "Awake",
+    "sw": "Awake"
+  },
+  "award": {
+    "en": "Award",
+    "fr": "Award",
+    "sw": "Award"
+  },
+  "aware": {
+    "en": "Aware",
+    "fr": "Aware",
+    "sw": "Aware"
+  },
+  "away": {
+    "en": "Away",
+    "fr": "Away",
+    "sw": "Away"
+  },
+  "awful": {
+    "en": "Awful",
+    "fr": "Awful",
+    "sw": "Awful"
+  },
+  "awkward": {
+    "en": "Awkward",
+    "fr": "Awkward",
+    "sw": "Awkward"
+  },
+  "b": {
+    "en": "B",
+    "fr": "B",
+    "sw": "B"
+  },
+  "baby": {
+    "en": "Baby",
+    "fr": "Baby",
+    "sw": "Baby"
+  },
+  "babysitter": {
+    "en": "Babysitter",
+    "fr": "Babysitter",
+    "sw": "Babysitter"
+  },
+  "back": {
+    "en": "Back",
+    "fr": "Back",
+    "sw": "Back"
+  },
+  "background": {
+    "en": "Background",
+    "fr": "Background",
+    "sw": "Background"
+  },
+  "backpack": {
+    "en": "Backpack",
+    "fr": "Backpack",
+    "sw": "Backpack"
+  },
+  "bacon": {
+    "en": "Bacon",
+    "fr": "Bacon",
+    "sw": "Bacon"
+  },
+  "bad": {
+    "en": "Bad",
+    "fr": "Mauvais",
+    "sw": "Bad"
+  },
+  "bake": {
+    "en": "Bake",
+    "fr": "Bake",
+    "sw": "Bake"
+  },
+  "balance": {
+    "en": "Balance",
+    "fr": "Balance",
+    "sw": "Balance"
+  },
+  "bald": {
+    "en": "Bald",
+    "fr": "Bald",
+    "sw": "Bald"
+  },
+  "ball": {
+    "en": "Ball",
+    "fr": "Ball",
+    "sw": "Ball"
+  },
+  "balloon": {
+    "en": "Balloon",
+    "fr": "Balloon",
+    "sw": "Balloon"
+  },
+  "banana": {
+    "en": "Banana",
+    "fr": "Banana",
+    "sw": "Banana"
+  },
+  "bank": {
+    "en": "Bank",
+    "fr": "Bank",
+    "sw": "Bank"
+  },
+  "baptize": {
+    "en": "Baptize",
+    "fr": "Baptize",
+    "sw": "Baptize"
+  },
+  "bar": {
+    "en": "Bar",
+    "fr": "Bar",
+    "sw": "Bar"
+  },
+  "barely": {
+    "en": "Barely",
+    "fr": "Barely",
+    "sw": "Barely"
+  },
+  "bark": {
+    "en": "Bark",
+    "fr": "Bark",
+    "sw": "Bark"
+  },
+  "baseball": {
+    "en": "Baseball",
+    "fr": "Baseball",
+    "sw": "Baseball"
+  },
+  "basement": {
+    "en": "Basement",
+    "fr": "Basement",
+    "sw": "Basement"
+  },
+  "basic": {
+    "en": "Basic",
+    "fr": "Basic",
+    "sw": "Basic"
+  },
+  "bath": {
+    "en": "Bath",
+    "fr": "Bath",
+    "sw": "Bath"
+  },
+  "bathroom": {
+    "en": "Bathroom",
+    "fr": "Bathroom",
+    "sw": "Bathroom"
+  },
+  "battery": {
+    "en": "Battery",
+    "fr": "Battery",
+    "sw": "Battery"
+  },
+  "battle": {
+    "en": "Battle",
+    "fr": "Battle",
+    "sw": "Battle"
+  },
+  "bear": {
+    "en": "Bear",
+    "fr": "Bear",
+    "sw": "Bear"
+  },
+  "beard": {
+    "en": "Beard",
+    "fr": "Beard",
+    "sw": "Beard"
+  },
+  "beautiful": {
+    "en": "Beautiful",
+    "fr": "Beautiful",
+    "sw": "Beautiful"
+  },
+  "because": {
+    "en": "Because",
+    "fr": "Because",
+    "sw": "Because"
+  },
+  "become": {
+    "en": "Become",
+    "fr": "Become",
+    "sw": "Become"
+  },
+  "bedroom": {
+    "en": "Bedroom",
+    "fr": "Bedroom",
+    "sw": "Bedroom"
+  },
+  "bee": {
+    "en": "Bee",
+    "fr": "Bee",
+    "sw": "Bee"
+  },
+  "beer": {
+    "en": "Beer",
+    "fr": "Beer",
+    "sw": "Beer"
+  },
+  "beg": {
+    "en": "Beg",
+    "fr": "Beg",
+    "sw": "Beg"
+  },
+  "beginning": {
+    "en": "Beginning",
+    "fr": "Beginning",
+    "sw": "Beginning"
+  },
+  "behavior": {
+    "en": "Behavior",
+    "fr": "Behavior",
+    "sw": "Behavior"
+  },
+  "behind": {
+    "en": "Behind",
+    "fr": "Behind",
+    "sw": "Behind"
+  },
+  "belief": {
+    "en": "Belief",
+    "fr": "Belief",
+    "sw": "Belief"
+  },
+  "believe": {
+    "en": "Believe",
+    "fr": "Believe",
+    "sw": "Believe"
+  },
+  "bell": {
+    "en": "Bell",
+    "fr": "Bell",
+    "sw": "Bell"
+  },
+  "below": {
+    "en": "Below",
+    "fr": "Below",
+    "sw": "Below"
+  },
+  "belt": {
+    "en": "Belt",
+    "fr": "Belt",
+    "sw": "Belt"
+  },
+  "benefit": {
+    "en": "Benefit",
+    "fr": "Benefit",
+    "sw": "Benefit"
+  },
+  "berry": {
+    "en": "Berry",
+    "fr": "Berry",
+    "sw": "Berry"
+  },
+  "beside": {
+    "en": "Beside",
+    "fr": "Beside",
+    "sw": "Beside"
+  },
+  "best": {
+    "en": "Best",
+    "fr": "Best",
+    "sw": "Best"
+  },
+  "bet": {
+    "en": "Bet",
+    "fr": "Bet",
+    "sw": "Bet"
+  },
+  "better": {
+    "en": "Better",
+    "fr": "Better",
+    "sw": "Better"
+  },
+  "between": {
+    "en": "Between",
+    "fr": "Between",
+    "sw": "Between"
+  },
+  "bible": {
+    "en": "Bible",
+    "fr": "Bible",
+    "sw": "Bible"
+  },
+  "bicycle": {
+    "en": "Bicycle",
+    "fr": "Bicycle",
+    "sw": "Bicycle"
+  },
+  "big": {
+    "en": "Big",
+    "fr": "Big",
+    "sw": "Big"
+  },
+  "bike": {
+    "en": "Bike",
+    "fr": "Bike",
+    "sw": "Bike"
+  },
+  "binoculars": {
+    "en": "Binoculars",
+    "fr": "Binoculars",
+    "sw": "Binoculars"
+  },
+  "biology": {
+    "en": "Biology",
+    "fr": "Biology",
+    "sw": "Biology"
+  },
+  "birth": {
+    "en": "Birth",
+    "fr": "Birth",
+    "sw": "Birth"
+  },
+  "bite": {
+    "en": "Bite",
+    "fr": "Bite",
+    "sw": "Bite"
+  },
+  "bitter": {
+    "en": "Bitter",
+    "fr": "Bitter",
+    "sw": "Bitter"
+  },
+  "blame": {
+    "en": "Blame",
+    "fr": "Blame",
+    "sw": "Blame"
+  },
+  "blanket": {
+    "en": "Blanket",
+    "fr": "Blanket",
+    "sw": "Blanket"
+  },
+  "blend": {
+    "en": "Blend",
+    "fr": "Blend",
+    "sw": "Blend"
+  },
+  "bless": {
+    "en": "Bless",
+    "fr": "Bless",
+    "sw": "Bless"
+  },
+  "blind": {
+    "en": "Blind",
+    "fr": "Blind",
+    "sw": "Blind"
+  },
+  "blood": {
+    "en": "Blood",
+    "fr": "Blood",
+    "sw": "Blood"
+  },
+  "blow": {
+    "en": "Blow",
+    "fr": "Blow",
+    "sw": "Blow"
+  },
+  "boast": {
+    "en": "Boast",
+    "fr": "Boast",
+    "sw": "Boast"
+  },
+  "boat": {
+    "en": "Boat",
+    "fr": "Boat",
+    "sw": "Boat"
+  },
+  "body": {
+    "en": "Body",
+    "fr": "Body",
+    "sw": "Body"
+  },
+  "boil": {
+    "en": "Boil",
+    "fr": "Boil",
+    "sw": "Boil"
+  },
+  "bone": {
+    "en": "Bone",
+    "fr": "Bone",
+    "sw": "Bone"
+  },
+  "bookshelf": {
+    "en": "Bookshelf",
+    "fr": "Bookshelf",
+    "sw": "Bookshelf"
+  },
+  "bookstore": {
+    "en": "Bookstore",
+    "fr": "Bookstore",
+    "sw": "Bookstore"
+  },
+  "boots": {
+    "en": "Boots",
+    "fr": "Boots",
+    "sw": "Boots"
+  },
+  "bored": {
+    "en": "Bored",
+    "fr": "Bored",
+    "sw": "Bored"
+  },
+  "borrow": {
+    "en": "Borrow",
+    "fr": "Borrow",
+    "sw": "Borrow"
+  },
+  "boss": {
+    "en": "Boss",
+    "fr": "Boss",
+    "sw": "Boss"
+  },
+  "both": {
+    "en": "Both",
+    "fr": "Both",
+    "sw": "Both"
+  },
+  "bother": {
+    "en": "Bother",
+    "fr": "Bother",
+    "sw": "Bother"
+  },
+  "bottle": {
+    "en": "Bottle",
+    "fr": "Bottle",
+    "sw": "Bottle"
+  },
+  "bottom": {
+    "en": "Bottom",
+    "fr": "Bottom",
+    "sw": "Bottom"
+  },
+  "bowl": {
+    "en": "Bowl",
+    "fr": "Bowl",
+    "sw": "Bowl"
+  },
+  "box": {
+    "en": "Box",
+    "fr": "Box",
+    "sw": "Box"
+  },
+  "boxing": {
+    "en": "Boxing",
+    "fr": "Boxing",
+    "sw": "Boxing"
+  },
+  "boy": {
+    "en": "Boy",
+    "fr": "Boy",
+    "sw": "Boy"
+  },
+  "boyfriend": {
+    "en": "Boyfriend",
+    "fr": "Boyfriend",
+    "sw": "Boyfriend"
+  },
+  "bra": {
+    "en": "Bra",
+    "fr": "Bra",
+    "sw": "Bra"
+  },
+  "bracelet": {
+    "en": "Bracelet",
+    "fr": "Bracelet",
+    "sw": "Bracelet"
+  },
+  "brag": {
+    "en": "Brag",
+    "fr": "Brag",
+    "sw": "Brag"
+  },
+  "braid": {
+    "en": "Braid",
+    "fr": "Braid",
+    "sw": "Braid"
+  },
+  "brain": {
+    "en": "Brain",
+    "fr": "Brain",
+    "sw": "Brain"
+  },
+  "brave": {
+    "en": "Brave",
+    "fr": "Brave",
+    "sw": "Brave"
+  },
+  "bread": {
+    "en": "Bread",
+    "fr": "Bread",
+    "sw": "Bread"
+  },
+  "break": {
+    "en": "Break",
+    "fr": "Break",
+    "sw": "Break"
+  },
+  "breakdown": {
+    "en": "Breakdown",
+    "fr": "Breakdown",
+    "sw": "Breakdown"
+  },
+  "breakfast": {
+    "en": "Breakfast",
+    "fr": "Breakfast",
+    "sw": "Breakfast"
+  },
+  "breathe": {
+    "en": "Breathe",
+    "fr": "Breathe",
+    "sw": "Breathe"
+  },
+  "breeze": {
+    "en": "Breeze",
+    "fr": "Breeze",
+    "sw": "Breeze"
+  },
+  "bribe": {
+    "en": "Bribe",
+    "fr": "Bribe",
+    "sw": "Bribe"
+  },
+  "bridge": {
+    "en": "Bridge",
+    "fr": "Bridge",
+    "sw": "Bridge"
+  },
+  "brief": {
+    "en": "Brief",
+    "fr": "Brief",
+    "sw": "Brief"
+  },
+  "bright": {
+    "en": "Bright",
+    "fr": "Bright",
+    "sw": "Bright"
+  },
+  "bring": {
+    "en": "Bring",
+    "fr": "Bring",
+    "sw": "Bring"
+  },
+  "brochure": {
+    "en": "Brochure",
+    "fr": "Brochure",
+    "sw": "Brochure"
+  },
+  "broke": {
+    "en": "Broke",
+    "fr": "Broke",
+    "sw": "Broke"
+  },
+  "brother": {
+    "en": "Brother",
+    "fr": "Brother",
+    "sw": "Kaka"
+  },
+  "brush": {
+    "en": "Brush",
+    "fr": "Brush",
+    "sw": "Brush"
+  },
+  "buffalo": {
+    "en": "Buffalo",
+    "fr": "Buffalo",
+    "sw": "Buffalo"
+  },
+  "bug": {
+    "en": "Bug",
+    "fr": "Bug",
+    "sw": "Bug"
+  },
+  "build": {
+    "en": "Build",
+    "fr": "Build",
+    "sw": "Build"
+  },
+  "building": {
+    "en": "Building",
+    "fr": "Building",
+    "sw": "Building"
+  },
+  "bull": {
+    "en": "Bull",
+    "fr": "Bull",
+    "sw": "Bull"
+  },
+  "bully": {
+    "en": "Bully",
+    "fr": "Bully",
+    "sw": "Bully"
+  },
+  "burp": {
+    "en": "Burp",
+    "fr": "Burp",
+    "sw": "Burp"
+  },
+  "bus": {
+    "en": "Bus",
+    "fr": "Bus",
+    "sw": "Bus"
+  },
+  "bush": {
+    "en": "Bush",
+    "fr": "Bush",
+    "sw": "Bush"
+  },
+  "business": {
+    "en": "Business",
+    "fr": "Business",
+    "sw": "Business"
+  },
+  "busy": {
+    "en": "Busy",
+    "fr": "Busy",
+    "sw": "Busy"
+  },
+  "butter": {
+    "en": "Butter",
+    "fr": "Butter",
+    "sw": "Butter"
+  },
+  "butterfly": {
+    "en": "Butterfly",
+    "fr": "Butterfly",
+    "sw": "Butterfly"
+  },
+  "button": {
+    "en": "Button",
+    "fr": "Button",
+    "sw": "Button"
+  },
+  "buy": {
+    "en": "Buy",
+    "fr": "Buy",
+    "sw": "Buy"
+  },
+  "bye": {
+    "en": "Bye",
+    "fr": "Bye",
+    "sw": "Kwaheri"
+  },
+  "cabbage": {
+    "en": "Cabbage",
+    "fr": "Cabbage",
+    "sw": "Cabbage"
+  },
+  "cabinet": {
+    "en": "Cabinet",
+    "fr": "Cabinet",
+    "sw": "Cabinet"
+  },
+  "cafeteria": {
+    "en": "Cafeteria",
+    "fr": "Cafeteria",
+    "sw": "Cafeteria"
+  },
+  "cake": {
+    "en": "Cake",
+    "fr": "Cake",
+    "sw": "Cake"
+  },
+  "calculate": {
+    "en": "Calculate",
+    "fr": "Calculate",
+    "sw": "Calculate"
+  },
+  "calculator": {
+    "en": "Calculator",
+    "fr": "Calculator",
+    "sw": "Calculator"
+  },
+  "calculus": {
+    "en": "Calculus",
+    "fr": "Calculus",
+    "sw": "Calculus"
+  },
+  "california": {
+    "en": "California",
+    "fr": "California",
+    "sw": "California"
+  },
+  "call": {
+    "en": "Call",
+    "fr": "Call",
+    "sw": "Call"
+  },
+  "calm": {
+    "en": "Calm",
+    "fr": "Calm",
+    "sw": "Calm"
+  },
+  "camel": {
+    "en": "Camel",
+    "fr": "Camel",
+    "sw": "Camel"
+  },
+  "camera": {
+    "en": "Camera",
+    "fr": "Camera",
+    "sw": "Camera"
+  },
+  "camp": {
+    "en": "Camp",
+    "fr": "Camp",
+    "sw": "Camp"
+  },
+  "camping": {
+    "en": "Camping",
+    "fr": "Camping",
+    "sw": "Camping"
+  },
+  "canada": {
+    "en": "Canada",
+    "fr": "Canada",
+    "sw": "Canada"
+  },
+  "cancel": {
+    "en": "Cancel",
+    "fr": "Cancel",
+    "sw": "Cancel"
+  },
+  "candidate": {
+    "en": "Candidate",
+    "fr": "Candidate",
+    "sw": "Candidate"
+  },
+  "candle": {
+    "en": "Candle",
+    "fr": "Candle",
+    "sw": "Candle"
+  },
+  "cannot": {
+    "en": "Cannot",
+    "fr": "Cannot",
+    "sw": "Cannot"
+  },
+  "canoe": {
+    "en": "Canoe",
+    "fr": "Canoe",
+    "sw": "Canoe"
+  },
+  "captain": {
+    "en": "Captain",
+    "fr": "Captain",
+    "sw": "Captain"
+  },
+  "caption": {
+    "en": "Caption",
+    "fr": "Caption",
+    "sw": "Caption"
+  },
+  "car": {
+    "en": "Car",
+    "fr": "Car",
+    "sw": "Car"
+  },
+  "card": {
+    "en": "Card",
+    "fr": "Card",
+    "sw": "Card"
+  },
+  "cards": {
+    "en": "Cards",
+    "fr": "Cards",
+    "sw": "Cards"
+  },
+  "care": {
+    "en": "Care",
+    "fr": "Care",
+    "sw": "Care"
+  },
+  "careful": {
+    "en": "Careful",
+    "fr": "Careful",
+    "sw": "Careful"
+  },
+  "careless": {
+    "en": "Careless",
+    "fr": "Careless",
+    "sw": "Careless"
+  },
+  "carnival": {
+    "en": "Carnival",
+    "fr": "Carnival",
+    "sw": "Carnival"
+  },
+  "carrot": {
+    "en": "Carrot",
+    "fr": "Carrot",
+    "sw": "Carrot"
+  },
+  "carry": {
+    "en": "Carry",
+    "fr": "Carry",
+    "sw": "Carry"
+  },
+  "cat": {
+    "en": "Cat",
+    "fr": "Cat",
+    "sw": "Cat"
+  },
+  "catch": {
+    "en": "Catch",
+    "fr": "Catch",
+    "sw": "Catch"
+  },
+  "category": {
+    "en": "Category",
+    "fr": "Category",
+    "sw": "Category"
+  },
+  "caterpillar": {
+    "en": "Caterpillar",
+    "fr": "Caterpillar",
+    "sw": "Caterpillar"
+  },
+  "catholic": {
+    "en": "Catholic",
+    "fr": "Catholic",
+    "sw": "Catholic"
+  },
+  "cause": {
+    "en": "Cause",
+    "fr": "Cause",
+    "sw": "Cause"
+  },
+  "ceiling": {
+    "en": "Ceiling",
+    "fr": "Ceiling",
+    "sw": "Ceiling"
+  },
+  "celebrate": {
+    "en": "Celebrate",
+    "fr": "Celebrate",
+    "sw": "Celebrate"
+  },
+  "cemetery": {
+    "en": "Cemetery",
+    "fr": "Cemetery",
+    "sw": "Cemetery"
+  },
+  "cent": {
+    "en": "Cent",
+    "fr": "Cent",
+    "sw": "Cent"
+  },
+  "center": {
+    "en": "Center",
+    "fr": "Center",
+    "sw": "Center"
+  },
+  "cereal": {
+    "en": "Cereal",
+    "fr": "Cereal",
+    "sw": "Cereal"
+  },
+  "certificate": {
+    "en": "Certificate",
+    "fr": "Certificate",
+    "sw": "Certificate"
+  },
+  "chain": {
+    "en": "Chain",
+    "fr": "Chain",
+    "sw": "Chain"
+  },
+  "challenge": {
+    "en": "Challenge",
+    "fr": "Challenge",
+    "sw": "Challenge"
+  },
+  "champion": {
+    "en": "Champion",
+    "fr": "Champion",
+    "sw": "Champion"
+  },
+  "chance": {
+    "en": "Chance",
+    "fr": "Chance",
+    "sw": "Chance"
+  },
+  "chapter": {
+    "en": "Chapter",
+    "fr": "Chapter",
+    "sw": "Chapter"
+  },
+  "character": {
+    "en": "Character",
+    "fr": "Character",
+    "sw": "Character"
+  },
+  "chase": {
+    "en": "Chase",
+    "fr": "Chase",
+    "sw": "Chase"
+  },
+  "chat": {
+    "en": "Chat",
+    "fr": "Chat",
+    "sw": "Chat"
+  },
+  "cheap": {
+    "en": "Cheap",
+    "fr": "Cheap",
+    "sw": "Cheap"
+  },
+  "check": {
+    "en": "Check",
+    "fr": "Check",
+    "sw": "Check"
+  },
+  "cheerleader": {
+    "en": "Cheerleader",
+    "fr": "Cheerleader",
+    "sw": "Cheerleader"
+  },
+  "cheese": {
+    "en": "Cheese",
+    "fr": "Cheese",
+    "sw": "Cheese"
+  },
+  "chemical": {
+    "en": "Chemical",
+    "fr": "Chemical",
+    "sw": "Chemical"
+  },
+  "chemistry": {
+    "en": "Chemistry",
+    "fr": "Chemistry",
+    "sw": "Chemistry"
+  },
+  "cherry": {
+    "en": "Cherry",
+    "fr": "Cherry",
+    "sw": "Cherry"
+  },
+  "chicago": {
+    "en": "Chicago",
+    "fr": "Chicago",
+    "sw": "Chicago"
+  },
+  "chicken": {
+    "en": "Chicken",
+    "fr": "Chicken",
+    "sw": "Chicken"
+  },
+  "child": {
+    "en": "Child",
+    "fr": "Enfant",
+    "sw": "Child"
+  },
+  "children": {
+    "en": "Children",
+    "fr": "Children",
+    "sw": "Children"
+  },
+  "china": {
+    "en": "China",
+    "fr": "China",
+    "sw": "China"
+  },
+  "chocolate": {
+    "en": "Chocolate",
+    "fr": "Chocolate",
+    "sw": "Chocolate"
+  },
+  "choice": {
+    "en": "Choice",
+    "fr": "Choice",
+    "sw": "Choice"
+  },
+  "choir": {
+    "en": "Choir",
+    "fr": "Choir",
+    "sw": "Choir"
+  },
+  "choke": {
+    "en": "Choke",
+    "fr": "Choke",
+    "sw": "Choke"
+  },
+  "choose": {
+    "en": "Choose",
+    "fr": "Choose",
+    "sw": "Choose"
+  },
+  "chop": {
+    "en": "Chop",
+    "fr": "Chop",
+    "sw": "Chop"
+  },
+  "christ": {
+    "en": "Christ",
+    "fr": "Christ",
+    "sw": "Christ"
+  },
+  "christian": {
+    "en": "Christian",
+    "fr": "Christian",
+    "sw": "Christian"
+  },
+  "christmas": {
+    "en": "Christmas",
+    "fr": "Christmas",
+    "sw": "Christmas"
+  },
+  "church": {
+    "en": "Church",
+    "fr": "Church",
+    "sw": "Church"
+  },
+  "cigarette": {
+    "en": "Cigarette",
+    "fr": "Cigarette",
+    "sw": "Cigarette"
+  },
+  "circle": {
+    "en": "Circle",
+    "fr": "Circle",
+    "sw": "Circle"
+  },
+  "class": {
+    "en": "Class",
+    "fr": "Class",
+    "sw": "Class"
+  },
+  "classroom": {
+    "en": "Classroom",
+    "fr": "Classroom",
+    "sw": "Classroom"
+  },
+  "clean": {
+    "en": "Clean",
+    "fr": "Clean",
+    "sw": "Clean"
+  },
+  "clear": {
+    "en": "Clear",
+    "fr": "Clear",
+    "sw": "Clear"
+  },
+  "clever": {
+    "en": "Clever",
+    "fr": "Clever",
+    "sw": "Clever"
+  },
+  "click": {
+    "en": "Click",
+    "fr": "Click",
+    "sw": "Click"
+  },
+  "climb": {
+    "en": "Climb",
+    "fr": "Climb",
+    "sw": "Climb"
+  },
+  "clock": {
+    "en": "Clock",
+    "fr": "Clock",
+    "sw": "Clock"
+  },
+  "close": {
+    "en": "Close",
+    "fr": "Close",
+    "sw": "Close"
+  },
+  "closet": {
+    "en": "Closet",
+    "fr": "Closet",
+    "sw": "Closet"
+  },
+  "cloud": {
+    "en": "Cloud",
+    "fr": "Cloud",
+    "sw": "Cloud"
+  },
+  "clown": {
+    "en": "Clown",
+    "fr": "Clown",
+    "sw": "Clown"
+  },
+  "clueless": {
+    "en": "Clueless",
+    "fr": "Clueless",
+    "sw": "Clueless"
+  },
+  "clumsy": {
+    "en": "Clumsy",
+    "fr": "Clumsy",
+    "sw": "Clumsy"
+  },
+  "coach": {
+    "en": "Coach",
+    "fr": "Coach",
+    "sw": "Coach"
+  },
+  "coat": {
+    "en": "Coat",
+    "fr": "Coat",
+    "sw": "Coat"
+  },
+  "cochlear implant": {
+    "en": "Cochlear Implant",
+    "fr": "Cochlear Implant",
+    "sw": "Cochlear Implant"
+  },
+  "coconut": {
+    "en": "Coconut",
+    "fr": "Coconut",
+    "sw": "Coconut"
+  },
+  "coffee": {
+    "en": "Coffee",
+    "fr": "Coffee",
+    "sw": "Coffee"
+  },
+  "cold": {
+    "en": "Cold",
+    "fr": "Cold",
+    "sw": "Cold"
+  },
+  "collect": {
+    "en": "Collect",
+    "fr": "Collect",
+    "sw": "Collect"
+  },
+  "college": {
+    "en": "College",
+    "fr": "College",
+    "sw": "College"
+  },
+  "comb": {
+    "en": "Comb",
+    "fr": "Comb",
+    "sw": "Comb"
+  },
+  "come": {
+    "en": "Come",
+    "fr": "Come",
+    "sw": "Kuja"
+  },
+  "come here": {
+    "en": "Come Here",
+    "fr": "Come Here",
+    "sw": "Come Here"
+  },
+  "comfortable": {
+    "en": "Comfortable",
+    "fr": "Comfortable",
+    "sw": "Comfortable"
+  },
+  "comma": {
+    "en": "Comma",
+    "fr": "Comma",
+    "sw": "Comma"
+  },
+  "command": {
+    "en": "Command",
+    "fr": "Command",
+    "sw": "Command"
+  },
+  "comment": {
+    "en": "Comment",
+    "fr": "Comment",
+    "sw": "Comment"
+  },
+  "commit": {
+    "en": "Commit",
+    "fr": "Commit",
+    "sw": "Commit"
+  },
+  "committee": {
+    "en": "Committee",
+    "fr": "Committee",
+    "sw": "Committee"
+  },
+  "common": {
+    "en": "Common",
+    "fr": "Common",
+    "sw": "Common"
+  },
+  "common sense": {
+    "en": "Common Sense",
+    "fr": "Common Sense",
+    "sw": "Common Sense"
+  },
+  "community": {
+    "en": "Community",
+    "fr": "Community",
+    "sw": "Community"
+  },
+  "commute": {
+    "en": "Commute",
+    "fr": "Commute",
+    "sw": "Commute"
+  },
+  "company": {
+    "en": "Company",
+    "fr": "Company",
+    "sw": "Company"
+  },
+  "compare": {
+    "en": "Compare",
+    "fr": "Compare",
+    "sw": "Compare"
+  },
+  "compete": {
+    "en": "Compete",
+    "fr": "Compete",
+    "sw": "Compete"
+  },
+  "complain": {
+    "en": "Complain",
+    "fr": "Complain",
+    "sw": "Complain"
+  },
+  "complete": {
+    "en": "Complete",
+    "fr": "Complete",
+    "sw": "Complete"
+  },
+  "complex": {
+    "en": "Complex",
+    "fr": "Complex",
+    "sw": "Complex"
+  },
+  "compromise": {
+    "en": "Compromise",
+    "fr": "Compromise",
+    "sw": "Compromise"
+  },
+  "concentrate": {
+    "en": "Concentrate",
+    "fr": "Concentrate",
+    "sw": "Concentrate"
+  },
+  "concept": {
+    "en": "Concept",
+    "fr": "Concept",
+    "sw": "Concept"
+  },
+  "concern": {
+    "en": "Concern",
+    "fr": "Concern",
+    "sw": "Concern"
+  },
+  "conflict": {
+    "en": "Conflict",
+    "fr": "Conflict",
+    "sw": "Conflict"
+  },
+  "confront": {
+    "en": "Confront",
+    "fr": "Confront",
+    "sw": "Confront"
+  },
+  "confused": {
+    "en": "Confused",
+    "fr": "Confused",
+    "sw": "Confused"
+  },
+  "congratulations": {
+    "en": "Congratulations",
+    "fr": "Congratulations",
+    "sw": "Congratulations"
+  },
+  "congress": {
+    "en": "Congress",
+    "fr": "Congress",
+    "sw": "Congress"
+  },
+  "connect": {
+    "en": "Connect",
+    "fr": "Connect",
+    "sw": "Connect"
+  },
+  "conquer": {
+    "en": "Conquer",
+    "fr": "Conquer",
+    "sw": "Conquer"
+  },
+  "consider": {
+    "en": "Consider",
+    "fr": "Consider",
+    "sw": "Consider"
+  },
+  "constitution": {
+    "en": "Constitution",
+    "fr": "Constitution",
+    "sw": "Constitution"
+  },
+  "construct": {
+    "en": "Construct",
+    "fr": "Construct",
+    "sw": "Construct"
+  },
+  "consume": {
+    "en": "Consume",
+    "fr": "Consume",
+    "sw": "Consume"
+  },
+  "contact": {
+    "en": "Contact",
+    "fr": "Contact",
+    "sw": "Contact"
+  },
+  "contest": {
+    "en": "Contest",
+    "fr": "Contest",
+    "sw": "Contest"
+  },
+  "continue": {
+    "en": "Continue",
+    "fr": "Continue",
+    "sw": "Continue"
+  },
+  "contract": {
+    "en": "Contract",
+    "fr": "Contract",
+    "sw": "Contract"
+  },
+  "contribute": {
+    "en": "Contribute",
+    "fr": "Contribute",
+    "sw": "Contribute"
+  },
+  "control": {
+    "en": "Control",
+    "fr": "Control",
+    "sw": "Control"
+  },
+  "conversation": {
+    "en": "Conversation",
+    "fr": "Conversation",
+    "sw": "Conversation"
+  },
+  "convert": {
+    "en": "Convert",
+    "fr": "Convert",
+    "sw": "Convert"
+  },
+  "convince": {
+    "en": "Convince",
+    "fr": "Convince",
+    "sw": "Convince"
+  },
+  "cookie": {
+    "en": "Cookie",
+    "fr": "Cookie",
+    "sw": "Cookie"
+  },
+  "cooperate": {
+    "en": "Cooperate",
+    "fr": "Cooperate",
+    "sw": "Cooperate"
+  },
+  "cop": {
+    "en": "Cop",
+    "fr": "Cop",
+    "sw": "Cop"
+  },
+  "copy": {
+    "en": "Copy",
+    "fr": "Copy",
+    "sw": "Copy"
+  },
+  "corner": {
+    "en": "Corner",
+    "fr": "Corner",
+    "sw": "Corner"
+  },
+  "correct": {
+    "en": "Correct",
+    "fr": "Correct",
+    "sw": "Correct"
+  },
+  "cost": {
+    "en": "Cost",
+    "fr": "Cost",
+    "sw": "Cost"
+  },
+  "couch": {
+    "en": "Couch",
+    "fr": "Couch",
+    "sw": "Couch"
+  },
+  "cough": {
+    "en": "Cough",
+    "fr": "Cough",
+    "sw": "Cough"
+  },
+  "counsel": {
+    "en": "Counsel",
+    "fr": "Counsel",
+    "sw": "Counsel"
+  },
+  "counselor": {
+    "en": "Counselor",
+    "fr": "Counselor",
+    "sw": "Counselor"
+  },
+  "count": {
+    "en": "Count",
+    "fr": "Count",
+    "sw": "Count"
+  },
+  "country": {
+    "en": "Country",
+    "fr": "Country",
+    "sw": "Country"
+  },
+  "court": {
+    "en": "Court",
+    "fr": "Court",
+    "sw": "Court"
+  },
+  "cover": {
+    "en": "Cover",
+    "fr": "Cover",
+    "sw": "Cover"
+  },
+  "crab": {
+    "en": "Crab",
+    "fr": "Crab",
+    "sw": "Crab"
+  },
+  "cracker": {
+    "en": "Cracker",
+    "fr": "Cracker",
+    "sw": "Cracker"
+  },
+  "crash": {
+    "en": "Crash",
+    "fr": "Crash",
+    "sw": "Crash"
+  },
+  "crave": {
+    "en": "Crave",
+    "fr": "Crave",
+    "sw": "Crave"
+  },
+  "crazy": {
+    "en": "Crazy",
+    "fr": "Crazy",
+    "sw": "Crazy"
+  },
+  "create": {
+    "en": "Create",
+    "fr": "Create",
+    "sw": "Create"
+  },
+  "crocodile": {
+    "en": "Crocodile",
+    "fr": "Crocodile",
+    "sw": "Crocodile"
+  },
+  "cross": {
+    "en": "Cross",
+    "fr": "Cross",
+    "sw": "Cross"
+  },
+  "crown": {
+    "en": "Crown",
+    "fr": "Crown",
+    "sw": "Crown"
+  },
+  "cruel": {
+    "en": "Cruel",
+    "fr": "Cruel",
+    "sw": "Cruel"
+  },
+  "crush": {
+    "en": "Crush",
+    "fr": "Crush",
+    "sw": "Crush"
+  },
+  "cry": {
+    "en": "Cry",
+    "fr": "Cry",
+    "sw": "Kulia"
+  },
+  "cuba": {
+    "en": "Cuba",
+    "fr": "Cuba",
+    "sw": "Cuba"
+  },
+  "culture": {
+    "en": "Culture",
+    "fr": "Culture",
+    "sw": "Culture"
+  },
+  "cup": {
+    "en": "Cup",
+    "fr": "Cup",
+    "sw": "Cup"
+  },
+  "curious": {
+    "en": "Curious",
+    "fr": "Curious",
+    "sw": "Curious"
+  },
+  "curriculum": {
+    "en": "Curriculum",
+    "fr": "Curriculum",
+    "sw": "Curriculum"
+  },
+  "curse": {
+    "en": "Curse",
+    "fr": "Curse",
+    "sw": "Curse"
+  },
+  "curtain": {
+    "en": "Curtain",
+    "fr": "Curtain",
+    "sw": "Curtain"
+  },
+  "customer": {
+    "en": "Customer",
+    "fr": "Customer",
+    "sw": "Customer"
+  },
+  "cut": {
+    "en": "Cut",
+    "fr": "Cut",
+    "sw": "Cut"
+  },
+  "cute": {
+    "en": "Cute",
+    "fr": "Cute",
+    "sw": "Cute"
+  },
+  "d": {
+    "en": "D",
+    "fr": "D",
+    "sw": "D"
+  },
+  "dad": {
+    "en": "Dad",
+    "fr": "Dad",
+    "sw": "Dad"
+  },
+  "daily": {
+    "en": "Daily",
+    "fr": "Daily",
+    "sw": "Daily"
+  },
+  "damage": {
+    "en": "Damage",
+    "fr": "Damage",
+    "sw": "Damage"
+  },
+  "dancer": {
+    "en": "Dancer",
+    "fr": "Dancer",
+    "sw": "Dancer"
+  },
+  "danger": {
+    "en": "Danger",
+    "fr": "Danger",
+    "sw": "Danger"
+  },
+  "dangerous": {
+    "en": "Dangerous",
+    "fr": "Dangerous",
+    "sw": "Dangerous"
+  },
+  "date": {
+    "en": "Date",
+    "fr": "Date",
+    "sw": "Date"
+  },
+  "daughter": {
+    "en": "Daughter",
+    "fr": "Daughter",
+    "sw": "Daughter"
+  },
+  "dawn": {
+    "en": "Dawn",
+    "fr": "Dawn",
+    "sw": "Dawn"
+  },
+  "day": {
+    "en": "Day",
+    "fr": "Day",
+    "sw": "Siku"
+  },
+  "dead": {
+    "en": "Dead",
+    "fr": "Dead",
+    "sw": "Dead"
+  },
+  "death": {
+    "en": "Death",
+    "fr": "Death",
+    "sw": "Death"
+  },
+  "debate": {
+    "en": "Debate",
+    "fr": "Debate",
+    "sw": "Debate"
+  },
+  "debt": {
+    "en": "Debt",
+    "fr": "Debt",
+    "sw": "Debt"
+  },
+  "december": {
+    "en": "December",
+    "fr": "December",
+    "sw": "December"
+  },
+  "decorate": {
+    "en": "Decorate",
+    "fr": "Decorate",
+    "sw": "Decorate"
+  },
+  "decrease": {
+    "en": "Decrease",
+    "fr": "Decrease",
+    "sw": "Decrease"
+  },
+  "deduct": {
+    "en": "Deduct",
+    "fr": "Deduct",
+    "sw": "Deduct"
+  },
+  "deep": {
+    "en": "Deep",
+    "fr": "Deep",
+    "sw": "Deep"
+  },
+  "deer": {
+    "en": "Deer",
+    "fr": "Deer",
+    "sw": "Deer"
+  },
+  "defeat": {
+    "en": "Defeat",
+    "fr": "Defeat",
+    "sw": "Defeat"
+  },
+  "defend": {
+    "en": "Defend",
+    "fr": "Defend",
+    "sw": "Defend"
+  },
+  "degree": {
+    "en": "Degree",
+    "fr": "Degree",
+    "sw": "Degree"
+  },
+  "delay": {
+    "en": "Delay",
+    "fr": "Delay",
+    "sw": "Delay"
+  },
+  "delicious": {
+    "en": "Delicious",
+    "fr": "Delicious",
+    "sw": "Delicious"
+  },
+  "deliver": {
+    "en": "Deliver",
+    "fr": "Deliver",
+    "sw": "Deliver"
+  },
+  "demand": {
+    "en": "Demand",
+    "fr": "Demand",
+    "sw": "Demand"
+  },
+  "democrat": {
+    "en": "Democrat",
+    "fr": "Democrat",
+    "sw": "Democrat"
+  },
+  "demonstrate": {
+    "en": "Demonstrate",
+    "fr": "Demonstrate",
+    "sw": "Demonstrate"
+  },
+  "dentist": {
+    "en": "Dentist",
+    "fr": "Dentist",
+    "sw": "Dentist"
+  },
+  "deny": {
+    "en": "Deny",
+    "fr": "Deny",
+    "sw": "Deny"
+  },
+  "deodorant": {
+    "en": "Deodorant",
+    "fr": "Deodorant",
+    "sw": "Deodorant"
+  },
+  "department": {
+    "en": "Department",
+    "fr": "Department",
+    "sw": "Department"
+  },
+  "depend": {
+    "en": "Depend",
+    "fr": "Depend",
+    "sw": "Depend"
+  },
+  "deposit": {
+    "en": "Deposit",
+    "fr": "Deposit",
+    "sw": "Deposit"
+  },
+  "depressed": {
+    "en": "Depressed",
+    "fr": "Depressed",
+    "sw": "Depressed"
+  },
+  "descend": {
+    "en": "Descend",
+    "fr": "Descend",
+    "sw": "Descend"
+  },
+  "describe": {
+    "en": "Describe",
+    "fr": "Describe",
+    "sw": "Describe"
+  },
+  "desert": {
+    "en": "Desert",
+    "fr": "Desert",
+    "sw": "Desert"
+  },
+  "design": {
+    "en": "Design",
+    "fr": "Design",
+    "sw": "Design"
+  },
+  "desk": {
+    "en": "Desk",
+    "fr": "Desk",
+    "sw": "Desk"
+  },
+  "dessert": {
+    "en": "Dessert",
+    "fr": "Dessert",
+    "sw": "Dessert"
+  },
+  "destroy": {
+    "en": "Destroy",
+    "fr": "Destroy",
+    "sw": "Destroy"
+  },
+  "detach": {
+    "en": "Detach",
+    "fr": "Detach",
+    "sw": "Detach"
+  },
+  "detective": {
+    "en": "Detective",
+    "fr": "Detective",
+    "sw": "Detective"
+  },
+  "determine": {
+    "en": "Determine",
+    "fr": "Determine",
+    "sw": "Determine"
+  },
+  "develop": {
+    "en": "Develop",
+    "fr": "Develop",
+    "sw": "Develop"
+  },
+  "devil": {
+    "en": "Devil",
+    "fr": "Devil",
+    "sw": "Devil"
+  },
+  "diabetes": {
+    "en": "Diabetes",
+    "fr": "Diabetes",
+    "sw": "Diabetes"
+  },
+  "diamond": {
+    "en": "Diamond",
+    "fr": "Diamond",
+    "sw": "Diamond"
+  },
+  "diaper": {
+    "en": "Diaper",
+    "fr": "Diaper",
+    "sw": "Diaper"
+  },
+  "diarrhea": {
+    "en": "Diarrhea",
+    "fr": "Diarrhea",
+    "sw": "Diarrhea"
+  },
+  "dice": {
+    "en": "Dice",
+    "fr": "Dice",
+    "sw": "Dice"
+  },
+  "dictionary": {
+    "en": "Dictionary",
+    "fr": "Dictionary",
+    "sw": "Dictionary"
+  },
+  "die": {
+    "en": "Die",
+    "fr": "Die",
+    "sw": "Die"
+  },
+  "different": {
+    "en": "Different",
+    "fr": "Different",
+    "sw": "Tofauti"
+  },
+  "difficult": {
+    "en": "Difficult",
+    "fr": "Difficult",
+    "sw": "Difficult"
+  },
+  "dig": {
+    "en": "Dig",
+    "fr": "Dig",
+    "sw": "Dig"
+  },
+  "dime": {
+    "en": "Dime",
+    "fr": "Dime",
+    "sw": "Dime"
+  },
+  "dining room": {
+    "en": "Dining Room",
+    "fr": "Dining Room",
+    "sw": "Dining Room"
+  },
+  "dinner": {
+    "en": "Dinner",
+    "fr": "Dinner",
+    "sw": "Chakula cha jioni"
+  },
+  "dinosaur": {
+    "en": "Dinosaur",
+    "fr": "Dinosaur",
+    "sw": "Dinosaur"
+  },
+  "diploma": {
+    "en": "Diploma",
+    "fr": "Diploma",
+    "sw": "Diploma"
+  },
+  "director": {
+    "en": "Director",
+    "fr": "Director",
+    "sw": "Director"
+  },
+  "dirt": {
+    "en": "Dirt",
+    "fr": "Dirt",
+    "sw": "Dirt"
+  },
+  "dirty": {
+    "en": "Dirty",
+    "fr": "Dirty",
+    "sw": "Dirty"
+  },
+  "disagree": {
+    "en": "Disagree",
+    "fr": "Disagree",
+    "sw": "Disagree"
+  },
+  "disappear": {
+    "en": "Disappear",
+    "fr": "Disappear",
+    "sw": "Disappear"
+  },
+  "discipline": {
+    "en": "Discipline",
+    "fr": "Discipline",
+    "sw": "Discipline"
+  },
+  "disconnect": {
+    "en": "Disconnect",
+    "fr": "Disconnect",
+    "sw": "Disconnect"
+  },
+  "discount": {
+    "en": "Discount",
+    "fr": "Discount",
+    "sw": "Discount"
+  },
+  "discover": {
+    "en": "Discover",
+    "fr": "Discover",
+    "sw": "Discover"
+  },
+  "discuss": {
+    "en": "Discuss",
+    "fr": "Discuss",
+    "sw": "Discuss"
+  },
+  "disgust": {
+    "en": "Disgust",
+    "fr": "Disgust",
+    "sw": "Disgust"
+  },
+  "disgusted": {
+    "en": "Disgusted",
+    "fr": "Disgusted",
+    "sw": "Disgusted"
+  },
+  "dismiss": {
+    "en": "Dismiss",
+    "fr": "Dismiss",
+    "sw": "Dismiss"
+  },
+  "dissolve": {
+    "en": "Dissolve",
+    "fr": "Dissolve",
+    "sw": "Dissolve"
+  },
+  "disturb": {
+    "en": "Disturb",
+    "fr": "Disturb",
+    "sw": "Disturb"
+  },
+  "dive": {
+    "en": "Dive",
+    "fr": "Dive",
+    "sw": "Dive"
+  },
+  "divide": {
+    "en": "Divide",
+    "fr": "Divide",
+    "sw": "Divide"
+  },
+  "division": {
+    "en": "Division",
+    "fr": "Division",
+    "sw": "Division"
+  },
+  "divorce": {
+    "en": "Divorce",
+    "fr": "Divorce",
+    "sw": "Divorce"
+  },
+  "dizzy": {
+    "en": "Dizzy",
+    "fr": "Dizzy",
+    "sw": "Dizzy"
+  },
+  "document": {
+    "en": "Document",
+    "fr": "Document",
+    "sw": "Document"
+  },
+  "doll": {
+    "en": "Doll",
+    "fr": "Doll",
+    "sw": "Doll"
+  },
+  "dollar": {
+    "en": "Dollar",
+    "fr": "Dollar",
+    "sw": "Dollar"
+  },
+  "dolphin": {
+    "en": "Dolphin",
+    "fr": "Dolphin",
+    "sw": "Dolphin"
+  },
+  "don't want": {
+    "en": "Don't Want",
+    "fr": "Don't Want",
+    "sw": "Don't Want"
+  },
+  "done": {
+    "en": "Done",
+    "fr": "Done",
+    "sw": "Done"
+  },
+  "door": {
+    "en": "Door",
+    "fr": "Door",
+    "sw": "Door"
+  },
+  "dorm": {
+    "en": "Dorm",
+    "fr": "Dorm",
+    "sw": "Dorm"
+  },
+  "dormitory": {
+    "en": "Dormitory",
+    "fr": "Dormitory",
+    "sw": "Dormitory"
+  },
+  "double": {
+    "en": "Double",
+    "fr": "Double",
+    "sw": "Double"
+  },
+  "doubt": {
+    "en": "Doubt",
+    "fr": "Doubt",
+    "sw": "Doubt"
+  },
+  "down": {
+    "en": "Down",
+    "fr": "Down",
+    "sw": "Down"
+  },
+  "downstairs": {
+    "en": "Downstairs",
+    "fr": "Downstairs",
+    "sw": "Downstairs"
+  },
+  "drag": {
+    "en": "Drag",
+    "fr": "Drag",
+    "sw": "Drag"
+  },
+  "dragon": {
+    "en": "Dragon",
+    "fr": "Dragon",
+    "sw": "Dragon"
+  },
+  "drama": {
+    "en": "Drama",
+    "fr": "Drama",
+    "sw": "Drama"
+  },
+  "draw": {
+    "en": "Draw",
+    "fr": "Draw",
+    "sw": "Draw"
+  },
+  "drawer": {
+    "en": "Drawer",
+    "fr": "Drawer",
+    "sw": "Drawer"
+  },
+  "dream": {
+    "en": "Dream",
+    "fr": "Dream",
+    "sw": "Dream"
+  },
+  "dress": {
+    "en": "Dress",
+    "fr": "Dress",
+    "sw": "Dress"
+  },
+  "drive": {
+    "en": "Drive",
+    "fr": "Drive",
+    "sw": "Drive"
+  },
+  "drop": {
+    "en": "Drop",
+    "fr": "Drop",
+    "sw": "Drop"
+  },
+  "drug": {
+    "en": "Drug",
+    "fr": "Drug",
+    "sw": "Drug"
+  },
+  "drum": {
+    "en": "Drum",
+    "fr": "Drum",
+    "sw": "Drum"
+  },
+  "drunk": {
+    "en": "Drunk",
+    "fr": "Drunk",
+    "sw": "Drunk"
+  },
+  "dry": {
+    "en": "Dry",
+    "fr": "Dry",
+    "sw": "Dry"
+  },
+  "duck": {
+    "en": "Duck",
+    "fr": "Duck",
+    "sw": "Duck"
+  },
+  "due": {
+    "en": "Due",
+    "fr": "Due",
+    "sw": "Due"
+  },
+  "dull": {
+    "en": "Dull",
+    "fr": "Dull",
+    "sw": "Dull"
+  },
+  "dumb": {
+    "en": "Dumb",
+    "fr": "Dumb",
+    "sw": "Dumb"
+  },
+  "during": {
+    "en": "During",
+    "fr": "During",
+    "sw": "During"
+  },
+  "dusk": {
+    "en": "Dusk",
+    "fr": "Dusk",
+    "sw": "Dusk"
+  },
+  "duty": {
+    "en": "Duty",
+    "fr": "Duty",
+    "sw": "Duty"
+  },
+  "dvd": {
+    "en": "Dvd",
+    "fr": "Dvd",
+    "sw": "Dvd"
+  },
+  "dye": {
+    "en": "Dye",
+    "fr": "Dye",
+    "sw": "Dye"
+  },
+  "e": {
+    "en": "E",
+    "fr": "E",
+    "sw": "E"
+  },
+  "each": {
+    "en": "Each",
+    "fr": "Each",
+    "sw": "Each"
+  },
+  "eagle": {
+    "en": "Eagle",
+    "fr": "Eagle",
+    "sw": "Eagle"
+  },
+  "ear": {
+    "en": "Ear",
+    "fr": "Ear",
+    "sw": "Ear"
+  },
+  "early": {
+    "en": "Early",
+    "fr": "Early",
+    "sw": "Early"
+  },
+  "earn": {
+    "en": "Earn",
+    "fr": "Earn",
+    "sw": "Earn"
+  },
+  "earring": {
+    "en": "Earring",
+    "fr": "Earring",
+    "sw": "Earring"
+  },
+  "earth": {
+    "en": "Earth",
+    "fr": "Earth",
+    "sw": "Earth"
+  },
+  "earthquake": {
+    "en": "Earthquake",
+    "fr": "Earthquake",
+    "sw": "Earthquake"
+  },
+  "east": {
+    "en": "East",
+    "fr": "East",
+    "sw": "East"
+  },
+  "easter": {
+    "en": "Easter",
+    "fr": "Easter",
+    "sw": "Easter"
+  },
+  "easy": {
+    "en": "Easy",
+    "fr": "Easy",
+    "sw": "Easy"
+  },
+  "economy": {
+    "en": "Economy",
+    "fr": "Economy",
+    "sw": "Economy"
+  },
+  "educate": {
+    "en": "Educate",
+    "fr": "Educate",
+    "sw": "Educate"
+  },
+  "education": {
+    "en": "Education",
+    "fr": "Education",
+    "sw": "Education"
+  },
+  "effort": {
+    "en": "Effort",
+    "fr": "Effort",
+    "sw": "Effort"
+  },
+  "egg": {
+    "en": "Egg",
+    "fr": "Egg",
+    "sw": "Egg"
+  },
+  "egypt": {
+    "en": "Egypt",
+    "fr": "Egypt",
+    "sw": "Egypt"
+  },
+  "eight": {
+    "en": "Eight",
+    "fr": "Eight",
+    "sw": "Eight"
+  },
+  "eighteen": {
+    "en": "Eighteen",
+    "fr": "Eighteen",
+    "sw": "Eighteen"
+  },
+  "either": {
+    "en": "Either",
+    "fr": "Either",
+    "sw": "Either"
+  },
+  "electrician": {
+    "en": "Electrician",
+    "fr": "Electrician",
+    "sw": "Electrician"
+  },
+  "electricity": {
+    "en": "Electricity",
+    "fr": "Electricity",
+    "sw": "Electricity"
+  },
+  "elementary": {
+    "en": "Elementary",
+    "fr": "Elementary",
+    "sw": "Elementary"
+  },
+  "elephant": {
+    "en": "Elephant",
+    "fr": "Elephant",
+    "sw": "Elephant"
+  },
+  "elevator": {
+    "en": "Elevator",
+    "fr": "Elevator",
+    "sw": "Elevator"
+  },
+  "else": {
+    "en": "Else",
+    "fr": "Else",
+    "sw": "Else"
+  },
+  "email": {
+    "en": "Email",
+    "fr": "Email",
+    "sw": "Email"
+  },
+  "embarrass": {
+    "en": "Embarrass",
+    "fr": "Embarrass",
+    "sw": "Embarrass"
+  },
+  "emergency": {
+    "en": "Emergency",
+    "fr": "Emergency",
+    "sw": "Emergency"
+  },
+  "emotion": {
+    "en": "Emotion",
+    "fr": "Emotion",
+    "sw": "Emotion"
+  },
+  "empty": {
+    "en": "Empty",
+    "fr": "Empty",
+    "sw": "Empty"
+  },
+  "encourage": {
+    "en": "Encourage",
+    "fr": "Encourage",
+    "sw": "Encourage"
+  },
+  "end": {
+    "en": "End",
+    "fr": "End",
+    "sw": "End"
+  },
+  "energy": {
+    "en": "Energy",
+    "fr": "Energy",
+    "sw": "Energy"
+  },
+  "engage": {
+    "en": "Engage",
+    "fr": "Engage",
+    "sw": "Engage"
+  },
+  "engagement": {
+    "en": "Engagement",
+    "fr": "Engagement",
+    "sw": "Engagement"
+  },
+  "engine": {
+    "en": "Engine",
+    "fr": "Engine",
+    "sw": "Engine"
+  },
+  "engineer": {
+    "en": "Engineer",
+    "fr": "Engineer",
+    "sw": "Engineer"
+  },
+  "england": {
+    "en": "England",
+    "fr": "England",
+    "sw": "England"
+  },
+  "english": {
+    "en": "English",
+    "fr": "English",
+    "sw": "English"
+  },
+  "enormous": {
+    "en": "Enormous",
+    "fr": "Enormous",
+    "sw": "Enormous"
+  },
+  "enough": {
+    "en": "Enough",
+    "fr": "Enough",
+    "sw": "Enough"
+  },
+  "enter": {
+    "en": "Enter",
+    "fr": "Enter",
+    "sw": "Enter"
+  },
+  "envelope": {
+    "en": "Envelope",
+    "fr": "Envelope",
+    "sw": "Envelope"
+  },
+  "environment": {
+    "en": "Environment",
+    "fr": "Environment",
+    "sw": "Environment"
+  },
+  "equal": {
+    "en": "Equal",
+    "fr": "Equal",
+    "sw": "Equal"
+  },
+  "erase": {
+    "en": "Erase",
+    "fr": "Erase",
+    "sw": "Erase"
+  },
+  "eraser": {
+    "en": "Eraser",
+    "fr": "Eraser",
+    "sw": "Eraser"
+  },
+  "escape": {
+    "en": "Escape",
+    "fr": "Escape",
+    "sw": "Escape"
+  },
+  "establish": {
+    "en": "Establish",
+    "fr": "Establish",
+    "sw": "Establish"
+  },
+  "eternity": {
+    "en": "Eternity",
+    "fr": "Eternity",
+    "sw": "Eternity"
+  },
+  "europe": {
+    "en": "Europe",
+    "fr": "Europe",
+    "sw": "Ulaya"
+  },
+  "evaluate": {
+    "en": "Evaluate",
+    "fr": "Evaluate",
+    "sw": "Evaluate"
+  },
+  "evening": {
+    "en": "Evening",
+    "fr": "Evening",
+    "sw": "Evening"
+  },
+  "event": {
+    "en": "Event",
+    "fr": "Event",
+    "sw": "Event"
+  },
+  "every": {
+    "en": "Every",
+    "fr": "Every",
+    "sw": "Every"
+  },
+  "every monday": {
+    "en": "Every Monday",
+    "fr": "Every Monday",
+    "sw": "Every Monday"
+  },
+  "every tuesday": {
+    "en": "Every Tuesday",
+    "fr": "Every Tuesday",
+    "sw": "Every Tuesday"
+  },
+  "everyday": {
+    "en": "Everyday",
+    "fr": "Everyday",
+    "sw": "Everyday"
+  },
+  "everything": {
+    "en": "Everything",
+    "fr": "Everything",
+    "sw": "Everything"
+  },
+  "evidence": {
+    "en": "Evidence",
+    "fr": "Evidence",
+    "sw": "Evidence"
+  },
+  "exact": {
+    "en": "Exact",
+    "fr": "Exact",
+    "sw": "Exact"
+  },
+  "exaggerate": {
+    "en": "Exaggerate",
+    "fr": "Exaggerate",
+    "sw": "Exaggerate"
+  },
+  "example": {
+    "en": "Example",
+    "fr": "Example",
+    "sw": "Example"
+  },
+  "except": {
+    "en": "Except",
+    "fr": "Except",
+    "sw": "Except"
+  },
+  "exchange": {
+    "en": "Exchange",
+    "fr": "Exchange",
+    "sw": "Exchange"
+  },
+  "excited": {
+    "en": "Excited",
+    "fr": "Excited",
+    "sw": "Excited"
+  },
+  "excuse": {
+    "en": "Excuse",
+    "fr": "Excuse",
+    "sw": "Excuse"
+  },
+  "exercise": {
+    "en": "Exercise",
+    "fr": "Exercise",
+    "sw": "Exercise"
+  },
+  "exhibit": {
+    "en": "Exhibit",
+    "fr": "Exhibit",
+    "sw": "Exhibit"
+  },
+  "expand": {
+    "en": "Expand",
+    "fr": "Expand",
+    "sw": "Expand"
+  },
+  "expect": {
+    "en": "Expect",
+    "fr": "Expect",
+    "sw": "Expect"
+  },
+  "expensive": {
+    "en": "Expensive",
+    "fr": "Expensive",
+    "sw": "Expensive"
+  },
+  "experience": {
+    "en": "Experience",
+    "fr": "Experience",
+    "sw": "Experience"
+  },
+  "experiment": {
+    "en": "Experiment",
+    "fr": "Experiment",
+    "sw": "Experiment"
+  },
+  "expert": {
+    "en": "Expert",
+    "fr": "Expert",
+    "sw": "Expert"
+  },
+  "explain": {
+    "en": "Explain",
+    "fr": "Explain",
+    "sw": "Explain"
+  },
+  "explode": {
+    "en": "Explode",
+    "fr": "Explode",
+    "sw": "Explode"
+  },
+  "express": {
+    "en": "Express",
+    "fr": "Express",
+    "sw": "Express"
+  },
+  "eye": {
+    "en": "Eye",
+    "fr": "Eye",
+    "sw": "Eye"
+  },
+  "eyeglasses": {
+    "en": "Eyeglasses",
+    "fr": "Eyeglasses",
+    "sw": "Eyeglasses"
+  },
+  "eyes": {
+    "en": "Eyes",
+    "fr": "Eyes",
+    "sw": "Eyes"
+  },
+  "f": {
+    "en": "F",
+    "fr": "F",
+    "sw": "F"
+  },
+  "face": {
+    "en": "Face",
+    "fr": "Face",
+    "sw": "Face"
+  },
+  "fact": {
+    "en": "Fact",
+    "fr": "Fact",
+    "sw": "Fact"
+  },
+  "faculty": {
+    "en": "Faculty",
+    "fr": "Faculty",
+    "sw": "Faculty"
+  },
+  "fail": {
+    "en": "Fail",
+    "fr": "Fail",
+    "sw": "Fail"
+  },
+  "fairy": {
+    "en": "Fairy",
+    "fr": "Fairy",
+    "sw": "Fairy"
+  },
+  "fake": {
+    "en": "Fake",
+    "fr": "Fake",
+    "sw": "Fake"
+  },
+  "fall in love": {
+    "en": "Fall In Love",
+    "fr": "Fall In Love",
+    "sw": "Fall In Love"
+  },
+  "familiar": {
+    "en": "Familiar",
+    "fr": "Familiar",
+    "sw": "Familiar"
+  },
+  "famous": {
+    "en": "Famous",
+    "fr": "Famous",
+    "sw": "Famous"
+  },
+  "fancy": {
+    "en": "Fancy",
+    "fr": "Fancy",
+    "sw": "Fancy"
+  },
+  "far": {
+    "en": "Far",
+    "fr": "Far",
+    "sw": "Far"
+  },
+  "farm": {
+    "en": "Farm",
+    "fr": "Farm",
+    "sw": "Farm"
+  },
+  "farmer": {
+    "en": "Farmer",
+    "fr": "Farmer",
+    "sw": "Farmer"
+  },
+  "fast": {
+    "en": "Fast",
+    "fr": "Fast",
+    "sw": "Fast"
+  },
+  "fat": {
+    "en": "Fat",
+    "fr": "Fat",
+    "sw": "Fat"
+  },
+  "father": {
+    "en": "Father",
+    "fr": "Père",
+    "sw": "Baba"
+  },
+  "fault": {
+    "en": "Fault",
+    "fr": "Fault",
+    "sw": "Fault"
+  },
+  "favorite": {
+    "en": "Favorite",
+    "fr": "Favorite",
+    "sw": "Favorite"
+  },
+  "fear": {
+    "en": "Fear",
+    "fr": "Fear",
+    "sw": "Fear"
+  },
+  "february": {
+    "en": "February",
+    "fr": "February",
+    "sw": "February"
+  },
+  "federal": {
+    "en": "Federal",
+    "fr": "Federal",
+    "sw": "Federal"
+  },
+  "feed": {
+    "en": "Feed",
+    "fr": "Feed",
+    "sw": "Feed"
+  },
+  "feedback": {
+    "en": "Feedback",
+    "fr": "Feedback",
+    "sw": "Feedback"
+  },
+  "feel": {
+    "en": "Feel",
+    "fr": "Feel",
+    "sw": "Feel"
+  },
+  "fence": {
+    "en": "Fence",
+    "fr": "Fence",
+    "sw": "Fence"
+  },
+  "festival": {
+    "en": "Festival",
+    "fr": "Festival",
+    "sw": "Festival"
+  },
+  "few": {
+    "en": "Few",
+    "fr": "Few",
+    "sw": "Few"
+  },
+  "fight": {
+    "en": "Fight",
+    "fr": "Fight",
+    "sw": "Fight"
+  },
+  "final": {
+    "en": "Final",
+    "fr": "Final",
+    "sw": "Final"
+  },
+  "finally": {
+    "en": "Finally",
+    "fr": "Finally",
+    "sw": "Finally"
+  },
+  "finance": {
+    "en": "Finance",
+    "fr": "Finance",
+    "sw": "Finance"
+  },
+  "find": {
+    "en": "Find",
+    "fr": "Find",
+    "sw": "Find"
+  },
+  "fingerspell": {
+    "en": "Fingerspell",
+    "fr": "Fingerspell",
+    "sw": "Fingerspell"
+  },
+  "fire": {
+    "en": "Fire",
+    "fr": "Fire",
+    "sw": "Moto"
+  },
+  "firefighter": {
+    "en": "Firefighter",
+    "fr": "Firefighter",
+    "sw": "Firefighter"
+  },
+  "first": {
+    "en": "First",
+    "fr": "First",
+    "sw": "First"
+  },
+  "fishing": {
+    "en": "Fishing",
+    "fr": "Fishing",
+    "sw": "Fishing"
+  },
+  "five": {
+    "en": "Five",
+    "fr": "Five",
+    "sw": "Five"
+  },
+  "fix": {
+    "en": "Fix",
+    "fr": "Fix",
+    "sw": "Fix"
+  },
+  "flag": {
+    "en": "Flag",
+    "fr": "Flag",
+    "sw": "Flag"
+  },
+  "flatter": {
+    "en": "Flatter",
+    "fr": "Flatter",
+    "sw": "Flatter"
+  },
+  "flexible": {
+    "en": "Flexible",
+    "fr": "Flexible",
+    "sw": "Flexible"
+  },
+  "flirt": {
+    "en": "Flirt",
+    "fr": "Flirt",
+    "sw": "Flirt"
+  },
+  "flood": {
+    "en": "Flood",
+    "fr": "Flood",
+    "sw": "Flood"
+  },
+  "floor": {
+    "en": "Floor",
+    "fr": "Floor",
+    "sw": "Floor"
+  },
+  "florida": {
+    "en": "Florida",
+    "fr": "Florida",
+    "sw": "Florida"
+  },
+  "flower": {
+    "en": "Flower",
+    "fr": "Flower",
+    "sw": "Flower"
+  },
+  "flute": {
+    "en": "Flute",
+    "fr": "Flute",
+    "sw": "Flute"
+  },
+  "fly": {
+    "en": "Fly",
+    "fr": "Fly",
+    "sw": "Fly"
+  },
+  "fold": {
+    "en": "Fold",
+    "fr": "Fold",
+    "sw": "Fold"
+  },
+  "follow": {
+    "en": "Follow",
+    "fr": "Follow",
+    "sw": "Follow"
+  },
+  "food": {
+    "en": "Food",
+    "fr": "Food",
+    "sw": "Food"
+  },
+  "fool": {
+    "en": "Fool",
+    "fr": "Fool",
+    "sw": "Fool"
+  },
+  "football": {
+    "en": "Football",
+    "fr": "Football",
+    "sw": "Football"
+  },
+  "for": {
+    "en": "For",
+    "fr": "For",
+    "sw": "For"
+  },
+  "forbid": {
+    "en": "Forbid",
+    "fr": "Forbid",
+    "sw": "Forbid"
+  },
+  "forest": {
+    "en": "Forest",
+    "fr": "Forest",
+    "sw": "Forest"
+  },
+  "forever": {
+    "en": "Forever",
+    "fr": "Forever",
+    "sw": "Forever"
+  },
+  "forgive": {
+    "en": "Forgive",
+    "fr": "Forgive",
+    "sw": "Forgive"
+  },
+  "fork": {
+    "en": "Fork",
+    "fr": "Fork",
+    "sw": "Fork"
+  },
+  "form": {
+    "en": "Form",
+    "fr": "Form",
+    "sw": "Form"
+  },
+  "former": {
+    "en": "Former",
+    "fr": "Former",
+    "sw": "Former"
+  },
+  "four": {
+    "en": "Four",
+    "fr": "Four",
+    "sw": "Four"
+  },
+  "fourth": {
+    "en": "Fourth",
+    "fr": "Fourth",
+    "sw": "Fourth"
+  },
+  "fox": {
+    "en": "Fox",
+    "fr": "Fox",
+    "sw": "Fox"
+  },
+  "france": {
+    "en": "France",
+    "fr": "France",
+    "sw": "France"
+  },
+  "free": {
+    "en": "Free",
+    "fr": "Free",
+    "sw": "Free"
+  },
+  "freeway": {
+    "en": "Freeway",
+    "fr": "Freeway",
+    "sw": "Freeway"
+  },
+  "freeze": {
+    "en": "Freeze",
+    "fr": "Freeze",
+    "sw": "Freeze"
+  },
+  "french": {
+    "en": "French",
+    "fr": "French",
+    "sw": "French"
+  },
+  "french fries": {
+    "en": "French Fries",
+    "fr": "French Fries",
+    "sw": "French Fries"
+  },
+  "friday": {
+    "en": "Friday",
+    "fr": "Friday",
+    "sw": "Friday"
   },
   "friend": {
     "en": "Friend",
     "fr": "Ami",
-    "sw": "Rafiki",
-    "description": "A person who is close and trusted",
-    "intent": "person",
-    "related_signs": ["you", "me", "family"]
+    "sw": "Rafiki"
   },
-  "need": {
-    "en": "Need",
-    "fr": "Avoir besoin",
-    "sw": "Hitaji",
-    "description": "Expressing necessity or requirement",
-    "intent": "statement",
-    "related_signs": ["want", "help", "please"]
+  "friendly": {
+    "en": "Friendly",
+    "fr": "Friendly",
+    "sw": "Friendly"
   },
-  "like": {
-    "en": "Like",
-    "fr": "Apprécier",
-    "sw": "Kupenda",
-    "description": "Expressing preference or enjoyment",
-    "intent": "statement",
-    "related_signs": ["love", "want", "good"]
+  "frog": {
+    "en": "Frog",
+    "fr": "Frog",
+    "sw": "Frog"
   },
-  "cold": {
-    "en": "Cold",
-    "fr": "Froid",
-    "sw": "Baridi",
-    "description": "Low temperature or feeling cold",
-    "intent": "statement",
-    "related_signs": ["hot", "water", "sick"]
+  "from": {
+    "en": "From",
+    "fr": "From",
+    "sw": "From"
   },
-  "hot": {
-    "en": "Hot",
-    "fr": "Chaud",
-    "sw": "Moto",
-    "description": "High temperature or feeling hot",
-    "intent": "statement",
-    "related_signs": ["cold", "food", "water"]
+  "from now on": {
+    "en": "From Now On",
+    "fr": "From Now On",
+    "sw": "From Now On"
   },
-  "again": {
-    "en": "Again",
-    "fr": "Encore",
-    "sw": "Tena",
-    "description": "Repeating an action or event",
-    "intent": "statement",
-    "related_signs": ["more", "stop", "finish"]
+  "front": {
+    "en": "Front",
+    "fr": "Front",
+    "sw": "Front"
+  },
+  "fruit": {
+    "en": "Fruit",
+    "fr": "Fruit",
+    "sw": "Fruit"
+  },
+  "fun": {
+    "en": "Fun",
+    "fr": "Fun",
+    "sw": "Furaha"
+  },
+  "function": {
+    "en": "Function",
+    "fr": "Function",
+    "sw": "Function"
+  },
+  "funeral": {
+    "en": "Funeral",
+    "fr": "Funeral",
+    "sw": "Funeral"
+  },
+  "funny": {
+    "en": "Funny",
+    "fr": "Funny",
+    "sw": "Funny"
+  },
+  "furniture": {
+    "en": "Furniture",
+    "fr": "Furniture",
+    "sw": "Furniture"
+  },
+  "future": {
+    "en": "Future",
+    "fr": "Future",
+    "sw": "Future"
+  },
+  "g": {
+    "en": "G",
+    "fr": "G",
+    "sw": "G"
+  },
+  "gallaudet": {
+    "en": "Gallaudet",
+    "fr": "Gallaudet",
+    "sw": "Gallaudet"
+  },
+  "gamble": {
+    "en": "Gamble",
+    "fr": "Gamble",
+    "sw": "Gamble"
+  },
+  "game": {
+    "en": "Game",
+    "fr": "Game",
+    "sw": "Game"
+  },
+  "gang": {
+    "en": "Gang",
+    "fr": "Gang",
+    "sw": "Gang"
+  },
+  "garage": {
+    "en": "Garage",
+    "fr": "Garage",
+    "sw": "Garage"
+  },
+  "gas": {
+    "en": "Gas",
+    "fr": "Gas",
+    "sw": "Gas"
+  },
+  "gasoline": {
+    "en": "Gasoline",
+    "fr": "Gasoline",
+    "sw": "Gasoline"
+  },
+  "gather": {
+    "en": "Gather",
+    "fr": "Gather",
+    "sw": "Gather"
+  },
+  "gay": {
+    "en": "Gay",
+    "fr": "Gay",
+    "sw": "Gay"
+  },
+  "general": {
+    "en": "General",
+    "fr": "General",
+    "sw": "General"
+  },
+  "generation": {
+    "en": "Generation",
+    "fr": "Generation",
+    "sw": "Generation"
+  },
+  "geography": {
+    "en": "Geography",
+    "fr": "Geography",
+    "sw": "Geography"
+  },
+  "geometry": {
+    "en": "Geometry",
+    "fr": "Geometry",
+    "sw": "Geometry"
+  },
+  "german": {
+    "en": "German",
+    "fr": "German",
+    "sw": "German"
+  },
+  "germany": {
+    "en": "Germany",
+    "fr": "Germany",
+    "sw": "Germany"
+  },
+  "get": {
+    "en": "Get",
+    "fr": "Get",
+    "sw": "Get"
+  },
+  "get up": {
+    "en": "Get Up",
+    "fr": "Get Up",
+    "sw": "Get Up"
+  },
+  "ghost": {
+    "en": "Ghost",
+    "fr": "Ghost",
+    "sw": "Ghost"
+  },
+  "gift": {
+    "en": "Gift",
+    "fr": "Gift",
+    "sw": "Gift"
+  },
+  "giraffe": {
+    "en": "Giraffe",
+    "fr": "Giraffe",
+    "sw": "Giraffe"
+  },
+  "girl": {
+    "en": "Girl",
+    "fr": "Girl",
+    "sw": "Girl"
+  },
+  "girlfriend": {
+    "en": "Girlfriend",
+    "fr": "Girlfriend",
+    "sw": "Girlfriend"
+  },
+  "give up": {
+    "en": "Give Up",
+    "fr": "Give Up",
+    "sw": "Give Up"
+  },
+  "glass": {
+    "en": "Glass",
+    "fr": "Glass",
+    "sw": "Glass"
+  },
+  "glasses": {
+    "en": "Glasses",
+    "fr": "Glasses",
+    "sw": "Glasses"
+  },
+  "gloves": {
+    "en": "Gloves",
+    "fr": "Gloves",
+    "sw": "Gloves"
+  },
+  "goal": {
+    "en": "Goal",
+    "fr": "Goal",
+    "sw": "Goal"
+  },
+  "goat": {
+    "en": "Goat",
+    "fr": "Goat",
+    "sw": "Goat"
+  },
+  "god": {
+    "en": "God",
+    "fr": "God",
+    "sw": "God"
+  },
+  "gold": {
+    "en": "Gold",
+    "fr": "Gold",
+    "sw": "Gold"
+  },
+  "golf": {
+    "en": "Golf",
+    "fr": "Golf",
+    "sw": "Golf"
+  },
+  "gone": {
+    "en": "Gone",
+    "fr": "Gone",
+    "sw": "Gone"
+  },
+  "good": {
+    "en": "Good",
+    "fr": "Bon",
+    "sw": "Nzuri"
+  },
+  "goodbye": {
+    "en": "Goodbye",
+    "fr": "Goodbye",
+    "sw": "Goodbye"
+  },
+  "gorilla": {
+    "en": "Gorilla",
+    "fr": "Gorilla",
+    "sw": "Gorilla"
+  },
+  "gossip": {
+    "en": "Gossip",
+    "fr": "Gossip",
+    "sw": "Gossip"
+  },
+  "government": {
+    "en": "Government",
+    "fr": "Government",
+    "sw": "Government"
+  },
+  "grab": {
+    "en": "Grab",
+    "fr": "Grab",
+    "sw": "Grab"
+  },
+  "graduation": {
+    "en": "Graduation",
+    "fr": "Graduation",
+    "sw": "Graduation"
+  },
+  "grammar": {
+    "en": "Grammar",
+    "fr": "Grammar",
+    "sw": "Grammar"
+  },
+  "grandfather": {
+    "en": "Grandfather",
+    "fr": "Grandfather",
+    "sw": "Grandfather"
+  },
+  "grandma": {
+    "en": "Grandma",
+    "fr": "Grandma",
+    "sw": "Grandma"
+  },
+  "grandmother": {
+    "en": "Grandmother",
+    "fr": "Grandmother",
+    "sw": "Grandmother"
+  },
+  "grapes": {
+    "en": "Grapes",
+    "fr": "Grapes",
+    "sw": "Grapes"
+  },
+  "grass": {
+    "en": "Grass",
+    "fr": "Grass",
+    "sw": "Grass"
+  },
+  "grateful": {
+    "en": "Grateful",
+    "fr": "Grateful",
+    "sw": "Grateful"
+  },
+  "gray": {
+    "en": "Gray",
+    "fr": "Gray",
+    "sw": "Gray"
+  },
+  "great": {
+    "en": "Great",
+    "fr": "Great",
+    "sw": "Great"
+  },
+  "greece": {
+    "en": "Greece",
+    "fr": "Greece",
+    "sw": "Greece"
+  },
+  "green": {
+    "en": "Green",
+    "fr": "Green",
+    "sw": "Kijani"
+  },
+  "grey": {
+    "en": "Grey",
+    "fr": "Grey",
+    "sw": "Grey"
+  },
+  "group": {
+    "en": "Group",
+    "fr": "Group",
+    "sw": "Group"
+  },
+  "grow": {
+    "en": "Grow",
+    "fr": "Grow",
+    "sw": "Grow"
+  },
+  "grow up": {
+    "en": "Grow Up",
+    "fr": "Grow Up",
+    "sw": "Grow Up"
+  },
+  "guess": {
+    "en": "Guess",
+    "fr": "Guess",
+    "sw": "Guess"
+  },
+  "guide": {
+    "en": "Guide",
+    "fr": "Guide",
+    "sw": "Guide"
+  },
+  "guilty": {
+    "en": "Guilty",
+    "fr": "Guilty",
+    "sw": "Guilty"
+  },
+  "guitar": {
+    "en": "Guitar",
+    "fr": "Guitar",
+    "sw": "Guitar"
+  },
+  "gum": {
+    "en": "Gum",
+    "fr": "Gum",
+    "sw": "Gum"
+  },
+  "gun": {
+    "en": "Gun",
+    "fr": "Gun",
+    "sw": "Gun"
+  },
+  "gymnastics": {
+    "en": "Gymnastics",
+    "fr": "Gymnastics",
+    "sw": "Gymnastics"
+  },
+  "h": {
+    "en": "H",
+    "fr": "H",
+    "sw": "H"
+  },
+  "habit": {
+    "en": "Habit",
+    "fr": "Habit",
+    "sw": "Habit"
+  },
+  "hair": {
+    "en": "Hair",
+    "fr": "Hair",
+    "sw": "Hair"
+  },
+  "haircut": {
+    "en": "Haircut",
+    "fr": "Haircut",
+    "sw": "Haircut"
+  },
+  "half": {
+    "en": "Half",
+    "fr": "Half",
+    "sw": "Half"
+  },
+  "halloween": {
+    "en": "Halloween",
+    "fr": "Halloween",
+    "sw": "Halloween"
+  },
+  "hamburger": {
+    "en": "Hamburger",
+    "fr": "Hamburger",
+    "sw": "Hamburger"
+  },
+  "hammer": {
+    "en": "Hammer",
+    "fr": "Hammer",
+    "sw": "Hammer"
+  },
+  "hang up": {
+    "en": "Hang Up",
+    "fr": "Hang Up",
+    "sw": "Hang Up"
+  },
+  "hanukkah": {
+    "en": "Hanukkah",
+    "fr": "Hanukkah",
+    "sw": "Hanukkah"
+  },
+  "happen": {
+    "en": "Happen",
+    "fr": "Happen",
+    "sw": "Happen"
+  },
+  "happy": {
+    "en": "Happy",
+    "fr": "Happy",
+    "sw": "Furaha"
+  },
+  "hard": {
+    "en": "Hard",
+    "fr": "Hard",
+    "sw": "Hard"
+  },
+  "hard of hearing": {
+    "en": "Hard Of Hearing",
+    "fr": "Hard Of Hearing",
+    "sw": "Hard Of Hearing"
+  },
+  "hate": {
+    "en": "Hate",
+    "fr": "Hate",
+    "sw": "Hate"
+  },
+  "have": {
+    "en": "Have",
+    "fr": "Have",
+    "sw": "Have"
+  },
+  "hawaii": {
+    "en": "Hawaii",
+    "fr": "Hawaii",
+    "sw": "Hawaii"
+  },
+  "head": {
+    "en": "Head",
+    "fr": "Head",
+    "sw": "Head"
+  },
+  "headache": {
+    "en": "Headache",
+    "fr": "Headache",
+    "sw": "Headache"
+  },
+  "health": {
+    "en": "Health",
+    "fr": "Health",
+    "sw": "Health"
+  },
+  "heap": {
+    "en": "Heap",
+    "fr": "Heap",
+    "sw": "Heap"
+  },
+  "hear": {
+    "en": "Hear",
+    "fr": "Hear",
+    "sw": "Hear"
+  },
+  "hearing aid": {
+    "en": "Hearing Aid",
+    "fr": "Hearing Aid",
+    "sw": "Hearing Aid"
+  },
+  "heart": {
+    "en": "Heart",
+    "fr": "Heart",
+    "sw": "Heart"
+  },
+  "heart attack": {
+    "en": "Heart Attack",
+    "fr": "Heart Attack",
+    "sw": "Heart Attack"
+  },
+  "heaven": {
+    "en": "Heaven",
+    "fr": "Heaven",
+    "sw": "Heaven"
+  },
+  "heavy": {
+    "en": "Heavy",
+    "fr": "Heavy",
+    "sw": "Heavy"
+  },
+  "helicopter": {
+    "en": "Helicopter",
+    "fr": "Helicopter",
+    "sw": "Helicopter"
+  },
+  "helmet": {
+    "en": "Helmet",
+    "fr": "Helmet",
+    "sw": "Helmet"
+  },
+  "her": {
+    "en": "Her",
+    "fr": "Her",
+    "sw": "Her"
+  },
+  "here": {
+    "en": "Here",
+    "fr": "Here",
+    "sw": "Hapa"
+  },
+  "herself": {
+    "en": "Herself",
+    "fr": "Herself",
+    "sw": "Herself"
+  },
+  "hide": {
+    "en": "Hide",
+    "fr": "Hide",
+    "sw": "Hide"
+  },
+  "high": {
+    "en": "High",
+    "fr": "High",
+    "sw": "High"
+  },
+  "high school": {
+    "en": "High School",
+    "fr": "High School",
+    "sw": "High School"
+  },
+  "highway": {
+    "en": "Highway",
+    "fr": "Highway",
+    "sw": "Highway"
+  },
+  "hill": {
+    "en": "Hill",
+    "fr": "Hill",
+    "sw": "Hill"
+  },
+  "hippopotamus": {
+    "en": "Hippopotamus",
+    "fr": "Hippopotamus",
+    "sw": "Hippopotamus"
+  },
+  "his": {
+    "en": "His",
+    "fr": "His",
+    "sw": "His"
+  },
+  "history": {
+    "en": "History",
+    "fr": "History",
+    "sw": "History"
+  },
+  "hit": {
+    "en": "Hit",
+    "fr": "Hit",
+    "sw": "Hit"
+  },
+  "hockey": {
+    "en": "Hockey",
+    "fr": "Hockey",
+    "sw": "Hockey"
+  },
+  "hold": {
+    "en": "Hold",
+    "fr": "Hold",
+    "sw": "Hold"
+  },
+  "holy": {
+    "en": "Holy",
+    "fr": "Holy",
+    "sw": "Holy"
+  },
+  "home": {
+    "en": "Home",
+    "fr": "Maison",
+    "sw": "Nyumbani"
+  },
+  "homework": {
+    "en": "Homework",
+    "fr": "Homework",
+    "sw": "Homework"
+  },
+  "honest": {
+    "en": "Honest",
+    "fr": "Honest",
+    "sw": "Honest"
+  },
+  "honey": {
+    "en": "Honey",
+    "fr": "Honey",
+    "sw": "Honey"
+  },
+  "honor": {
+    "en": "Honor",
+    "fr": "Honor",
+    "sw": "Honor"
+  },
+  "hop": {
+    "en": "Hop",
+    "fr": "Hop",
+    "sw": "Hop"
+  },
+  "hope": {
+    "en": "Hope",
+    "fr": "Hope",
+    "sw": "Hope"
+  },
+  "horse": {
+    "en": "Horse",
+    "fr": "Horse",
+    "sw": "Horse"
+  },
+  "hospital": {
+    "en": "Hospital",
+    "fr": "Hospital",
+    "sw": "Hospital"
+  },
+  "host": {
+    "en": "Host",
+    "fr": "Host",
+    "sw": "Host"
+  },
+  "hot dog": {
+    "en": "Hot Dog",
+    "fr": "Hot Dog",
+    "sw": "Hot Dog"
+  },
+  "hour": {
+    "en": "Hour",
+    "fr": "Hour",
+    "sw": "Hour"
+  },
+  "house": {
+    "en": "House",
+    "fr": "House",
+    "sw": "Nyumba"
+  },
+  "hug": {
+    "en": "Hug",
+    "fr": "Hug",
+    "sw": "Hug"
+  },
+  "human": {
+    "en": "Human",
+    "fr": "Human",
+    "sw": "Human"
+  },
+  "humble": {
+    "en": "Humble",
+    "fr": "Humble",
+    "sw": "Humble"
+  },
+  "hungry": {
+    "en": "Hungry",
+    "fr": "Hungry",
+    "sw": "Njaa"
+  },
+  "hunt": {
+    "en": "Hunt",
+    "fr": "Hunt",
+    "sw": "Hunt"
+  },
+  "hurricane": {
+    "en": "Hurricane",
+    "fr": "Hurricane",
+    "sw": "Hurricane"
+  },
+  "hurry": {
+    "en": "Hurry",
+    "fr": "Hurry",
+    "sw": "Hurry"
+  },
+  "hurt": {
+    "en": "Hurt",
+    "fr": "Hurt",
+    "sw": "Maumivu"
+  },
+  "husband": {
+    "en": "Husband",
+    "fr": "Husband",
+    "sw": "Husband"
+  },
+  "i": {
+    "en": "I",
+    "fr": "I",
+    "sw": "I"
+  },
+  "ice cream": {
+    "en": "Ice Cream",
+    "fr": "Ice Cream",
+    "sw": "Ice Cream"
+  },
+  "idea": {
+    "en": "Idea",
+    "fr": "Idea",
+    "sw": "Idea"
+  },
+  "identify": {
+    "en": "Identify",
+    "fr": "Identify",
+    "sw": "Identify"
+  },
+  "if": {
+    "en": "If",
+    "fr": "If",
+    "sw": "If"
+  },
+  "ignore": {
+    "en": "Ignore",
+    "fr": "Ignore",
+    "sw": "Ignore"
+  },
+  "ill": {
+    "en": "Ill",
+    "fr": "Ill",
+    "sw": "Ill"
+  },
+  "illegal": {
+    "en": "Illegal",
+    "fr": "Illegal",
+    "sw": "Illegal"
+  },
+  "image": {
+    "en": "Image",
+    "fr": "Image",
+    "sw": "Image"
+  },
+  "impact": {
+    "en": "Impact",
+    "fr": "Impact",
+    "sw": "Impact"
+  },
+  "important": {
+    "en": "Important",
+    "fr": "Important",
+    "sw": "Muhimu"
+  },
+  "impossible": {
+    "en": "Impossible",
+    "fr": "Impossible",
+    "sw": "Impossible"
+  },
+  "improve": {
+    "en": "Improve",
+    "fr": "Improve",
+    "sw": "Improve"
+  },
+  "in": {
+    "en": "In",
+    "fr": "In",
+    "sw": "In"
+  },
+  "include": {
+    "en": "Include",
+    "fr": "Include",
+    "sw": "Include"
+  },
+  "increase": {
+    "en": "Increase",
+    "fr": "Increase",
+    "sw": "Increase"
+  },
+  "independent": {
+    "en": "Independent",
+    "fr": "Independent",
+    "sw": "Independent"
+  },
+  "india": {
+    "en": "India",
+    "fr": "India",
+    "sw": "India"
+  },
+  "individual": {
+    "en": "Individual",
+    "fr": "Individual",
+    "sw": "Individual"
+  },
+  "infection": {
+    "en": "Infection",
+    "fr": "Infection",
+    "sw": "Infection"
+  },
+  "influence": {
+    "en": "Influence",
+    "fr": "Influence",
+    "sw": "Influence"
+  },
+  "inform": {
+    "en": "Inform",
+    "fr": "Inform",
+    "sw": "Inform"
+  },
+  "information": {
+    "en": "Information",
+    "fr": "Information",
+    "sw": "Information"
+  },
+  "innocent": {
+    "en": "Innocent",
+    "fr": "Innocent",
+    "sw": "Innocent"
+  },
+  "insect": {
+    "en": "Insect",
+    "fr": "Insect",
+    "sw": "Insect"
+  },
+  "inside": {
+    "en": "Inside",
+    "fr": "Inside",
+    "sw": "Inside"
+  },
+  "inspect": {
+    "en": "Inspect",
+    "fr": "Inspect",
+    "sw": "Inspect"
+  },
+  "inspire": {
+    "en": "Inspire",
+    "fr": "Inspire",
+    "sw": "Inspire"
+  },
+  "instead": {
+    "en": "Instead",
+    "fr": "Instead",
+    "sw": "Instead"
+  },
+  "institute": {
+    "en": "Institute",
+    "fr": "Institute",
+    "sw": "Institute"
+  },
+  "insurance": {
+    "en": "Insurance",
+    "fr": "Insurance",
+    "sw": "Insurance"
+  },
+  "interest": {
+    "en": "Interest",
+    "fr": "Interest",
+    "sw": "Interest"
+  },
+  "interesting": {
+    "en": "Interesting",
+    "fr": "Interesting",
+    "sw": "Interesting"
+  },
+  "international": {
+    "en": "International",
+    "fr": "International",
+    "sw": "International"
+  },
+  "internet": {
+    "en": "Internet",
+    "fr": "Internet",
+    "sw": "Internet"
+  },
+  "interpret": {
+    "en": "Interpret",
+    "fr": "Interpret",
+    "sw": "Interpret"
+  },
+  "interpreter": {
+    "en": "Interpreter",
+    "fr": "Interpreter",
+    "sw": "Interpreter"
+  },
+  "interrupt": {
+    "en": "Interrupt",
+    "fr": "Interrupt",
+    "sw": "Interrupt"
+  },
+  "intersection": {
+    "en": "Intersection",
+    "fr": "Intersection",
+    "sw": "Intersection"
+  },
+  "interview": {
+    "en": "Interview",
+    "fr": "Interview",
+    "sw": "Interview"
+  },
+  "introduce": {
+    "en": "Introduce",
+    "fr": "Introduce",
+    "sw": "Introduce"
+  },
+  "invest": {
+    "en": "Invest",
+    "fr": "Invest",
+    "sw": "Invest"
+  },
+  "investigate": {
+    "en": "Investigate",
+    "fr": "Investigate",
+    "sw": "Investigate"
+  },
+  "invite": {
+    "en": "Invite",
+    "fr": "Invite",
+    "sw": "Invite"
+  },
+  "involve": {
+    "en": "Involve",
+    "fr": "Involve",
+    "sw": "Involve"
+  },
+  "iran": {
+    "en": "Iran",
+    "fr": "Iran",
+    "sw": "Iran"
+  },
+  "ireland": {
+    "en": "Ireland",
+    "fr": "Ireland",
+    "sw": "Ireland"
+  },
+  "iron": {
+    "en": "Iron",
+    "fr": "Iron",
+    "sw": "Iron"
+  },
+  "island": {
+    "en": "Island",
+    "fr": "Island",
+    "sw": "Island"
+  },
+  "israel": {
+    "en": "Israel",
+    "fr": "Israel",
+    "sw": "Israel"
+  },
+  "italy": {
+    "en": "Italy",
+    "fr": "Italy",
+    "sw": "Italy"
+  },
+  "j": {
+    "en": "J",
+    "fr": "J",
+    "sw": "J"
+  },
+  "jail": {
+    "en": "Jail",
+    "fr": "Jail",
+    "sw": "Jail"
+  },
+  "january": {
+    "en": "January",
+    "fr": "January",
+    "sw": "January"
+  },
+  "japan": {
+    "en": "Japan",
+    "fr": "Japan",
+    "sw": "Japan"
+  },
+  "jealous": {
+    "en": "Jealous",
+    "fr": "Jealous",
+    "sw": "Jealous"
+  },
+  "jesus": {
+    "en": "Jesus",
+    "fr": "Jesus",
+    "sw": "Jesus"
+  },
+  "jewelry": {
+    "en": "Jewelry",
+    "fr": "Jewelry",
+    "sw": "Jewelry"
+  },
+  "jewish": {
+    "en": "Jewish",
+    "fr": "Jewish",
+    "sw": "Jewish"
+  },
+  "join": {
+    "en": "Join",
+    "fr": "Join",
+    "sw": "Join"
+  },
+  "joke": {
+    "en": "Joke",
+    "fr": "Joke",
+    "sw": "Joke"
+  },
+  "journey": {
+    "en": "Journey",
+    "fr": "Journey",
+    "sw": "Journey"
+  },
+  "joy": {
+    "en": "Joy",
+    "fr": "Joy",
+    "sw": "Joy"
+  },
+  "judge": {
+    "en": "Judge",
+    "fr": "Judge",
+    "sw": "Judge"
+  },
+  "july": {
+    "en": "July",
+    "fr": "July",
+    "sw": "July"
+  },
+  "jump": {
+    "en": "Jump",
+    "fr": "Jump",
+    "sw": "Jump"
+  },
+  "june": {
+    "en": "June",
+    "fr": "June",
+    "sw": "June"
+  },
+  "k": {
+    "en": "K",
+    "fr": "K",
+    "sw": "K"
+  },
+  "kangaroo": {
+    "en": "Kangaroo",
+    "fr": "Kangaroo",
+    "sw": "Kangaroo"
+  },
+  "karate": {
+    "en": "Karate",
+    "fr": "Karate",
+    "sw": "Karate"
+  },
+  "keep": {
+    "en": "Keep",
+    "fr": "Keep",
+    "sw": "Keep"
+  },
+  "key": {
+    "en": "Key",
+    "fr": "Key",
+    "sw": "Key"
+  },
+  "keyboard": {
+    "en": "Keyboard",
+    "fr": "Keyboard",
+    "sw": "Keyboard"
+  },
+  "kick": {
+    "en": "Kick",
+    "fr": "Kick",
+    "sw": "Kick"
+  },
+  "kid": {
+    "en": "Kid",
+    "fr": "Kid",
+    "sw": "Kid"
+  },
+  "kill": {
+    "en": "Kill",
+    "fr": "Kill",
+    "sw": "Kill"
+  },
+  "kindergarten": {
+    "en": "Kindergarten",
+    "fr": "Kindergarten",
+    "sw": "Kindergarten"
+  },
+  "king": {
+    "en": "King",
+    "fr": "King",
+    "sw": "King"
+  },
+  "kitchen": {
+    "en": "Kitchen",
+    "fr": "Kitchen",
+    "sw": "Kitchen"
+  },
+  "kneel": {
+    "en": "Kneel",
+    "fr": "Kneel",
+    "sw": "Kneel"
+  },
+  "knife": {
+    "en": "Knife",
+    "fr": "Knife",
+    "sw": "Knife"
+  },
+  "knock": {
+    "en": "Knock",
+    "fr": "Knock",
+    "sw": "Knock"
+  },
+  "know": {
+    "en": "Know",
+    "fr": "Know",
+    "sw": "Kujua"
+  },
+  "label": {
+    "en": "Label",
+    "fr": "Label",
+    "sw": "Label"
+  },
+  "lady": {
+    "en": "Lady",
+    "fr": "Lady",
+    "sw": "Lady"
+  },
+  "lamp": {
+    "en": "Lamp",
+    "fr": "Lamp",
+    "sw": "Lamp"
+  },
+  "land": {
+    "en": "Land",
+    "fr": "Land",
+    "sw": "Land"
+  },
+  "laptop": {
+    "en": "Laptop",
+    "fr": "Laptop",
+    "sw": "Laptop"
+  },
+  "large": {
+    "en": "Large",
+    "fr": "Large",
+    "sw": "Large"
+  },
+  "last week": {
+    "en": "Last Week",
+    "fr": "Last Week",
+    "sw": "Last Week"
+  },
+  "last year": {
+    "en": "Last Year",
+    "fr": "Last Year",
+    "sw": "Last Year"
+  },
+  "late": {
+    "en": "Late",
+    "fr": "Late",
+    "sw": "Late"
+  },
+  "laugh": {
+    "en": "Laugh",
+    "fr": "Laugh",
+    "sw": "Laugh"
+  },
+  "laundry": {
+    "en": "Laundry",
+    "fr": "Laundry",
+    "sw": "Laundry"
+  },
+  "law": {
+    "en": "Law",
+    "fr": "Law",
+    "sw": "Law"
+  },
+  "lawyer": {
+    "en": "Lawyer",
+    "fr": "Lawyer",
+    "sw": "Lawyer"
+  },
+  "lazy": {
+    "en": "Lazy",
+    "fr": "Lazy",
+    "sw": "Lazy"
+  },
+  "lead": {
+    "en": "Lead",
+    "fr": "Lead",
+    "sw": "Lead"
+  },
+  "leader": {
+    "en": "Leader",
+    "fr": "Leader",
+    "sw": "Leader"
+  },
+  "leaf": {
+    "en": "Leaf",
+    "fr": "Leaf",
+    "sw": "Leaf"
+  },
+  "league": {
+    "en": "League",
+    "fr": "League",
+    "sw": "League"
+  },
+  "leak": {
+    "en": "Leak",
+    "fr": "Leak",
+    "sw": "Leak"
+  },
+  "learn": {
+    "en": "Learn",
+    "fr": "Apprendre",
+    "sw": "Kujifunza"
+  },
+  "leave": {
+    "en": "Leave",
+    "fr": "Leave",
+    "sw": "Leave"
+  },
+  "lecture": {
+    "en": "Lecture",
+    "fr": "Lecture",
+    "sw": "Lecture"
+  },
+  "left": {
+    "en": "Left",
+    "fr": "Left",
+    "sw": "Left"
+  },
+  "legal": {
+    "en": "Legal",
+    "fr": "Legal",
+    "sw": "Legal"
+  },
+  "lemon": {
+    "en": "Lemon",
+    "fr": "Lemon",
+    "sw": "Lemon"
+  },
+  "lend": {
+    "en": "Lend",
+    "fr": "Lend",
+    "sw": "Lend"
+  },
+  "lesbian": {
+    "en": "Lesbian",
+    "fr": "Lesbian",
+    "sw": "Lesbian"
+  },
+  "less": {
+    "en": "Less",
+    "fr": "Less",
+    "sw": "Less"
+  },
+  "lesson": {
+    "en": "Lesson",
+    "fr": "Lesson",
+    "sw": "Lesson"
+  },
+  "let": {
+    "en": "Let",
+    "fr": "Let",
+    "sw": "Let"
+  },
+  "lettuce": {
+    "en": "Lettuce",
+    "fr": "Lettuce",
+    "sw": "Lettuce"
+  },
+  "liability": {
+    "en": "Liability",
+    "fr": "Liability",
+    "sw": "Liability"
+  },
+  "librarian": {
+    "en": "Librarian",
+    "fr": "Librarian",
+    "sw": "Librarian"
+  },
+  "library": {
+    "en": "Library",
+    "fr": "Library",
+    "sw": "Library"
+  },
+  "license": {
+    "en": "License",
+    "fr": "License",
+    "sw": "License"
+  },
+  "lie": {
+    "en": "Lie",
+    "fr": "Lie",
+    "sw": "Lie"
+  },
+  "lift": {
+    "en": "Lift",
+    "fr": "Lift",
+    "sw": "Lift"
+  },
+  "light": {
+    "en": "Light",
+    "fr": "Light",
+    "sw": "Light"
+  },
+  "lightning": {
+    "en": "Lightning",
+    "fr": "Lightning",
+    "sw": "Lightning"
+  },
+  "limit": {
+    "en": "Limit",
+    "fr": "Limit",
+    "sw": "Limit"
+  },
+  "line": {
+    "en": "Line",
+    "fr": "Line",
+    "sw": "Line"
+  },
+  "linguistics": {
+    "en": "Linguistics",
+    "fr": "Linguistics",
+    "sw": "Linguistics"
+  },
+  "lion": {
+    "en": "Lion",
+    "fr": "Lion",
+    "sw": "Lion"
+  },
+  "lip": {
+    "en": "Lip",
+    "fr": "Lip",
+    "sw": "Lip"
+  },
+  "lipstick": {
+    "en": "Lipstick",
+    "fr": "Lipstick",
+    "sw": "Lipstick"
+  },
+  "list": {
+    "en": "List",
+    "fr": "List",
+    "sw": "List"
+  },
+  "listen": {
+    "en": "Listen",
+    "fr": "Listen",
+    "sw": "Listen"
+  },
+  "little bit": {
+    "en": "Little Bit",
+    "fr": "Little Bit",
+    "sw": "Little Bit"
+  },
+  "live": {
+    "en": "Live",
+    "fr": "Live",
+    "sw": "Live"
+  },
+  "loan": {
+    "en": "Loan",
+    "fr": "Loan",
+    "sw": "Loan"
+  },
+  "lobster": {
+    "en": "Lobster",
+    "fr": "Lobster",
+    "sw": "Lobster"
+  },
+  "local": {
+    "en": "Local",
+    "fr": "Local",
+    "sw": "Local"
+  },
+  "lock": {
+    "en": "Lock",
+    "fr": "Lock",
+    "sw": "Lock"
+  },
+  "lonely": {
+    "en": "Lonely",
+    "fr": "Lonely",
+    "sw": "Lonely"
+  },
+  "long": {
+    "en": "Long",
+    "fr": "Long",
+    "sw": "Long"
+  },
+  "look at": {
+    "en": "Look At",
+    "fr": "Look At",
+    "sw": "Look At"
+  },
+  "look for": {
+    "en": "Look For",
+    "fr": "Look For",
+    "sw": "Look For"
+  },
+  "lord": {
+    "en": "Lord",
+    "fr": "Lord",
+    "sw": "Lord"
+  },
+  "losear": {
+    "en": "Losear",
+    "fr": "Losear",
+    "sw": "Losear"
+  },
+  "loud": {
+    "en": "Loud",
+    "fr": "Loud",
+    "sw": "Loud"
+  },
+  "lousy": {
+    "en": "Lousy",
+    "fr": "Lousy",
+    "sw": "Lousy"
+  },
+  "love": {
+    "en": "Love",
+    "fr": "Amour",
+    "sw": "Upendo"
+  },
+  "lucky": {
+    "en": "Lucky",
+    "fr": "Lucky",
+    "sw": "Lucky"
+  },
+  "lunch": {
+    "en": "Lunch",
+    "fr": "Lunch",
+    "sw": "Lunch"
+  },
+  "m": {
+    "en": "M",
+    "fr": "M",
+    "sw": "M"
+  },
+  "machine": {
+    "en": "Machine",
+    "fr": "Machine",
+    "sw": "Machine"
+  },
+  "mad": {
+    "en": "Mad",
+    "fr": "Mad",
+    "sw": "Mad"
+  },
+  "magazine": {
+    "en": "Magazine",
+    "fr": "Magazine",
+    "sw": "Magazine"
+  },
+  "magic": {
+    "en": "Magic",
+    "fr": "Magic",
+    "sw": "Magic"
+  },
+  "mainstream": {
+    "en": "Mainstream",
+    "fr": "Mainstream",
+    "sw": "Mainstream"
+  },
+  "major": {
+    "en": "Major",
+    "fr": "Major",
+    "sw": "Major"
+  },
+  "make": {
+    "en": "Make",
+    "fr": "Make",
+    "sw": "Make"
+  },
+  "manage": {
+    "en": "Manage",
+    "fr": "Manage",
+    "sw": "Manage"
+  },
+  "manager": {
+    "en": "Manager",
+    "fr": "Manager",
+    "sw": "Manager"
+  },
+  "march": {
+    "en": "March",
+    "fr": "March",
+    "sw": "March"
+  },
+  "marry": {
+    "en": "Marry",
+    "fr": "Marry",
+    "sw": "Marry"
+  },
+  "match": {
+    "en": "Match",
+    "fr": "Match",
+    "sw": "Match"
+  },
+  "math": {
+    "en": "Math",
+    "fr": "Math",
+    "sw": "Math"
+  },
+  "mature": {
+    "en": "Mature",
+    "fr": "Mature",
+    "sw": "Mature"
+  },
+  "maximum": {
+    "en": "Maximum",
+    "fr": "Maximum",
+    "sw": "Maximum"
+  },
+  "maybe": {
+    "en": "Maybe",
+    "fr": "Maybe",
+    "sw": "Maybe"
+  },
+  "me": {
+    "en": "Me",
+    "fr": "Me",
+    "sw": "Me"
+  },
+  "mean": {
+    "en": "Mean",
+    "fr": "Mean",
+    "sw": "Mean"
+  },
+  "meaning": {
+    "en": "Meaning",
+    "fr": "Meaning",
+    "sw": "Meaning"
+  },
+  "measure": {
+    "en": "Measure",
+    "fr": "Measure",
+    "sw": "Measure"
+  },
+  "meat": {
+    "en": "Meat",
+    "fr": "Meat",
+    "sw": "Meat"
+  },
+  "mechanic": {
+    "en": "Mechanic",
+    "fr": "Mechanic",
+    "sw": "Mechanic"
+  },
+  "meeting": {
+    "en": "Meeting",
+    "fr": "Meeting",
+    "sw": "Meeting"
+  },
+  "melody": {
+    "en": "Melody",
+    "fr": "Melody",
+    "sw": "Melody"
+  },
+  "melt": {
+    "en": "Melt",
+    "fr": "Melt",
+    "sw": "Melt"
+  },
+  "member": {
+    "en": "Member",
+    "fr": "Member",
+    "sw": "Member"
+  },
+  "memorize": {
+    "en": "Memorize",
+    "fr": "Memorize",
+    "sw": "Memorize"
+  },
+  "mention": {
+    "en": "Mention",
+    "fr": "Mention",
+    "sw": "Mention"
+  },
+  "message": {
+    "en": "Message",
+    "fr": "Message",
+    "sw": "Message"
+  },
+  "metal": {
+    "en": "Metal",
+    "fr": "Metal",
+    "sw": "Metal"
+  },
+  "mexico": {
+    "en": "Mexico",
+    "fr": "Mexico",
+    "sw": "Mexico"
+  },
+  "microphone": {
+    "en": "Microphone",
+    "fr": "Microphone",
+    "sw": "Microphone"
+  },
+  "microscope": {
+    "en": "Microscope",
+    "fr": "Microscope",
+    "sw": "Microscope"
+  },
+  "microwave": {
+    "en": "Microwave",
+    "fr": "Microwave",
+    "sw": "Microwave"
+  },
+  "middle": {
+    "en": "Middle",
+    "fr": "Middle",
+    "sw": "Middle"
+  },
+  "midnight": {
+    "en": "Midnight",
+    "fr": "Midnight",
+    "sw": "Midnight"
+  },
+  "military": {
+    "en": "Military",
+    "fr": "Military",
+    "sw": "Military"
+  },
+  "milk": {
+    "en": "Milk",
+    "fr": "Milk",
+    "sw": "Milk"
+  },
+  "mind": {
+    "en": "Mind",
+    "fr": "Mind",
+    "sw": "Mind"
+  },
+  "mine": {
+    "en": "Mine",
+    "fr": "Mine",
+    "sw": "Mine"
+  },
+  "minus": {
+    "en": "Minus",
+    "fr": "Minus",
+    "sw": "Minus"
+  },
+  "minute": {
+    "en": "Minute",
+    "fr": "Minute",
+    "sw": "Minute"
+  },
+  "mirror": {
+    "en": "Mirror",
+    "fr": "Mirror",
+    "sw": "Mirror"
+  },
+  "miss": {
+    "en": "Miss",
+    "fr": "Miss",
+    "sw": "Miss"
+  },
+  "mistake": {
+    "en": "Mistake",
+    "fr": "Mistake",
+    "sw": "Mistake"
+  },
+  "misunderstand": {
+    "en": "Misunderstand",
+    "fr": "Misunderstand",
+    "sw": "Misunderstand"
+  },
+  "mix": {
+    "en": "Mix",
+    "fr": "Mix",
+    "sw": "Mix"
+  },
+  "mock": {
+    "en": "Mock",
+    "fr": "Mock",
+    "sw": "Mock"
+  },
+  "mom": {
+    "en": "Mom",
+    "fr": "Mom",
+    "sw": "Mom"
+  },
+  "monday": {
+    "en": "Monday",
+    "fr": "Monday",
+    "sw": "Monday"
+  },
+  "money": {
+    "en": "Money",
+    "fr": "Money",
+    "sw": "Pesa"
+  },
+  "monkey": {
+    "en": "Monkey",
+    "fr": "Monkey",
+    "sw": "Monkey"
+  },
+  "monster": {
+    "en": "Monster",
+    "fr": "Monster",
+    "sw": "Monster"
+  },
+  "month": {
+    "en": "Month",
+    "fr": "Month",
+    "sw": "Month"
+  },
+  "monthly": {
+    "en": "Monthly",
+    "fr": "Monthly",
+    "sw": "Monthly"
+  },
+  "moon": {
+    "en": "Moon",
+    "fr": "Moon",
+    "sw": "Moon"
+  },
+  "moose": {
+    "en": "Moose",
+    "fr": "Moose",
+    "sw": "Moose"
+  },
+  "more": {
+    "en": "More",
+    "fr": "More",
+    "sw": "Zaidi"
+  },
+  "morning": {
+    "en": "Morning",
+    "fr": "Morning",
+    "sw": "Morning"
+  },
+  "mosquito": {
+    "en": "Mosquito",
+    "fr": "Mosquito",
+    "sw": "Mosquito"
+  },
+  "most": {
+    "en": "Most",
+    "fr": "Most",
+    "sw": "Most"
+  },
+  "motivate": {
+    "en": "Motivate",
+    "fr": "Motivate",
+    "sw": "Motivate"
+  },
+  "motor": {
+    "en": "Motor",
+    "fr": "Motor",
+    "sw": "Motor"
+  },
+  "motorcycle": {
+    "en": "Motorcycle",
+    "fr": "Motorcycle",
+    "sw": "Motorcycle"
+  },
+  "mountain": {
+    "en": "Mountain",
+    "fr": "Mountain",
+    "sw": "Mountain"
+  },
+  "mouse": {
+    "en": "Mouse",
+    "fr": "Mouse",
+    "sw": "Mouse"
+  },
+  "mouth": {
+    "en": "Mouth",
+    "fr": "Mouth",
+    "sw": "Mouth"
+  },
+  "move": {
+    "en": "Move",
+    "fr": "Move",
+    "sw": "Move"
+  },
+  "movie": {
+    "en": "Movie",
+    "fr": "Movie",
+    "sw": "Movie"
+  },
+  "much": {
+    "en": "Much",
+    "fr": "Much",
+    "sw": "Much"
+  },
+  "multiply": {
+    "en": "Multiply",
+    "fr": "Multiply",
+    "sw": "Multiply"
+  },
+  "murder": {
+    "en": "Murder",
+    "fr": "Murder",
+    "sw": "Murder"
+  },
+  "muscle": {
+    "en": "Muscle",
+    "fr": "Muscle",
+    "sw": "Muscle"
+  },
+  "museum": {
+    "en": "Museum",
+    "fr": "Museum",
+    "sw": "Museum"
+  },
+  "mushroom": {
+    "en": "Mushroom",
+    "fr": "Mushroom",
+    "sw": "Mushroom"
+  },
+  "music": {
+    "en": "Music",
+    "fr": "Music",
+    "sw": "Music"
+  },
+  "must": {
+    "en": "Must",
+    "fr": "Must",
+    "sw": "Must"
+  },
+  "mustache": {
+    "en": "Mustache",
+    "fr": "Mustache",
+    "sw": "Mustache"
+  },
+  "my": {
+    "en": "My",
+    "fr": "My",
+    "sw": "My"
+  },
+  "myself": {
+    "en": "Myself",
+    "fr": "Myself",
+    "sw": "Myself"
+  },
+  "n": {
+    "en": "N",
+    "fr": "N",
+    "sw": "N"
+  },
+  "name": {
+    "en": "Name",
+    "fr": "Name",
+    "sw": "Jina"
+  },
+  "napkin": {
+    "en": "Napkin",
+    "fr": "Napkin",
+    "sw": "Napkin"
+  },
+  "narrow": {
+    "en": "Narrow",
+    "fr": "Narrow",
+    "sw": "Narrow"
+  },
+  "nation": {
+    "en": "Nation",
+    "fr": "Nation",
+    "sw": "Nation"
+  },
+  "near": {
+    "en": "Near",
+    "fr": "Near",
+    "sw": "Near"
+  },
+  "necessary": {
+    "en": "Necessary",
+    "fr": "Necessary",
+    "sw": "Necessary"
+  },
+  "neck": {
+    "en": "Neck",
+    "fr": "Neck",
+    "sw": "Neck"
+  },
+  "necklace": {
+    "en": "Necklace",
+    "fr": "Necklace",
+    "sw": "Necklace"
+  },
+  "negative": {
+    "en": "Negative",
+    "fr": "Negative",
+    "sw": "Negative"
+  },
+  "negotiate": {
+    "en": "Negotiate",
+    "fr": "Negotiate",
+    "sw": "Negotiate"
+  },
+  "neighbor": {
+    "en": "Neighbor",
+    "fr": "Neighbor",
+    "sw": "Neighbor"
+  },
+  "nephew": {
+    "en": "Nephew",
+    "fr": "Nephew",
+    "sw": "Nephew"
+  },
+  "nervous": {
+    "en": "Nervous",
+    "fr": "Nervous",
+    "sw": "Nervous"
+  },
+  "network": {
+    "en": "Network",
+    "fr": "Network",
+    "sw": "Network"
+  },
+  "neutral": {
+    "en": "Neutral",
+    "fr": "Neutral",
+    "sw": "Neutral"
+  },
+  "never": {
+    "en": "Never",
+    "fr": "Never",
+    "sw": "Never"
+  },
+  "new": {
+    "en": "New",
+    "fr": "New",
+    "sw": "Mpya"
+  },
+  "new york": {
+    "en": "New York",
+    "fr": "New York",
+    "sw": "New York"
+  },
+  "newspaper": {
+    "en": "Newspaper",
+    "fr": "Newspaper",
+    "sw": "Newspaper"
+  },
+  "next": {
+    "en": "Next",
+    "fr": "Next",
+    "sw": "Next"
+  },
+  "nice": {
+    "en": "Nice",
+    "fr": "Nice",
+    "sw": "Nice"
+  },
+  "nickel": {
+    "en": "Nickel",
+    "fr": "Nickel",
+    "sw": "Nickel"
+  },
+  "niece": {
+    "en": "Niece",
+    "fr": "Niece",
+    "sw": "Niece"
+  },
+  "night": {
+    "en": "Night",
+    "fr": "Night",
+    "sw": "Usiku"
+  },
+  "nine": {
+    "en": "Nine",
+    "fr": "Nine",
+    "sw": "Nine"
+  },
+  "nineteen": {
+    "en": "Nineteen",
+    "fr": "Nineteen",
+    "sw": "Nineteen"
+  },
+  "none": {
+    "en": "None",
+    "fr": "None",
+    "sw": "None"
+  },
+  "noon": {
+    "en": "Noon",
+    "fr": "Noon",
+    "sw": "Noon"
+  },
+  "normal": {
+    "en": "Normal",
+    "fr": "Normal",
+    "sw": "Normal"
+  },
+  "north": {
+    "en": "North",
+    "fr": "North",
+    "sw": "North"
+  },
+  "northwest": {
+    "en": "Northwest",
+    "fr": "Northwest",
+    "sw": "Northwest"
+  },
+  "nose": {
+    "en": "Nose",
+    "fr": "Nose",
+    "sw": "Nose"
+  },
+  "not": {
+    "en": "Not",
+    "fr": "Not",
+    "sw": "Not"
+  },
+  "not yet": {
+    "en": "Not Yet",
+    "fr": "Not Yet",
+    "sw": "Not Yet"
+  },
+  "nothing": {
+    "en": "Nothing",
+    "fr": "Rien",
+    "sw": "Nothing"
+  },
+  "notice": {
+    "en": "Notice",
+    "fr": "Notice",
+    "sw": "Notice"
+  },
+  "november": {
+    "en": "November",
+    "fr": "November",
+    "sw": "November"
+  },
+  "number": {
+    "en": "Number",
+    "fr": "Number",
+    "sw": "Number"
+  },
+  "numerous": {
+    "en": "Numerous",
+    "fr": "Numerous",
+    "sw": "Numerous"
+  },
+  "nun": {
+    "en": "Nun",
+    "fr": "Nun",
+    "sw": "Nun"
+  },
+  "nurse": {
+    "en": "Nurse",
+    "fr": "Nurse",
+    "sw": "Muuguzi"
+  },
+  "nut": {
+    "en": "Nut",
+    "fr": "Nut",
+    "sw": "Nut"
+  },
+  "o": {
+    "en": "O",
+    "fr": "O",
+    "sw": "O"
+  },
+  "objective": {
+    "en": "Objective",
+    "fr": "Objective",
+    "sw": "Objective"
+  },
+  "obsess": {
+    "en": "Obsess",
+    "fr": "Obsess",
+    "sw": "Obsess"
+  },
+  "obtain": {
+    "en": "Obtain",
+    "fr": "Obtain",
+    "sw": "Obtain"
+  },
+  "occur": {
+    "en": "Occur",
+    "fr": "Occur",
+    "sw": "Occur"
+  },
+  "ocean": {
+    "en": "Ocean",
+    "fr": "Ocean",
+    "sw": "Ocean"
+  },
+  "october": {
+    "en": "October",
+    "fr": "October",
+    "sw": "October"
+  },
+  "octopus": {
+    "en": "Octopus",
+    "fr": "Octopus",
+    "sw": "Octopus"
+  },
+  "odd": {
+    "en": "Odd",
+    "fr": "Odd",
+    "sw": "Odd"
+  },
+  "odor": {
+    "en": "Odor",
+    "fr": "Odor",
+    "sw": "Odor"
+  },
+  "off": {
+    "en": "Off",
+    "fr": "Off",
+    "sw": "Off"
+  },
+  "offer": {
+    "en": "Offer",
+    "fr": "Offer",
+    "sw": "Offer"
+  },
+  "office": {
+    "en": "Office",
+    "fr": "Office",
+    "sw": "Office"
+  },
+  "often": {
+    "en": "Often",
+    "fr": "Often",
+    "sw": "Often"
+  },
+  "ok": {
+    "en": "Ok",
+    "fr": "Ok",
+    "sw": "Ok"
+  },
+  "old": {
+    "en": "Old",
+    "fr": "Old",
+    "sw": "Mzee"
+  },
+  "olympics": {
+    "en": "Olympics",
+    "fr": "Olympics",
+    "sw": "Olympics"
+  },
+  "on": {
+    "en": "On",
+    "fr": "On",
+    "sw": "On"
+  },
+  "once": {
+    "en": "Once",
+    "fr": "Once",
+    "sw": "Once"
+  },
+  "one": {
+    "en": "One",
+    "fr": "One",
+    "sw": "One"
+  },
+  "onion": {
+    "en": "Onion",
+    "fr": "Onion",
+    "sw": "Onion"
+  },
+  "only": {
+    "en": "Only",
+    "fr": "Only",
+    "sw": "Only"
+  },
+  "open": {
+    "en": "Open",
+    "fr": "Open",
+    "sw": "Open"
+  },
+  "operate": {
+    "en": "Operate",
+    "fr": "Operate",
+    "sw": "Operate"
+  },
+  "opinion": {
+    "en": "Opinion",
+    "fr": "Opinion",
+    "sw": "Opinion"
+  },
+  "opposite": {
+    "en": "Opposite",
+    "fr": "Opposite",
+    "sw": "Opposite"
+  },
+  "or": {
+    "en": "Or",
+    "fr": "Or",
+    "sw": "Or"
+  },
+  "oral": {
+    "en": "Oral",
+    "fr": "Oral",
+    "sw": "Oral"
+  },
+  "order": {
+    "en": "Order",
+    "fr": "Order",
+    "sw": "Order"
+  },
+  "organize": {
+    "en": "Organize",
+    "fr": "Organize",
+    "sw": "Organize"
+  },
+  "other": {
+    "en": "Other",
+    "fr": "Other",
+    "sw": "Other"
+  },
+  "our": {
+    "en": "Our",
+    "fr": "Our",
+    "sw": "Our"
+  },
+  "out": {
+    "en": "Out",
+    "fr": "Out",
+    "sw": "Out"
+  },
+  "outside": {
+    "en": "Outside",
+    "fr": "Outside",
+    "sw": "Outside"
+  },
+  "over": {
+    "en": "Over",
+    "fr": "Over",
+    "sw": "Over"
+  },
+  "overcome": {
+    "en": "Overcome",
+    "fr": "Overcome",
+    "sw": "Overcome"
+  },
+  "overlook": {
+    "en": "Overlook",
+    "fr": "Overlook",
+    "sw": "Overlook"
+  },
+  "overwhelm": {
+    "en": "Overwhelm",
+    "fr": "Overwhelm",
+    "sw": "Overwhelm"
+  },
+  "owe": {
+    "en": "Owe",
+    "fr": "Owe",
+    "sw": "Owe"
+  },
+  "owl": {
+    "en": "Owl",
+    "fr": "Owl",
+    "sw": "Owl"
+  },
+  "p": {
+    "en": "P",
+    "fr": "P",
+    "sw": "P"
+  },
+  "pack": {
+    "en": "Pack",
+    "fr": "Pack",
+    "sw": "Pack"
+  },
+  "page": {
+    "en": "Page",
+    "fr": "Page",
+    "sw": "Page"
+  },
+  "pain": {
+    "en": "Pain",
+    "fr": "Pain",
+    "sw": "Maumivu"
+  },
+  "painter": {
+    "en": "Painter",
+    "fr": "Painter",
+    "sw": "Painter"
+  },
+  "pants": {
+    "en": "Pants",
+    "fr": "Pants",
+    "sw": "Pants"
+  },
+  "parachute": {
+    "en": "Parachute",
+    "fr": "Parachute",
+    "sw": "Parachute"
+  },
+  "parade": {
+    "en": "Parade",
+    "fr": "Parade",
+    "sw": "Parade"
+  },
+  "paragraph": {
+    "en": "Paragraph",
+    "fr": "Paragraph",
+    "sw": "Paragraph"
+  },
+  "parallel": {
+    "en": "Parallel",
+    "fr": "Parallel",
+    "sw": "Parallel"
+  },
+  "parents": {
+    "en": "Parents",
+    "fr": "Parents",
+    "sw": "Parents"
+  },
+  "part": {
+    "en": "Part",
+    "fr": "Part",
+    "sw": "Part"
+  },
+  "party": {
+    "en": "Party",
+    "fr": "Party",
+    "sw": "Party"
+  },
+  "pass": {
+    "en": "Pass",
+    "fr": "Pass",
+    "sw": "Pass"
+  },
+  "past": {
+    "en": "Past",
+    "fr": "Past",
+    "sw": "Past"
+  },
+  "path": {
+    "en": "Path",
+    "fr": "Path",
+    "sw": "Path"
+  },
+  "patient": {
+    "en": "Patient",
+    "fr": "Patient",
+    "sw": "Patient"
+  },
+  "pause": {
+    "en": "Pause",
+    "fr": "Pause",
+    "sw": "Pause"
+  },
+  "pay": {
+    "en": "Pay",
+    "fr": "Pay",
+    "sw": "Pay"
+  },
+  "pay attention": {
+    "en": "Pay Attention",
+    "fr": "Pay Attention",
+    "sw": "Pay Attention"
+  },
+  "peace": {
+    "en": "Peace",
+    "fr": "Peace",
+    "sw": "Peace"
+  },
+  "peaceful": {
+    "en": "Peaceful",
+    "fr": "Peaceful",
+    "sw": "Peaceful"
+  },
+  "peach": {
+    "en": "Peach",
+    "fr": "Peach",
+    "sw": "Peach"
+  },
+  "peanut butter": {
+    "en": "Peanut Butter",
+    "fr": "Peanut Butter",
+    "sw": "Peanut Butter"
+  },
+  "pear": {
+    "en": "Pear",
+    "fr": "Pear",
+    "sw": "Pear"
+  },
+  "peel": {
+    "en": "Peel",
+    "fr": "Peel",
+    "sw": "Peel"
+  },
+  "penalty": {
+    "en": "Penalty",
+    "fr": "Penalty",
+    "sw": "Penalty"
+  },
+  "pencil": {
+    "en": "Pencil",
+    "fr": "Pencil",
+    "sw": "Pencil"
+  },
+  "pennsylvania": {
+    "en": "Pennsylvania",
+    "fr": "Pennsylvania",
+    "sw": "Pennsylvania"
+  },
+  "penny": {
+    "en": "Penny",
+    "fr": "Penny",
+    "sw": "Penny"
+  },
+  "people": {
+    "en": "People",
+    "fr": "People",
+    "sw": "People"
+  },
+  "pepper": {
+    "en": "Pepper",
+    "fr": "Pepper",
+    "sw": "Pepper"
+  },
+  "percent": {
+    "en": "Percent",
+    "fr": "Percent",
+    "sw": "Percent"
+  },
+  "perfect": {
+    "en": "Perfect",
+    "fr": "Perfect",
+    "sw": "Perfect"
+  },
+  "perfume": {
+    "en": "Perfume",
+    "fr": "Perfume",
+    "sw": "Perfume"
+  },
+  "period": {
+    "en": "Period",
+    "fr": "Period",
+    "sw": "Period"
+  },
+  "permit": {
+    "en": "Permit",
+    "fr": "Permit",
+    "sw": "Permit"
+  },
+  "person": {
+    "en": "Person",
+    "fr": "Person",
+    "sw": "Person"
+  },
+  "personality": {
+    "en": "Personality",
+    "fr": "Personality",
+    "sw": "Personality"
+  },
+  "perspective": {
+    "en": "Perspective",
+    "fr": "Perspective",
+    "sw": "Perspective"
+  },
+  "pet": {
+    "en": "Pet",
+    "fr": "Pet",
+    "sw": "Pet"
+  },
+  "philadelphia": {
+    "en": "Philadelphia",
+    "fr": "Philadelphia",
+    "sw": "Philadelphia"
+  },
+  "philosophy": {
+    "en": "Philosophy",
+    "fr": "Philosophy",
+    "sw": "Philosophy"
+  },
+  "phone": {
+    "en": "Phone",
+    "fr": "Téléphone",
+    "sw": "Phone"
+  },
+  "photographer": {
+    "en": "Photographer",
+    "fr": "Photographer",
+    "sw": "Photographer"
+  },
+  "phrase": {
+    "en": "Phrase",
+    "fr": "Phrase",
+    "sw": "Phrase"
+  },
+  "physician": {
+    "en": "Physician",
+    "fr": "Physician",
+    "sw": "Physician"
+  },
+  "physics": {
+    "en": "Physics",
+    "fr": "Physics",
+    "sw": "Physics"
+  },
+  "piano": {
+    "en": "Piano",
+    "fr": "Piano",
+    "sw": "Piano"
+  },
+  "pick": {
+    "en": "Pick",
+    "fr": "Pick",
+    "sw": "Pick"
+  },
+  "pickle": {
+    "en": "Pickle",
+    "fr": "Pickle",
+    "sw": "Pickle"
+  },
+  "picture": {
+    "en": "Picture",
+    "fr": "Picture",
+    "sw": "Picture"
+  },
+  "pie": {
+    "en": "Pie",
+    "fr": "Pie",
+    "sw": "Pie"
+  },
+  "piece": {
+    "en": "Piece",
+    "fr": "Piece",
+    "sw": "Piece"
+  },
+  "pig": {
+    "en": "Pig",
+    "fr": "Pig",
+    "sw": "Pig"
+  },
+  "pillow": {
+    "en": "Pillow",
+    "fr": "Pillow",
+    "sw": "Pillow"
+  },
+  "pilot": {
+    "en": "Pilot",
+    "fr": "Pilot",
+    "sw": "Pilot"
+  },
+  "pity": {
+    "en": "Pity",
+    "fr": "Pity",
+    "sw": "Pity"
+  },
+  "place": {
+    "en": "Place",
+    "fr": "Place",
+    "sw": "Place"
+  },
+  "plan": {
+    "en": "Plan",
+    "fr": "Plan",
+    "sw": "Plan"
+  },
+  "plant": {
+    "en": "Plant",
+    "fr": "Plant",
+    "sw": "Plant"
+  },
+  "plate": {
+    "en": "Plate",
+    "fr": "Plate",
+    "sw": "Plate"
+  },
+  "player": {
+    "en": "Player",
+    "fr": "Player",
+    "sw": "Player"
+  },
+  "please": {
+    "en": "Please",
+    "fr": "S'il vous plaît",
+    "sw": "Tafadhali"
+  },
+  "plenty": {
+    "en": "Plenty",
+    "fr": "Plenty",
+    "sw": "Plenty"
+  },
+  "plus": {
+    "en": "Plus",
+    "fr": "Plus",
+    "sw": "Plus"
+  },
+  "pneumonia": {
+    "en": "Pneumonia",
+    "fr": "Pneumonia",
+    "sw": "Pneumonia"
+  },
+  "pocket": {
+    "en": "Pocket",
+    "fr": "Pocket",
+    "sw": "Pocket"
+  },
+  "point": {
+    "en": "Point",
+    "fr": "Point",
+    "sw": "Point"
+  },
+  "polar bear": {
+    "en": "Polar Bear",
+    "fr": "Polar Bear",
+    "sw": "Polar Bear"
+  },
+  "police": {
+    "en": "Police",
+    "fr": "Police",
+    "sw": "Police"
+  },
+  "policeman": {
+    "en": "Policeman",
+    "fr": "Policeman",
+    "sw": "Policeman"
+  },
+  "policy": {
+    "en": "Policy",
+    "fr": "Policy",
+    "sw": "Policy"
+  },
+  "polite": {
+    "en": "Polite",
+    "fr": "Polite",
+    "sw": "Polite"
+  },
+  "politics": {
+    "en": "Politics",
+    "fr": "Politics",
+    "sw": "Politics"
+  },
+  "poop": {
+    "en": "Poop",
+    "fr": "Poop",
+    "sw": "Poop"
+  },
+  "poor": {
+    "en": "Poor",
+    "fr": "Poor",
+    "sw": "Poor"
+  },
+  "popcorn": {
+    "en": "Popcorn",
+    "fr": "Popcorn",
+    "sw": "Popcorn"
+  },
+  "popular": {
+    "en": "Popular",
+    "fr": "Popular",
+    "sw": "Popular"
+  },
+  "position": {
+    "en": "Position",
+    "fr": "Position",
+    "sw": "Position"
+  },
+  "positive": {
+    "en": "Positive",
+    "fr": "Positive",
+    "sw": "Positive"
+  },
+  "possible": {
+    "en": "Possible",
+    "fr": "Possible",
+    "sw": "Possible"
+  },
+  "post": {
+    "en": "Post",
+    "fr": "Post",
+    "sw": "Post"
+  },
+  "postpone": {
+    "en": "Postpone",
+    "fr": "Postpone",
+    "sw": "Postpone"
+  },
+  "potato": {
+    "en": "Potato",
+    "fr": "Potato",
+    "sw": "Potato"
+  },
+  "potential": {
+    "en": "Potential",
+    "fr": "Potential",
+    "sw": "Potential"
+  },
+  "pound": {
+    "en": "Pound",
+    "fr": "Pound",
+    "sw": "Pound"
+  },
+  "pour": {
+    "en": "Pour",
+    "fr": "Pour",
+    "sw": "Pour"
+  },
+  "poverty": {
+    "en": "Poverty",
+    "fr": "Poverty",
+    "sw": "Poverty"
+  },
+  "power": {
+    "en": "Power",
+    "fr": "Power",
+    "sw": "Power"
+  },
+  "practice": {
+    "en": "Practice",
+    "fr": "Practice",
+    "sw": "Practice"
+  },
+  "praise": {
+    "en": "Praise",
+    "fr": "Praise",
+    "sw": "Praise"
+  },
+  "pray": {
+    "en": "Pray",
+    "fr": "Pray",
+    "sw": "Pray"
+  },
+  "preach": {
+    "en": "Preach",
+    "fr": "Preach",
+    "sw": "Preach"
+  },
+  "preacher": {
+    "en": "Preacher",
+    "fr": "Preacher",
+    "sw": "Preacher"
+  },
+  "precious": {
+    "en": "Precious",
+    "fr": "Precious",
+    "sw": "Precious"
+  },
+  "precipitation": {
+    "en": "Precipitation",
+    "fr": "Precipitation",
+    "sw": "Precipitation"
+  },
+  "precise": {
+    "en": "Precise",
+    "fr": "Precise",
+    "sw": "Precise"
+  },
+  "predict": {
+    "en": "Predict",
+    "fr": "Predict",
+    "sw": "Predict"
+  },
+  "prefer": {
+    "en": "Prefer",
+    "fr": "Prefer",
+    "sw": "Prefer"
+  },
+  "pregnant": {
+    "en": "Pregnant",
+    "fr": "Pregnant",
+    "sw": "Pregnant"
+  },
+  "prepare": {
+    "en": "Prepare",
+    "fr": "Prepare",
+    "sw": "Prepare"
+  },
+  "preschool": {
+    "en": "Preschool",
+    "fr": "Preschool",
+    "sw": "Preschool"
+  },
+  "present": {
+    "en": "Present",
+    "fr": "Present",
+    "sw": "Present"
+  },
+  "presentation": {
+    "en": "Presentation",
+    "fr": "Presentation",
+    "sw": "Presentation"
+  },
+  "president": {
+    "en": "President",
+    "fr": "President",
+    "sw": "President"
+  },
+  "pressure": {
+    "en": "Pressure",
+    "fr": "Pressure",
+    "sw": "Pressure"
+  },
+  "pretty": {
+    "en": "Pretty",
+    "fr": "Pretty",
+    "sw": "Pretty"
+  },
+  "prevent": {
+    "en": "Prevent",
+    "fr": "Prevent",
+    "sw": "Prevent"
+  },
+  "price": {
+    "en": "Price",
+    "fr": "Price",
+    "sw": "Price"
+  },
+  "pride": {
+    "en": "Pride",
+    "fr": "Pride",
+    "sw": "Pride"
+  },
+  "priest": {
+    "en": "Priest",
+    "fr": "Priest",
+    "sw": "Priest"
+  },
+  "prince": {
+    "en": "Prince",
+    "fr": "Prince",
+    "sw": "Prince"
+  },
+  "princess": {
+    "en": "Princess",
+    "fr": "Princess",
+    "sw": "Princess"
+  },
+  "principal": {
+    "en": "Principal",
+    "fr": "Principal",
+    "sw": "Principal"
+  },
+  "principle": {
+    "en": "Principle",
+    "fr": "Principle",
+    "sw": "Principle"
+  },
+  "print": {
+    "en": "Print",
+    "fr": "Print",
+    "sw": "Print"
+  },
+  "printer": {
+    "en": "Printer",
+    "fr": "Printer",
+    "sw": "Printer"
+  },
+  "priority": {
+    "en": "Priority",
+    "fr": "Priority",
+    "sw": "Priority"
+  },
+  "prison": {
+    "en": "Prison",
+    "fr": "Prison",
+    "sw": "Prison"
+  },
+  "private": {
+    "en": "Private",
+    "fr": "Private",
+    "sw": "Private"
+  },
+  "problem": {
+    "en": "Problem",
+    "fr": "Problem",
+    "sw": "Problem"
+  },
+  "process": {
+    "en": "Process",
+    "fr": "Process",
+    "sw": "Process"
+  },
+  "procrastinate": {
+    "en": "Procrastinate",
+    "fr": "Procrastinate",
+    "sw": "Procrastinate"
+  },
+  "professional": {
+    "en": "Professional",
+    "fr": "Professional",
+    "sw": "Professional"
+  },
+  "professor": {
+    "en": "Professor",
+    "fr": "Professor",
+    "sw": "Professor"
+  },
+  "profit": {
+    "en": "Profit",
+    "fr": "Profit",
+    "sw": "Profit"
+  },
+  "program": {
+    "en": "Program",
+    "fr": "Program",
+    "sw": "Program"
+  },
+  "progress": {
+    "en": "Progress",
+    "fr": "Progress",
+    "sw": "Progress"
+  },
+  "project": {
+    "en": "Project",
+    "fr": "Project",
+    "sw": "Project"
+  },
+  "promise": {
+    "en": "Promise",
+    "fr": "Promise",
+    "sw": "Promise"
+  },
+  "promote": {
+    "en": "Promote",
+    "fr": "Promote",
+    "sw": "Promote"
+  },
+  "proof": {
+    "en": "Proof",
+    "fr": "Proof",
+    "sw": "Proof"
+  },
+  "propaganda": {
+    "en": "Propaganda",
+    "fr": "Propaganda",
+    "sw": "Propaganda"
+  },
+  "proper": {
+    "en": "Proper",
+    "fr": "Proper",
+    "sw": "Proper"
+  },
+  "prostitute": {
+    "en": "Prostitute",
+    "fr": "Prostitute",
+    "sw": "Prostitute"
+  },
+  "protect": {
+    "en": "Protect",
+    "fr": "Protect",
+    "sw": "Protect"
+  },
+  "proud": {
+    "en": "Proud",
+    "fr": "Proud",
+    "sw": "Proud"
+  },
+  "prove": {
+    "en": "Prove",
+    "fr": "Prove",
+    "sw": "Prove"
+  },
+  "provide": {
+    "en": "Provide",
+    "fr": "Provide",
+    "sw": "Provide"
+  },
+  "psychologist": {
+    "en": "Psychologist",
+    "fr": "Psychologist",
+    "sw": "Psychologist"
+  },
+  "psychology": {
+    "en": "Psychology",
+    "fr": "Psychology",
+    "sw": "Psychology"
+  },
+  "public": {
+    "en": "Public",
+    "fr": "Public",
+    "sw": "Public"
+  },
+  "publish": {
+    "en": "Publish",
+    "fr": "Publish",
+    "sw": "Publish"
+  },
+  "pumpkin": {
+    "en": "Pumpkin",
+    "fr": "Pumpkin",
+    "sw": "Pumpkin"
+  },
+  "punish": {
+    "en": "Punish",
+    "fr": "Punish",
+    "sw": "Punish"
+  },
+  "purchase": {
+    "en": "Purchase",
+    "fr": "Purchase",
+    "sw": "Purchase"
+  },
+  "pure": {
+    "en": "Pure",
+    "fr": "Pure",
+    "sw": "Pure"
+  },
+  "purpose": {
+    "en": "Purpose",
+    "fr": "Purpose",
+    "sw": "Purpose"
+  },
+  "pursue": {
+    "en": "Pursue",
+    "fr": "Pursue",
+    "sw": "Pursue"
+  },
+  "push": {
+    "en": "Push",
+    "fr": "Push",
+    "sw": "Push"
+  },
+  "put": {
+    "en": "Put",
+    "fr": "Put",
+    "sw": "Put"
+  },
+  "put off": {
+    "en": "Put Off",
+    "fr": "Put Off",
+    "sw": "Put Off"
+  },
+  "puzzled": {
+    "en": "Puzzled",
+    "fr": "Puzzled",
+    "sw": "Puzzled"
+  },
+  "q": {
+    "en": "Q",
+    "fr": "Q",
+    "sw": "Q"
+  },
+  "quality": {
+    "en": "Quality",
+    "fr": "Quality",
+    "sw": "Quality"
+  },
+  "quarrel": {
+    "en": "Quarrel",
+    "fr": "Quarrel",
+    "sw": "Quarrel"
+  },
+  "quarter": {
+    "en": "Quarter",
+    "fr": "Quarter",
+    "sw": "Quarter"
+  },
+  "queen": {
+    "en": "Queen",
+    "fr": "Queen",
+    "sw": "Queen"
+  },
+  "question": {
+    "en": "Question",
+    "fr": "Question",
+    "sw": "Question"
+  },
+  "quick": {
+    "en": "Quick",
+    "fr": "Quick",
+    "sw": "Quick"
+  },
+  "quiet": {
+    "en": "Quiet",
+    "fr": "Quiet",
+    "sw": "Quiet"
+  },
+  "quit": {
+    "en": "Quit",
+    "fr": "Quit",
+    "sw": "Quit"
+  },
+  "quote": {
+    "en": "Quote",
+    "fr": "Quote",
+    "sw": "Quote"
+  },
+  "r": {
+    "en": "R",
+    "fr": "R",
+    "sw": "R"
+  },
+  "rabbit": {
+    "en": "Rabbit",
+    "fr": "Rabbit",
+    "sw": "Rabbit"
+  },
+  "raccoon": {
+    "en": "Raccoon",
+    "fr": "Raccoon",
+    "sw": "Raccoon"
+  },
+  "race": {
+    "en": "Race",
+    "fr": "Race",
+    "sw": "Race"
+  },
+  "radio": {
+    "en": "Radio",
+    "fr": "Radio",
+    "sw": "Radio"
+  },
+  "rage": {
+    "en": "Rage",
+    "fr": "Rage",
+    "sw": "Rage"
+  },
+  "rain": {
+    "en": "Rain",
+    "fr": "Rain",
+    "sw": "Rain"
+  },
+  "rainbow": {
+    "en": "Rainbow",
+    "fr": "Rainbow",
+    "sw": "Rainbow"
+  },
+  "rake": {
+    "en": "Rake",
+    "fr": "Rake",
+    "sw": "Rake"
+  },
+  "rat": {
+    "en": "Rat",
+    "fr": "Rat",
+    "sw": "Rat"
+  },
+  "rather": {
+    "en": "Rather",
+    "fr": "Rather",
+    "sw": "Rather"
+  },
+  "read": {
+    "en": "Read",
+    "fr": "Read",
+    "sw": "Kusoma"
+  },
+  "ready": {
+    "en": "Ready",
+    "fr": "Ready",
+    "sw": "Ready"
+  },
+  "real": {
+    "en": "Real",
+    "fr": "Real",
+    "sw": "Real"
+  },
+  "realize": {
+    "en": "Realize",
+    "fr": "Realize",
+    "sw": "Realize"
+  },
+  "really": {
+    "en": "Really",
+    "fr": "Really",
+    "sw": "Really"
+  },
+  "reason": {
+    "en": "Reason",
+    "fr": "Reason",
+    "sw": "Reason"
+  },
+  "receive": {
+    "en": "Receive",
+    "fr": "Receive",
+    "sw": "Receive"
+  },
+  "recent": {
+    "en": "Recent",
+    "fr": "Recent",
+    "sw": "Recent"
+  },
+  "recliner": {
+    "en": "Recliner",
+    "fr": "Recliner",
+    "sw": "Recliner"
+  },
+  "recognize": {
+    "en": "Recognize",
+    "fr": "Recognize",
+    "sw": "Recognize"
+  },
+  "recommend": {
+    "en": "Recommend",
+    "fr": "Recommend",
+    "sw": "Recommend"
+  },
+  "recover": {
+    "en": "Recover",
+    "fr": "Recover",
+    "sw": "Recover"
+  },
+  "red": {
+    "en": "Red",
+    "fr": "Red",
+    "sw": "Nyekundu"
+  },
+  "reduce": {
+    "en": "Reduce",
+    "fr": "Reduce",
+    "sw": "Reduce"
+  },
+  "refer": {
+    "en": "Refer",
+    "fr": "Refer",
+    "sw": "Refer"
+  },
+  "referee": {
+    "en": "Referee",
+    "fr": "Referee",
+    "sw": "Referee"
+  },
+  "refuse": {
+    "en": "Refuse",
+    "fr": "Refuse",
+    "sw": "Refuse"
+  },
+  "regular": {
+    "en": "Regular",
+    "fr": "Regular",
+    "sw": "Regular"
+  },
+  "rehearse": {
+    "en": "Rehearse",
+    "fr": "Rehearse",
+    "sw": "Rehearse"
+  },
+  "reject": {
+    "en": "Reject",
+    "fr": "Reject",
+    "sw": "Reject"
+  },
+  "relate": {
+    "en": "Relate",
+    "fr": "Relate",
+    "sw": "Relate"
+  },
+  "relationship": {
+    "en": "Relationship",
+    "fr": "Relationship",
+    "sw": "Relationship"
+  },
+  "relax": {
+    "en": "Relax",
+    "fr": "Relax",
+    "sw": "Relax"
+  },
+  "release": {
+    "en": "Release",
+    "fr": "Release",
+    "sw": "Release"
+  },
+  "relief": {
+    "en": "Relief",
+    "fr": "Relief",
+    "sw": "Relief"
+  },
+  "religion": {
+    "en": "Religion",
+    "fr": "Religion",
+    "sw": "Religion"
+  },
+  "rely": {
+    "en": "Rely",
+    "fr": "Rely",
+    "sw": "Rely"
+  },
+  "remember": {
+    "en": "Remember",
+    "fr": "Remember",
+    "sw": "Remember"
+  },
+  "remote control": {
+    "en": "Remote Control",
+    "fr": "Remote Control",
+    "sw": "Remote Control"
+  },
+  "remove": {
+    "en": "Remove",
+    "fr": "Remove",
+    "sw": "Remove"
+  },
+  "rent": {
+    "en": "Rent",
+    "fr": "Rent",
+    "sw": "Rent"
+  },
+  "repeat": {
+    "en": "Repeat",
+    "fr": "Repeat",
+    "sw": "Repeat"
+  },
+  "replace": {
+    "en": "Replace",
+    "fr": "Replace",
+    "sw": "Replace"
+  },
+  "reply": {
+    "en": "Reply",
+    "fr": "Reply",
+    "sw": "Reply"
+  },
+  "report": {
+    "en": "Report",
+    "fr": "Report",
+    "sw": "Report"
+  },
+  "represent": {
+    "en": "Represent",
+    "fr": "Represent",
+    "sw": "Represent"
+  },
+  "reputation": {
+    "en": "Reputation",
+    "fr": "Reputation",
+    "sw": "Reputation"
+  },
+  "request": {
+    "en": "Request",
+    "fr": "Request",
+    "sw": "Request"
+  },
+  "require": {
+    "en": "Require",
+    "fr": "Require",
+    "sw": "Require"
+  },
+  "rescue": {
+    "en": "Rescue",
+    "fr": "Rescue",
+    "sw": "Rescue"
+  },
+  "research": {
+    "en": "Research",
+    "fr": "Research",
+    "sw": "Research"
+  },
+  "resign": {
+    "en": "Resign",
+    "fr": "Resign",
+    "sw": "Resign"
+  },
+  "resist": {
+    "en": "Resist",
+    "fr": "Resist",
+    "sw": "Resist"
+  },
+  "respect": {
+    "en": "Respect",
+    "fr": "Respect",
+    "sw": "Respect"
+  },
+  "responsibility": {
+    "en": "Responsibility",
+    "fr": "Responsibility",
+    "sw": "Responsibility"
+  },
+  "responsible": {
+    "en": "Responsible",
+    "fr": "Responsible",
+    "sw": "Responsible"
+  },
+  "rest": {
+    "en": "Rest",
+    "fr": "Rest",
+    "sw": "Rest"
+  },
+  "restaurant": {
+    "en": "Restaurant",
+    "fr": "Restaurant",
+    "sw": "Restaurant"
+  },
+  "restroom": {
+    "en": "Restroom",
+    "fr": "Restroom",
+    "sw": "Restroom"
+  },
+  "result": {
+    "en": "Result",
+    "fr": "Result",
+    "sw": "Result"
+  },
+  "retire": {
+    "en": "Retire",
+    "fr": "Retire",
+    "sw": "Retire"
+  },
+  "retreat": {
+    "en": "Retreat",
+    "fr": "Retreat",
+    "sw": "Retreat"
+  },
+  "reveal": {
+    "en": "Reveal",
+    "fr": "Reveal",
+    "sw": "Reveal"
+  },
+  "revenge": {
+    "en": "Revenge",
+    "fr": "Revenge",
+    "sw": "Revenge"
+  },
+  "review": {
+    "en": "Review",
+    "fr": "Review",
+    "sw": "Review"
+  },
+  "rich": {
+    "en": "Rich",
+    "fr": "Rich",
+    "sw": "Rich"
+  },
+  "ride": {
+    "en": "Ride",
+    "fr": "Ride",
+    "sw": "Ride"
+  },
+  "ridiculous": {
+    "en": "Ridiculous",
+    "fr": "Ridiculous",
+    "sw": "Ridiculous"
+  },
+  "ring": {
+    "en": "Ring",
+    "fr": "Ring",
+    "sw": "Ring"
+  },
+  "rise": {
+    "en": "Rise",
+    "fr": "Rise",
+    "sw": "Rise"
+  },
+  "river": {
+    "en": "River",
+    "fr": "River",
+    "sw": "River"
+  },
+  "road": {
+    "en": "Road",
+    "fr": "Road",
+    "sw": "Road"
+  },
+  "roar": {
+    "en": "Roar",
+    "fr": "Roar",
+    "sw": "Roar"
+  },
+  "rob": {
+    "en": "Rob",
+    "fr": "Rob",
+    "sw": "Rob"
+  },
+  "robber": {
+    "en": "Robber",
+    "fr": "Robber",
+    "sw": "Robber"
+  },
+  "robot": {
+    "en": "Robot",
+    "fr": "Robot",
+    "sw": "Robot"
+  },
+  "rock": {
+    "en": "Rock",
+    "fr": "Rock",
+    "sw": "Rock"
+  },
+  "role": {
+    "en": "Role",
+    "fr": "Role",
+    "sw": "Role"
+  },
+  "roof": {
+    "en": "Roof",
+    "fr": "Roof",
+    "sw": "Roof"
+  },
+  "room": {
+    "en": "Room",
+    "fr": "Room",
+    "sw": "Room"
+  },
+  "roommate": {
+    "en": "Roommate",
+    "fr": "Roommate",
+    "sw": "Roommate"
+  },
+  "rooster": {
+    "en": "Rooster",
+    "fr": "Rooster",
+    "sw": "Rooster"
+  },
+  "rope": {
+    "en": "Rope",
+    "fr": "Rope",
+    "sw": "Rope"
+  },
+  "rose": {
+    "en": "Rose",
+    "fr": "Rose",
+    "sw": "Rose"
+  },
+  "rough": {
+    "en": "Rough",
+    "fr": "Rough",
+    "sw": "Rough"
+  },
+  "rubber": {
+    "en": "Rubber",
+    "fr": "Rubber",
+    "sw": "Rubber"
+  },
+  "rude": {
+    "en": "Rude",
+    "fr": "Rude",
+    "sw": "Rude"
+  },
+  "ruin": {
+    "en": "Ruin",
+    "fr": "Ruin",
+    "sw": "Ruin"
+  },
+  "rule": {
+    "en": "Rule",
+    "fr": "Rule",
+    "sw": "Rule"
+  },
+  "run": {
+    "en": "Run",
+    "fr": "Courir",
+    "sw": "Run"
+  },
+  "rush": {
+    "en": "Rush",
+    "fr": "Rush",
+    "sw": "Rush"
+  },
+  "russia": {
+    "en": "Russia",
+    "fr": "Russia",
+    "sw": "Russia"
+  },
+  "s": {
+    "en": "S",
+    "fr": "S",
+    "sw": "S"
+  },
+  "sad": {
+    "en": "Sad",
+    "fr": "Sad",
+    "sw": "Sad"
+  },
+  "safe": {
+    "en": "Safe",
+    "fr": "Safe",
+    "sw": "Safe"
+  },
+  "salad": {
+    "en": "Salad",
+    "fr": "Salad",
+    "sw": "Salad"
+  },
+  "salary": {
+    "en": "Salary",
+    "fr": "Salary",
+    "sw": "Salary"
+  },
+  "salt": {
+    "en": "Salt",
+    "fr": "Salt",
+    "sw": "Salt"
+  },
+  "salute": {
+    "en": "Salute",
+    "fr": "Salute",
+    "sw": "Salute"
+  },
+  "sandwich": {
+    "en": "Sandwich",
+    "fr": "Sandwich",
+    "sw": "Sandwich"
+  },
+  "satisfy": {
+    "en": "Satisfy",
+    "fr": "Satisfy",
+    "sw": "Satisfy"
+  },
+  "saturday": {
+    "en": "Saturday",
+    "fr": "Saturday",
+    "sw": "Saturday"
+  },
+  "sauce": {
+    "en": "Sauce",
+    "fr": "Sauce",
+    "sw": "Sauce"
+  },
+  "sausage": {
+    "en": "Sausage",
+    "fr": "Sausage",
+    "sw": "Sausage"
+  },
+  "save": {
+    "en": "Save",
+    "fr": "Save",
+    "sw": "Save"
+  },
+  "saw": {
+    "en": "Saw",
+    "fr": "Saw",
+    "sw": "Saw"
+  },
+  "say": {
+    "en": "Say",
+    "fr": "Say",
+    "sw": "Say"
+  },
+  "scan": {
+    "en": "Scan",
+    "fr": "Scan",
+    "sw": "Scan"
+  },
+  "scared": {
+    "en": "Scared",
+    "fr": "Scared",
+    "sw": "Scared"
+  },
+  "schedule": {
+    "en": "Schedule",
+    "fr": "Schedule",
+    "sw": "Schedule"
+  },
+  "science": {
+    "en": "Science",
+    "fr": "Science",
+    "sw": "Science"
+  },
+  "scientist": {
+    "en": "Scientist",
+    "fr": "Scientist",
+    "sw": "Scientist"
+  },
+  "scissors": {
+    "en": "Scissors",
+    "fr": "Scissors",
+    "sw": "Scissors"
+  },
+  "scold": {
+    "en": "Scold",
+    "fr": "Scold",
+    "sw": "Scold"
+  },
+  "score": {
+    "en": "Score",
+    "fr": "Score",
+    "sw": "Score"
+  },
+  "scotland": {
+    "en": "Scotland",
+    "fr": "Scotland",
+    "sw": "Scotland"
+  },
+  "scream": {
+    "en": "Scream",
+    "fr": "Scream",
+    "sw": "Scream"
+  },
+  "screwdriver": {
+    "en": "Screwdriver",
+    "fr": "Screwdriver",
+    "sw": "Screwdriver"
+  },
+  "sculpture": {
+    "en": "Sculpture",
+    "fr": "Sculpture",
+    "sw": "Sculpture"
+  },
+  "sea": {
+    "en": "Sea",
+    "fr": "Sea",
+    "sw": "Sea"
+  },
+  "search": {
+    "en": "Search",
+    "fr": "Search",
+    "sw": "Search"
+  },
+  "second": {
+    "en": "Second",
+    "fr": "Second",
+    "sw": "Second"
+  },
+  "secret": {
+    "en": "Secret",
+    "fr": "Secret",
+    "sw": "Secret"
+  },
+  "see": {
+    "en": "See",
+    "fr": "See",
+    "sw": "See"
+  },
+  "seem": {
+    "en": "Seem",
+    "fr": "Seem",
+    "sw": "Seem"
+  },
+  "seldom": {
+    "en": "Seldom",
+    "fr": "Seldom",
+    "sw": "Seldom"
+  },
+  "selfish": {
+    "en": "Selfish",
+    "fr": "Selfish",
+    "sw": "Selfish"
+  },
+  "sell": {
+    "en": "Sell",
+    "fr": "Sell",
+    "sw": "Sell"
+  },
+  "senate": {
+    "en": "Senate",
+    "fr": "Senate",
+    "sw": "Senate"
+  },
+  "send": {
+    "en": "Send",
+    "fr": "Send",
+    "sw": "Send"
+  },
+  "senior": {
+    "en": "Senior",
+    "fr": "Senior",
+    "sw": "Senior"
+  },
+  "sensitive": {
+    "en": "Sensitive",
+    "fr": "Sensitive",
+    "sw": "Sensitive"
+  },
+  "sentence": {
+    "en": "Sentence",
+    "fr": "Sentence",
+    "sw": "Sentence"
+  },
+  "separate": {
+    "en": "Separate",
+    "fr": "Separate",
+    "sw": "Separate"
+  },
+  "september": {
+    "en": "September",
+    "fr": "September",
+    "sw": "September"
+  },
+  "sequence": {
+    "en": "Sequence",
+    "fr": "Sequence",
+    "sw": "Sequence"
+  },
+  "serious": {
+    "en": "Serious",
+    "fr": "Serious",
+    "sw": "Serious"
+  },
+  "serve": {
+    "en": "Serve",
+    "fr": "Serve",
+    "sw": "Serve"
+  },
+  "service": {
+    "en": "Service",
+    "fr": "Service",
+    "sw": "Service"
+  },
+  "settle": {
+    "en": "Settle",
+    "fr": "Settle",
+    "sw": "Settle"
+  },
+  "seven": {
+    "en": "Seven",
+    "fr": "Seven",
+    "sw": "Seven"
+  },
+  "several": {
+    "en": "Several",
+    "fr": "Several",
+    "sw": "Several"
+  },
+  "sew": {
+    "en": "Sew",
+    "fr": "Sew",
+    "sw": "Sew"
+  },
+  "shame": {
+    "en": "Shame",
+    "fr": "Shame",
+    "sw": "Shame"
+  },
+  "shampoo": {
+    "en": "Shampoo",
+    "fr": "Shampoo",
+    "sw": "Shampoo"
+  },
+  "shape": {
+    "en": "Shape",
+    "fr": "Shape",
+    "sw": "Shape"
+  },
+  "share": {
+    "en": "Share",
+    "fr": "Share",
+    "sw": "Share"
+  },
+  "shave": {
+    "en": "Shave",
+    "fr": "Shave",
+    "sw": "Shave"
+  },
+  "she": {
+    "en": "She",
+    "fr": "She",
+    "sw": "She"
+  },
+  "sheep": {
+    "en": "Sheep",
+    "fr": "Sheep",
+    "sw": "Sheep"
+  },
+  "shelf": {
+    "en": "Shelf",
+    "fr": "Shelf",
+    "sw": "Shelf"
+  },
+  "shine": {
+    "en": "Shine",
+    "fr": "Shine",
+    "sw": "Shine"
+  },
+  "shock": {
+    "en": "Shock",
+    "fr": "Shock",
+    "sw": "Shock"
+  },
+  "shoes": {
+    "en": "Shoes",
+    "fr": "Shoes",
+    "sw": "Shoes"
+  },
+  "shoot": {
+    "en": "Shoot",
+    "fr": "Shoot",
+    "sw": "Shoot"
+  },
+  "shop": {
+    "en": "Shop",
+    "fr": "Shop",
+    "sw": "Shop"
+  },
+  "shopping": {
+    "en": "Shopping",
+    "fr": "Shopping",
+    "sw": "Shopping"
+  },
+  "should": {
+    "en": "Should",
+    "fr": "Should",
+    "sw": "Should"
+  },
+  "shoulder": {
+    "en": "Shoulder",
+    "fr": "Shoulder",
+    "sw": "Shoulder"
+  },
+  "shout": {
+    "en": "Shout",
+    "fr": "Shout",
+    "sw": "Shout"
+  },
+  "shovel": {
+    "en": "Shovel",
+    "fr": "Shovel",
+    "sw": "Shovel"
+  },
+  "show": {
+    "en": "Show",
+    "fr": "Show",
+    "sw": "Show"
+  },
+  "shower": {
+    "en": "Shower",
+    "fr": "Shower",
+    "sw": "Shower"
+  },
+  "shrimp": {
+    "en": "Shrimp",
+    "fr": "Shrimp",
+    "sw": "Shrimp"
+  },
+  "shy": {
+    "en": "Shy",
+    "fr": "Shy",
+    "sw": "Shy"
+  },
+  "sick": {
+    "en": "Sick",
+    "fr": "Sick",
+    "sw": "Mgonjwa"
+  },
+  "side": {
+    "en": "Side",
+    "fr": "Side",
+    "sw": "Side"
+  },
+  "sign": {
+    "en": "Sign",
+    "fr": "Sign",
+    "sw": "Sign"
+  },
+  "sign language": {
+    "en": "Sign Language",
+    "fr": "Sign Language",
+    "sw": "Sign Language"
+  },
+  "silent": {
+    "en": "Silent",
+    "fr": "Silent",
+    "sw": "Silent"
+  },
+  "silly": {
+    "en": "Silly",
+    "fr": "Silly",
+    "sw": "Silly"
+  },
+  "silver": {
+    "en": "Silver",
+    "fr": "Silver",
+    "sw": "Silver"
+  },
+  "similar": {
+    "en": "Similar",
+    "fr": "Similar",
+    "sw": "Similar"
+  },
+  "simple": {
+    "en": "Simple",
+    "fr": "Simple",
+    "sw": "Simple"
+  },
+  "sin": {
+    "en": "Sin",
+    "fr": "Sin",
+    "sw": "Sin"
+  },
+  "since": {
+    "en": "Since",
+    "fr": "Since",
+    "sw": "Since"
+  },
+  "sing": {
+    "en": "Sing",
+    "fr": "Sing",
+    "sw": "Kuimba"
+  },
+  "singer": {
+    "en": "Singer",
+    "fr": "Singer",
+    "sw": "Singer"
+  },
+  "single": {
+    "en": "Single",
+    "fr": "Single",
+    "sw": "Single"
+  },
+  "siren": {
+    "en": "Siren",
+    "fr": "Siren",
+    "sw": "Siren"
+  },
+  "sister": {
+    "en": "Sister",
+    "fr": "Sister",
+    "sw": "Dada"
+  },
+  "sit": {
+    "en": "Sit",
+    "fr": "Sit",
+    "sw": "Sit"
+  },
+  "situation": {
+    "en": "Situation",
+    "fr": "Situation",
+    "sw": "Situation"
+  },
+  "six": {
+    "en": "Six",
+    "fr": "Six",
+    "sw": "Six"
+  },
+  "sixteen": {
+    "en": "Sixteen",
+    "fr": "Sixteen",
+    "sw": "Sixteen"
+  },
+  "size": {
+    "en": "Size",
+    "fr": "Size",
+    "sw": "Size"
+  },
+  "skate": {
+    "en": "Skate",
+    "fr": "Skate",
+    "sw": "Skate"
+  },
+  "skeleton": {
+    "en": "Skeleton",
+    "fr": "Skeleton",
+    "sw": "Skeleton"
+  },
+  "sketch": {
+    "en": "Sketch",
+    "fr": "Sketch",
+    "sw": "Sketch"
+  },
+  "ski": {
+    "en": "Ski",
+    "fr": "Ski",
+    "sw": "Ski"
+  },
+  "skill": {
+    "en": "Skill",
+    "fr": "Skill",
+    "sw": "Skill"
+  },
+  "skin": {
+    "en": "Skin",
+    "fr": "Skin",
+    "sw": "Skin"
+  },
+  "skinny": {
+    "en": "Skinny",
+    "fr": "Skinny",
+    "sw": "Skinny"
+  },
+  "skip": {
+    "en": "Skip",
+    "fr": "Skip",
+    "sw": "Skip"
+  },
+  "skirt": {
+    "en": "Skirt",
+    "fr": "Skirt",
+    "sw": "Skirt"
+  },
+  "skunk": {
+    "en": "Skunk",
+    "fr": "Skunk",
+    "sw": "Skunk"
+  },
+  "sky": {
+    "en": "Sky",
+    "fr": "Sky",
+    "sw": "Sky"
+  },
+  "slave": {
+    "en": "Slave",
+    "fr": "Slave",
+    "sw": "Slave"
+  },
+  "sleep": {
+    "en": "Sleep",
+    "fr": "Sleep",
+    "sw": "Kulala"
+  },
+  "sleepy": {
+    "en": "Sleepy",
+    "fr": "Sleepy",
+    "sw": "Sleepy"
+  },
+  "slice": {
+    "en": "Slice",
+    "fr": "Slice",
+    "sw": "Slice"
+  },
+  "slip": {
+    "en": "Slip",
+    "fr": "Slip",
+    "sw": "Slip"
+  },
+  "slow": {
+    "en": "Slow",
+    "fr": "Slow",
+    "sw": "Polepole"
+  },
+  "small": {
+    "en": "Small",
+    "fr": "Small",
+    "sw": "Small"
+  },
+  "smart": {
+    "en": "Smart",
+    "fr": "Smart",
+    "sw": "Smart"
+  },
+  "smell": {
+    "en": "Smell",
+    "fr": "Smell",
+    "sw": "Smell"
+  },
+  "smile": {
+    "en": "Smile",
+    "fr": "Smile",
+    "sw": "Smile"
+  },
+  "smoking": {
+    "en": "Smoking",
+    "fr": "Smoking",
+    "sw": "Smoking"
+  },
+  "smooth": {
+    "en": "Smooth",
+    "fr": "Smooth",
+    "sw": "Smooth"
+  },
+  "snack": {
+    "en": "Snack",
+    "fr": "Snack",
+    "sw": "Snack"
+  },
+  "snake": {
+    "en": "Snake",
+    "fr": "Snake",
+    "sw": "Snake"
+  },
+  "sneeze": {
+    "en": "Sneeze",
+    "fr": "Sneeze",
+    "sw": "Sneeze"
+  },
+  "snob": {
+    "en": "Snob",
+    "fr": "Snob",
+    "sw": "Snob"
+  },
+  "snow": {
+    "en": "Snow",
+    "fr": "Snow",
+    "sw": "Snow"
+  },
+  "snowman": {
+    "en": "Snowman",
+    "fr": "Snowman",
+    "sw": "Snowman"
+  },
+  "soap": {
+    "en": "Soap",
+    "fr": "Soap",
+    "sw": "Soap"
+  },
+  "soccer": {
+    "en": "Soccer",
+    "fr": "Soccer",
+    "sw": "Soccer"
+  },
+  "society": {
+    "en": "Society",
+    "fr": "Society",
+    "sw": "Society"
+  },
+  "socks": {
+    "en": "Socks",
+    "fr": "Socks",
+    "sw": "Socks"
+  },
+  "soda": {
+    "en": "Soda",
+    "fr": "Soda",
+    "sw": "Soda"
+  },
+  "sofa": {
+    "en": "Sofa",
+    "fr": "Sofa",
+    "sw": "Sofa"
+  },
+  "soft": {
+    "en": "Soft",
+    "fr": "Soft",
+    "sw": "Soft"
+  },
+  "soldier": {
+    "en": "Soldier",
+    "fr": "Soldier",
+    "sw": "Soldier"
+  },
+  "solid": {
+    "en": "Solid",
+    "fr": "Solid",
+    "sw": "Solid"
+  },
+  "solve": {
+    "en": "Solve",
+    "fr": "Solve",
+    "sw": "Solve"
+  },
+  "some": {
+    "en": "Some",
+    "fr": "Some",
+    "sw": "Some"
+  },
+  "someday": {
+    "en": "Someday",
+    "fr": "Someday",
+    "sw": "Someday"
+  },
+  "someone": {
+    "en": "Someone",
+    "fr": "Someone",
+    "sw": "Someone"
+  },
+  "something": {
+    "en": "Something",
+    "fr": "Something",
+    "sw": "Something"
+  },
+  "sometimes": {
+    "en": "Sometimes",
+    "fr": "Sometimes",
+    "sw": "Sometimes"
+  },
+  "somewhere": {
+    "en": "Somewhere",
+    "fr": "Somewhere",
+    "sw": "Somewhere"
+  },
+  "song": {
+    "en": "Song",
+    "fr": "Song",
+    "sw": "Song"
+  },
+  "soon": {
+    "en": "Soon",
+    "fr": "Soon",
+    "sw": "Soon"
+  },
+  "sore throat": {
+    "en": "Sore Throat",
+    "fr": "Sore Throat",
+    "sw": "Sore Throat"
+  },
+  "sorry": {
+    "en": "Sorry",
+    "fr": "Pardon",
+    "sw": "Samahani"
+  },
+  "soul": {
+    "en": "Soul",
+    "fr": "Soul",
+    "sw": "Soul"
+  },
+  "sound": {
+    "en": "Sound",
+    "fr": "Sound",
+    "sw": "Sound"
+  },
+  "soup": {
+    "en": "Soup",
+    "fr": "Soup",
+    "sw": "Soup"
+  },
+  "sour": {
+    "en": "Sour",
+    "fr": "Sour",
+    "sw": "Sour"
+  },
+  "south": {
+    "en": "South",
+    "fr": "South",
+    "sw": "South"
+  },
+  "south america": {
+    "en": "South America",
+    "fr": "South America",
+    "sw": "South America"
+  },
+  "spain": {
+    "en": "Spain",
+    "fr": "Spain",
+    "sw": "Spain"
+  },
+  "spanish": {
+    "en": "Spanish",
+    "fr": "Spanish",
+    "sw": "Spanish"
+  },
+  "speak": {
+    "en": "Speak",
+    "fr": "Speak",
+    "sw": "Speak"
+  },
+  "special": {
+    "en": "Special",
+    "fr": "Special",
+    "sw": "Special"
+  },
+  "specific": {
+    "en": "Specific",
+    "fr": "Specific",
+    "sw": "Specific"
+  },
+  "speech": {
+    "en": "Speech",
+    "fr": "Speech",
+    "sw": "Speech"
+  },
+  "speed": {
+    "en": "Speed",
+    "fr": "Speed",
+    "sw": "Speed"
+  },
+  "spell": {
+    "en": "Spell",
+    "fr": "Spell",
+    "sw": "Spell"
+  },
+  "spider": {
+    "en": "Spider",
+    "fr": "Spider",
+    "sw": "Spider"
+  },
+  "spill": {
+    "en": "Spill",
+    "fr": "Spill",
+    "sw": "Spill"
+  },
+  "spin": {
+    "en": "Spin",
+    "fr": "Spin",
+    "sw": "Spin"
+  },
+  "spirit": {
+    "en": "Spirit",
+    "fr": "Spirit",
+    "sw": "Spirit"
+  },
+  "spit": {
+    "en": "Spit",
+    "fr": "Spit",
+    "sw": "Spit"
+  },
+  "spoon": {
+    "en": "Spoon",
+    "fr": "Spoon",
+    "sw": "Spoon"
+  },
+  "spray": {
+    "en": "Spray",
+    "fr": "Spray",
+    "sw": "Spray"
+  },
+  "spread": {
+    "en": "Spread",
+    "fr": "Spread",
+    "sw": "Spread"
+  },
+  "spring": {
+    "en": "Spring",
+    "fr": "Spring",
+    "sw": "Spring"
+  },
+  "sprint": {
+    "en": "Sprint",
+    "fr": "Sprint",
+    "sw": "Sprint"
+  },
+  "square": {
+    "en": "Square",
+    "fr": "Square",
+    "sw": "Square"
+  },
+  "squeeze": {
+    "en": "Squeeze",
+    "fr": "Squeeze",
+    "sw": "Squeeze"
+  },
+  "squirrel": {
+    "en": "Squirrel",
+    "fr": "Squirrel",
+    "sw": "Squirrel"
+  },
+  "stadium": {
+    "en": "Stadium",
+    "fr": "Stadium",
+    "sw": "Stadium"
+  },
+  "staff": {
+    "en": "Staff",
+    "fr": "Staff",
+    "sw": "Staff"
+  },
+  "stairs": {
+    "en": "Stairs",
+    "fr": "Stairs",
+    "sw": "Stairs"
+  },
+  "stamp": {
+    "en": "Stamp",
+    "fr": "Stamp",
+    "sw": "Stamp"
+  },
+  "stand": {
+    "en": "Stand",
+    "fr": "Stand",
+    "sw": "Stand"
+  },
+  "standard": {
+    "en": "Standard",
+    "fr": "Standard",
+    "sw": "Standard"
+  },
+  "star": {
+    "en": "Star",
+    "fr": "Star",
+    "sw": "Star"
+  },
+  "stare": {
+    "en": "Stare",
+    "fr": "Stare",
+    "sw": "Stare"
+  },
+  "start": {
+    "en": "Start",
+    "fr": "Commencer",
+    "sw": "Start"
+  },
+  "statistics": {
+    "en": "Statistics",
+    "fr": "Statistics",
+    "sw": "Statistics"
+  },
+  "stay": {
+    "en": "Stay",
+    "fr": "Stay",
+    "sw": "Kukaa"
+  },
+  "steal": {
+    "en": "Steal",
+    "fr": "Steal",
+    "sw": "Steal"
+  },
+  "steel": {
+    "en": "Steel",
+    "fr": "Steel",
+    "sw": "Steel"
+  },
+  "stepfather": {
+    "en": "Stepfather",
+    "fr": "Stepfather",
+    "sw": "Stepfather"
+  },
+  "sticky": {
+    "en": "Sticky",
+    "fr": "Sticky",
+    "sw": "Sticky"
+  },
+  "still": {
+    "en": "Still",
+    "fr": "Still",
+    "sw": "Still"
+  },
+  "sting": {
+    "en": "Sting",
+    "fr": "Sting",
+    "sw": "Sting"
+  },
+  "stink": {
+    "en": "Stink",
+    "fr": "Stink",
+    "sw": "Stink"
+  },
+  "stir": {
+    "en": "Stir",
+    "fr": "Stir",
+    "sw": "Stir"
+  },
+  "stitch": {
+    "en": "Stitch",
+    "fr": "Stitch",
+    "sw": "Stitch"
+  },
+  "stomach": {
+    "en": "Stomach",
+    "fr": "Stomach",
+    "sw": "Stomach"
+  },
+  "stop": {
+    "en": "Stop",
+    "fr": "Stop",
+    "sw": "Stop"
+  },
+  "store": {
+    "en": "Store",
+    "fr": "Store",
+    "sw": "Store"
+  },
+  "story": {
+    "en": "Story",
+    "fr": "Story",
+    "sw": "Story"
+  },
+  "straight": {
+    "en": "Straight",
+    "fr": "Straight",
+    "sw": "Straight"
+  },
+  "strange": {
+    "en": "Strange",
+    "fr": "Strange",
+    "sw": "Strange"
+  },
+  "straw": {
+    "en": "Straw",
+    "fr": "Straw",
+    "sw": "Straw"
+  },
+  "strawberry": {
+    "en": "Strawberry",
+    "fr": "Strawberry",
+    "sw": "Strawberry"
+  },
+  "street": {
+    "en": "Street",
+    "fr": "Street",
+    "sw": "Street"
+  },
+  "stress": {
+    "en": "Stress",
+    "fr": "Stress",
+    "sw": "Stress"
+  },
+  "stretch": {
+    "en": "Stretch",
+    "fr": "Stretch",
+    "sw": "Stretch"
+  },
+  "strict": {
+    "en": "Strict",
+    "fr": "Strict",
+    "sw": "Strict"
+  },
+  "strong": {
+    "en": "Strong",
+    "fr": "Strong",
+    "sw": "Strong"
+  },
+  "structure": {
+    "en": "Structure",
+    "fr": "Structure",
+    "sw": "Structure"
+  },
+  "struggle": {
+    "en": "Struggle",
+    "fr": "Struggle",
+    "sw": "Struggle"
+  },
+  "stubborn": {
+    "en": "Stubborn",
+    "fr": "Stubborn",
+    "sw": "Stubborn"
+  },
+  "stuck": {
+    "en": "Stuck",
+    "fr": "Stuck",
+    "sw": "Stuck"
+  },
+  "student": {
+    "en": "Student",
+    "fr": "Student",
+    "sw": "Student"
+  },
+  "stupid": {
+    "en": "Stupid",
+    "fr": "Stupid",
+    "sw": "Stupid"
+  },
+  "subtract": {
+    "en": "Subtract",
+    "fr": "Subtract",
+    "sw": "Subtract"
+  },
+  "subway": {
+    "en": "Subway",
+    "fr": "Subway",
+    "sw": "Subway"
+  },
+  "sue": {
+    "en": "Sue",
+    "fr": "Sue",
+    "sw": "Sue"
+  },
+  "suffer": {
+    "en": "Suffer",
+    "fr": "Suffer",
+    "sw": "Suffer"
+  },
+  "sugar": {
+    "en": "Sugar",
+    "fr": "Sugar",
+    "sw": "Sugar"
+  },
+  "suggest": {
+    "en": "Suggest",
+    "fr": "Suggest",
+    "sw": "Suggest"
+  },
+  "summer": {
+    "en": "Summer",
+    "fr": "Summer",
+    "sw": "Summer"
+  },
+  "summon": {
+    "en": "Summon",
+    "fr": "Summon",
+    "sw": "Summon"
+  },
+  "sun": {
+    "en": "Sun",
+    "fr": "Sun",
+    "sw": "Sun"
+  },
+  "sunday": {
+    "en": "Sunday",
+    "fr": "Sunday",
+    "sw": "Sunday"
+  },
+  "sunrise": {
+    "en": "Sunrise",
+    "fr": "Sunrise",
+    "sw": "Sunrise"
+  },
+  "sunset": {
+    "en": "Sunset",
+    "fr": "Sunset",
+    "sw": "Sunset"
+  },
+  "sunshine": {
+    "en": "Sunshine",
+    "fr": "Sunshine",
+    "sw": "Sunshine"
+  },
+  "superman": {
+    "en": "Superman",
+    "fr": "Superman",
+    "sw": "Superman"
+  },
+  "support": {
+    "en": "Support",
+    "fr": "Support",
+    "sw": "Support"
+  },
+  "suppose": {
+    "en": "Suppose",
+    "fr": "Suppose",
+    "sw": "Suppose"
+  },
+  "sure": {
+    "en": "Sure",
+    "fr": "Sure",
+    "sw": "Sure"
+  },
+  "surface": {
+    "en": "Surface",
+    "fr": "Surface",
+    "sw": "Surface"
+  },
+  "surgeon": {
+    "en": "Surgeon",
+    "fr": "Surgeon",
+    "sw": "Surgeon"
+  },
+  "surgery": {
+    "en": "Surgery",
+    "fr": "Surgery",
+    "sw": "Surgery"
+  },
+  "surprise": {
+    "en": "Surprise",
+    "fr": "Surprise",
+    "sw": "Surprise"
+  },
+  "surrender": {
+    "en": "Surrender",
+    "fr": "Surrender",
+    "sw": "Surrender"
+  },
+  "suspect": {
+    "en": "Suspect",
+    "fr": "Suspect",
+    "sw": "Suspect"
+  },
+  "suspend": {
+    "en": "Suspend",
+    "fr": "Suspend",
+    "sw": "Suspend"
+  },
+  "swallow": {
+    "en": "Swallow",
+    "fr": "Swallow",
+    "sw": "Swallow"
+  },
+  "sweater": {
+    "en": "Sweater",
+    "fr": "Sweater",
+    "sw": "Sweater"
+  },
+  "sweden": {
+    "en": "Sweden",
+    "fr": "Sweden",
+    "sw": "Sweden"
+  },
+  "sweep": {
+    "en": "Sweep",
+    "fr": "Sweep",
+    "sw": "Sweep"
+  },
+  "sweet": {
+    "en": "Sweet",
+    "fr": "Sweet",
+    "sw": "Sweet"
+  },
+  "sweetheart": {
+    "en": "Sweetheart",
+    "fr": "Sweetheart",
+    "sw": "Sweetheart"
+  },
+  "swim": {
+    "en": "Swim",
+    "fr": "Swim",
+    "sw": "Swim"
+  },
+  "swimming": {
+    "en": "Swimming",
+    "fr": "Swimming",
+    "sw": "Swimming"
+  },
+  "swimsuit": {
+    "en": "Swimsuit",
+    "fr": "Swimsuit",
+    "sw": "Swimsuit"
+  },
+  "swing": {
+    "en": "Swing",
+    "fr": "Swing",
+    "sw": "Swing"
+  },
+  "switzerland": {
+    "en": "Switzerland",
+    "fr": "Switzerland",
+    "sw": "Switzerland"
+  },
+  "symbol": {
+    "en": "Symbol",
+    "fr": "Symbol",
+    "sw": "Symbol"
+  },
+  "sympathy": {
+    "en": "Sympathy",
+    "fr": "Sympathy",
+    "sw": "Sympathy"
+  },
+  "t": {
+    "en": "T",
+    "fr": "T",
+    "sw": "T"
+  },
+  "take": {
+    "en": "Take",
+    "fr": "Take",
+    "sw": "Take"
+  },
+  "take turns": {
+    "en": "Take Turns",
+    "fr": "Take Turns",
+    "sw": "Take Turns"
+  },
+  "take up": {
+    "en": "Take Up",
+    "fr": "Take Up",
+    "sw": "Take Up"
+  },
+  "tale": {
+    "en": "Tale",
+    "fr": "Tale",
+    "sw": "Tale"
+  },
+  "talent": {
+    "en": "Talent",
+    "fr": "Talent",
+    "sw": "Talent"
+  },
+  "talk": {
+    "en": "Talk",
+    "fr": "Talk",
+    "sw": "Kuzungumza"
+  },
+  "tan": {
+    "en": "Tan",
+    "fr": "Tan",
+    "sw": "Tan"
+  },
+  "taste": {
+    "en": "Taste",
+    "fr": "Taste",
+    "sw": "Taste"
+  },
+  "tea": {
+    "en": "Tea",
+    "fr": "Tea",
+    "sw": "Tea"
+  },
+  "teach": {
+    "en": "Teach",
+    "fr": "Enseigner",
+    "sw": "Teach"
+  },
+  "teacher": {
+    "en": "Teacher",
+    "fr": "Teacher",
+    "sw": "Mwalimu"
+  },
+  "team": {
+    "en": "Team",
+    "fr": "Team",
+    "sw": "Team"
+  },
+  "tease": {
+    "en": "Tease",
+    "fr": "Tease",
+    "sw": "Tease"
+  },
+  "technology": {
+    "en": "Technology",
+    "fr": "Technology",
+    "sw": "Technology"
+  },
+  "teeth": {
+    "en": "Teeth",
+    "fr": "Teeth",
+    "sw": "Teeth"
+  },
+  "telephone": {
+    "en": "Telephone",
+    "fr": "Telephone",
+    "sw": "Telephone"
+  },
+  "telescope": {
+    "en": "Telescope",
+    "fr": "Telescope",
+    "sw": "Telescope"
+  },
+  "television": {
+    "en": "Television",
+    "fr": "Television",
+    "sw": "Television"
+  },
+  "temperature": {
+    "en": "Temperature",
+    "fr": "Temperature",
+    "sw": "Temperature"
+  },
+  "temple": {
+    "en": "Temple",
+    "fr": "Temple",
+    "sw": "Temple"
+  },
+  "tempt": {
+    "en": "Tempt",
+    "fr": "Tempt",
+    "sw": "Tempt"
+  },
+  "ten": {
+    "en": "Ten",
+    "fr": "Ten",
+    "sw": "Ten"
+  },
+  "tend": {
+    "en": "Tend",
+    "fr": "Tend",
+    "sw": "Tend"
+  },
+  "tender": {
+    "en": "Tender",
+    "fr": "Tender",
+    "sw": "Tender"
+  },
+  "tennis": {
+    "en": "Tennis",
+    "fr": "Tennis",
+    "sw": "Tennis"
+  },
+  "tent": {
+    "en": "Tent",
+    "fr": "Tent",
+    "sw": "Tent"
+  },
+  "terrible": {
+    "en": "Terrible",
+    "fr": "Terrible",
+    "sw": "Terrible"
+  },
+  "test": {
+    "en": "Test",
+    "fr": "Test",
+    "sw": "Test"
+  },
+  "testify": {
+    "en": "Testify",
+    "fr": "Testify",
+    "sw": "Testify"
+  },
+  "texas": {
+    "en": "Texas",
+    "fr": "Texas",
+    "sw": "Texas"
+  },
+  "text": {
+    "en": "Text",
+    "fr": "Text",
+    "sw": "Text"
+  },
+  "thailand": {
+    "en": "Thailand",
+    "fr": "Thailand",
+    "sw": "Thailand"
+  },
+  "than": {
+    "en": "Than",
+    "fr": "Than",
+    "sw": "Than"
+  },
+  "thankful": {
+    "en": "Thankful",
+    "fr": "Thankful",
+    "sw": "Thankful"
+  },
+  "that": {
+    "en": "That",
+    "fr": "That",
+    "sw": "That"
+  },
+  "theater": {
+    "en": "Theater",
+    "fr": "Theater",
+    "sw": "Theater"
+  },
+  "their": {
+    "en": "Their",
+    "fr": "Their",
+    "sw": "Their"
+  },
+  "them": {
+    "en": "Them",
+    "fr": "Them",
+    "sw": "Them"
+  },
+  "theme": {
+    "en": "Theme",
+    "fr": "Theme",
+    "sw": "Theme"
+  },
+  "themselves": {
+    "en": "Themselves",
+    "fr": "Themselves",
+    "sw": "Themselves"
+  },
+  "then": {
+    "en": "Then",
+    "fr": "Then",
+    "sw": "Then"
+  },
+  "theory": {
+    "en": "Theory",
+    "fr": "Theory",
+    "sw": "Theory"
+  },
+  "therapy": {
+    "en": "Therapy",
+    "fr": "Therapy",
+    "sw": "Therapy"
+  },
+  "there": {
+    "en": "There",
+    "fr": "There",
+    "sw": "There"
+  },
+  "therefore": {
+    "en": "Therefore",
+    "fr": "Therefore",
+    "sw": "Therefore"
+  },
+  "thermometer": {
+    "en": "Thermometer",
+    "fr": "Thermometer",
+    "sw": "Thermometer"
+  },
+  "they": {
+    "en": "They",
+    "fr": "They",
+    "sw": "They"
+  },
+  "thick": {
+    "en": "Thick",
+    "fr": "Thick",
+    "sw": "Thick"
+  },
+  "thing": {
+    "en": "Thing",
+    "fr": "Thing",
+    "sw": "Thing"
+  },
+  "think": {
+    "en": "Think",
+    "fr": "Think",
+    "sw": "Think"
+  },
+  "third": {
+    "en": "Third",
+    "fr": "Third",
+    "sw": "Third"
+  },
+  "thirsty": {
+    "en": "Thirsty",
+    "fr": "Thirsty",
+    "sw": "Thirsty"
+  },
+  "this": {
+    "en": "This",
+    "fr": "This",
+    "sw": "This"
+  },
+  "thousand": {
+    "en": "Thousand",
+    "fr": "Thousand",
+    "sw": "Thousand"
+  },
+  "three": {
+    "en": "Three",
+    "fr": "Three",
+    "sw": "Three"
+  },
+  "thrill": {
+    "en": "Thrill",
+    "fr": "Thrill",
+    "sw": "Thrill"
+  },
+  "throat": {
+    "en": "Throat",
+    "fr": "Throat",
+    "sw": "Throat"
+  },
+  "through": {
+    "en": "Through",
+    "fr": "Through",
+    "sw": "Through"
+  },
+  "throw": {
+    "en": "Throw",
+    "fr": "Throw",
+    "sw": "Throw"
+  },
+  "ticket": {
+    "en": "Ticket",
+    "fr": "Ticket",
+    "sw": "Ticket"
+  },
+  "tie": {
+    "en": "Tie",
+    "fr": "Tie",
+    "sw": "Tie"
+  },
+  "tiger": {
+    "en": "Tiger",
+    "fr": "Tiger",
+    "sw": "Tiger"
+  },
+  "tiptoe": {
+    "en": "Tiptoe",
+    "fr": "Tiptoe",
+    "sw": "Tiptoe"
+  },
+  "tired": {
+    "en": "Tired",
+    "fr": "Tired",
+    "sw": "Uchovu"
+  },
+  "tissue": {
+    "en": "Tissue",
+    "fr": "Tissue",
+    "sw": "Tissue"
+  },
+  "title": {
+    "en": "Title",
+    "fr": "Title",
+    "sw": "Title"
+  },
+  "to": {
+    "en": "To",
+    "fr": "To",
+    "sw": "To"
+  },
+  "toast": {
+    "en": "Toast",
+    "fr": "Toast",
+    "sw": "Toast"
+  },
+  "tobacco": {
+    "en": "Tobacco",
+    "fr": "Tobacco",
+    "sw": "Tobacco"
+  },
+  "today": {
+    "en": "Today",
+    "fr": "Aujourd'hui",
+    "sw": "Leo"
+  },
+  "together": {
+    "en": "Together",
+    "fr": "Together",
+    "sw": "Together"
+  },
+  "toilet": {
+    "en": "Toilet",
+    "fr": "Toilet",
+    "sw": "Toilet"
+  },
+  "toilet paper": {
+    "en": "Toilet Paper",
+    "fr": "Toilet Paper",
+    "sw": "Toilet Paper"
+  },
+  "tolerate": {
+    "en": "Tolerate",
+    "fr": "Tolerate",
+    "sw": "Tolerate"
+  },
+  "tomato": {
+    "en": "Tomato",
+    "fr": "Tomato",
+    "sw": "Tomato"
+  },
+  "tomorrow": {
+    "en": "Tomorrow",
+    "fr": "Demain",
+    "sw": "Tomorrow"
+  },
+  "tongue": {
+    "en": "Tongue",
+    "fr": "Tongue",
+    "sw": "Tongue"
+  },
+  "tonight": {
+    "en": "Tonight",
+    "fr": "Tonight",
+    "sw": "Tonight"
+  },
+  "tooth": {
+    "en": "Tooth",
+    "fr": "Tooth",
+    "sw": "Tooth"
+  },
+  "toothbrush": {
+    "en": "Toothbrush",
+    "fr": "Toothbrush",
+    "sw": "Toothbrush"
+  },
+  "top": {
+    "en": "Top",
+    "fr": "Top",
+    "sw": "Top"
+  },
+  "topic": {
+    "en": "Topic",
+    "fr": "Topic",
+    "sw": "Topic"
+  },
+  "tornado": {
+    "en": "Tornado",
+    "fr": "Tornado",
+    "sw": "Tornado"
+  },
+  "torture": {
+    "en": "Torture",
+    "fr": "Torture",
+    "sw": "Torture"
+  },
+  "total": {
+    "en": "Total",
+    "fr": "Total",
+    "sw": "Total"
+  },
+  "touch": {
+    "en": "Touch",
+    "fr": "Touch",
+    "sw": "Touch"
+  },
+  "tough": {
+    "en": "Tough",
+    "fr": "Tough",
+    "sw": "Tough"
+  },
+  "tournament": {
+    "en": "Tournament",
+    "fr": "Tournament",
+    "sw": "Tournament"
+  },
+  "towel": {
+    "en": "Towel",
+    "fr": "Towel",
+    "sw": "Towel"
+  },
+  "tower": {
+    "en": "Tower",
+    "fr": "Tower",
+    "sw": "Tower"
+  },
+  "town": {
+    "en": "Town",
+    "fr": "Town",
+    "sw": "Town"
+  },
+  "trade": {
+    "en": "Trade",
+    "fr": "Trade",
+    "sw": "Trade"
+  },
+  "tradition": {
+    "en": "Tradition",
+    "fr": "Tradition",
+    "sw": "Tradition"
+  },
+  "traffic": {
+    "en": "Traffic",
+    "fr": "Traffic",
+    "sw": "Traffic"
+  },
+  "train": {
+    "en": "Train",
+    "fr": "Train",
+    "sw": "Train"
+  },
+  "tranquil": {
+    "en": "Tranquil",
+    "fr": "Tranquil",
+    "sw": "Tranquil"
+  },
+  "transfer": {
+    "en": "Transfer",
+    "fr": "Transfer",
+    "sw": "Transfer"
+  },
+  "transform": {
+    "en": "Transform",
+    "fr": "Transform",
+    "sw": "Transform"
+  },
+  "translate": {
+    "en": "Translate",
+    "fr": "Translate",
+    "sw": "Translate"
+  },
+  "travel": {
+    "en": "Travel",
+    "fr": "Travel",
+    "sw": "Travel"
+  },
+  "tree": {
+    "en": "Tree",
+    "fr": "Tree",
+    "sw": "Tree"
+  },
+  "triangle": {
+    "en": "Triangle",
+    "fr": "Triangle",
+    "sw": "Triangle"
+  },
+  "trip": {
+    "en": "Trip",
+    "fr": "Trip",
+    "sw": "Trip"
+  },
+  "trophy": {
+    "en": "Trophy",
+    "fr": "Trophy",
+    "sw": "Trophy"
+  },
+  "trouble": {
+    "en": "Trouble",
+    "fr": "Trouble",
+    "sw": "Trouble"
+  },
+  "truck": {
+    "en": "Truck",
+    "fr": "Truck",
+    "sw": "Truck"
+  },
+  "true": {
+    "en": "True",
+    "fr": "True",
+    "sw": "True"
+  },
+  "trust": {
+    "en": "Trust",
+    "fr": "Trust",
+    "sw": "Trust"
+  },
+  "truth": {
+    "en": "Truth",
+    "fr": "Truth",
+    "sw": "Truth"
+  },
+  "try": {
+    "en": "Try",
+    "fr": "Try",
+    "sw": "Try"
+  },
+  "tuesday": {
+    "en": "Tuesday",
+    "fr": "Tuesday",
+    "sw": "Tuesday"
+  },
+  "turkey": {
+    "en": "Turkey",
+    "fr": "Turkey",
+    "sw": "Turkey"
+  },
+  "turn": {
+    "en": "Turn",
+    "fr": "Turn",
+    "sw": "Turn"
+  },
+  "turtle": {
+    "en": "Turtle",
+    "fr": "Turtle",
+    "sw": "Turtle"
+  },
+  "tutor": {
+    "en": "Tutor",
+    "fr": "Tutor",
+    "sw": "Tutor"
+  },
+  "tv": {
+    "en": "Tv",
+    "fr": "Tv",
+    "sw": "Tv"
+  },
+  "twin": {
+    "en": "Twin",
+    "fr": "Twin",
+    "sw": "Twin"
+  },
+  "two": {
+    "en": "Two",
+    "fr": "Two",
+    "sw": "Two"
+  },
+  "type": {
+    "en": "Type",
+    "fr": "Type",
+    "sw": "Type"
+  },
+  "u": {
+    "en": "U",
+    "fr": "U",
+    "sw": "U"
+  },
+  "ugly": {
+    "en": "Ugly",
+    "fr": "Ugly",
+    "sw": "Mbaya"
+  },
+  "umbrella": {
+    "en": "Umbrella",
+    "fr": "Umbrella",
+    "sw": "Umbrella"
+  },
+  "uncle": {
+    "en": "Uncle",
+    "fr": "Uncle",
+    "sw": "Uncle"
+  },
+  "under": {
+    "en": "Under",
+    "fr": "Under",
+    "sw": "Under"
+  },
+  "understand": {
+    "en": "Understand",
+    "fr": "Understand",
+    "sw": "Kuelewa"
+  },
+  "underwear": {
+    "en": "Underwear",
+    "fr": "Underwear",
+    "sw": "Underwear"
+  },
+  "unique": {
+    "en": "Unique",
+    "fr": "Unique",
+    "sw": "Unique"
+  },
+  "united states": {
+    "en": "United States",
+    "fr": "United States",
+    "sw": "United States"
+  },
+  "university": {
+    "en": "University",
+    "fr": "University",
+    "sw": "University"
+  },
+  "until": {
+    "en": "Until",
+    "fr": "Until",
+    "sw": "Until"
+  },
+  "up": {
+    "en": "Up",
+    "fr": "Up",
+    "sw": "Up"
+  },
+  "upset": {
+    "en": "Upset",
+    "fr": "Upset",
+    "sw": "Upset"
+  },
+  "upstairs": {
+    "en": "Upstairs",
+    "fr": "Upstairs",
+    "sw": "Upstairs"
+  },
+  "use": {
+    "en": "Use",
+    "fr": "Use",
+    "sw": "Use"
+  },
+  "v": {
+    "en": "V",
+    "fr": "V",
+    "sw": "V"
+  },
+  "vacant": {
+    "en": "Vacant",
+    "fr": "Vacant",
+    "sw": "Vacant"
+  },
+  "vacation": {
+    "en": "Vacation",
+    "fr": "Vacation",
+    "sw": "Vacation"
+  },
+  "vague": {
+    "en": "Vague",
+    "fr": "Vague",
+    "sw": "Vague"
+  },
+  "valley": {
+    "en": "Valley",
+    "fr": "Valley",
+    "sw": "Valley"
+  },
+  "value": {
+    "en": "Value",
+    "fr": "Value",
+    "sw": "Value"
+  },
+  "vampire": {
+    "en": "Vampire",
+    "fr": "Vampire",
+    "sw": "Vampire"
+  },
+  "vegetable": {
+    "en": "Vegetable",
+    "fr": "Vegetable",
+    "sw": "Vegetable"
+  },
+  "verb": {
+    "en": "Verb",
+    "fr": "Verb",
+    "sw": "Verb"
+  },
+  "very": {
+    "en": "Very",
+    "fr": "Very",
+    "sw": "Very"
+  },
+  "vice president": {
+    "en": "Vice President",
+    "fr": "Vice President",
+    "sw": "Vice President"
+  },
+  "viewpoint": {
+    "en": "Viewpoint",
+    "fr": "Viewpoint",
+    "sw": "Viewpoint"
+  },
+  "violin": {
+    "en": "Violin",
+    "fr": "Violin",
+    "sw": "Violin"
+  },
+  "visit": {
+    "en": "Visit",
+    "fr": "Visit",
+    "sw": "Visit"
+  },
+  "visitor": {
+    "en": "Visitor",
+    "fr": "Visitor",
+    "sw": "Visitor"
+  },
+  "visualize": {
+    "en": "Visualize",
+    "fr": "Visualize",
+    "sw": "Visualize"
+  },
+  "vlog": {
+    "en": "Vlog",
+    "fr": "Vlog",
+    "sw": "Vlog"
+  },
+  "vocabulary": {
+    "en": "Vocabulary",
+    "fr": "Vocabulary",
+    "sw": "Vocabulary"
+  },
+  "voice": {
+    "en": "Voice",
+    "fr": "Voice",
+    "sw": "Voice"
+  },
+  "volleyball": {
+    "en": "Volleyball",
+    "fr": "Volleyball",
+    "sw": "Volleyball"
+  },
+  "volunteer": {
+    "en": "Volunteer",
+    "fr": "Volunteer",
+    "sw": "Volunteer"
+  },
+  "vomit": {
+    "en": "Vomit",
+    "fr": "Vomit",
+    "sw": "Vomit"
+  },
+  "vote": {
+    "en": "Vote",
+    "fr": "Vote",
+    "sw": "Vote"
+  },
+  "w": {
+    "en": "W",
+    "fr": "W",
+    "sw": "W"
+  },
+  "wait": {
+    "en": "Wait",
+    "fr": "Wait",
+    "sw": "Subiri"
+  },
+  "waiter": {
+    "en": "Waiter",
+    "fr": "Waiter",
+    "sw": "Waiter"
+  },
+  "wake up": {
+    "en": "Wake Up",
+    "fr": "Wake Up",
+    "sw": "Wake Up"
+  },
+  "wall": {
+    "en": "Wall",
+    "fr": "Wall",
+    "sw": "Wall"
+  },
+  "wallet": {
+    "en": "Wallet",
+    "fr": "Wallet",
+    "sw": "Wallet"
+  },
+  "wander": {
+    "en": "Wander",
+    "fr": "Wander",
+    "sw": "Wander"
+  },
+  "war": {
+    "en": "War",
+    "fr": "War",
+    "sw": "War"
+  },
+  "warm": {
+    "en": "Warm",
+    "fr": "Warm",
+    "sw": "Warm"
+  },
+  "warn": {
+    "en": "Warn",
+    "fr": "Warn",
+    "sw": "Warn"
+  },
+  "wash": {
+    "en": "Wash",
+    "fr": "Wash",
+    "sw": "Wash"
+  },
+  "wash face": {
+    "en": "Wash Face",
+    "fr": "Wash Face",
+    "sw": "Wash Face"
+  },
+  "washington": {
+    "en": "Washington",
+    "fr": "Washington",
+    "sw": "Washington"
+  },
+  "waste": {
+    "en": "Waste",
+    "fr": "Waste",
+    "sw": "Waste"
+  },
+  "watch": {
+    "en": "Watch",
+    "fr": "Watch",
+    "sw": "Watch"
+  },
+  "water": {
+    "en": "Water",
+    "fr": "Eau",
+    "sw": "Maji"
+  },
+  "waterfall": {
+    "en": "Waterfall",
+    "fr": "Waterfall",
+    "sw": "Waterfall"
+  },
+  "watermelon": {
+    "en": "Watermelon",
+    "fr": "Watermelon",
+    "sw": "Watermelon"
+  },
+  "way": {
+    "en": "Way",
+    "fr": "Way",
+    "sw": "Way"
+  },
+  "we": {
+    "en": "We",
+    "fr": "We",
+    "sw": "We"
+  },
+  "weak": {
+    "en": "Weak",
+    "fr": "Weak",
+    "sw": "Weak"
+  },
+  "wear": {
+    "en": "Wear",
+    "fr": "Wear",
+    "sw": "Wear"
+  },
+  "weather": {
+    "en": "Weather",
+    "fr": "Weather",
+    "sw": "Weather"
+  },
+  "wedding": {
+    "en": "Wedding",
+    "fr": "Wedding",
+    "sw": "Wedding"
+  },
+  "wednesday": {
+    "en": "Wednesday",
+    "fr": "Wednesday",
+    "sw": "Wednesday"
+  },
+  "week": {
+    "en": "Week",
+    "fr": "Week",
+    "sw": "Week"
+  },
+  "weekend": {
+    "en": "Weekend",
+    "fr": "Weekend",
+    "sw": "Weekend"
+  },
+  "weekly": {
+    "en": "Weekly",
+    "fr": "Weekly",
+    "sw": "Weekly"
+  },
+  "weigh": {
+    "en": "Weigh",
+    "fr": "Weigh",
+    "sw": "Weigh"
+  },
+  "weight": {
+    "en": "Weight",
+    "fr": "Weight",
+    "sw": "Weight"
+  },
+  "weird": {
+    "en": "Weird",
+    "fr": "Weird",
+    "sw": "Weird"
+  },
+  "welcome": {
+    "en": "Welcome",
+    "fr": "Welcome",
+    "sw": "Welcome"
+  },
+  "west": {
+    "en": "West",
+    "fr": "West",
+    "sw": "West"
+  },
+  "wet": {
+    "en": "Wet",
+    "fr": "Wet",
+    "sw": "Wet"
+  },
+  "whale": {
+    "en": "Whale",
+    "fr": "Whale",
+    "sw": "Whale"
+  },
+  "whatever": {
+    "en": "Whatever",
+    "fr": "Whatever",
+    "sw": "Whatever"
+  },
+  "wheelchair": {
+    "en": "Wheelchair",
+    "fr": "Wheelchair",
+    "sw": "Wheelchair"
+  },
+  "when": {
+    "en": "When",
+    "fr": "When",
+    "sw": "Lini"
+  },
+  "where": {
+    "en": "Where",
+    "fr": "Where",
+    "sw": "Wapi"
+  },
+  "which": {
+    "en": "Which",
+    "fr": "Which",
+    "sw": "Which"
+  },
+  "while": {
+    "en": "While",
+    "fr": "While",
+    "sw": "While"
+  },
+  "whistle": {
+    "en": "Whistle",
+    "fr": "Whistle",
+    "sw": "Whistle"
+  },
+  "why": {
+    "en": "Why",
+    "fr": "Why",
+    "sw": "Kwa nini"
+  },
+  "wide": {
+    "en": "Wide",
+    "fr": "Wide",
+    "sw": "Wide"
+  },
+  "wife": {
+    "en": "Wife",
+    "fr": "Wife",
+    "sw": "Wife"
+  },
+  "will": {
+    "en": "Will",
+    "fr": "Will",
+    "sw": "Will"
+  },
+  "willing": {
+    "en": "Willing",
+    "fr": "Willing",
+    "sw": "Willing"
+  },
+  "win": {
+    "en": "Win",
+    "fr": "Win",
+    "sw": "Win"
+  },
+  "wind": {
+    "en": "Wind",
+    "fr": "Wind",
+    "sw": "Wind"
+  },
+  "window": {
+    "en": "Window",
+    "fr": "Window",
+    "sw": "Window"
+  },
+  "wine": {
+    "en": "Wine",
+    "fr": "Wine",
+    "sw": "Wine"
+  },
+  "winter": {
+    "en": "Winter",
+    "fr": "Winter",
+    "sw": "Winter"
+  },
+  "wish": {
+    "en": "Wish",
+    "fr": "Wish",
+    "sw": "Wish"
+  },
+  "with": {
+    "en": "With",
+    "fr": "With",
+    "sw": "With"
+  },
+  "within": {
+    "en": "Within",
+    "fr": "Within",
+    "sw": "Within"
+  },
+  "without": {
+    "en": "Without",
+    "fr": "Without",
+    "sw": "Without"
+  },
+  "witness": {
+    "en": "Witness",
+    "fr": "Witness",
+    "sw": "Witness"
+  },
+  "wolf": {
+    "en": "Wolf",
+    "fr": "Wolf",
+    "sw": "Wolf"
+  },
+  "wonder": {
+    "en": "Wonder",
+    "fr": "Wonder",
+    "sw": "Wonder"
+  },
+  "wonderful": {
+    "en": "Wonderful",
+    "fr": "Wonderful",
+    "sw": "Wonderful"
+  },
+  "wood": {
+    "en": "Wood",
+    "fr": "Wood",
+    "sw": "Wood"
+  },
+  "word": {
+    "en": "Word",
+    "fr": "Word",
+    "sw": "Word"
+  },
+  "worker": {
+    "en": "Worker",
+    "fr": "Worker",
+    "sw": "Worker"
+  },
+  "workshop": {
+    "en": "Workshop",
+    "fr": "Workshop",
+    "sw": "Workshop"
+  },
+  "world": {
+    "en": "World",
+    "fr": "World",
+    "sw": "World"
+  },
+  "worm": {
+    "en": "Worm",
+    "fr": "Worm",
+    "sw": "Worm"
+  },
+  "worry": {
+    "en": "Worry",
+    "fr": "Worry",
+    "sw": "Worry"
+  },
+  "worse": {
+    "en": "Worse",
+    "fr": "Worse",
+    "sw": "Worse"
+  },
+  "worthless": {
+    "en": "Worthless",
+    "fr": "Worthless",
+    "sw": "Worthless"
+  },
+  "wow": {
+    "en": "Wow",
+    "fr": "Wow",
+    "sw": "Wow"
+  },
+  "wrap": {
+    "en": "Wrap",
+    "fr": "Wrap",
+    "sw": "Wrap"
+  },
+  "wrench": {
+    "en": "Wrench",
+    "fr": "Wrench",
+    "sw": "Wrench"
+  },
+  "wristwatch": {
+    "en": "Wristwatch",
+    "fr": "Wristwatch",
+    "sw": "Wristwatch"
+  },
+  "write": {
+    "en": "Write",
+    "fr": "Write",
+    "sw": "Kuandika"
+  },
+  "yellow": {
+    "en": "Yellow",
+    "fr": "Yellow",
+    "sw": "Njano"
+  },
+  "yesterday": {
+    "en": "Yesterday",
+    "fr": "Hier",
+    "sw": "Yesterday"
+  },
+  "you": {
+    "en": "You",
+    "fr": "You",
+    "sw": "Wewe"
+  },
+  "young": {
+    "en": "Young",
+    "fr": "Young",
+    "sw": "Young"
+  },
+  "your": {
+    "en": "Your",
+    "fr": "Your",
+    "sw": "Your"
+  },
+  "yourself": {
+    "en": "Yourself",
+    "fr": "Yourself",
+    "sw": "Yourself"
+  },
+  "zero": {
+    "en": "Zero",
+    "fr": "Zero",
+    "sw": "Zero"
   }
 }

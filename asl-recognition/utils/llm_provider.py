@@ -54,7 +54,12 @@ class LocalFallbackTranslationProvider(LLMTranslationProvider):
             detail = sign_details.get(sign, {})
             translations = detail.get("translations", [])
             if translations:
-                literal_parts.append(translations[0])
+                if isinstance(translations, dict):
+                    literal_parts.append(
+                        translations.get(lang) or translations.get("en") or next(iter(translations.values()), sign)
+                    )
+                else:
+                    literal_parts.append(translations[0])
             else:
                 literal_parts.append(sign)
         literal_translation = " ".join(literal_parts)

@@ -42,6 +42,14 @@ htmlcov/
 Thumbs.db
 desktop.ini
 
+# ─── Base de données SQLite locale ───
+*.db
+*.sqlite
+*.sqlite3
+
+# ─── Archives / sauvegardes locales ───
+_archive_old_client/
+
 # ─── Logs & fichiers temporaires projet ───
 *.log
 asl-recognition/err.txt
