@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-opencv-python
-numpy
-torch
-mediapipe==0.10.5
-pytest
-edge-tts

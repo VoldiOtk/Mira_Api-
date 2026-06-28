@@ -47,8 +47,10 @@ desktop.ini
 *.sqlite
 *.sqlite3
 
+# ─── Node.js ───
+node_modules/
+
 # ─── Archives / sauvegardes locales ───
-_archive_old_client/
 
 # ─── Logs & fichiers temporaires projet ───
 *.log
