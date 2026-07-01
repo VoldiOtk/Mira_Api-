@@ -1,29 +1,57 @@
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import Depends, FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 import os
 import sys
+import uuid
 from dotenv import load_dotenv
+
+# Ensure UTF-8 stdout/stderr — Windows consoles default to cp1252, which crashes
+# the app on startup prints containing arrows ("→") or accented characters.
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 load_dotenv()
 import json
-import base64
-import cv2
-import numpy as np
-import torch
 import asyncio
 import time
-from collections import deque
+import mimetypes
+
+mimetypes.add_type('text/css', '.css')
+mimetypes.add_type('application/javascript', '.js')
+mimetypes.add_type('image/svg+xml', '.svg')
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.mediapipe_extractor import MediaPipeExtractor
 from utils.gemini_client import GeminiTranslator
 from utils.ollama_client import OllamaTranslator
-from model.model import ASLLstmModel, HandSignModel
+from utils.sign_resolver import (
+    FingerspellBuffer,
+    should_speak_instantly,
+    speech_text_for_label,
+)
+from utils.text_to_sign import text_to_sign_service
 from tts.speech import TTSEngine
+from backend.routes_v1 import router as api_v1_router
+from backend.routes_admin import router as admin_router, access_router
+from backend.deps.auth import require_api_key, API_KEYS_REQUIRED
+from backend.services import api_access_store
+from backend.services.recognition_engine import (
+    predict_frame,
+    decode_image_b64,
+    find_translation,
+    normalize_lang,
+)
 
-tts = TTSEngine(voice="fr-FR-DeniseNeural")
+TTS_VOICES = {
+    "fr": os.getenv("TTS_VOICE_FR", "fr-FR-DeniseNeural"),
+    "en": os.getenv("TTS_VOICE_EN", "en-US-JennyNeural"),
+}
+tts = TTSEngine(voice=TTS_VOICES["fr"])
 AI_PROVIDER = os.getenv("AI_PROVIDER", "local").strip().lower()
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma4:e2b").strip()
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
@@ -42,26 +70,154 @@ class TranslatorRouter:
         if self.provider in {"local", "auto"}:
             await self.local_translator.check_and_start()
 
-    async def translate_asl(self, sign_sequence):
+    async def translate_asl(self, sign_sequence, lang="fr"):
+        lang = normalize_lang(lang)
         if self.provider == "local":
-            return await self.local_translator.translate_asl(sign_sequence)
+            return await self.local_translator.translate_asl(sign_sequence, lang=lang)
         if self.provider == "cloud":
-            return await self.cloud_translator.translate_asl(sign_sequence)
+            return await self.cloud_translator.translate_asl(sign_sequence, lang=lang)
 
-        # mode auto: local d'abord pour éviter les tokens, cloud en secours
-        local_sentence = await self.local_translator.translate_asl(sign_sequence)
+        local_sentence = await self.local_translator.translate_asl(sign_sequence, lang=lang)
         if "(Ollama hors-ligne)" not in local_sentence:
             return local_sentence
-        return await self.cloud_translator.translate_asl(sign_sequence)
+        return await self.cloud_translator.translate_asl(sign_sequence, lang=lang)
 
 
 ai_translator = TranslatorRouter()
 
-app = FastAPI()
+app = FastAPI(
+    title="Mira — API de reconnaissance des langues des signes",
+    description=(
+        "API officielle **Mira**, produit technologique de **GV TECH** — reconnaissance progressive des langues des signes.\n\n"
+        "### Authentification\n"
+        "Les routes protégées exigent le header **`X-API-Key`** (clé fournie après validation).\n"
+        "Demande d'accès : [POST /api/v1/access/request](/api/v1/access/request) ou page [/access](/access).\n\n"
+        "### Endpoints principaux\n"
+        "| Méthode | Route | Description |\n"
+        "|---------|-------|-------------|\n"
+        "| POST | `/api/v1/recognize` | Image → sign language prediction + traduction FR/EN |\n"
+        "| POST | `/api/v1/text-to-sign` | Texte → vidéo/image du signe |\n"
+        "| GET | `/api/v1/health` | État du service |\n"
+        "| WS | `/ws/video` | Flux webcam temps réel (sign language demo) |\n"
+    ),
+    version="1.0.0",
+    docs_url=None,
+    redoc_url=None,
+)
+
+# SaaS routers (auth, API key management, usage, inference, datasets, models, training)
+from backend.routers.auth_router import router as saas_auth_router  # noqa: E402
+from backend.routers.inference_router import router as saas_inference_router  # noqa: E402
+from backend.routers.keys_router import router as saas_keys_router  # noqa: E402
+from backend.routers.usage_router import router as saas_usage_router  # noqa: E402
+from backend.routers.datasets_router import router as saas_datasets_router  # noqa: E402
+from backend.routers.models_router import admin_router as saas_models_admin_router, public_router as saas_models_public_router  # noqa: E402
+from backend.routers.training_router import router as saas_training_router  # noqa: E402
+from backend.routers.stripe_router import router as saas_stripe_router  # noqa: E402
+from backend.routers.dashboard_router import router as saas_dashboard_router  # noqa: E402
+from backend.routers.billing_router import (  # noqa: E402
+    plans_router as saas_plans_router,
+    subscription_router as saas_subscription_router,
+    admin_plans_router as saas_admin_plans_router,
+)
+from backend.routers.admin_clients_router import router as saas_admin_clients_router  # noqa: E402
+from backend.metrics import router as metrics_router  # noqa: E402
+
+# Inference router first — takes priority over legacy api_v1_router on /recognize
+app.include_router(saas_inference_router)
+app.include_router(api_v1_router, include_in_schema=False)
+app.include_router(access_router, include_in_schema=False)
+app.include_router(admin_router, include_in_schema=False)
+
+app.include_router(saas_auth_router)
+app.include_router(saas_keys_router)
+app.include_router(saas_usage_router)
+app.include_router(saas_datasets_router)
+app.include_router(saas_models_admin_router)
+app.include_router(saas_models_public_router)
+app.include_router(saas_training_router)
+app.include_router(saas_stripe_router)
+app.include_router(saas_dashboard_router)
+app.include_router(saas_plans_router)
+app.include_router(saas_subscription_router)
+app.include_router(saas_admin_plans_router)
+app.include_router(saas_admin_clients_router)
+app.include_router(metrics_router)
+
+
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    from fastapi.openapi.utils import get_openapi
+
+    schema = get_openapi(
+        title=app.title,
+        version=app.version,
+        description=app.description,
+        routes=app.routes,
+    )
+    schema.setdefault("components", {}).setdefault("securitySchemes", {})[
+        "ApiKeyAuth"
+    ] = {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key",
+        "description": "Clé API Mira (fournie après approbation admin)",
+    }
+    public_paths = {
+        "/api/v1/health",
+        "/api/v1/access/request",
+    }
+    for path, methods in schema.get("paths", {}).items():
+        if path.startswith("/api/admin"):
+            continue
+        if path in public_paths:
+            continue
+        if path.startswith("/api/v1") and path != "/api/v1/access/request":
+            for method in methods.values():
+                if isinstance(method, dict):
+                    method.setdefault("security", [{"ApiKeyAuth": []}])
+    app.openapi_schema = schema
+    return schema
+
+
+app.openapi = custom_openapi
+
+
+class ApiAccessLogMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        response = await call_next(request)
+        path = request.url.path
+        if path.startswith("/api/v1"):
+            if path.endswith("/access/request") or path == "/api/v1/health":
+                return response
+            org = getattr(request.state, "api_org", None)
+            log_kwargs = dict(
+                path=path,
+                method=request.method,
+                status_code=response.status_code,
+                org_id=org.get("id") if org else None,
+                org_name=org.get("organization_name") if org else None,
+                client_ip=request.client.host if request.client else None,
+                detail="",
+            )
+            loop = asyncio.get_running_loop()
+            await loop.run_in_executor(None, lambda: api_access_store.log_request(**log_kwargs))
+        return response
+
+
+app.add_middleware(ApiAccessLogMiddleware)
+
+# CORS — origins are read from ALLOWED_ORIGINS env var (comma-separated)
+_raw_origins = os.getenv(
+    "ALLOWED_ORIGINS",
+    "http://localhost:3001,http://localhost:3002,http://localhost:8000",
+)
+_ALLOWED_ORIGINS = [o.strip() for o in _raw_origins.split(",") if o.strip()]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -69,281 +225,399 @@ app.add_middleware(
 
 # Servir le frontend directement via FastAPI (comme avant !)
 FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")
+KNOWLEDGE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "knowledge")
+SIGN_VIDEOS_DIR = os.path.join(KNOWLEDGE_DIR, "asl_videos", "videos")
+SIGN_LETTERS_DIR = os.path.join(KNOWLEDGE_DIR, "asl_images", "asl_alphabet_train")
+
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
+if os.path.isdir(SIGN_VIDEOS_DIR):
+    app.mount("/media/signs/videos", StaticFiles(directory=SIGN_VIDEOS_DIR), name="sign_videos")
+if os.path.isdir(SIGN_LETTERS_DIR):
+    app.mount("/media/signs/letters", StaticFiles(directory=SIGN_LETTERS_DIR), name="sign_letters")
+
+
+def _frontend_html_response(filename: str):
+    path = os.path.join(FRONTEND_DIR, filename)
+    if not os.path.exists(path):
+        return HTMLResponse(content="<h1>Page coming soon</h1>", status_code=404)
+    with open(path, encoding="utf-8") as f:
+        html = f.read()
+    if "<base " not in html:
+        html = html.replace("<head>", '<head>\n        <base href="/static/" />', 1)
+    return HTMLResponse(content=html)
+
+
+@app.get("/api/text-to-sign", include_in_schema=False, dependencies=[Depends(require_api_key)])
+async def api_text_to_sign(text: str, lang: str = "fr"):
+    return text_to_sign_service.lookup(text, lang=lang)
+
+
+@app.get("/api/text-to-sign/search", include_in_schema=False, dependencies=[Depends(require_api_key)])
+async def api_text_to_sign_search(q: str = "", lang: str = "fr", limit: int = 25):
+    return {
+        "lang": normalize_lang(lang),
+        "query": q,
+        "results": text_to_sign_service.search(q, lang=lang, limit=min(limit, 50)),
+        "vocabulary": text_to_sign_service.vocabulary_stats(),
+    }
+
+
+@app.get("/api/text-to-sign/vocabulary", include_in_schema=False, dependencies=[Depends(require_api_key)])
+async def api_text_to_sign_vocabulary():
+    return text_to_sign_service.vocabulary_stats()
+
+
+@app.get("/api/text-to-sign/suggestions", include_in_schema=False, dependencies=[Depends(require_api_key)])
+async def api_text_to_sign_suggestions(lang: str = "fr", limit: int = 16):
+    return {
+        "lang": normalize_lang(lang),
+        "vocabulary": text_to_sign_service.vocabulary_stats(),
+        "suggestions": text_to_sign_service.list_suggestions(lang=lang, limit=min(limit, 50)),
+    }
+
+def _build_docs_page() -> str:
+    html = """<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation API Swagger — Mira</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css" />
+</head>
+<body>
+<div id="swagger-ui"></div>
+<script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+<script>
+(function(){
+  SwaggerUIBundle({
+    url: "/openapi.json",
+    dom_id: "#swagger-ui",
+    presets: [SwaggerUIBundle.presets.apis, SwaggerUIBundle.SwaggerUIStandalonePreset],
+    layout: "BaseLayout",
+    docExpansion: "list",
+    defaultModelsExpandDepth: 0,
+    displayRequestDuration: true,
+    filter: true,
+    tryItOutEnabled: false,
+    deepLinking: true,
+    persistAuthorization: true,
+  });
+})();
+</script>
+</body>
+</html>"""
+    return html
+
+
+@app.get("/api/docs", include_in_schema=False)
+@app.get("/docs", include_in_schema=False)
+async def custom_swagger_ui_html():
+    return HTMLResponse(content=_build_docs_page())
 
 @app.get("/")
+@app.get("/index.html")
 async def serve_frontend():
-    with open(os.path.join(FRONTEND_DIR, "index.html"), encoding="utf-8") as f:
+    return _frontend_html_response("index.html")
+
+
+@app.get("/prices")
+@app.get("/prices.html")
+async def serve_prices():
+    return _frontend_html_response("prices.html")
+
+
+_PUBLIC_PAGES = ["about", "services", "contact", "faq", "blog", "404"]
+
+
+def _make_page_route(page_name: str):
+    async def _serve_public_page():
+        return _frontend_html_response(f"{page_name}.html")
+
+    return _serve_public_page
+
+
+for _page in _PUBLIC_PAGES:
+    _route = _make_page_route(_page)
+    app.add_api_route(f"/{_page}", _route, include_in_schema=False)
+    app.add_api_route(f"/{_page}.html", _route, include_in_schema=False)
+
+
+@app.get("/espace-client", include_in_schema=False)
+@app.get("/client", include_in_schema=False)
+async def serve_espace_client():
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(url="/static/espace-client/accueil.html")
+
+
+_ADMIN_DIST = os.path.join(FRONTEND_DIR, "dashboardadmin", "dist")
+
+
+@app.get("/admin", include_in_schema=False)
+@app.get("/admin/{full_path:path}", include_in_schema=False)
+async def serve_admin(full_path: str = ""):
+    from fastapi.responses import FileResponse
+    candidate = os.path.normpath(os.path.join(_ADMIN_DIST, full_path))
+    if full_path and candidate.startswith(_ADMIN_DIST) and os.path.isfile(candidate):
+        return FileResponse(candidate)
+    index_path = os.path.join(_ADMIN_DIST, "index.html")
+    if not os.path.exists(index_path):
+        return HTMLResponse(
+            content="<h1>Dashboard admin pas encore construit (npm run build)</h1>",
+            status_code=503,
+        )
+    with open(index_path, encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
+
+
+@app.get("/client-dashboard")
+@app.get("/client-dashboard.html")
+async def serve_client_dashboard():
+    path = os.path.join(FRONTEND_DIR, "client-dashboard.html")
+    with open(path, encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())
+
+
+@app.get("/admin-dashboard")
+@app.get("/admin-dashboard.html")
+async def serve_admin_dashboard():
+    path = os.path.join(FRONTEND_DIR, "admin-dashboard.html")
+    with open(path, encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+async def serve_sitemap():
+    from fastapi.responses import Response
+    path = os.path.join(FRONTEND_DIR, "sitemap.xml")
+    with open(path, encoding="utf-8") as f:
+        return Response(content=f.read(), media_type="application/xml")
+
+
+@app.get("/robots.txt", include_in_schema=False)
+async def serve_robots():
+    from fastapi.responses import PlainTextResponse
+    path = os.path.join(FRONTEND_DIR, "robots.txt")
+    with open(path, encoding="utf-8") as f:
+        return PlainTextResponse(content=f.read())
 
 
 @app.on_event("startup")
 async def startup_event():
+    from backend.database.session import init_db
+    init_db()
+    try:
+        from backend.storage.s3_client import ensure_buckets
+        ensure_buckets()
+    except Exception as _e:
+        print(f"[S3] Bucket init skipped (MinIO not available in dev mode): {_e}")
     await ai_translator.prepare()
-    print(f"[AI] Provider actif: {AI_PROVIDER}")
+    if AI_PROVIDER == "cloud":
+        print(f"[AI] Provider: cloud (Google Gemini, modèle {os.getenv('GEMINI_MODEL', 'gemini-3.1-flash-lite')})")
+    else:
+        print(f"[AI] Provider actif: {AI_PROVIDER}")
+    print(f"[Signs] Texte→signe: {text_to_sign_service.vocabulary_stats()['with_video']} signes WLASL (base complète)")
+    if API_KEYS_REQUIRED:
+        print("[API] Clés API obligatoires (header X-API-Key) — admin: /admin")
+    else:
+        print("[API] Mode ouvert (API_KEYS_REQUIRED=false)")
 
-# ──────────── CHARGEMENT DYNAMIQUE ────────────
-LABELS_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'knowledge', 'labels.json')
-META_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model', 'model_meta.json')
-MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model', 'model.pth')
-SEQUENCE_LENGTH = 30
-PREDICTION_THRESHOLD = float(os.getenv("PREDICTION_THRESHOLD", "0.70"))
+# ──────────── PARAMÈTRES WEBSOCKET / PHRASE ────────────
 STABLE_WORD_THRESHOLD = float(os.getenv("STABLE_WORD_THRESHOLD", "0.82"))
 TOP2_MARGIN_THRESHOLD = float(os.getenv("TOP2_MARGIN_THRESHOLD", "0.12"))
-PREDICTION_HISTORY_SIZE = int(os.getenv("PREDICTION_HISTORY_SIZE", "5"))
-MIN_STABLE_COUNT = int(os.getenv("MIN_STABLE_COUNT", "3"))
 BUFFER_SILENCE_SECONDS = float(os.getenv("BUFFER_SILENCE_SECONDS", "3.5"))
 MIN_WORD_COOLDOWN_SECONDS = float(os.getenv("MIN_WORD_COOLDOWN_SECONDS", "1.0"))
-NON_SIGN_LABELS = {
-    token.strip().lower()
-    for token in os.getenv("NON_SIGN_LABELS", "space,del,nothing,blank").split(",")
-    if token.strip()
-}
-
-# ──────────── CHARGEMENT DES MODELES ────────────
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+WORD_SPEECH_COOLDOWN_SECONDS = float(os.getenv("WORD_SPEECH_COOLDOWN_SECONDS", "2.5"))
+INSTANT_SPEAK_CONFIDENCE = float(os.getenv("INSTANT_SPEAK_CONFIDENCE", "0.55"))
 
 
-def load_state_dict_safely(path):
-    try:
-        return torch.load(path, map_location=device, weights_only=True)
-    except TypeError:
-        return torch.load(path, map_location=device)
+async def send_word_speech(websocket, asl_label, lang, confidence=0.0):
+    """Synthèse vocale immédiate d'un mot ASL dans la langue de sortie."""
+    trans = find_translation(asl_label, lang=lang)
+    spoken = speech_text_for_label(asl_label, lang, trans["text"])
+    if not spoken:
+        return
 
-# 1. Modèle LSTM (Vidéos Mots)
-with open(LABELS_FILE, 'r', encoding='utf-8') as f:
-    translations = json.load(f)
+    voice = TTS_VOICES.get(lang, TTS_VOICES["fr"])
+    audio_b64 = await tts.generate_audio_b64(spoken, voice=voice)
+    if not audio_b64:
+        return
 
-ACTIONS_HOLISTIC = []
-if os.path.exists(META_FILE):
-    with open(META_FILE, 'r', encoding='utf-8') as f:
-        meta = json.load(f)
-        ACTIONS_HOLISTIC = meta.get('actions', [])
-        print(f"[OK] {len(ACTIONS_HOLISTIC)} actions chargées (LSTM)")
-else:
-    ACTIONS_HOLISTIC = list(translations.keys())
-
-model_holistic = ASLLstmModel(input_size=1662, num_classes=len(ACTIONS_HOLISTIC)).to(device)
-if os.path.exists(MODEL_PATH):
-    model_holistic.load_state_dict(load_state_dict_safely(MODEL_PATH))
-    print(f"[OK] LSTM chargé.")
-else:
-    print(f"[WARN] LSTM non trouvé.")
-model_holistic.eval()
-
-# 2. Modèle Dense (Alphabet Statique)
-META_HANDS_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model', 'model_hands_meta.json')
-MODEL_HANDS_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model', 'model_hands.pth')
-
-ACTIONS_HANDS = []
-model_hands = None
-if os.path.exists(META_HANDS_FILE):
-    with open(META_HANDS_FILE, 'r', encoding='utf-8') as f:
-        meta_h = json.load(f)
-        ACTIONS_HANDS = meta_h.get('actions', [])
-        print(f"[OK] {len(ACTIONS_HANDS)} actions chargées (Hands)")
-    
-    model_hands = HandSignModel(input_size=1662, num_classes=len(ACTIONS_HANDS)).to(device)
-    if os.path.exists(MODEL_HANDS_PATH):
-        model_hands.load_state_dict(load_state_dict_safely(MODEL_HANDS_PATH))
-        print(f"[OK] Modèle statique Hands chargé.")
-        model_hands.eval()
-    else:
-        print("[WARN] Modèle statique non trouvé.")
-else:
-    print("[WARN] model_hands_meta.json introuvable (pas d'alphabet).")
+    await websocket.send_json({
+        "label": asl_label,
+        "translation": trans["text"],
+        "spoken_text": spoken,
+        "audio_b64": audio_b64,
+        "speech_kind": "word",
+        "lang": lang,
+        "confidence": confidence,
+    })
 
 
-def find_translation(label_asl):
-    """Cherche la traduction d'un label dans labels.json"""
-    label_lower = label_asl.lower()
-    if label_lower in translations:
-        t = translations[label_lower]
-        return {"en": t.get("en", label_asl), "fr": t.get("fr", label_asl)}
-    return {"fr": label_asl, "en": label_asl}
+def try_queue_word_speech(websocket, asl_label, lang, confidence, last_spoken_at):
+    """Lance TTS mot en arrière-plan si le cooldown est respecté."""
+    now = time.time()
+    if now - last_spoken_at < WORD_SPEECH_COOLDOWN_SECONDS:
+        return last_spoken_at, False
+
+    async def _run():
+        try:
+            await send_word_speech(websocket, asl_label, lang, confidence)
+        except Exception as exc:
+            print(f"[TTS] Erreur voix mot: {exc}")
+
+    asyncio.create_task(_run())
+    return now, True
 
 
 @app.websocket("/ws/video")
 async def websocket_endpoint(websocket: WebSocket):
-    await websocket.accept()
+    # API key is read from Sec-WebSocket-Protocol to keep it out of URLs and logs.
+    # Client: new WebSocket(url, ["mira-api", apiKey])
+    protocol_header = websocket.headers.get("sec-websocket-protocol", "")
+    parts = [p.strip() for p in protocol_header.split(",") if p.strip()]
+    api_key = parts[1] if len(parts) > 1 else ""
+    await websocket.accept(subprotocol="mira-api")
+    if API_KEYS_REQUIRED and not api_access_store.find_by_api_key(api_key):
+        await websocket.close(code=4403)
+        return
     print("[WS] Nouvelle connexion WebSocket.")
-    
-    extractor = MediaPipeExtractor(mode='holistic')
-    sequence = []
-    
-    # Historique pour le lissage (Debouncing)
-    prediction_history = deque(maxlen=PREDICTION_HISTORY_SIZE)
-    
-    # Buffer pour Ollama
+
+    ws_session_id = str(uuid.uuid4())
     sentence_buffer = []
     last_word_time = time.time()
     last_added_time = 0.0
     last_added_word = ""
-    
+    last_spoken_word = ""
+    last_spoken_at = 0.0
+    output_lang = "fr"
+    current_mode = "holistic"
+    spell_buffer = FingerspellBuffer()
+
     try:
         while True:
             data_str = await websocket.receive_text()
             data = json.loads(data_str)
-            
-            # Gestion bascule Hands vs Holistic
-            mode = data.get('mode', 'holistic')
-            if extractor.mode != mode:
-                extractor = MediaPipeExtractor(mode=mode)
-                sequence.clear()
-                prediction_history.clear()
-                last_added_word = ""
-            
-            image_b64 = data.get('image', '')
-            if not image_b64:
-                continue
 
-            if "," not in image_b64:
-                continue
-            img_data = base64.b64decode(image_b64.split(',', 1)[1])
-            np_arr = np.frombuffer(img_data, np.uint8)
-            frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+            output_lang = normalize_lang(data.get("lang", output_lang))
+            mode = data.get("mode", "holistic")
+            if mode != current_mode:
+                current_mode = mode
+                ws_session_id = str(uuid.uuid4())
+                spell_buffer.reset()
+                last_added_word = ""
+                last_spoken_word = ""
+
+            frame = decode_image_b64(data.get("image", ""))
             if frame is None:
                 continue
-            
-            # INFERENCE MULTITHREADING : Ne pas bloquer la WebSocket !
+
             loop = asyncio.get_running_loop()
-            image_bgr, keypoints = await loop.run_in_executor(None, extractor.process_frame, frame)
-            
-            sequence.append(keypoints)
-            sequence = sequence[-SEQUENCE_LENGTH:]
-            
-            prediction_label = ""
-            confidence = 0.0
-            top2_margin = 0.0
-            
-            if mode == 'holistic':
-                # INFERENCE LSTM SEQUENTIELLE
-                if len(sequence) == SEQUENCE_LENGTH and os.path.exists(MODEL_PATH) and len(ACTIONS_HOLISTIC) > 0:
-                    with torch.no_grad():
-                        res = model_holistic(torch.tensor([sequence], dtype=torch.float32).to(device))[0]
-                        probs = torch.softmax(res, dim=0)
-                        predicted_idx = torch.argmax(res).item()
-                        confidence = probs[predicted_idx].item()
+            result = await loop.run_in_executor(
+                None,
+                lambda: predict_frame(
+                    frame,
+                    lang=output_lang,
+                    mode=mode,
+                    session_id=ws_session_id,
+                ),
+            )
 
-                        top_values = torch.topk(probs, k=min(2, probs.shape[0])).values
-                        if top_values.shape[0] >= 2:
-                            top2_margin = (top_values[0] - top_values[1]).item()
-                        else:
-                            top2_margin = top_values[0].item()
+            stable_label = result.get("label") or ""
+            basic_text = result.get("translation") or ""
+            confidence = result.get("confidence", 0.0)
+            top2_margin = result.get("margin", 0.0)
+            is_stable = result.get("stable", False)
+            virtual_hello = stable_label == "hello" and confidence >= 0.88
+            now = time.time()
 
-                    if (
-                        predicted_idx < len(ACTIONS_HOLISTIC)
-                        and confidence >= PREDICTION_THRESHOLD
-                        and top2_margin >= TOP2_MARGIN_THRESHOLD
-                    ):
-                        prediction_label = ACTIONS_HOLISTIC[predicted_idx]
-            else:
-                # INFERENCE STATIQUE (Hands Only)
-                if model_hands is not None and len(ACTIONS_HANDS) > 0:
-                    current_kp = sequence[-1]
-                    with torch.no_grad():
-                        res = model_hands(torch.tensor([current_kp], dtype=torch.float32).to(device))[0]
-                        probs = torch.softmax(res, dim=0)
-                        predicted_idx = torch.argmax(res).item()
-                        confidence = probs[predicted_idx].item()
+            if mode == "hands" and result.get("label") and len(str(result["label"])) == 1:
+                spelled = spell_buffer.push(result["label"], now)
+                if spelled == "hello":
+                    stable_label = "hello"
+                    is_stable = True
+                    basic_text = find_translation("hello", output_lang)["text"]
 
-                        top_values = torch.topk(probs, k=min(2, probs.shape[0])).values
-                        if top_values.shape[0] >= 2:
-                            top2_margin = (top_values[0] - top_values[1]).item()
-                        else:
-                            top2_margin = top_values[0].item()
+            if (
+                is_stable
+                and stable_label
+                and stable_label != last_added_word
+                and confidence >= STABLE_WORD_THRESHOLD
+                and top2_margin >= TOP2_MARGIN_THRESHOLD
+                and (now - last_added_time) >= MIN_WORD_COOLDOWN_SECONDS
+                and stable_label.lower() not in ("space", "del", "nothing")
+            ):
+                sentence_buffer.append(stable_label)
+                last_added_word = stable_label
+                last_word_time = now
+                last_added_time = now
 
-                    if (
-                        predicted_idx < len(ACTIONS_HANDS)
-                        and confidence >= PREDICTION_THRESHOLD
-                        and top2_margin >= TOP2_MARGIN_THRESHOLD
-                    ):
-                        prediction_label = ACTIONS_HANDS[predicted_idx]
+            speak_label = ""
+            if virtual_hello and stable_label == "hello" and last_spoken_word != "hello":
+                speak_label = "hello"
+            elif (
+                is_stable
+                and stable_label
+                and should_speak_instantly(stable_label)
+                and stable_label != last_spoken_word
+                and confidence >= INSTANT_SPEAK_CONFIDENCE
+            ):
+                speak_label = stable_label
 
-            # ================= LISSAGE ET BUFFERING =================
-            is_stable = False
-            stable_label = ""
-            basic_fr = ""
-            
-            if prediction_label:
-                if prediction_label.lower() in NON_SIGN_LABELS:
-                    prediction_label = ""
-                    prediction_history.clear()
-                    stable_label = ""
-                    basic_fr = ""
-                
-            if prediction_label:
-                prediction_history.append(prediction_label)
-                # Trouver le label le plus fréquent dans l'historique récent
-                stable_label = max(set(prediction_history), key=prediction_history.count)
-                # Il est stable s'il apparaît au moins 3 fois sur 5
-                stable_count = prediction_history.count(stable_label)
-                is_stable = stable_count >= MIN_STABLE_COUNT
-                
-                # Traduction instantanée pour l'UI
-                trans = find_translation(stable_label)
-                basic_fr = trans['fr']
+            if speak_label:
+                last_spoken_at, did_speak = try_queue_word_speech(
+                    websocket, speak_label, output_lang, confidence, last_spoken_at
+                )
+                if did_speak:
+                    last_spoken_word = speak_label
 
-                # Si stable et nouveau, on l'ajoute au buffer de la phrase
-                if (
-                    is_stable
-                    and stable_label != last_added_word
-                    and confidence >= STABLE_WORD_THRESHOLD
-                    and top2_margin >= TOP2_MARGIN_THRESHOLD
-                    and (time.time() - last_added_time) >= MIN_WORD_COOLDOWN_SECONDS
-                ):
-                    # Ne pas ajouter le mot s'il signifie le vide ou le repos
-                    if stable_label.lower() not in ["space", "del", "nothing"]:
-                        sentence_buffer.append(stable_label)
-                        last_added_word = stable_label
-                        last_word_time = time.time()
-                        last_added_time = time.time()
-
-            # ================= EVALUATION OLLAMA / GEMINI (PAUSE DETECTEE) =================
-            # Protection Quota (15 req/min) : on attend 3.5 sec de "silence visuel" pour valider une phrase
-            if len(sentence_buffer) > 0 and (time.time() - last_word_time > BUFFER_SILENCE_SECONDS):
+            if sentence_buffer and (time.time() - last_word_time > BUFFER_SILENCE_SECONDS):
                 full_raw_sequence = " ".join(sentence_buffer)
-                
-                # Vider le buffer pour la prochaine phrase
                 sentence_buffer.clear()
                 last_added_word = ""
-                
-                async def generate_and_send_sentence(raw_sequence):
+
+                async def generate_and_send_sentence(raw_sequence, lang=output_lang):
                     try:
-                        final_sentence = await ai_translator.translate_asl(raw_sequence)
-                        
-                        # Générer l'audio haute qualité avec Edge-TTS Azure
-                        audio_b64 = await tts.generate_audio_b64(final_sentence)
-                        
+                        final_sentence = await ai_translator.translate_asl(raw_sequence, lang=lang)
+                        voice = TTS_VOICES.get(lang, TTS_VOICES["fr"])
+                        audio_b64 = await tts.generate_audio_b64(final_sentence, voice=voice)
                         await websocket.send_json({
-                            "sentence": final_sentence + " ✨",
-                            "audio_b64": audio_b64
+                            "sentence": final_sentence,
+                            "audio_b64": audio_b64,
+                            "lang": lang,
                         })
                     except Exception as e:
-                        print(f"[ERR] Asynchrone Gemini API : {e}")
-                
+                        print(f"[ERR] Phrase IA: {e}")
+
                 asyncio.create_task(generate_and_send_sentence(full_raw_sequence))
 
-            # ================= ENVOI DE LA VIDEO CHAUDE (UI FEEDBACK) =================
-            _, buffer = cv2.imencode('.jpg', image_bgr, [int(cv2.IMWRITE_JPEG_QUALITY), 80])
-            out_img_b64 = "data:image/jpeg;base64," + base64.b64encode(buffer).decode('utf-8')
+            preview_label = result.get("preview_label") or ""
+            preview_text = result.get("preview_translation") or ""
+            display_label = stable_label if is_stable else preview_label
+            display_text = basic_text if is_stable else preview_text
 
-            if prediction_label and is_stable:
-                await websocket.send_json({
-                    "label": stable_label,
-                    "fr": basic_fr,
-                    "confidence": confidence,
-                    "margin": top2_margin,
-                    "buffer_text": " ".join(sentence_buffer),
-                    "image": out_img_b64
-                })
-            else:
-                await websocket.send_json({
-                    "buffer_text": " ".join(sentence_buffer),
-                    "image": out_img_b64
-                })
-                
+            payload = {
+                "buffer_text": " ".join(sentence_buffer),
+                "lang": output_lang,
+                "image": result.get("image"),
+                "session_id": result.get("session_id"),
+                "preview_label": preview_label or None,
+                "preview_translation": preview_text or None,
+                "confidence": confidence,
+                "margin": top2_margin,
+                "stable": is_stable,
+                "sequence_len": result.get("sequence_len"),
+                "sequence_required": result.get("sequence_required"),
+            }
+            if display_label:
+                payload["label"] = display_label
+                payload["translation"] = display_text
+                payload["fr"] = display_text
+                payload["virtual_hello"] = virtual_hello
+            await websocket.send_json(payload)
+
     except WebSocketDisconnect:
         print("[WS] Client déconnecté.")
     except Exception as e:
+        import traceback
         print(f"[ERR] Erreur Backend: {e}")
+        traceback.print_exc()
