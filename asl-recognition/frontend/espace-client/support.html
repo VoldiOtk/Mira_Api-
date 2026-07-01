@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+		<title>Mira — Espace client | Support</title>
+		<meta name="author" content="GV TECH">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link href='stylesheets/fullcalendar.min.css' rel='stylesheet' />
+		<link href='stylesheets/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+		<script>
+			(function () {
+				try {
+					if (!window.localStorage || !localStorage.getItem("mira_client_token")) {
+						window.location.replace("connexion.html");
+					}
+				} catch (e) { window.location.replace("connexion.html"); }
+			})();
+		</script>
+		<style>
+			main { overflow-y: auto; max-height: calc(100vh - 40px); }
+			.mira-hidden-charts { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+			.mira-form label { display: block; color: #c5c5c5; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; margin-bottom: 8px; }
+			.mira-form .form-row { margin-bottom: 22px; }
+			.mira-form input[type="text"], .mira-form input[type="email"], .mira-form select, .mira-form textarea {
+				width: 100%; background-color: #242629; border: 1px solid #2c2e33; border-radius: 6px; padding: 12px 15px; color: #e0e0e0; }
+			.mira-form textarea { min-height: 150px; resize: vertical; }
+			.mira-btn { display: inline-block; background-color: #04aec6; color: #fff; border: none; border-radius: 25px; padding: 11px 28px; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; cursor: pointer; }
+			.mira-btn:hover { color: #fff; background-color: #4c418b; }
+			.mira-btn.ghost { background-color: transparent; border: 1px solid #04aec6; color: #04aec6; }
+			.box.mira-half { width: calc(50% - 10px); }
+			.mira-sub { font-size: 12px; color: #898989; margin-top: 4px; }
+			.mira-err { font-size: 12px; color: #ff2d78; min-height: 14px; margin-top: 6px; }
+			.divider20 { height: 20px; }
+			.mira-accordion .acc-head { cursor: pointer; padding: 16px 0; border-bottom: 1px solid #232427; color: #e0e0e0; font-family: 'Oswald'; font-size: 14px; }
+			.mira-accordion .acc-body { display: none; padding: 0 0 16px; color: #b9b9b9; font-size: 13px; line-height: 22px; }
+			.mira-accordion .acc-item.open .acc-body { display: block; }
+			.mira-accordion .acc-head:before { content: '+'; color: #04aec6; margin-right: 12px; font-weight:bold; }
+			.mira-accordion .acc-item.open .acc-head:before { content: '\2013'; }
+			.mira-contact li { padding: 10px 0; color:#c5c5c5; border-bottom:1px solid #232427; }
+			.mira-contact li span { color:#898989; display:inline-block; width:120px; font-family:'Oswald'; }
+		</style>
+	</head>
+	<body data-page="message">
+
+		<div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+
+		<header id="header" class="header fixed">
+			<div class="navbar-top">
+				<div class="curren-menu info-left">
+					<div class="logo">
+						<a href="accueil.html" title="Mira — Espace client">
+							<img src="images/mira-logo.png" alt="Mira" style="height:28px;width:auto;">
+							<span style="display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:-4px;">ESPACE CLIENT</span>
+						</a>
+					</div>
+					<div class="top-button"><span></span></div>
+					<div class="box-search">
+						<form action="#" method="get" accept-charset="utf-8">
+							<button><img src="images/icon/search.png" alt=""></button>
+							<input type="text" placeholder="Rechercher..." name="Search">
+						</form>
+					</div>
+				</div>
+				<ul class="info-right">
+					<li class="setting"><a href="parametres.html" class="waves-effect waves-teal" title="Paramètres"><img src="images/icon/setting.png" alt=""></a></li>
+					<li class="notification"><a href="#" class="waves-effect waves-teal" title="Notifications">3</a></li>
+					<li class="user">
+						<div class="avatar"><img src="images/avatar/01.png" alt=""></div>
+						<div class="info"><p class="name">—</p><p class="address">Espace client</p></div>
+						<div class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+						<div class="dropdown-menu">
+							<ul>
+								<li><div class="avatar"><img src="images/avatar/01.png" alt=""></div><div class="profile"><a href="profil.html" title="">Mon profil</a></div><div class="clearfix"></div></li>
+								<li><a href="profil.html" class="waves-effect" title="">Mon profil</a></li>
+								<li><a href="parametres.html" class="waves-effect" title="">Paramètres</a></li>
+								<li><a href="#" class="waves-effect" onclick="logout(); return false;" title="">Déconnexion</a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+					<li class="button-menu-right"><img src="images/icon/menu-right.png" alt=""></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</header>
+
+		<section class="vertical-navigation left">
+			<div class="user-profile">
+				<div class="user-img">
+					<a href="profil.html" title=""><div class="img"><img src="images/avatar/avatar-dashboard.png" alt=""></div><div class="status-color blue heartbit style1"></div></a>
+				</div>
+				<ul class="user-options">
+					<li class="name"><a href="profil.html" title="">—</a></li>
+					<li class="options">CLIENT MIRA</li>
+				</ul>
+			</div>
+			<ul class="sidebar-nav">
+				<li class="dashboard waves-effect waves-teal"><a href="accueil.html" title="Accueil"><div class="img-nav"><img src="images/icon/monitor.png" alt=""></div><span>ACCUEIL</span></a></li>
+				<li class="pages waves-effect waves-teal"><a href="profil.html" title="Profil"><div class="img-nav"><img src="images/icon/user.png" alt=""></div><span>PROFIL</span></a></li>
+				<li class="apps waves-effect waves-teal"><a href="abonnement.html" title="Abonnement"><div class="img-nav"><img src="images/icon/apps.png" alt=""></div><span>ABONNEMENT</span></a></li>
+				<li class="setting waves-effect waves-teal"><a href="cles-api.html" title="Clés API"><div class="img-nav"><img src="images/icon/setting-02.png" alt=""></div><span>CLÉS API</span></a></li>
+				<li class="calendar waves-effect waves-teal"><a href="historique.html" title="Historique"><div class="img-nav"><img src="images/icon/calendar.png" alt=""></div><span>HISTORIQUE</span></a></li>
+				<li class="chart waves-effect waves-teal"><a href="facturation.html" title="Facturation"><div class="img-nav"><img src="images/icon/chart.png" alt=""></div><span>FACTURATION</span></a></li>
+				<li class="message waves-effect waves-teal"><a href="support.html" title="Support"><div class="img-nav"><img src="images/icon/message.png" alt=""></div><span>SUPPORT</span></a></li>
+				<li class="settings waves-effect waves-teal"><a href="parametres.html" title="Paramètres"><div class="img-nav"><img src="images/icon/setting.png" alt=""></div><span>PARAMÈTRES</span></a></li>
+				<li class="logout waves-effect waves-teal"><a href="#" onclick="logout(); return false;" title="Déconnexion"><div class="img-nav"><img src="images/icon/download.png" alt=""></div><span>DÉCONNEXION</span></a></li>
+			</ul>
+		</section>
+
+		<main>
+			<section id="support">
+				<div class="breadcrumbs" style="padding:0 20px 12px;"><ul><li><a href="accueil.html" title="">Accueil</a></li><li>&nbsp;- Support</li></ul></div>
+
+				<div class="rows">
+					<div class="box mira-half left">
+						<div class="box-header with-border"><div class="box-title"><h3>OUVRIR UN TICKET</h3></div><div class="clearfix"></div></div>
+						<div class="box-content mira-form">
+							<div class="divider20"></div>
+							<div id="ticket-alert" style="display:none; border-radius:8px; padding:12px 14px; font-size:13px; margin-bottom:18px;"></div>
+							<form id="ticket-form" action="#" method="post" accept-charset="utf-8" novalidate>
+								<div class="form-row"><label for="tk-subject">Sujet</label><input type="text" id="tk-subject" name="subject" placeholder="Décrivez votre demande en quelques mots"><div class="mira-err" id="tk-subject-error"></div></div>
+								<div class="form-row"><label for="tk-category">Catégorie</label>
+									<select id="tk-category" name="category"><option>Question technique (API)</option><option>Facturation / abonnement</option><option>Clés API</option><option>Demande de fonctionnalité</option><option>Autre</option></select>
+								</div>
+								<div class="form-row"><label for="tk-priority">Priorité</label>
+									<select id="tk-priority" name="priority"><option>Normale</option><option>Haute</option><option>Urgente</option></select>
+								</div>
+								<div class="form-row"><label for="tk-message">Message</label><textarea id="tk-message" name="message" placeholder="Détaillez votre problème, l'endpoint concerné, la langue, et tout message d'erreur..."></textarea><div class="mira-err" id="tk-message-error"></div></div>
+								<button type="submit" class="mira-btn" id="tk-submit">Envoyer le ticket</button>
+							</form>
+						</div>
+					</div>
+					<div class="box mira-half right">
+						<div class="box-header with-border"><div class="box-title"><h3>NOUS CONTACTER</h3></div><div class="clearfix"></div></div>
+						<div class="box-content">
+							<div class="divider20"></div>
+							<ul class="mira-contact">
+								<li><span>E-mail</span><a href="mailto:hello@gvtechdrc.com">hello@gvtechdrc.com</a></li>
+								<li><span>Site web</span><a href="https://gvtechdrc.com" target="_blank" rel="noopener">gvtechdrc.com</a></li>
+								<li><span>Éditeur</span>GV TECH</li>
+								<li><span>Horaires</span>Lun. – Ven., 8h – 18h (GMT+1)</li>
+								<li><span>Délai moyen</span>Réponse sous 24 h ouvrées</li>
+							</ul>
+							<div class="divider20"></div>
+							<p class="mira-sub">Les clients de l'offre Entreprise bénéficient d'un support 24/7 et d'un gestionnaire dédié.</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="rows">
+					<div class="box mira-half left" style="width:100%;">
+						<div class="box-header with-border"><div class="box-title"><h3>QUESTIONS FRÉQUENTES</h3></div><div class="clearfix"></div></div>
+						<div class="box-content">
+							<div class="divider20"></div>
+							<div class="mira-accordion">
+								<div class="acc-item open">
+									<div class="acc-head">Comment générer ma première clé API ?</div>
+									<div class="acc-body">Rendez-vous dans la section <a href="cles-api.html">Clés API</a> et cliquez sur « Générer une clé ». Le secret complet n'est affiché qu'une seule fois, à la création : copiez-le immédiatement et conservez-le en lieu sûr.</div>
+								</div>
+								<div class="acc-item">
+									<div class="acc-head">Quelles langues des signes sont prises en charge ?</div>
+									<div class="acc-body">Mira reconnaît actuellement l'ASL (américaine), la LSF (française), la BSL (britannique) et la JSL (japonaise). D'autres langues sont ajoutées régulièrement. La liste à jour est disponible via l'endpoint GET /v1/languages.</div>
+								</div>
+								<div class="acc-item">
+									<div class="acc-head">Que se passe-t-il si je dépasse mon quota mensuel ?</div>
+									<div class="acc-body">Les appels au-delà du quota renvoient un statut 429. Vous pouvez suivre votre consommation depuis l'<a href="accueil.html">Accueil</a> ou passer à une offre supérieure dans <a href="abonnement.html">Abonnement</a>.</div>
+								</div>
+								<div class="acc-item">
+									<div class="acc-head">Comment télécharger mes factures ?</div>
+									<div class="acc-body">Toutes vos factures sont disponibles au format PDF dans la section <a href="facturation.html">Facturation</a>.</div>
+								</div>
+								<div class="acc-item">
+									<div class="acc-head">Comment révoquer une clé compromise ?</div>
+									<div class="acc-body">Dans <a href="cles-api.html">Clés API</a>, cliquez sur « Révoquer » en face de la clé concernée. La révocation est immédiate et irréversible.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="footer" style="padding:0 20px 30px;">
+					<div class="copyright"><p style="font-family:'Oswald'; font-weight:300;">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p></div>
+					<ul class="menu-ft" style="float:right;">
+						<li style="display:inline-block; padding:0 14px;"><a href="mailto:hello@gvtechdrc.com" title="">hello@gvtechdrc.com</a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</section>
+		</main>
+
+		<div class="mira-hidden-charts" aria-hidden="true">
+			<div id="sales-chart"></div><div id="chartStatistics"></div><div id="chart-stackedColumn"></div>
+			<div id="chart-spline"></div><div id="bubble-chart"></div><div id="chartdiv"></div>
+			<div id="lineChart"></div><canvas id="radarChart" height="150"></canvas>
+		</div>
+
+		<script src="javascript/jquery.min.js"></script>
+		<script src="javascript/tether.min.js"></script>
+		<script src="javascript/bootstrap4-alpha3.min.js"></script>
+		<script src="javascript/ammap.js"></script>
+		<script src="javascript/worldLow.js"></script>
+		<script src="javascript/raphael.min.js"></script>
+		<script src="javascript/morris.min.js"></script>
+		<script src="javascript/Chart.min.js"></script>
+		<script src='javascript/moment.min.js'></script>
+		<script src='javascript/jquery-ui.js'></script>
+		<script src='javascript/fullcalendar.min.js'></script>
+		<script type="text/javascript" src="javascript/jquery.mCustomScrollbar.js"></script>
+		<script src="javascript/smoothscroll.js"></script>
+		<script src="javascript/waypoints.min.js"></script>
+		<script src="javascript/jquery-countTo.js"></script>
+		<script src="javascript/waves.min.js"></script>
+		<script src="javascript/canvasjs.min.js"></script>
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script src="javascript/mira-espace.js"></script>
+		<script src="javascript/main.js"></script>
+		<script>
+			(function($){ $(function(){
+				$('main > section').show();
+				var page = document.body.getAttribute('data-page');
+				if (page) { $('.vertical-navigation.left ul.sidebar-nav > li').removeClass('active'); $('.vertical-navigation.left ul.sidebar-nav > li.' + page).addClass('active'); }
+				// FAQ accordéon (réutilise le pattern de la maquette, sans dépendance externe)
+				$('.mira-accordion .acc-head').on('click', function(){ $(this).parent('.acc-item').toggleClass('open'); });
+			}); })(jQuery);
+
+			MiraEspace.ready(function () {
+				var E = MiraEspace;
+				var form = document.getElementById('ticket-form');
+				var subjectEl = document.getElementById('tk-subject');
+				var messageEl = document.getElementById('tk-message');
+				var categoryEl = document.getElementById('tk-category');
+				var priorityEl = document.getElementById('tk-priority');
+				var subjectErr = document.getElementById('tk-subject-error');
+				var messageErr = document.getElementById('tk-message-error');
+				var alertBox = document.getElementById('ticket-alert');
+				var submit = document.getElementById('tk-submit');
+
+				function showAlert(msg, kind) {
+					var ok = kind !== 'err';
+					alertBox.style.display = 'block';
+					alertBox.style.background = ok ? 'rgba(4,174,198,.12)' : 'rgba(255,45,120,.12)';
+					alertBox.style.border = '1px solid ' + (ok ? 'rgba(4,174,198,.35)' : 'rgba(255,45,120,.35)');
+					alertBox.style.color = ok ? '#7fe3ef' : '#ff8db5';
+					alertBox.textContent = msg;
+				}
+
+				form.addEventListener('submit', function (e) {
+					e.preventDefault();
+					subjectErr.textContent = ''; messageErr.textContent = ''; alertBox.style.display = 'none';
+					var subject = subjectEl.value.trim();
+					var message = messageEl.value.trim();
+					var ok = true;
+					if (!subject) { subjectErr.textContent = 'Le sujet est requis.'; ok = false; }
+					else if (subject.length < 4) { subjectErr.textContent = 'Le sujet est trop court.'; ok = false; }
+					if (!message) { messageErr.textContent = 'Le message est requis.'; ok = false; }
+					else if (message.length < 15) { messageErr.textContent = 'Merci de détailler votre demande (au moins 15 caractères).'; ok = false; }
+					if (!ok) return;
+
+					/* TODO backend: aucun endpoint d'ouverture de ticket n'existe encore
+					   dans MiraAPI (pas de createSupportTicket / getClientSupportTickets).
+					   À brancher dès qu'un POST /api/v1/support/tickets sera disponible.
+					   En attendant, on confirme la prise en compte côté UI et on invite
+					   le client à écrire à hello@gvtechdrc.com pour un suivi immédiat. */
+					submit.disabled = true; submit.textContent = 'Envoi…';
+					setTimeout(function () {
+						submit.disabled = false; submit.textContent = 'Envoyer le ticket';
+						form.reset();
+						E.toast('Votre demande a bien été enregistrée. Notre équipe vous répondra sous 24 h ouvrées.', 'ok');
+						showAlert('Demande enregistrée — catégorie « ' + categoryEl.value + ' », priorité « ' + priorityEl.value + ' ». Pour un suivi immédiat, écrivez à hello@gvtechdrc.com.', 'ok');
+					}, 400);
+				});
+			});
+		</script>
+	</body>
+</html>

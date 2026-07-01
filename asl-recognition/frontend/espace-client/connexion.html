@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+		<title>Mira — Espace client | Connexion</title>
+		<meta name="author" content="GV TECH">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+		<style>
+			body { background-color:#18191c; }
+			.mira-auth-wrap { min-height: 100vh; display:flex; align-items:center; justify-content:center; padding: 40px 20px; }
+			.mira-auth-card { width: 100%; max-width: 420px; background-color:#1d1f23; border:1px solid #232427; border-radius:12px; padding: 38px 34px; box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+			.mira-auth-logo { text-align:center; margin-bottom: 8px; }
+			.mira-auth-logo .brand { font-family:'Oswald'; font-size:34px; font-weight:500; color:#fff; letter-spacing:1px; }
+			.mira-auth-logo .sub { display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:-4px; }
+			.mira-auth-title { text-align:center; color:#f0f0f0; font-family:'Oswald'; font-size:18px; letter-spacing:.5px; margin: 22px 0 4px; }
+			.mira-auth-lead { text-align:center; color:#898989; font-size:13px; margin-bottom: 26px; }
+			.mira-form label { display:block; color:#c5c5c5; font-family:'Oswald'; font-size:13px; letter-spacing:.5px; margin-bottom:8px; }
+			.mira-form .form-row { margin-bottom:20px; }
+			.mira-form input[type="text"], .mira-form input[type="email"], .mira-form input[type="password"] {
+				width:100%; background-color:#242629; border:1px solid #2c2e33; border-radius:6px; padding:12px 15px; color:#e0e0e0; }
+			.mira-form input:focus { outline:none; border-color:#04aec6; }
+			.mira-btn { display:inline-block; width:100%; text-align:center; background-color:#04aec6; color:#fff; border:none; border-radius:25px; padding:12px 28px; font-family:'Oswald'; font-size:14px; letter-spacing:.5px; cursor:pointer; }
+			.mira-btn:hover { color:#fff; background-color:#4c418b; }
+			.mira-btn[disabled] { opacity:.6; cursor:default; }
+			.mira-auth-foot { text-align:center; color:#898989; font-size:13px; margin-top:22px; }
+			.mira-auth-foot a { color:#04aec6; }
+			.mira-field-error { color:#ff2d78; font-size:12px; margin-top:6px; min-height:14px; }
+			.mira-alert { border-radius:8px; padding:12px 14px; font-size:13px; margin-bottom:20px; display:none; }
+			.mira-alert.err { background-color:rgba(255,45,120,.12); border:1px solid rgba(255,45,120,.35); color:#ff8db5; }
+			.mira-alert.ok { background-color:rgba(4,174,198,.12); border:1px solid rgba(4,174,198,.35); color:#7fe3ef; }
+			.mira-spinner { display:inline-block; width:16px; height:16px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:mira-spin .7s linear infinite; vertical-align:middle; margin-right:8px; }
+			@keyframes mira-spin { to { transform:rotate(360deg); } }
+			.mira-copyright { text-align:center; color:#5c5c5c; font-size:11px; font-family:'Oswald'; font-weight:300; margin-top:26px; letter-spacing:.5px; }
+		</style>
+	</head>
+	<body data-page="auth">
+		<div class="mira-auth-wrap">
+			<div class="mira-auth-card">
+				<div class="mira-auth-logo">
+					<a href="connexion.html" title="Mira — Espace client" style="text-decoration:none;">
+						<span class="brand">Mira</span>
+						<span class="sub">ESPACE CLIENT</span>
+					</a>
+				</div>
+				<h1 class="mira-auth-title">Connexion</h1>
+				<p class="mira-auth-lead">Accédez à votre tableau de bord Mira.</p>
+
+				<div id="auth-alert" class="mira-alert err" role="alert"></div>
+
+				<form id="login-form" class="mira-form" action="#" method="post" accept-charset="utf-8" novalidate>
+					<div class="form-row">
+						<label for="email">Adresse e-mail</label>
+						<input type="email" id="email" name="email" autocomplete="email" placeholder="vous@exemple.com">
+						<div class="mira-field-error" id="email-error"></div>
+					</div>
+					<div class="form-row">
+						<label for="password" style="display:flex; justify-content:space-between; align-items:center;">
+							<span>Mot de passe</span>
+							<a href="mot-de-passe-oublie.html" style="color:#04aec6; font-size:11px; text-transform:none; letter-spacing:0;">Mot de passe oublié ?</a>
+						</label>
+						<div style="position:relative;">
+							<input type="password" id="password" name="password" autocomplete="current-password" placeholder="Votre mot de passe" style="padding-right:78px;">
+							<span id="toggle-pwd" role="button" tabindex="0" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); cursor:pointer; color:#04aec6; font-size:12px; font-family:'Oswald'; letter-spacing:.5px;">Afficher</span>
+						</div>
+						<div class="mira-field-error" id="password-error"></div>
+					</div>
+					<label style="display:flex; align-items:center; gap:8px; color:#898989; font-size:12px; margin-bottom:20px; cursor:pointer;">
+						<input type="checkbox" id="remember" style="width:auto;" checked> Se souvenir de moi
+					</label>
+					<button type="submit" id="submit-btn" class="mira-btn">Se connecter</button>
+				</form>
+
+				<p class="mira-auth-foot">Pas encore de compte ? <a href="inscription.html">Créer un compte</a></p>
+				<p class="mira-copyright">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p>
+			</div>
+		</div>
+
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script>
+			(function () {
+				"use strict";
+				// Déjà connecté → on file vers l'accueil.
+				if (window.MiraAPI && MiraAPI.isAuthenticated()) {
+					window.location.replace("accueil.html");
+					return;
+				}
+
+				var form = document.getElementById("login-form");
+				var emailEl = document.getElementById("email");
+				var pwdEl = document.getElementById("password");
+				var emailErr = document.getElementById("email-error");
+				var pwdErr = document.getElementById("password-error");
+				var alertBox = document.getElementById("auth-alert");
+				var btn = document.getElementById("submit-btn");
+
+				var togglePwd = document.getElementById("toggle-pwd");
+				if (togglePwd) {
+					togglePwd.addEventListener("click", function () {
+						var show = pwdEl.type === "password";
+						pwdEl.type = show ? "text" : "password";
+						togglePwd.textContent = show ? "Masquer" : "Afficher";
+					});
+				}
+
+				function showAlert(msg, kind) {
+					alertBox.className = "mira-alert " + (kind || "err");
+					alertBox.textContent = msg;
+					alertBox.style.display = "block";
+				}
+				function clearAlert() { alertBox.style.display = "none"; alertBox.textContent = ""; }
+				function setBusy(busy) {
+					btn.disabled = busy;
+					btn.innerHTML = busy ? '<span class="mira-spinner"></span>Connexion…' : "Se connecter";
+				}
+				function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+				function validate() {
+					var ok = true;
+					emailErr.textContent = ""; pwdErr.textContent = "";
+					var email = emailEl.value.trim();
+					if (!email) { emailErr.textContent = "L'adresse e-mail est requise."; ok = false; }
+					else if (!isEmail(email)) { emailErr.textContent = "Adresse e-mail invalide."; ok = false; }
+					if (!pwdEl.value) { pwdErr.textContent = "Le mot de passe est requis."; ok = false; }
+					return ok;
+				}
+
+				function errToText(err) {
+					if (!err) return "Connexion impossible. Réessayez.";
+					if (typeof err === "string") return err;
+					if (Array.isArray(err)) return err.map(function (e) { return e && e.msg ? e.msg : String(e); }).join(" ");
+					if (err.msg) return err.msg;
+					return "Connexion impossible. Réessayez.";
+				}
+
+				form.addEventListener("submit", function (e) {
+					e.preventDefault();
+					clearAlert();
+					if (!window.MiraAPI) { showAlert("Service indisponible (mira-api.js non chargé)."); return; }
+					if (!validate()) return;
+					setBusy(true);
+					MiraAPI.login(emailEl.value.trim(), pwdEl.value).then(function (res) {
+						if (res.ok) {
+							showAlert("Connexion réussie. Redirection…", "ok");
+							window.location.replace("accueil.html");
+						} else {
+							setBusy(false);
+							if (res.status === 401) showAlert("E-mail ou mot de passe incorrect.");
+							else if (res.status === 403) showAlert("Ce compte est désactivé. Contactez GV TECH.");
+							else showAlert(errToText(res.error));
+						}
+					});
+				});
+			})();
+		</script>
+	</body>
+</html>

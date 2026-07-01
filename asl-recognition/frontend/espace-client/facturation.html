@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+		<title>Mira — Espace client | Facturation</title>
+		<meta name="author" content="GV TECH">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link href='stylesheets/fullcalendar.min.css' rel='stylesheet' />
+		<link href='stylesheets/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+		<script>
+			(function () {
+				try {
+					if (!window.localStorage || !localStorage.getItem("mira_client_token")) {
+						window.location.replace("connexion.html");
+					}
+				} catch (e) { window.location.replace("connexion.html"); }
+			})();
+		</script>
+		<style>
+			main { overflow-y: auto; max-height: calc(100vh - 40px); }
+			.mira-hidden-charts { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+			.mira-btn { display: inline-block; background-color: #04aec6; color: #fff; border: none; border-radius: 25px; padding: 11px 28px; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; cursor: pointer; }
+			.mira-btn:hover { color: #fff; background-color: #4c418b; }
+			.mira-btn.ghost { background-color: transparent; border: 1px solid #04aec6; color: #04aec6; }
+			.mira-btn.ghost:hover { background-color: #04aec6; color: #fff; }
+			.mira-btn.small { padding: 6px 16px; font-size: 12px; }
+			.mira-table { width: 100%; }
+			.mira-table thead tr th { text-align: left; font-family: 'Oswald'; font-weight: 400; font-size: 13px; color: #c5c5c5; padding: 12px 14px; border-bottom: 1px solid #2c2e33; letter-spacing: .5px; }
+			.mira-table tbody tr td { padding: 14px; border-bottom: 1px solid #232427; color: #b9b9b9; font-size: 13px; }
+			.mira-table tbody tr:hover { background-color: #1d1f23; }
+			.mira-badge { display: inline-block; padding: 3px 12px; border-radius: 25px; font-size: 11px; font-family: 'Oswald'; letter-spacing: .5px; }
+			.mira-badge.ok { background-color: rgba(4,174,198,.16); color: #04aec6; }
+			.mira-badge.warn { background-color: rgba(240,146,56,.16); color: #f09238; }
+			.mira-badge.err { background-color: rgba(255,45,120,.16); color: #ff2d78; }
+			.mira-badge.muted { background-color: rgba(137,137,137,.16); color: #b9b9b9; }
+			.mira-key { font-family: monospace; color:#c5c5c5; }
+			.box.mira-full { width: 100%; }
+			.box.mira-half { width: calc(50% - 10px); }
+			.mira-sub { font-size: 12px; color: #898989; margin-top: 4px; }
+			.divider20 { height: 20px; }
+		</style>
+	</head>
+	<body data-page="chart">
+
+		<div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+
+		<header id="header" class="header fixed">
+			<div class="navbar-top">
+				<div class="curren-menu info-left">
+					<div class="logo">
+						<a href="accueil.html" title="Mira — Espace client">
+							<img src="images/mira-logo.png" alt="Mira" style="height:28px;width:auto;">
+							<span style="display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:-4px;">ESPACE CLIENT</span>
+						</a>
+					</div>
+					<div class="top-button"><span></span></div>
+					<div class="box-search">
+						<form action="#" method="get" accept-charset="utf-8">
+							<button><img src="images/icon/search.png" alt=""></button>
+							<input type="text" placeholder="Rechercher..." name="Search">
+						</form>
+					</div>
+				</div>
+				<ul class="info-right">
+					<li class="setting"><a href="parametres.html" class="waves-effect waves-teal" title="Paramètres"><img src="images/icon/setting.png" alt=""></a></li>
+					<li class="notification"><a href="#" class="waves-effect waves-teal" title="Notifications">3</a></li>
+					<li class="user">
+						<div class="avatar"><img src="images/avatar/01.png" alt=""></div>
+						<div class="info"><p class="name">—</p><p class="address">Espace client</p></div>
+						<div class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+						<div class="dropdown-menu">
+							<ul>
+								<li><div class="avatar"><img src="images/avatar/01.png" alt=""></div><div class="profile"><a href="profil.html" title="">Mon profil</a></div><div class="clearfix"></div></li>
+								<li><a href="profil.html" class="waves-effect" title="">Mon profil</a></li>
+								<li><a href="parametres.html" class="waves-effect" title="">Paramètres</a></li>
+								<li><a href="#" class="waves-effect" onclick="logout(); return false;" title="">Déconnexion</a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+					<li class="button-menu-right"><img src="images/icon/menu-right.png" alt=""></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</header>
+
+		<section class="vertical-navigation left">
+			<div class="user-profile">
+				<div class="user-img">
+					<a href="profil.html" title=""><div class="img"><img src="images/avatar/avatar-dashboard.png" alt=""></div><div class="status-color blue heartbit style1"></div></a>
+				</div>
+				<ul class="user-options">
+					<li class="name"><a href="profil.html" title="">—</a></li>
+					<li class="options">CLIENT MIRA</li>
+				</ul>
+			</div>
+			<ul class="sidebar-nav">
+				<li class="dashboard waves-effect waves-teal"><a href="accueil.html" title="Accueil"><div class="img-nav"><img src="images/icon/monitor.png" alt=""></div><span>ACCUEIL</span></a></li>
+				<li class="pages waves-effect waves-teal"><a href="profil.html" title="Profil"><div class="img-nav"><img src="images/icon/user.png" alt=""></div><span>PROFIL</span></a></li>
+				<li class="apps waves-effect waves-teal"><a href="abonnement.html" title="Abonnement"><div class="img-nav"><img src="images/icon/apps.png" alt=""></div><span>ABONNEMENT</span></a></li>
+				<li class="setting waves-effect waves-teal"><a href="cles-api.html" title="Clés API"><div class="img-nav"><img src="images/icon/setting-02.png" alt=""></div><span>CLÉS API</span></a></li>
+				<li class="calendar waves-effect waves-teal"><a href="historique.html" title="Historique"><div class="img-nav"><img src="images/icon/calendar.png" alt=""></div><span>HISTORIQUE</span></a></li>
+				<li class="chart waves-effect waves-teal"><a href="facturation.html" title="Facturation"><div class="img-nav"><img src="images/icon/chart.png" alt=""></div><span>FACTURATION</span></a></li>
+				<li class="message waves-effect waves-teal"><a href="support.html" title="Support"><div class="img-nav"><img src="images/icon/message.png" alt=""></div><span>SUPPORT</span></a></li>
+				<li class="settings waves-effect waves-teal"><a href="parametres.html" title="Paramètres"><div class="img-nav"><img src="images/icon/setting.png" alt=""></div><span>PARAMÈTRES</span></a></li>
+				<li class="logout waves-effect waves-teal"><a href="#" onclick="logout(); return false;" title="Déconnexion"><div class="img-nav"><img src="images/icon/download.png" alt=""></div><span>DÉCONNEXION</span></a></li>
+			</ul>
+		</section>
+
+		<main>
+			<section id="facturation">
+				<div class="breadcrumbs" style="padding:0 20px 12px;"><ul><li><a href="accueil.html" title="">Accueil</a></li><li>&nbsp;- Facturation</li></ul></div>
+
+				<div class="rows">
+					<div class="box mira-full">
+						<div class="box-header with-border"><div class="box-title"><h3>OFFRE ACTUELLE</h3></div><div class="clearfix"></div></div>
+						<div class="box-content">
+							<div class="divider20"></div>
+							<div id="fact-plan-wrap">
+								<p id="fact-plan-name" style="color:#f0f0f0; font-family:'Oswald'; font-size:18px;">Chargement…</p>
+								<p class="mira-sub" id="fact-plan-status">—</p>
+							</div>
+							<div class="divider20"></div>
+							<a href="abonnement.html" class="mira-btn ghost small">Gérer mon offre</a>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="rows">
+					<div class="box mira-full">
+						<div class="box-header with-border"><div class="box-title"><h3>MES FACTURES</h3><span id="fact-count"></span></div><div class="clearfix"></div></div>
+						<div class="box-content">
+							<div class="divider20"></div>
+
+							<div id="fact-loading" style="padding:30px 4px; color:#898989; font-size:13px;">Chargement des factures…</div>
+
+							<div id="fact-error" style="display:none; border-radius:8px; padding:14px; font-size:13px; background:rgba(255,45,120,.12); border:1px solid rgba(255,45,120,.35); color:#ff8db5;"></div>
+
+							<div id="fact-empty" style="display:none; padding:30px 4px; text-align:center; color:#898989;">
+								<p style="font-family:'Oswald'; font-size:15px; color:#c5c5c5;">Aucune facture pour le moment</p>
+								<p class="mira-sub">Vos factures apparaîtront ici dès votre premier paiement.</p>
+							</div>
+
+							<table class="mira-table" id="fact-table" style="display:none;">
+								<thead><tr><th>N° de facture</th><th>Date</th><th>Offre</th><th>Montant</th><th>Statut</th><th style="text-align:right;">Télécharger</th></tr></thead>
+								<tbody id="fact-tbody"></tbody>
+							</table>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="footer" style="padding:0 20px 30px;">
+					<div class="copyright"><p style="font-family:'Oswald'; font-weight:300;">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p></div>
+					<ul class="menu-ft" style="float:right;">
+						<li style="display:inline-block; padding:0 14px;"><a href="abonnement.html" title="">Mon offre</a></li>
+						<li style="display:inline-block; padding:0 14px;"><a href="support.html" title="">Support</a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</section>
+		</main>
+
+		<div class="mira-hidden-charts" aria-hidden="true">
+			<div id="sales-chart"></div><div id="chartStatistics"></div><div id="chart-stackedColumn"></div>
+			<div id="chart-spline"></div><div id="bubble-chart"></div><div id="chartdiv"></div>
+			<div id="lineChart"></div><canvas id="radarChart" height="150"></canvas>
+		</div>
+
+		<script src="javascript/jquery.min.js"></script>
+		<script src="javascript/tether.min.js"></script>
+		<script src="javascript/bootstrap4-alpha3.min.js"></script>
+		<script src="javascript/ammap.js"></script>
+		<script src="javascript/worldLow.js"></script>
+		<script src="javascript/raphael.min.js"></script>
+		<script src="javascript/morris.min.js"></script>
+		<script src="javascript/Chart.min.js"></script>
+		<script src='javascript/moment.min.js'></script>
+		<script src='javascript/jquery-ui.js'></script>
+		<script src='javascript/fullcalendar.min.js'></script>
+		<script type="text/javascript" src="javascript/jquery.mCustomScrollbar.js"></script>
+		<script src="javascript/smoothscroll.js"></script>
+		<script src="javascript/waypoints.min.js"></script>
+		<script src="javascript/jquery-countTo.js"></script>
+		<script src="javascript/waves.min.js"></script>
+		<script src="javascript/canvasjs.min.js"></script>
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script src="javascript/mira-espace.js"></script>
+		<script src="javascript/main.js"></script>
+		<script>
+			(function($){ $(function(){
+				$('main > section').show();
+				var page = document.body.getAttribute('data-page');
+				if (page) { $('.vertical-navigation.left ul.sidebar-nav > li').removeClass('active'); $('.vertical-navigation.left ul.sidebar-nav > li.' + page).addClass('active'); }
+			}); })(jQuery);
+
+			MiraEspace.ready(function () {
+				var E = MiraEspace;
+
+				// --- Offre actuelle (dérivée de /me via getSubscription) ---
+				var planName = document.getElementById('fact-plan-name');
+				var planStatus = document.getElementById('fact-plan-status');
+				function planLabel(plan) {
+					if (!plan) return 'Offre Free';
+					return 'Offre ' + String(plan).charAt(0).toUpperCase() + String(plan).slice(1);
+				}
+				var STATUS_FR = { active: 'Abonnement actif', trialing: "Période d'essai", past_due: 'Paiement en retard', canceled: 'Abonnement résilié' };
+				MiraAPI.getSubscription().then(function (res) {
+					if (res.ok && res.data) {
+						planName.textContent = planLabel(res.data.plan);
+						var s = STATUS_FR[res.data.status] || 'Abonnement actif';
+						if (res.data.current_period_end) s += ' · prochaine échéance le ' + E.formatDate(res.data.current_period_end);
+						planStatus.textContent = s;
+					} else {
+						planName.textContent = 'Offre indisponible';
+						planStatus.textContent = E.errText(res.error, 'Impossible de charger votre offre.');
+					}
+				});
+
+				// --- Factures ---
+				var loading = document.getElementById('fact-loading');
+				var errBox = document.getElementById('fact-error');
+				var emptyBox = document.getElementById('fact-empty');
+				var table = document.getElementById('fact-table');
+				var tbody = document.getElementById('fact-tbody');
+				var countEl = document.getElementById('fact-count');
+
+				// Mappe le statut d'une facture vers libellé + classe de badge .mira-badge.
+				function invoiceBadge(status) {
+					var s = String(status || '').toLowerCase();
+					if (s === 'paid' || s === 'payé' || s === 'payée') return { cls: 'ok', label: 'Payée' };
+					if (s === 'pending' || s === 'open' || s === 'en attente' || s === 'à venir') return { cls: 'warn', label: 'En attente' };
+					if (s === 'failed' || s === 'échoué' || s === 'echoue') return { cls: 'err', label: 'Échouée' };
+					if (s === 'canceled' || s === 'cancelled' || s === 'annulé' || s === 'annulée' || s === 'void') return { cls: 'muted', label: 'Annulée' };
+					return { cls: 'muted', label: status ? E.escapeHtml(status) : '—' };
+				}
+
+				function money(inv) {
+					if (inv.amount_formatted) return E.escapeHtml(inv.amount_formatted);
+					var amt = inv.amount != null ? inv.amount : inv.amount_eur;
+					if (amt == null) return '—';
+					var cur = inv.currency || 'EUR';
+					try { return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: cur }).format(amt); }
+					catch (e) { return amt + ' ' + cur; }
+				}
+
+				function render(list) {
+					loading.style.display = 'none';
+					if (!list || !list.length) { emptyBox.style.display = 'block'; return; }
+					countEl.textContent = list.length;
+					var rows = list.map(function (inv) {
+						var b = invoiceBadge(inv.status);
+						var num = inv.number || inv.id || '—';
+						var date = inv.date || inv.created_at || inv.issued_at;
+						var plan = inv.plan || inv.plan_name || '—';
+						var url = inv.pdf_url || inv.download_url || inv.invoice_pdf || inv.url;
+						var dl = url
+							? '<a href="' + E.escapeHtml(url) + '" target="_blank" rel="noopener" class="mira-btn ghost small">PDF</a>'
+							: '<span class="mira-sub">Indisponible</span>';
+						return '<tr>'
+							+ '<td class="mira-key">' + E.escapeHtml(num) + '</td>'
+							+ '<td>' + E.formatDate(date) + '</td>'
+							+ '<td>' + E.escapeHtml(plan) + '</td>'
+							+ '<td>' + money(inv) + '</td>'
+							+ '<td><span class="mira-badge ' + b.cls + '">' + b.label + '</span></td>'
+							+ '<td style="text-align:right;">' + dl + '</td>'
+							+ '</tr>';
+					}).join('');
+					tbody.innerHTML = rows;
+					table.style.display = 'table';
+				}
+
+				MiraAPI.getInvoices().then(function (res) {
+					if (res.ok) {
+						var list = Array.isArray(res.data) ? res.data : (res.data && res.data.items) || [];
+						render(list);
+					} else {
+						loading.style.display = 'none';
+						errBox.style.display = 'block';
+						errBox.textContent = E.errText(res.error, 'Impossible de charger vos factures.');
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+		<title>Mira — Espace client | Profil</title>
+		<meta name="author" content="GV TECH">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link href='stylesheets/fullcalendar.min.css' rel='stylesheet' />
+		<link href='stylesheets/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+		<script>
+			(function () {
+				try {
+					if (!window.localStorage || !localStorage.getItem("mira_client_token")) {
+						window.location.replace("connexion.html");
+					}
+				} catch (e) { window.location.replace("connexion.html"); }
+			})();
+		</script>
+		<style>
+			main { overflow-y: auto; max-height: calc(100vh - 40px); }
+			.mira-hidden-charts { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+			.mira-form label { display: block; color: #c5c5c5; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; margin-bottom: 8px; }
+			.mira-form .form-row { margin-bottom: 22px; }
+			.mira-form input[type="text"], .mira-form input[type="email"], .mira-form input[type="password"], .mira-form input[type="search"], .mira-form select, .mira-form textarea {
+				width: 100%; background-color: #242629; border: 1px solid #2c2e33; border-radius: 6px; padding: 12px 15px; color: #e0e0e0; }
+			.mira-form textarea { min-height: 120px; resize: vertical; }
+			.mira-btn { display: inline-block; background-color: #04aec6; color: #fff; border: none; border-radius: 25px; padding: 11px 28px; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; cursor: pointer; }
+			.mira-btn:hover { color: #fff; background-color: #4c418b; }
+			.mira-btn.ghost { background-color: transparent; border: 1px solid #04aec6; color: #04aec6; }
+			.mira-btn.ghost:hover { background-color: #04aec6; color: #fff; }
+			.mira-btn.danger { background-color: #ff2d78; }
+			.mira-btn.danger:hover { background-color: #c4205c; color:#fff; }
+			.mira-btn.small { padding: 6px 16px; font-size: 12px; }
+			.mira-table { width: 100%; }
+			.mira-table thead tr th { text-align: left; font-family: 'Oswald'; font-weight: 400; font-size: 13px; color: #c5c5c5; padding: 12px 14px; border-bottom: 1px solid #2c2e33; letter-spacing: .5px; }
+			.mira-table tbody tr td { padding: 14px; border-bottom: 1px solid #232427; color: #b9b9b9; font-size: 13px; }
+			.mira-table tbody tr:hover { background-color: #1d1f23; }
+			.mira-badge { display: inline-block; padding: 3px 12px; border-radius: 25px; font-size: 11px; font-family: 'Oswald'; letter-spacing: .5px; }
+			.mira-badge.ok { background-color: rgba(4,174,198,.16); color: #04aec6; }
+			.mira-badge.warn { background-color: rgba(240,146,56,.16); color: #f09238; }
+			.mira-badge.err { background-color: rgba(255,45,120,.16); color: #ff2d78; }
+			.mira-badge.muted { background-color: rgba(137,137,137,.16); color: #b9b9b9; }
+			.box.mira-full { width: 100%; }
+			.box.mira-half { width: calc(50% - 10px); }
+			.mira-muted { color: #898989; }
+			.mira-sub { font-size: 12px; color: #898989; margin-top: 4px; }
+			.divider20 { height: 20px; }
+			.mira-avatar-big { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; }
+			.mira-avatar-big img { width: 100%; }
+		</style>
+	</head>
+	<body data-page="pages">
+
+		<div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+
+		<header id="header" class="header fixed">
+			<div class="navbar-top">
+				<div class="curren-menu info-left">
+					<div class="logo">
+						<a href="accueil.html" title="Mira — Espace client">
+							<img src="images/mira-logo.png" alt="Mira" style="height:28px;width:auto;">
+							<span style="display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:2px;">ESPACE CLIENT</span>
+						</a>
+					</div>
+					<div class="top-button"><span></span></div>
+					<div class="box-search">
+						<form action="#" method="get" accept-charset="utf-8">
+							<button><img src="images/icon/search.png" alt=""></button>
+							<input type="text" placeholder="Rechercher..." name="Search">
+						</form>
+					</div>
+				</div>
+				<ul class="info-right">
+					<li class="setting"><a href="parametres.html" class="waves-effect waves-teal" title="Paramètres"><img src="images/icon/setting.png" alt=""></a></li>
+					<li class="notification" style="display:none;"><a href="#" class="waves-effect waves-teal" title="Notifications">0</a></li>
+					<li class="user">
+						<div class="avatar"><img src="images/avatar/01.png" alt=""></div>
+						<div class="info"><p class="name">—</p><p class="address">Espace client</p></div>
+						<div class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+						<div class="dropdown-menu">
+							<ul>
+								<li><div class="avatar"><img src="images/avatar/01.png" alt=""></div><div class="profile"><a href="profil.html" title="">Mon profil</a></div><div class="clearfix"></div></li>
+								<li><a href="profil.html" class="waves-effect" title="">Mon profil</a></li>
+								<li><a href="parametres.html" class="waves-effect" title="">Paramètres</a></li>
+								<li><a href="#" class="waves-effect" onclick="logout(); return false;" title="">Déconnexion</a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+					<li class="button-menu-right"><img src="images/icon/menu-right.png" alt=""></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</header>
+
+		<section class="vertical-navigation left">
+			<div class="user-profile">
+				<div class="user-img">
+					<a href="profil.html" title=""><div class="img"><img src="images/avatar/avatar-dashboard.png" alt=""></div><div class="status-color blue heartbit style1"></div></a>
+				</div>
+				<ul class="user-options">
+					<li class="name"><a href="profil.html" title="">—</a></li>
+					<li class="options">CLIENT MIRA</li>
+				</ul>
+			</div>
+			<ul class="sidebar-nav">
+				<li class="dashboard waves-effect waves-teal"><a href="accueil.html" title="Accueil"><div class="img-nav"><img src="images/icon/monitor.png" alt=""></div><span>ACCUEIL</span></a></li>
+				<li class="pages waves-effect waves-teal"><a href="profil.html" title="Profil"><div class="img-nav"><img src="images/icon/user.png" alt=""></div><span>PROFIL</span></a></li>
+				<li class="apps waves-effect waves-teal"><a href="abonnement.html" title="Abonnement"><div class="img-nav"><img src="images/icon/apps.png" alt=""></div><span>ABONNEMENT</span></a></li>
+				<li class="setting waves-effect waves-teal"><a href="cles-api.html" title="Clés API"><div class="img-nav"><img src="images/icon/setting-02.png" alt=""></div><span>CLÉS API</span></a></li>
+				<li class="calendar waves-effect waves-teal"><a href="historique.html" title="Historique"><div class="img-nav"><img src="images/icon/calendar.png" alt=""></div><span>HISTORIQUE</span></a></li>
+				<li class="chart waves-effect waves-teal"><a href="facturation.html" title="Facturation"><div class="img-nav"><img src="images/icon/chart.png" alt=""></div><span>FACTURATION</span></a></li>
+				<li class="message waves-effect waves-teal"><a href="support.html" title="Support"><div class="img-nav"><img src="images/icon/message.png" alt=""></div><span>SUPPORT</span></a></li>
+				<li class="settings waves-effect waves-teal"><a href="parametres.html" title="Paramètres"><div class="img-nav"><img src="images/icon/setting.png" alt=""></div><span>PARAMÈTRES</span></a></li>
+				<li class="logout waves-effect waves-teal"><a href="#" onclick="logout(); return false;" title="Déconnexion"><div class="img-nav"><img src="images/icon/download.png" alt=""></div><span>DÉCONNEXION</span></a></li>
+			</ul>
+		</section>
+
+		<main>
+			<section id="profil">
+				<div class="breadcrumbs" style="padding:0 20px 12px;"><ul><li><a href="accueil.html" title="">Accueil</a></li><li>&nbsp;- Profil</li></ul></div>
+				<div class="rows">
+					<div class="box mira-half left">
+						<div class="box-header with-border">
+							<div class="box-title"><h3>MON COMPTE</h3></div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="box-content">
+							<div class="divider20"></div>
+							<div style="text-align:center;">
+								<div class="mira-avatar-big" style="margin:0 auto;"><img src="images/avatar/avatar-large.jpg" alt=""></div>
+								<div class="divider20"></div>
+								<p id="profil-name-display" style="color:#f0f0f0; font-family:'Oswald'; font-size:18px;">—</p>
+								<p class="mira-sub" id="profil-plan-display">Client Mira</p>
+								<div class="divider20"></div>
+								<label class="mira-btn ghost small" style="cursor:pointer;">Changer l'avatar<input type="file" style="display:none;"></label>
+							</div>
+							<div class="divider20"></div>
+							<div style="border-top:1px solid #232427; padding-top:18px;">
+								<p class="mira-sub">Membre depuis</p><p style="color:#c5c5c5;" id="profil-since">—</p>
+								<div class="divider20"></div>
+								<p class="mira-sub">Identifiant client</p><p class="mira-key" id="profil-client-id">—</p>
+							</div>
+						</div>
+					</div>
+					<div class="box mira-half right">
+						<div class="box-header with-border">
+							<div class="box-title"><h3>MODIFIER MES INFORMATIONS</h3></div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="box-content mira-form">
+							<div class="divider20"></div>
+							<div id="profil-alert" style="display:none; border-radius:8px; padding:12px 14px; font-size:13px; margin-bottom:18px;"></div>
+							<form id="profil-form" action="#" method="post" accept-charset="utf-8" novalidate>
+								<div class="form-row"><label for="pf-name">Nom complet</label><input type="text" id="pf-name" name="name" value=""><div class="mira-sub" id="pf-name-error" style="color:#ff2d78; min-height:14px;"></div></div>
+								<div class="form-row"><label for="pf-email">Adresse e-mail</label><input type="email" id="pf-email" name="email" value=""><div class="mira-sub" id="pf-email-error" style="color:#ff2d78; min-height:14px;"></div></div>
+								<button type="submit" class="mira-btn" id="pf-submit">Enregistrer</button>
+								<button type="reset" class="mira-btn ghost" id="pf-reset">Annuler</button>
+							</form>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="footer" style="padding:0 20px 30px;">
+					<div class="copyright"><p style="font-family:'Oswald'; font-weight:300;">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p></div>
+					<ul class="menu-ft" style="float:right;">
+						<li style="display:inline-block; padding:0 14px;"><a href="support.html" title="">Support</a></li>
+						<li style="display:inline-block; padding:0 14px;"><a href="parametres.html" title="">Paramètres</a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</section>
+		</main>
+
+		<div class="mira-hidden-charts" aria-hidden="true">
+			<div id="sales-chart"></div><div id="chartStatistics"></div><div id="chart-stackedColumn"></div>
+			<div id="chart-spline"></div><div id="bubble-chart"></div><div id="chartdiv"></div>
+			<div id="lineChart"></div><canvas id="radarChart" height="150"></canvas>
+		</div>
+
+		<script src="javascript/jquery.min.js"></script>
+		<script src="javascript/tether.min.js"></script>
+		<script src="javascript/bootstrap4-alpha3.min.js"></script>
+		<script src="javascript/ammap.js"></script>
+		<script src="javascript/worldLow.js"></script>
+		<script src="javascript/raphael.min.js"></script>
+		<script src="javascript/morris.min.js"></script>
+		<script src="javascript/Chart.min.js"></script>
+		<script src='javascript/moment.min.js'></script>
+		<script src='javascript/jquery-ui.js'></script>
+		<script src='javascript/fullcalendar.min.js'></script>
+		<script type="text/javascript" src="javascript/jquery.mCustomScrollbar.js"></script>
+		<script src="javascript/smoothscroll.js"></script>
+		<script src="javascript/waypoints.min.js"></script>
+		<script src="javascript/jquery-countTo.js"></script>
+		<script src="javascript/waves.min.js"></script>
+		<script src="javascript/canvasjs.min.js"></script>
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script src="javascript/mira-espace.js"></script>
+		<script src="javascript/main.js"></script>
+		<script>
+			(function($){ $(function(){
+				$('main > section').show();
+				var page = document.body.getAttribute('data-page');
+				if (page) { $('.vertical-navigation.left ul.sidebar-nav > li').removeClass('active'); $('.vertical-navigation.left ul.sidebar-nav > li.' + page).addClass('active'); }
+				$('.header .logo img').attr('src', 'images/mira-logo.png').removeAttr('width').removeAttr('height');
+			}); })(jQuery);
+
+			MiraEspace.ready(function () {
+				var E = MiraEspace;
+				var nameEl = document.getElementById('pf-name');
+				var emailEl = document.getElementById('pf-email');
+				var nameErr = document.getElementById('pf-name-error');
+				var emailErr = document.getElementById('pf-email-error');
+				var form = document.getElementById('profil-form');
+				var submit = document.getElementById('pf-submit');
+				var alertBox = document.getElementById('profil-alert');
+				var current = {};
+
+				function showAlert(msg, kind) {
+					var ok = kind !== 'err';
+					alertBox.style.display = 'block';
+					alertBox.style.background = ok ? 'rgba(4,174,198,.12)' : 'rgba(255,45,120,.12)';
+					alertBox.style.border = '1px solid ' + (ok ? 'rgba(4,174,198,.35)' : 'rgba(255,45,120,.35)');
+					alertBox.style.color = ok ? '#7fe3ef' : '#ff8db5';
+					alertBox.textContent = msg;
+				}
+				function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+				function fill(u) {
+					current = u || {};
+					nameEl.value = u && u.name ? u.name : '';
+					emailEl.value = u && u.email ? u.email : '';
+					document.getElementById('profil-name-display').textContent = (u && (u.name || u.email)) || '—';
+					document.getElementById('profil-plan-display').textContent = u && u.plan
+						? ('Offre ' + String(u.plan).charAt(0).toUpperCase() + String(u.plan).slice(1) + ' · Client Mira')
+						: 'Client Mira';
+					document.getElementById('profil-since').textContent = u && u.created_at ? E.formatDate(u.created_at) : '—';
+					document.getElementById('profil-client-id').textContent = u && (u.id != null) ? String(u.id) : '—';
+				}
+
+				var cached = MiraAPI.getCachedUser();
+				if (cached) fill(cached);
+				else { document.getElementById('profil-name-display').textContent = 'Chargement…'; }
+
+				MiraAPI.getProfile().then(function (res) {
+					if (res.ok && res.data) fill(res.data);
+					else showAlert(E.errText(res.error, 'Impossible de charger le profil.'), 'err');
+				});
+
+				form.addEventListener('reset', function () {
+					setTimeout(function () { fill(current); nameErr.textContent = ''; emailErr.textContent = ''; alertBox.style.display = 'none'; }, 0);
+				});
+
+				form.addEventListener('submit', function (e) {
+					e.preventDefault();
+					nameErr.textContent = ''; emailErr.textContent = ''; alertBox.style.display = 'none';
+					var name = nameEl.value.trim();
+					var email = emailEl.value.trim();
+					var ok = true;
+					if (!name) { nameErr.textContent = 'Le nom est requis.'; ok = false; }
+					if (!email) { emailErr.textContent = 'L\'e-mail est requis.'; ok = false; }
+					else if (!isEmail(email)) { emailErr.textContent = 'Adresse e-mail invalide.'; ok = false; }
+					if (!ok) return;
+
+					submit.disabled = true; submit.textContent = 'Enregistrement…';
+					MiraAPI.updateProfile({ name: name, email: email }).then(function (r) {
+						submit.disabled = false; submit.textContent = 'Enregistrer';
+						if (r.ok) {
+							fill(r.data || Object.assign({}, current, { name: name, email: email }));
+							E.applyIdentity(r.data || { name: name, email: email, plan: current.plan });
+							showAlert(r._mock
+								? 'Modifications enregistrées localement (endpoint de mise à jour à activer côté backend).'
+								: 'Profil mis à jour.', 'ok');
+						} else {
+							showAlert(E.errText(r.error, 'Échec de la mise à jour.'), 'err');
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

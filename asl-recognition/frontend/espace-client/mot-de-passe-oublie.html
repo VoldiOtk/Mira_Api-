@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mira — Espace client | Mot de passe oublié</title>
+		<meta name="author" content="GV TECH">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+		<style>
+			body { background-color:#18191c; }
+			.mira-auth-wrap { min-height: 100vh; display:flex; align-items:center; justify-content:center; padding: 40px 20px; }
+			.mira-auth-card { width: 100%; max-width: 420px; background-color:#1d1f23; border:1px solid #232427; border-radius:12px; padding: 38px 34px; box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+			.mira-auth-logo { text-align:center; margin-bottom: 8px; }
+			.mira-auth-logo .brand { font-family:'Oswald'; font-size:34px; font-weight:500; color:#fff; letter-spacing:1px; }
+			.mira-auth-logo .sub { display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:-4px; }
+			.mira-auth-title { text-align:center; color:#f0f0f0; font-family:'Oswald'; font-size:18px; letter-spacing:.5px; margin: 22px 0 4px; }
+			.mira-auth-lead { text-align:center; color:#898989; font-size:13px; margin-bottom: 26px; line-height:1.5; }
+			.mira-form label { display:block; color:#c5c5c5; font-family:'Oswald'; font-size:13px; letter-spacing:.5px; margin-bottom:8px; }
+			.mira-form .form-row { margin-bottom:20px; }
+			.mira-form input[type="email"] { width:100%; background-color:#242629; border:1px solid #2c2e33; border-radius:6px; padding:12px 15px; color:#e0e0e0; }
+			.mira-form input:focus { outline:none; border-color:#04aec6; }
+			.mira-btn { display:inline-block; width:100%; text-align:center; background-color:#04aec6; color:#fff; border:none; border-radius:25px; padding:12px 28px; font-family:'Oswald'; font-size:14px; letter-spacing:.5px; cursor:pointer; }
+			.mira-btn:hover { color:#fff; background-color:#4c418b; }
+			.mira-btn[disabled] { opacity:.6; cursor:default; }
+			.mira-auth-foot { text-align:center; color:#898989; font-size:13px; margin-top:22px; }
+			.mira-auth-foot a { color:#04aec6; }
+			.mira-field-error { color:#ff2d78; font-size:12px; margin-top:6px; min-height:14px; }
+			.mira-alert { border-radius:8px; padding:12px 14px; font-size:13px; margin-bottom:20px; display:none; line-height:1.5; }
+			.mira-alert.err { background-color:rgba(255,45,120,.12); border:1px solid rgba(255,45,120,.35); color:#ff8db5; }
+			.mira-alert.ok { background-color:rgba(4,174,198,.12); border:1px solid rgba(4,174,198,.35); color:#7fe3ef; }
+			.mira-spinner { display:inline-block; width:16px; height:16px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:mira-spin .7s linear infinite; vertical-align:middle; margin-right:8px; }
+			@keyframes mira-spin { to { transform:rotate(360deg); } }
+			.mira-copyright { text-align:center; color:#5c5c5c; font-size:11px; font-family:'Oswald'; font-weight:300; margin-top:26px; letter-spacing:.5px; }
+		</style>
+	</head>
+	<body data-page="auth">
+		<div class="mira-auth-wrap">
+			<div class="mira-auth-card">
+				<div class="mira-auth-logo">
+					<a href="connexion.html" title="Mira — Espace client" style="text-decoration:none;">
+						<span class="brand">Mira</span>
+						<span class="sub">ESPACE CLIENT</span>
+					</a>
+				</div>
+				<h1 class="mira-auth-title">Mot de passe oublié</h1>
+				<p class="mira-auth-lead">Saisissez l'adresse e-mail de votre compte. Si elle est reconnue, nous vous enverrons un lien de réinitialisation.</p>
+
+				<div id="auth-alert" class="mira-alert err" role="alert"></div>
+
+				<form id="reset-form" class="mira-form" action="#" method="post" accept-charset="utf-8" novalidate>
+					<div class="form-row">
+						<label for="email">Adresse e-mail</label>
+						<input type="email" id="email" name="email" autocomplete="email" placeholder="vous@exemple.com">
+						<div class="mira-field-error" id="email-error"></div>
+					</div>
+					<button type="submit" id="submit-btn" class="mira-btn">Envoyer le lien de réinitialisation</button>
+				</form>
+
+				<p class="mira-auth-foot"><a href="connexion.html">&larr; Retour à la connexion</a></p>
+				<p class="mira-copyright">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p>
+			</div>
+		</div>
+
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script>
+			(function () {
+				"use strict";
+				var form = document.getElementById("reset-form");
+				var emailEl = document.getElementById("email");
+				var emailErr = document.getElementById("email-error");
+				var alertBox = document.getElementById("auth-alert");
+				var btn = document.getElementById("submit-btn");
+
+				function showAlert(msg, kind) {
+					alertBox.className = "mira-alert " + (kind || "err");
+					alertBox.innerHTML = msg;
+					alertBox.style.display = "block";
+				}
+				function setBusy(busy) {
+					btn.disabled = busy;
+					btn.innerHTML = busy ? '<span class="mira-spinner"></span>Envoi…' : "Envoyer le lien de réinitialisation";
+				}
+				function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+				form.addEventListener("submit", function (e) {
+					e.preventDefault();
+					alertBox.style.display = "none";
+					emailErr.textContent = "";
+					var email = emailEl.value.trim();
+					if (!email) { emailErr.textContent = "L'adresse e-mail est requise."; return; }
+					if (!isEmail(email)) { emailErr.textContent = "Adresse e-mail invalide."; return; }
+					if (!window.MiraAPI) { showAlert("Service indisponible (mira-api.js non chargé)."); return; }
+
+					setBusy(true);
+					MiraAPI.requestPasswordReset(email).then(function (res) {
+						setBusy(false);
+						if (res.ok) {
+							form.style.display = "none";
+							var devLink = res.data && res.data.dev_reset_link;
+							showAlert(
+								"Si un compte est associé à <strong>" + email.replace(/</g, "&lt;") + "</strong>, " +
+								"un e-mail de réinitialisation vient d'être envoyé." +
+								(devLink
+									? "<br><br><span style=\"color:#898989;font-size:12px;\">Mode test (SMTP non configuré) — lien direct :</span><br><a href=\"" + devLink + "\" style=\"color:#04aec6;word-break:break-all;font-size:12px;\">" + devLink + "</a>"
+									: ""),
+								"ok"
+							);
+						} else {
+							showAlert("Impossible de traiter la demande pour le moment. Réessayez plus tard.");
+						}
+					});
+				});
+			})();
+		</script>
+	</body>
+</html>

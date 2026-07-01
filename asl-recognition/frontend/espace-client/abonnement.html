@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+		<title>Mira — Espace client | Abonnement</title>
+		<meta name="author" content="GV TECH">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link href='stylesheets/fullcalendar.min.css' rel='stylesheet' />
+		<link href='stylesheets/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+		<script>
+			(function () {
+				try {
+					if (!window.localStorage || !localStorage.getItem("mira_client_token")) {
+						window.location.replace("connexion.html");
+					}
+				} catch (e) { window.location.replace("connexion.html"); }
+			})();
+		</script>
+		<style>
+			main { overflow-y: auto; max-height: calc(100vh - 40px); }
+			.mira-hidden-charts { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+			.mira-btn { display: inline-block; background-color: #04aec6; color: #fff; border: none; border-radius: 25px; padding: 11px 28px; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; cursor: pointer; }
+			.mira-btn:hover { color: #fff; background-color: #4c418b; }
+			.mira-btn.ghost { background-color: transparent; border: 1px solid #04aec6; color: #04aec6; }
+			.mira-btn.ghost:hover { background-color: #04aec6; color: #fff; }
+			.mira-btn.small { padding: 6px 16px; font-size: 12px; }
+			.mira-badge { display: inline-block; padding: 3px 12px; border-radius: 25px; font-size: 11px; font-family: 'Oswald'; letter-spacing: .5px; }
+			.mira-badge.ok { background-color: rgba(4,174,198,.16); color: #04aec6; }
+			.mira-muted { color: #898989; }
+			.mira-sub { font-size: 12px; color: #898989; margin-top: 4px; }
+			.box.mira-full { width: 100%; }
+			.box.mira-third { width: calc(33.333% - 14px); float:left; }
+			.box.mira-third.mid { margin: 0 21px; }
+			.mira-price { font-family: 'Oswald'; font-size: 40px; color: #f9f9f9; line-height: 1; }
+			.mira-price small { font-size: 14px; color: #898989; }
+			.mira-plan-features { margin-top: 18px; }
+			.mira-plan-features li { color: #b9b9b9; font-size: 13px; padding: 7px 0; border-bottom: 1px solid #232427; }
+			.mira-plan.current { border: 1px solid #04aec6; }
+			.divider20 { height: 20px; }
+			.mira-meter { height: 8px; background:#242629; border-radius: 25px; overflow:hidden; margin-top:8px; }
+			.mira-meter span { display:block; height:100%; background:#04aec6; }
+		</style>
+	</head>
+	<body data-page="apps">
+
+		<div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+
+		<header id="header" class="header fixed">
+			<div class="navbar-top">
+				<div class="curren-menu info-left">
+					<div class="logo">
+						<a href="accueil.html" title="Mira — Espace client">
+							<img src="images/mira-logo.png" alt="Mira" style="height:28px;width:auto;">
+							<span style="display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:2px;">ESPACE CLIENT</span>
+						</a>
+					</div>
+					<div class="top-button"><span></span></div>
+					<div class="box-search">
+						<form action="#" method="get" accept-charset="utf-8">
+							<button><img src="images/icon/search.png" alt=""></button>
+							<input type="text" placeholder="Rechercher..." name="Search">
+						</form>
+					</div>
+				</div>
+				<ul class="info-right">
+					<li class="setting"><a href="parametres.html" class="waves-effect waves-teal" title="Paramètres"><img src="images/icon/setting.png" alt=""></a></li>
+					<li class="notification" style="display:none;"><a href="#" class="waves-effect waves-teal" title="Notifications">0</a></li>
+					<li class="user">
+						<div class="avatar"><img src="images/avatar/01.png" alt=""></div>
+						<div class="info"><p class="name">—</p><p class="address">Espace client</p></div>
+						<div class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+						<div class="dropdown-menu">
+							<ul>
+								<li><div class="avatar"><img src="images/avatar/01.png" alt=""></div><div class="profile"><a href="profil.html" title="">Mon profil</a></div><div class="clearfix"></div></li>
+								<li><a href="profil.html" class="waves-effect" title="">Mon profil</a></li>
+								<li><a href="parametres.html" class="waves-effect" title="">Paramètres</a></li>
+								<li><a href="#" class="waves-effect" onclick="logout(); return false;" title="">Déconnexion</a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+					<li class="button-menu-right"><img src="images/icon/menu-right.png" alt=""></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</header>
+
+		<section class="vertical-navigation left">
+			<div class="user-profile">
+				<div class="user-img">
+					<a href="profil.html" title=""><div class="img"><img src="images/avatar/avatar-dashboard.png" alt=""></div><div class="status-color blue heartbit style1"></div></a>
+				</div>
+				<ul class="user-options">
+					<li class="name"><a href="profil.html" title="">—</a></li>
+					<li class="options">CLIENT MIRA</li>
+				</ul>
+			</div>
+			<ul class="sidebar-nav">
+				<li class="dashboard waves-effect waves-teal"><a href="accueil.html" title="Accueil"><div class="img-nav"><img src="images/icon/monitor.png" alt=""></div><span>ACCUEIL</span></a></li>
+				<li class="pages waves-effect waves-teal"><a href="profil.html" title="Profil"><div class="img-nav"><img src="images/icon/user.png" alt=""></div><span>PROFIL</span></a></li>
+				<li class="apps waves-effect waves-teal"><a href="abonnement.html" title="Abonnement"><div class="img-nav"><img src="images/icon/apps.png" alt=""></div><span>ABONNEMENT</span></a></li>
+				<li class="setting waves-effect waves-teal"><a href="cles-api.html" title="Clés API"><div class="img-nav"><img src="images/icon/setting-02.png" alt=""></div><span>CLÉS API</span></a></li>
+				<li class="calendar waves-effect waves-teal"><a href="historique.html" title="Historique"><div class="img-nav"><img src="images/icon/calendar.png" alt=""></div><span>HISTORIQUE</span></a></li>
+				<li class="chart waves-effect waves-teal"><a href="facturation.html" title="Facturation"><div class="img-nav"><img src="images/icon/chart.png" alt=""></div><span>FACTURATION</span></a></li>
+				<li class="message waves-effect waves-teal"><a href="support.html" title="Support"><div class="img-nav"><img src="images/icon/message.png" alt=""></div><span>SUPPORT</span></a></li>
+				<li class="settings waves-effect waves-teal"><a href="parametres.html" title="Paramètres"><div class="img-nav"><img src="images/icon/setting.png" alt=""></div><span>PARAMÈTRES</span></a></li>
+				<li class="logout waves-effect waves-teal"><a href="#" onclick="logout(); return false;" title="Déconnexion"><div class="img-nav"><img src="images/icon/download.png" alt=""></div><span>DÉCONNEXION</span></a></li>
+			</ul>
+		</section>
+
+		<main>
+			<section id="abonnement">
+				<div class="breadcrumbs" style="padding:0 20px 12px;"><ul><li><a href="accueil.html" title="">Accueil</a></li><li>&nbsp;- Abonnement</li></ul></div>
+
+				<div class="rows">
+					<div class="box mira-full">
+						<div class="box-header with-border"><div class="box-title"><h3>MON OFFRE ACTUELLE</h3></div><div class="clearfix"></div></div>
+						<div class="box-content" id="current-sub">
+							<div class="divider20"></div>
+							<p class="mira-sub">Chargement de votre offre…</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="rows" id="plans-row">
+					<div class="box mira-full"><div class="box-content"><div class="divider20"></div><p class="mira-sub">Chargement des offres…</p></div></div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="footer" style="padding:0 20px 30px;">
+					<div class="copyright"><p style="font-family:'Oswald'; font-weight:300;">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p></div>
+					<ul class="menu-ft" style="float:right;">
+						<li style="display:inline-block; padding:0 14px;"><a href="facturation.html" title="">Facturation</a></li>
+						<li style="display:inline-block; padding:0 14px;"><a href="support.html" title="">Support</a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</section>
+		</main>
+
+		<div class="mira-hidden-charts" aria-hidden="true">
+			<div id="sales-chart"></div><div id="chartStatistics"></div><div id="chart-stackedColumn"></div>
+			<div id="chart-spline"></div><div id="bubble-chart"></div><div id="chartdiv"></div>
+			<div id="lineChart"></div><canvas id="radarChart" height="150"></canvas>
+		</div>
+
+		<script src="javascript/jquery.min.js"></script>
+		<script src="javascript/tether.min.js"></script>
+		<script src="javascript/bootstrap4-alpha3.min.js"></script>
+		<script src="javascript/ammap.js"></script>
+		<script src="javascript/worldLow.js"></script>
+		<script src="javascript/raphael.min.js"></script>
+		<script src="javascript/morris.min.js"></script>
+		<script src="javascript/Chart.min.js"></script>
+		<script src='javascript/moment.min.js'></script>
+		<script src='javascript/jquery-ui.js'></script>
+		<script src='javascript/fullcalendar.min.js'></script>
+		<script type="text/javascript" src="javascript/jquery.mCustomScrollbar.js"></script>
+		<script src="javascript/smoothscroll.js"></script>
+		<script src="javascript/waypoints.min.js"></script>
+		<script src="javascript/jquery-countTo.js"></script>
+		<script src="javascript/waves.min.js"></script>
+		<script src="javascript/canvasjs.min.js"></script>
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script src="javascript/mira-espace.js"></script>
+		<script src="javascript/main.js"></script>
+		<script>
+			(function($){ $(function(){
+				$('main > section').show();
+				var page = document.body.getAttribute('data-page');
+				if (page) { $('.vertical-navigation.left ul.sidebar-nav > li').removeClass('active'); $('.vertical-navigation.left ul.sidebar-nav > li.' + page).addClass('active'); }
+				$('.header .logo img').attr('src', 'images/mira-logo.png').removeAttr('width').removeAttr('height');
+			}); })(jQuery);
+
+			MiraEspace.ready(function () {
+				var E = MiraEspace;
+				var currentBox = document.getElementById('current-sub');
+				var plansRow = document.getElementById('plans-row');
+				var currentPlanId = null;
+
+				function priceLabel(p) {
+					if (p.price_eur == null) return 'Sur devis';
+					if (Number(p.price_eur) === 0) return '0 € <small>/ ' + E.escapeHtml(p.period || 'mois') + '</small>';
+					return E.escapeHtml(String(p.price_eur)) + ' € <small>/ ' + E.escapeHtml(p.period || 'mois') + '</small>';
+				}
+
+				function renderCurrent(sub, usage) {
+					currentPlanId = sub && sub.plan ? sub.plan : 'free';
+					var planName = currentPlanId.charAt(0).toUpperCase() + currentPlanId.slice(1);
+					var status = (sub && sub.status) || 'active';
+					var statusBadge = '<span class="mira-badge ok">' + E.escapeHtml(status.toUpperCase()) + '</span>';
+					var quotaTotal = (usage && usage.total_quota) || (sub && sub.quota_total) || 0;
+					var quotaUsed = (usage && usage.quota_used != null) ? usage.quota_used : (sub && sub.quota_used) || 0;
+					var pct = quotaTotal > 0 ? Math.min(100, Math.round((quotaUsed / quotaTotal) * 100)) : 0;
+					var renew = sub && sub.current_period_end ? ('Renouvellement le ' + E.formatDate(sub.current_period_end)) : 'Facturation mensuelle';
+					currentBox.innerHTML =
+						'<div class="divider20"></div>' +
+						'<div style="float:left;">' +
+							'<p style="color:#f0f0f0; font-family:\'Oswald\'; font-size:22px;">Offre ' + E.escapeHtml(planName) + ' ' + statusBadge + '</p>' +
+							'<p class="mira-sub">' + E.escapeHtml(renew) + '</p>' +
+						'</div><div class="clearfix"></div>' +
+						'<div class="divider20"></div>' +
+						'<p class="mira-sub">Consommation du quota — ' + quotaUsed.toLocaleString('fr-FR') + ' / ' + quotaTotal.toLocaleString('fr-FR') + ' appels</p>' +
+						'<div class="mira-meter"><span style="width:' + pct + '%"></span></div>' +
+						'<div class="divider20"></div>' +
+						'<a href="facturation.html" class="mira-btn ghost">Voir les factures</a>';
+				}
+
+				function renderPlans(plans) {
+					if (!plans || !plans.length) {
+						plansRow.innerHTML = '<div class="box mira-full"><div class="box-content"><div class="divider20"></div><p class="mira-sub">Aucune offre disponible.</p></div></div><div class="clearfix"></div>';
+						return;
+					}
+					var html = plans.map(function (p, i) {
+						var isCurrent = p.id === currentPlanId;
+						var midClass = (plans.length === 3 && i === 1) ? ' mid' : '';
+						var feats = (p.features || []).map(function (f) { return '<li>' + E.escapeHtml(f) + '</li>'; }).join('');
+						var cta = isCurrent
+							? '<a href="#" class="mira-btn" style="opacity:.6; pointer-events:none;">Offre actuelle</a>'
+							: (p.id === 'enterprise'
+								? '<a href="support.html" class="mira-btn ghost">Nous contacter</a>'
+								: '<a href="#" class="mira-btn ghost" data-plan="' + E.escapeHtml(p.id) + '">Choisir ' + E.escapeHtml(p.name) + '</a>');
+						return '<div class="box mira-third' + midClass + (isCurrent ? ' mira-plan current' : '') + '">' +
+							'<div class="box-header with-border"><div class="box-title"><h3>' + E.escapeHtml((p.name || p.id).toUpperCase()) + '</h3>' + (isCurrent ? '<span>★</span>' : '') + '</div><div class="clearfix"></div></div>' +
+							'<div class="box-content"><div class="divider20"></div>' +
+							'<p class="mira-price">' + priceLabel(p) + '</p>' +
+							'<ul class="mira-plan-features">' + feats + '</ul>' +
+							'<div class="divider20"></div>' + cta + '</div></div>';
+					}).join('');
+					plansRow.innerHTML = html + '<div class="clearfix"></div>';
+
+					plansRow.querySelectorAll('a[data-plan]').forEach(function (a) {
+						a.addEventListener('click', function (e) {
+							e.preventDefault();
+							var plan = a.getAttribute('data-plan');
+							if (!window.confirm('Demander le passage à l\'offre « ' + a.textContent.replace('Choisir ', '') + ' » ?')) return;
+							a.style.pointerEvents = 'none'; var old = a.textContent; a.textContent = 'Envoi…';
+							MiraAPI.requestPlanChange(plan).then(function (res) {
+								a.style.pointerEvents = ''; a.textContent = old;
+								if (res.ok) { E.toast('Demande de changement envoyée.'); }
+								else { E.toast(E.errText(res.error, 'Changement indisponible. Contactez GV TECH.'), 'err'); }
+							});
+						});
+					});
+				}
+
+				// On charge l'abonnement + l'usage (pour le quota) puis les offres.
+				Promise.all([MiraAPI.getSubscription(), MiraAPI.getUsage()]).then(function (r) {
+					var sub = r[0] && r[0].ok ? r[0].data : null;
+					var usage = r[1] && r[1].ok ? r[1].data : null;
+					if (sub) renderCurrent(sub, usage);
+					else currentBox.innerHTML = '<div class="divider20"></div><p class="mira-sub" style="color:#ff8db5;">' + E.escapeHtml(E.errText(r[0] && r[0].error, 'Impossible de charger votre offre.')) + '</p>';
+					MiraAPI.getPlans().then(function (pr) {
+						if (pr.ok) renderPlans(pr.data);
+						else plansRow.innerHTML = '<div class="box mira-full"><div class="box-content"><div class="divider20"></div><p class="mira-sub" style="color:#ff8db5;">' + E.escapeHtml(E.errText(pr.error, 'Offres indisponibles.')) + '</p></div></div><div class="clearfix"></div>';
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

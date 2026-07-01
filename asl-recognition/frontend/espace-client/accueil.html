@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+		<title>Mira — Espace client | Accueil</title>
+
+		<meta name="author" content="GV TECH">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+
+		<!-- FONTS-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<!-- Theme style -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+		<!-- Calendar -->
+		<link href='stylesheets/fullcalendar.min.css' rel='stylesheet' />
+		<link href='stylesheets/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+
+		<!-- Responsive -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+
+		<!-- Favicon -->
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+
+		<!-- Garde d'accès (avant rendu) : pas de token client → redirection connexion. -->
+		<script>
+			(function () {
+				try {
+					if (!window.localStorage || !localStorage.getItem("mira_client_token")) {
+						window.location.replace("connexion.html");
+					}
+				} catch (e) { window.location.replace("connexion.html"); }
+			})();
+		</script>
+
+		<!-- Ajustements espace client Mira (réutilise le thème, corrige seulement le défilement multi-pages) -->
+		<style>
+			main { overflow-y: auto; max-height: calc(100vh - 40px); }
+			.mira-hidden-charts { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+			.mira-form label { display: block; color: #c5c5c5; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; margin-bottom: 8px; }
+			.mira-form .form-row { margin-bottom: 22px; }
+			.mira-form input[type="text"], .mira-form input[type="email"], .mira-form input[type="password"], .mira-form input[type="search"], .mira-form select, .mira-form textarea {
+				width: 100%; background-color: #242629; border: 1px solid #2c2e33; border-radius: 6px; padding: 12px 15px; color: #e0e0e0; }
+			.mira-form textarea { min-height: 120px; resize: vertical; }
+			.mira-btn { display: inline-block; background-color: #04aec6; color: #fff; border: none; border-radius: 25px; padding: 11px 28px; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; cursor: pointer; }
+			.mira-btn:hover { color: #fff; background-color: #4c418b; }
+			.mira-btn.ghost { background-color: transparent; border: 1px solid #04aec6; color: #04aec6; }
+			.mira-btn.ghost:hover { background-color: #04aec6; color: #fff; }
+			.mira-btn.danger { background-color: #ff2d78; }
+			.mira-btn.danger:hover { background-color: #c4205c; color:#fff; }
+			.mira-btn.small { padding: 6px 16px; font-size: 12px; }
+			.mira-table { width: 100%; }
+			.mira-table thead tr th { text-align: left; font-family: 'Oswald'; font-weight: 400; font-size: 13px; color: #c5c5c5; padding: 12px 14px; border-bottom: 1px solid #2c2e33; letter-spacing: .5px; }
+			.mira-table tbody tr td { padding: 14px; border-bottom: 1px solid #232427; color: #b9b9b9; font-size: 13px; }
+			.mira-table tbody tr:hover { background-color: #1d1f23; }
+			.mira-badge { display: inline-block; padding: 3px 12px; border-radius: 25px; font-size: 11px; font-family: 'Oswald'; letter-spacing: .5px; }
+			.mira-badge.ok { background-color: rgba(4,174,198,.16); color: #04aec6; }
+			.mira-badge.warn { background-color: rgba(240,146,56,.16); color: #f09238; }
+			.mira-badge.err { background-color: rgba(255,45,120,.16); color: #ff2d78; }
+			.mira-badge.muted { background-color: rgba(137,137,137,.16); color: #b9b9b9; }
+			.box.mira-full { width: 100%; }
+			.box.mira-half { width: calc(50% - 10px); }
+			.mira-muted { color: #898989; }
+			.mira-sub { font-size: 12px; color: #898989; margin-top: 4px; }
+			.mira-price { font-family: 'Oswald'; font-size: 40px; color: #f9f9f9; line-height: 1; }
+			.mira-price small { font-size: 14px; color: #898989; }
+			.mira-plan-features { margin-top: 18px; }
+			.mira-plan-features li { color: #b9b9b9; font-size: 13px; padding: 7px 0; border-bottom: 1px solid #232427; }
+			.mira-plan.current { border: 1px solid #04aec6; }
+			.mira-accordion .acc-head { cursor: pointer; padding: 16px 0; border-bottom: 1px solid #232427; color: #e0e0e0; font-family: 'Oswald'; font-size: 14px; }
+			.mira-accordion .acc-body { display: none; padding: 0 0 16px; color: #b9b9b9; font-size: 13px; line-height: 22px; }
+			.mira-accordion .acc-item.open .acc-body { display: block; }
+			.mira-accordion .acc-head:before { content: '+'; color: #04aec6; margin-right: 12px; }
+			.mira-accordion .acc-item.open .acc-head:before { content: '\2013'; }
+			.mira-switch { float: right; width: 46px; height: 24px; background:#2c2e33; border-radius: 25px; position: relative; cursor: pointer; }
+			.mira-switch:after { content:''; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#898989; transition:.3s; }
+			.mira-switch.on { background:#04aec6; }
+			.mira-switch.on:after { left:25px; background:#fff; }
+			.mira-setting-row { padding: 18px 0; border-bottom: 1px solid #232427; }
+			.mira-setting-row .t { color:#e0e0e0; font-size:14px; }
+			.mira-key { font-family: monospace; color:#c5c5c5; }
+			.mira-filters { margin-bottom: 18px; }
+			.mira-filters select, .mira-filters input { display:inline-block; width:auto; background-color:#242629; border:1px solid #2c2e33; border-radius:6px; padding:9px 14px; color:#e0e0e0; margin-right:10px; }
+			.divider20 { height: 20px; }
+		</style>
+	</head>
+	<body data-page="dashboard">
+
+		<!-- Loader -->
+		<div class="loader">
+		  	<div class="inner one"></div>
+		  	<div class="inner two"></div>
+		  	<div class="inner three"></div>
+		</div>
+
+		<header id="header" class="header fixed">
+			<div class="navbar-top">
+				<div class="curren-menu info-left">
+					<div class="logo">
+						<a href="accueil.html" title="Mira — Espace client">
+							<img src="images/mira-logo.png" alt="Mira" style="height:50px;width:500;">
+							<span style="display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:2px;">ESPACE CLIENT</span>
+						</a>
+					</div><!-- /.logo -->
+					<div class="top-button">
+						<span></span>
+					</div><!-- /.top-button -->
+					<div class="box-search">
+						<form action="#" method="get" accept-charset="utf-8">
+							<button><img src="images/icon/search.png" alt=""></button>
+							<input type="text" placeholder="Rechercher..." name="Search">
+						</form>
+					</div><!-- /.box-search -->
+				</div><!-- /.curren-menu -->
+				<ul class="info-right">
+					<li class="setting">
+						<a href="parametres.html" class="waves-effect waves-teal" title="Paramètres">
+							<img src="images/icon/setting.png" alt="">
+						</a>
+					</li><!-- /.setting -->
+					<li class="notification" style="display:none;">
+						<a href="#" class="waves-effect waves-teal" title="Notifications">
+							0
+						</a>
+					</li><!-- /.notification -->
+					<li class="user">
+						<div class="avatar">
+							<img src="images/avatar/01.png" alt="">
+						</div>
+						<div class="info">
+							<p class="name">—</p>
+							<p class="address">Espace client</p>
+						</div>
+						<div class="arrow-down">
+							<i class="fa fa-angle-down" aria-hidden="true"></i>
+							<i class="fa fa-angle-up" aria-hidden="true"></i>
+						</div>
+						<div class="dropdown-menu">
+							<ul>
+								<li>
+									<div class="avatar">
+										<img src="images/avatar/01.png" alt="">
+									</div>
+									<div class="profile">
+										<a href="profil.html" title="">Mon profil</a>
+									</div>
+									<div class="clearfix"></div>
+								</li>
+								<li>
+									<a href="profil.html" class="waves-effect" title="">Mon profil</a>
+								</li>
+								<li>
+									<a href="parametres.html" class="waves-effect" title="">Paramètres</a>
+								</li>
+								<li>
+									<a href="#" onclick="logout(); return false;" class="waves-effect" title="">Déconnexion</a>
+								</li>
+							</ul>
+						</div><!-- /.dropdown-menu -->
+						<div class="clearfix"></div>
+					</li><!-- /.user -->
+					<li class="button-menu-right">
+						<img src="images/icon/menu-right.png" alt="">
+					</li><!-- /.button-menu-right -->
+				</ul><!-- /.info-right -->
+				<div class="clearfix"></div>
+			</div>	<!-- /.navbar-top -->
+		</header><!-- /header <-->
+
+		<section class="vertical-navigation left">
+			<div class="user-profile">
+				<div class="user-img">
+					<a href="profil.html" title="">
+						<div class="img">
+							<img src="images/avatar/avatar-dashboard.png" alt="">
+						</div>
+						<div class="status-color blue heartbit style1"></div>
+					</a>
+				</div>
+				<ul class="user-options">
+					<li class="name"><a href="profil.html" title="">—</a></li>
+					<li class="options">CLIENT MIRA</li>
+				</ul>
+			</div>
+			<ul class="sidebar-nav">
+				<li class="dashboard waves-effect waves-teal active">
+					<a href="accueil.html" title="Accueil">
+						<div class="img-nav"><img src="images/icon/monitor.png" alt=""></div>
+						<span>ACCUEIL</span>
+					</a>
+				</li>
+				<li class="pages waves-effect waves-teal">
+					<a href="profil.html" title="Profil">
+						<div class="img-nav"><img src="images/icon/user.png" alt=""></div>
+						<span>PROFIL</span>
+					</a>
+				</li>
+				<li class="apps waves-effect waves-teal">
+					<a href="abonnement.html" title="Abonnement">
+						<div class="img-nav"><img src="images/icon/apps.png" alt=""></div>
+						<span>ABONNEMENT</span>
+					</a>
+				</li>
+				<li class="setting waves-effect waves-teal">
+					<a href="cles-api.html" title="Clés API">
+						<div class="img-nav"><img src="images/icon/setting-02.png" alt=""></div>
+						<span>CLÉS API</span>
+					</a>
+				</li>
+				<li class="calendar waves-effect waves-teal">
+					<a href="historique.html" title="Historique">
+						<div class="img-nav"><img src="images/icon/calendar.png" alt=""></div>
+						<span>HISTORIQUE</span>
+					</a>
+				</li>
+				<li class="chart waves-effect waves-teal">
+					<a href="facturation.html" title="Facturation">
+						<div class="img-nav"><img src="images/icon/chart.png" alt=""></div>
+						<span>FACTURATION</span>
+					</a>
+				</li>
+				<li class="message waves-effect waves-teal">
+					<a href="support.html" title="Support">
+						<div class="img-nav"><img src="images/icon/message.png" alt=""></div>
+						<span>SUPPORT</span>
+					</a>
+				</li>
+				<li class="settings waves-effect waves-teal">
+					<a href="parametres.html" title="Paramètres">
+						<div class="img-nav"><img src="images/icon/setting.png" alt=""></div>
+						<span>PARAMÈTRES</span>
+					</a>
+				</li>
+				<li class="logout waves-effect waves-teal">
+					<a href="#" onclick="logout(); return false;" title="Déconnexion">
+						<div class="img-nav"><img src="images/icon/download.png" alt=""></div>
+						<span>DÉCONNEXION</span>
+					</a>
+				</li>
+			</ul>
+		</section><!-- /.vertical-navigation -->
+
+		<main>
+			<section id="accueil">
+				<div class="rows">
+					<div class="status-bar">
+						<ul>
+							<li class="progres">
+								<div class="icon"><img src="images/icon/chart.png" alt=""></div>
+								<div class="content">
+									<div class="numb">—</div>
+									<div class="text">APPELS API CE MOIS</div>
+								</div>
+							</li>
+							<li class="progres">
+								<div class="icon"><img src="images/icon/progress.png" alt=""></div>
+								<div class="content">
+									<div class="numb">—</div>
+									<div class="text">% QUOTA RESTANT</div>
+								</div>
+							</li>
+							<li class="progres">
+								<div class="icon"><img src="images/icon/apps.png" alt=""></div>
+								<div class="content">
+									<div class="numb">—</div>
+									<div class="text">LANGUES ACTIVES</div>
+								</div>
+							</li>
+							<li class="progres">
+								<div class="icon"><img src="images/icon/tick.png" alt=""></div>
+								<div class="content">
+									<div class="numb">—</div>
+									<div class="text">% DISPONIBILITÉ</div>
+								</div>
+							</li>
+						</ul>
+					</div><!-- /.status-bar -->
+				</div><!-- /.rows -->
+
+				<div class="rows">
+					<div class="box box-line left">
+						<div class="box-header with-border">
+							<div class="box-title"><h3>USAGE DE L'API (12 DERNIERS MOIS)</h3></div>
+							<div class="box-tools pull-right">
+								<i class="zmdi zmdi-more-vert waves-effect waves-teal"></i>
+								<ul class="dropdown-menu">
+									<li><a href="historique.html" class="waves-effect" title="">Voir l'historique</a></li>
+									<li><a href="facturation.html" class="waves-effect" title="">Facturation</a></li>
+									<li><a href="abonnement.html" class="waves-effect" title="">Mon offre</a></li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+						</div><!-- /.box-header -->
+						<div class="box-content style2">
+							<div class="divider50"></div>
+							<div id="lineChart"></div>
+						</div>
+					</div><!-- /.box box-line -->
+					<div class="box box-danger right">
+						<div class="box-header with-border">
+							<div class="box-title"><h3>RÉPARTITION PAR LANGUE</h3></div>
+							<div class="box-tools pull-right">
+								<i class="zmdi zmdi-more-vert waves-effect waves-teal"></i>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="waves-effect" title="">Action</a></li>
+									<li><a href="support.html" class="waves-effect" title="">Support</a></li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+						</div><!-- /.box-header -->
+						<div class="box-content chart-doughnut">
+							<div class="divider50"></div>
+							<div class="chart" id="sales-chart" style="height: 250px; width: 280px; position: relative;"></div>
+							<div class="legend style1">
+								<ul class="legend-list" id="lang-legend">
+									<li><span class="text mira-muted">Chargement…</span><p></p></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- /.box box-danger -->
+					<div class="clearfix"></div>
+				</div><!-- /.rows -->
+
+				<div class="rows">
+					<div class="box box-statistics left">
+						<div class="box-header with-border">
+							<div class="box-title"><h3>VOLUME DE REQUÊTES</h3></div>
+							<div class="box-tools pull-right">
+								<i class="zmdi zmdi-more-vert waves-effect waves-teal"></i>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="waves-effect" title="">Action</a></li>
+									<li><a href="historique.html" class="waves-effect" title="">Historique</a></li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+						</div><!-- /.box-header -->
+						<div class="box-content style1">
+							<ul class="chart-tab">
+								<li class="waves-effect waves-teal">SEMAINE</li>
+								<li class="waves-effect waves-teal">MOIS</li>
+								<li class="active waves-effect waves-teal">ANNÉE</li>
+							</ul>
+							<div id="chartStatistics"></div>
+						</div>
+					</div><!-- /.box box-statistics -->
+					<div class="box box-inbox right">
+						<div class="box-header with-border">
+							<div class="box-title"><h3>ACTIVITÉ RÉCENTE</h3><span>—</span></div>
+							<div class="box-tools pull-right">
+								<i class="zmdi zmdi-more-vert waves-effect waves-teal"></i>
+								<ul class="dropdown-menu">
+									<li><a href="historique.html" class="waves-effect" title="">Tout voir</a></li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+						</div><!-- /.box-header -->
+						<div class="box-content">
+							<ul class="inbox-list">
+								<li style="padding:18px;color:#898989;font-size:13px;">Chargement de l'activité…</li>
+							</ul>
+						</div>
+					</div><!-- /.box box-inbox -->
+					<div class="clearfix"></div>
+				</div><!-- /.rows -->
+
+				<div class="footer" style="padding:0 20px 30px;">
+					<div class="copyright"><p style="font-family:'Oswald'; font-weight:300;">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p></div>
+					<ul class="menu-ft" style="float:right;">
+						<li style="display:inline-block; padding:0 14px;"><a href="support.html" title="">Support</a></li>
+						<li style="display:inline-block; padding:0 14px;"><a href="abonnement.html" title="">Offres</a></li>
+						<li style="display:inline-block; padding:0 14px;"><a href="parametres.html" title="">Paramètres</a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</section><!-- /#accueil -->
+		</main><!-- /main -->
+
+		<!-- Conteneurs de graphiques requis par main.js (gardés hors écran sur cette page) -->
+		<div class="mira-hidden-charts" aria-hidden="true">
+			<div id="chart-stackedColumn"></div>
+			<div id="chart-spline"></div>
+			<div id="bubble-chart"></div>
+			<div id="chartdiv"></div>
+			<canvas id="radarChart" height="150"></canvas>
+		</div>
+
+		<!-- jQuery 3 -->
+		<script src="javascript/jquery.min.js"></script>
+
+		<!-- Bootstrap 4 -->
+		<script src="javascript/tether.min.js"></script>
+		<script src="javascript/bootstrap4-alpha3.min.js"></script>
+
+		<!-- Map chart  -->
+		<script src="javascript/ammap.js"></script>
+		<script src="javascript/worldLow.js"></script>
+
+		<!-- Morris.js charts -->
+		<script src="javascript/raphael.min.js"></script>
+		<script src="javascript/morris.min.js"></script>
+
+		<!-- Chart -->
+		<script src="javascript/Chart.min.js"></script>
+
+		<!-- Calendar -->
+		<script src='javascript/moment.min.js'></script>
+		<script src='javascript/jquery-ui.js'></script>
+		<script src='javascript/fullcalendar.min.js'></script>
+
+		<script type="text/javascript" src="javascript/jquery.mCustomScrollbar.js"></script>
+		<script src="javascript/smoothscroll.js"></script>
+		<script src="javascript/waypoints.min.js"></script>
+		<script src="javascript/jquery-countTo.js"></script>
+		<script src="javascript/waves.min.js"></script>
+		<script src="javascript/canvasjs.min.js"></script>
+
+		<!-- Couche de services Mira + logique commune espace client (AVANT main.js) -->
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script src="javascript/mira-espace.js"></script>
+
+		<script src="javascript/main.js"></script>
+
+		<!-- Correctif navigation multi-pages + données réelles (accueil). -->
+		<script>
+			(function($){
+				$(function(){
+					$('main > section').show();
+					var page = document.body.getAttribute('data-page');
+					if (page) {
+						$('.vertical-navigation.left ul.sidebar-nav > li').removeClass('active');
+						$('.vertical-navigation.left ul.sidebar-nav > li.' + page).addClass('active');
+					}
+					// main.js (retinaLogos) remplace le logo par logo@2x.png sur écran HiDPI : on réimpose le logo Mira.
+					$('.header .logo img').attr('src', 'images/mira-logo.png').removeAttr('width').removeAttr('height');
+				});
+			})(jQuery);
+
+			// Garde + identité + chargement des stats/activité réelles.
+			MiraEspace.ready(function () {
+				var E = MiraEspace;
+
+				function setStat(idx, value) {
+					var el = document.querySelectorAll('.status-bar li .numb')[idx];
+					if (!el) return;
+					el.removeAttribute('data-from');
+					el.removeAttribute('data-to');
+					el.textContent = (value == null || value === '') ? '—' : value;
+				}
+
+				// Légende + donut « Répartition par langue » : dérivés de calls_by_model.
+				// (Le donut est sinon dessiné par main.js avec des données de démo : on le redessine ici avec les vraies.)
+				var legend = document.getElementById('lang-legend');
+				var donutColors = ["#04aec6", "#4c418b", "#ff2d78", "#f09238", "#7fe3ef", "#898989"];
+				function redrawDonut(entries) {
+					var host = document.getElementById('sales-chart');
+					if (!host || typeof Morris === 'undefined' || !Morris.Donut) return;
+					host.innerHTML = ''; // efface le rendu démo de main.js
+					if (!entries.length) return;
+					try {
+						new Morris.Donut({
+							element: 'sales-chart', resize: true,
+							colors: entries.map(function (_, i) { return donutColors[i % donutColors.length]; }),
+							data: entries.map(function (e) { return { label: e[0], value: e[1] }; }),
+							hideHover: 'auto'
+						});
+					} catch (e) { /* rendu graphique non bloquant */ }
+				}
+				function renderLegend(byModel) {
+					var entries = byModel ? Object.keys(byModel).map(function (k) { return [k, Number(byModel[k]) || 0]; }) : [];
+					entries = entries.filter(function (e) { return e[1] > 0; });
+					var sum = entries.reduce(function (a, e) { return a + e[1]; }, 0);
+					if (!entries.length || sum <= 0) {
+						if (legend) legend.innerHTML = '<li><span class="text mira-muted">Aucune donnée d\'usage.</span><p></p></li>';
+						redrawDonut([]);
+						return;
+					}
+					entries.sort(function (a, b) { return b[1] - a[1]; });
+					if (legend) legend.innerHTML = entries.map(function (e) {
+						var pct = Math.round((e[1] / sum) * 100);
+						return '<li><span class="text">' + E.escapeHtml(e[0]) + '</span><p>' + pct + ' %</p></li>';
+					}).join('');
+					redrawDonut(entries);
+				}
+
+				// Cartes de stats + légende depuis getUsage().
+				MiraAPI.getUsage().then(function (res) {
+					if (res.ok && res.data) {
+						var u = res.data;
+						var total = u.total_calls != null ? u.total_calls : 0;
+						var quotaTotal = u.total_quota || 0;
+						var remaining = u.quota_remaining != null ? u.quota_remaining : Math.max(0, quotaTotal - (u.quota_used || 0));
+						var pct = quotaTotal > 0 ? Math.round((remaining / quotaTotal) * 100) : 0;
+						var langs = u.calls_by_model ? Object.keys(u.calls_by_model).length : 0;
+						setStat(0, total.toLocaleString('fr-FR'));
+						setStat(1, pct);
+						setStat(2, langs);
+						setStat(3, '—'); // disponibilité : pas d'endpoint dédié
+						renderLegend(u.calls_by_model);
+					} else {
+						setStat(0, '—'); setStat(1, '—'); setStat(2, '—'); setStat(3, '—');
+						if (legend) legend.innerHTML = '<li><span class="text" style="color:#ff8db5;">' + E.escapeHtml(E.errText(res.error, 'Données indisponibles.')) + '</span><p></p></li>';
+					}
+				});
+
+				// Activité récente depuis getUsageLogs().
+				var inbox = document.querySelector('#accueil .box-inbox .inbox-list');
+				var inboxCount = document.querySelector('#accueil .box-inbox .box-title span');
+				if (inbox) {
+					inbox.innerHTML = '<li style="padding:18px;color:#898989;font-size:13px;">Chargement de l\'activité…</li>';
+					MiraAPI.getUsageLogs({ page: 1, limit: 5 }).then(function (res) {
+						if (!res.ok) {
+							inbox.innerHTML = '<li style="padding:18px;color:#ff8db5;font-size:13px;">' + E.escapeHtml(E.errText(res.error, 'Impossible de charger l\'activité.')) + '</li>';
+							return;
+						}
+						var items = (res.data && res.data.items) || [];
+						if (inboxCount) inboxCount.textContent = (res.data && res.data.total != null) ? res.data.total : items.length;
+						if (!items.length) {
+							inbox.innerHTML = '<li style="padding:18px;color:#898989;font-size:13px;">Aucune activité récente.</li>';
+							return;
+						}
+						inbox.innerHTML = items.map(function (it) {
+							var status = it.status_code || '';
+							var label = (it.method || '') + ' ' + (it.endpoint || '');
+							return '<li class="waves-effect"><a href="historique.html" title="">' +
+								'<div class="left"><img src="images/avatar/inbox-01.png" alt="">' +
+								'<div class="info"><p class="name">' + E.escapeHtml(it.model_id || 'Requête API') + '</p>' +
+								'<p>' + E.escapeHtml(label) + ' — ' + E.escapeHtml(String(status)) + '</p></div></div>' +
+								'<div class="right">' + E.escapeHtml(E.formatDate(it.timestamp, true)) + '</div>' +
+								'<div class="clearfix"></div></a></li>';
+						}).join('');
+					});
+				}
+			});
+		</script>
+
+	</body>
+</html>

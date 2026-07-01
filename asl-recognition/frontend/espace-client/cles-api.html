@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+		<title>Mira — Espace client | Clés API</title>
+		<meta name="author" content="GV TECH">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap4-alpha3.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link href='stylesheets/fullcalendar.min.css' rel='stylesheet' />
+		<link href='stylesheets/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+		<link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+		<link href="images/icon/favicon.png" rel="shortcut icon">
+		<script>
+			(function () {
+				try {
+					if (!window.localStorage || !localStorage.getItem("mira_client_token")) {
+						window.location.replace("connexion.html");
+					}
+				} catch (e) { window.location.replace("connexion.html"); }
+			})();
+		</script>
+		<style>
+			main { overflow-y: auto; max-height: calc(100vh - 40px); }
+			.mira-hidden-charts { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+			.mira-btn { display: inline-block; background-color: #04aec6; color: #fff; border: none; border-radius: 25px; padding: 11px 28px; font-family: 'Oswald'; font-size: 13px; letter-spacing: .5px; cursor: pointer; }
+			.mira-btn:hover { color: #fff; background-color: #4c418b; }
+			.mira-btn.ghost { background-color: transparent; border: 1px solid #04aec6; color: #04aec6; }
+			.mira-btn.ghost:hover { background-color: #04aec6; color: #fff; }
+			.mira-btn.danger { background-color: transparent; border:1px solid #ff2d78; color: #ff2d78; }
+			.mira-btn.danger:hover { background-color: #ff2d78; color:#fff; }
+			.mira-btn.small { padding: 6px 16px; font-size: 12px; }
+			.mira-table { width: 100%; }
+			.mira-table thead tr th { text-align: left; font-family: 'Oswald'; font-weight: 400; font-size: 13px; color: #c5c5c5; padding: 12px 14px; border-bottom: 1px solid #2c2e33; letter-spacing: .5px; }
+			.mira-table tbody tr td { padding: 14px; border-bottom: 1px solid #232427; color: #b9b9b9; font-size: 13px; }
+			.mira-table tbody tr:hover { background-color: #1d1f23; }
+			.mira-badge { display: inline-block; padding: 3px 12px; border-radius: 25px; font-size: 11px; font-family: 'Oswald'; letter-spacing: .5px; }
+			.mira-badge.ok { background-color: rgba(4,174,198,.16); color: #04aec6; }
+			.mira-badge.muted { background-color: rgba(137,137,137,.16); color: #b9b9b9; }
+			.mira-key { font-family: monospace; color:#c5c5c5; }
+			.box.mira-full { width: 100%; }
+			.mira-sub { font-size: 12px; color: #898989; margin-top: 4px; }
+			.divider20 { height: 20px; }
+		</style>
+	</head>
+	<body data-page="setting">
+
+		<div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+
+		<header id="header" class="header fixed">
+			<div class="navbar-top">
+				<div class="curren-menu info-left">
+					<div class="logo">
+						<a href="accueil.html" title="Mira — Espace client">
+							<img src="images/mira-logo.png" alt="Mira" style="height:28px;width:auto;">
+							<span style="display:block; font-size:11px; color:#04aec6; letter-spacing:2px; margin-top:2px;">ESPACE CLIENT</span>
+						</a>
+					</div>
+					<div class="top-button"><span></span></div>
+					<div class="box-search">
+						<form action="#" method="get" accept-charset="utf-8">
+							<button><img src="images/icon/search.png" alt=""></button>
+							<input type="text" placeholder="Rechercher..." name="Search">
+						</form>
+					</div>
+				</div>
+				<ul class="info-right">
+					<li class="setting"><a href="parametres.html" class="waves-effect waves-teal" title="Paramètres"><img src="images/icon/setting.png" alt=""></a></li>
+					<li class="notification" style="display:none;"><a href="#" class="waves-effect waves-teal" title="Notifications">0</a></li>
+					<li class="user">
+						<div class="avatar"><img src="images/avatar/01.png" alt=""></div>
+						<div class="info"><p class="name">—</p><p class="address">Espace client</p></div>
+						<div class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+						<div class="dropdown-menu">
+							<ul>
+								<li><div class="avatar"><img src="images/avatar/01.png" alt=""></div><div class="profile"><a href="profil.html" title="">Mon profil</a></div><div class="clearfix"></div></li>
+								<li><a href="profil.html" class="waves-effect" title="">Mon profil</a></li>
+								<li><a href="parametres.html" class="waves-effect" title="">Paramètres</a></li>
+								<li><a href="#" class="waves-effect" onclick="logout(); return false;" title="">Déconnexion</a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+					<li class="button-menu-right"><img src="images/icon/menu-right.png" alt=""></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</header>
+
+		<section class="vertical-navigation left">
+			<div class="user-profile">
+				<div class="user-img">
+					<a href="profil.html" title=""><div class="img"><img src="images/avatar/avatar-dashboard.png" alt=""></div><div class="status-color blue heartbit style1"></div></a>
+				</div>
+				<ul class="user-options">
+					<li class="name"><a href="profil.html" title="">—</a></li>
+					<li class="options">CLIENT MIRA</li>
+				</ul>
+			</div>
+			<ul class="sidebar-nav">
+				<li class="dashboard waves-effect waves-teal"><a href="accueil.html" title="Accueil"><div class="img-nav"><img src="images/icon/monitor.png" alt=""></div><span>ACCUEIL</span></a></li>
+				<li class="pages waves-effect waves-teal"><a href="profil.html" title="Profil"><div class="img-nav"><img src="images/icon/user.png" alt=""></div><span>PROFIL</span></a></li>
+				<li class="apps waves-effect waves-teal"><a href="abonnement.html" title="Abonnement"><div class="img-nav"><img src="images/icon/apps.png" alt=""></div><span>ABONNEMENT</span></a></li>
+				<li class="setting waves-effect waves-teal"><a href="cles-api.html" title="Clés API"><div class="img-nav"><img src="images/icon/setting-02.png" alt=""></div><span>CLÉS API</span></a></li>
+				<li class="calendar waves-effect waves-teal"><a href="historique.html" title="Historique"><div class="img-nav"><img src="images/icon/calendar.png" alt=""></div><span>HISTORIQUE</span></a></li>
+				<li class="chart waves-effect waves-teal"><a href="facturation.html" title="Facturation"><div class="img-nav"><img src="images/icon/chart.png" alt=""></div><span>FACTURATION</span></a></li>
+				<li class="message waves-effect waves-teal"><a href="support.html" title="Support"><div class="img-nav"><img src="images/icon/message.png" alt=""></div><span>SUPPORT</span></a></li>
+				<li class="settings waves-effect waves-teal"><a href="parametres.html" title="Paramètres"><div class="img-nav"><img src="images/icon/setting.png" alt=""></div><span>PARAMÈTRES</span></a></li>
+				<li class="logout waves-effect waves-teal"><a href="#" onclick="logout(); return false;" title="Déconnexion"><div class="img-nav"><img src="images/icon/download.png" alt=""></div><span>DÉCONNEXION</span></a></li>
+			</ul>
+		</section>
+
+		<main>
+			<section id="cles-api">
+				<div class="breadcrumbs" style="padding:0 20px 12px;"><ul><li><a href="accueil.html" title="">Accueil</a></li><li>&nbsp;- Clés API</li></ul></div>
+
+				<div class="rows">
+					<div class="box mira-full">
+						<div class="box-header with-border">
+							<div class="box-title"><h3>MES CLÉS API</h3><span>—</span></div>
+							<div class="box-tools pull-right" style="line-height:34px;">
+								<a href="#" class="mira-btn small" id="btn-generate">+ Générer une clé</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="box-content">
+							<div class="divider20"></div>
+							<p class="mira-sub" style="margin-bottom:14px;">Conservez vos clés en lieu sûr. Une clé révoquée cesse immédiatement de fonctionner. Le secret complet n'est affiché qu'à la création.</p>
+
+							<!-- Bandeau secret affiché une seule fois après création/rotation -->
+							<div id="new-key-banner" style="display:none; background:rgba(4,174,198,.10); border:1px solid rgba(4,174,198,.4); border-radius:8px; padding:16px; margin-bottom:18px;">
+								<p style="color:#7fe3ef; font-family:'Oswald'; font-size:13px; letter-spacing:.5px; margin-bottom:8px;">CLÉ COMPLÈTE — copiez-la maintenant, elle ne sera plus affichée.</p>
+								<div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+									<code id="new-key-value" class="mira-key" style="background:#15171a; padding:10px 12px; border-radius:6px; word-break:break-all; flex:1; min-width:200px;"></code>
+									<a href="#" class="mira-btn small" id="new-key-copy">Copier</a>
+									<a href="#" class="mira-btn ghost small" id="new-key-dismiss">Fermer</a>
+								</div>
+							</div>
+
+							<table class="mira-table">
+								<thead><tr><th>Nom</th><th>Clé (préfixe)</th><th>Quota</th><th>Créée le</th><th>Dernier usage</th><th>Statut</th><th style="text-align:right;">Actions</th></tr></thead>
+								<tbody id="keys-tbody">
+									<tr><td colspan="7" style="text-align:center; padding:28px; color:#898989;">Chargement des clés…</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="footer" style="padding:0 20px 30px;">
+					<div class="copyright"><p style="font-family:'Oswald'; font-weight:300;">2026 © Mira — édité par GV TECH · <a href="https://voldimbayo.com" target="_blank" rel="noopener" style="color:inherit;">voldimbayo.com</a></p></div>
+					<ul class="menu-ft" style="float:right;">
+						<li style="display:inline-block; padding:0 14px;"><a href="historique.html" title="">Historique</a></li>
+						<li style="display:inline-block; padding:0 14px;"><a href="support.html" title="">Support</a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</section>
+		</main>
+
+		<div class="mira-hidden-charts" aria-hidden="true">
+			<div id="sales-chart"></div><div id="chartStatistics"></div><div id="chart-stackedColumn"></div>
+			<div id="chart-spline"></div><div id="bubble-chart"></div><div id="chartdiv"></div>
+			<div id="lineChart"></div><canvas id="radarChart" height="150"></canvas>
+		</div>
+
+		<script src="javascript/jquery.min.js"></script>
+		<script src="javascript/tether.min.js"></script>
+		<script src="javascript/bootstrap4-alpha3.min.js"></script>
+		<script src="javascript/ammap.js"></script>
+		<script src="javascript/worldLow.js"></script>
+		<script src="javascript/raphael.min.js"></script>
+		<script src="javascript/morris.min.js"></script>
+		<script src="javascript/Chart.min.js"></script>
+		<script src='javascript/moment.min.js'></script>
+		<script src='javascript/jquery-ui.js'></script>
+		<script src='javascript/fullcalendar.min.js'></script>
+		<script type="text/javascript" src="javascript/jquery.mCustomScrollbar.js"></script>
+		<script src="javascript/smoothscroll.js"></script>
+		<script src="javascript/waypoints.min.js"></script>
+		<script src="javascript/jquery-countTo.js"></script>
+		<script src="javascript/waves.min.js"></script>
+		<script src="javascript/canvasjs.min.js"></script>
+		<script src="js/mira-client.js"></script>
+		<script src="javascript/mira-api.js"></script>
+		<script src="javascript/mira-espace.js"></script>
+		<script src="javascript/main.js"></script>
+		<script>
+			(function($){ $(function(){
+				$('main > section').show();
+				var page = document.body.getAttribute('data-page');
+				if (page) { $('.vertical-navigation.left ul.sidebar-nav > li').removeClass('active'); $('.vertical-navigation.left ul.sidebar-nav > li.' + page).addClass('active'); }
+				$('.header .logo img').attr('src', 'images/mira-logo.png').removeAttr('width').removeAttr('height');
+			}); })(jQuery);
+
+			MiraEspace.ready(function () {
+				var E = MiraEspace;
+				var tbody = document.getElementById('keys-tbody');
+				var countEl = document.querySelector('#cles-api .box-title span');
+				var banner = document.getElementById('new-key-banner');
+				var bannerVal = document.getElementById('new-key-value');
+
+				function showSecret(key) {
+					if (!key) return;
+					bannerVal.textContent = key;
+					banner.style.display = 'block';
+				}
+				document.getElementById('new-key-dismiss').addEventListener('click', function (e) {
+					e.preventDefault(); banner.style.display = 'none'; bannerVal.textContent = '';
+				});
+				document.getElementById('new-key-copy').addEventListener('click', function (e) {
+					e.preventDefault(); copy(bannerVal.textContent);
+				});
+
+				function copy(text) {
+					if (!text) return;
+					if (navigator.clipboard && navigator.clipboard.writeText) {
+						navigator.clipboard.writeText(text).then(function () { E.toast('Copié dans le presse-papiers.'); },
+							function () { E.toast('Copie impossible.', 'err'); });
+					} else {
+						try {
+							var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta);
+							ta.select(); document.execCommand('copy'); document.body.removeChild(ta); E.toast('Copié.');
+						} catch (e) { E.toast('Copie impossible.', 'err'); }
+					}
+				}
+
+				function render(keys) {
+					if (countEl) countEl.textContent = keys.length;
+					if (!keys.length) {
+						tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:28px; color:#898989;">Aucune clé API. Cliquez sur « Générer une clé » pour commencer.</td></tr>';
+						return;
+					}
+					tbody.innerHTML = keys.map(function (k) {
+						var active = k.is_active !== false;
+						var prefix = k.key_prefix ? (E.escapeHtml(k.key_prefix) + '••••') : '—';
+						var quota = (k.quota_used != null && k.quota_total != null)
+							? (Number(k.quota_used).toLocaleString('fr-FR') + ' / ' + Number(k.quota_total).toLocaleString('fr-FR'))
+							: '—';
+						var badge = active ? '<span class="mira-badge ok">Active</span>' : '<span class="mira-badge muted">Révoquée</span>';
+						var actions = active
+							? '<a href="#" class="mira-btn ghost small" data-act="copy" data-prefix="' + E.escapeHtml(k.key_prefix || '') + '">Copier</a> ' +
+							  '<a href="#" class="mira-btn ghost small" data-act="rotate" data-id="' + E.escapeHtml(String(k.id)) + '">Régénérer</a> ' +
+							  '<a href="#" class="mira-btn danger small" data-act="revoke" data-id="' + E.escapeHtml(String(k.id)) + '">Révoquer</a>'
+							: '<span class="mira-sub">—</span>';
+						return '<tr>' +
+							'<td>' + E.escapeHtml(k.label || 'Sans nom') + '</td>' +
+							'<td class="mira-key">' + prefix + '</td>' +
+							'<td>' + quota + '</td>' +
+							'<td>' + E.escapeHtml(E.formatDate(k.created_at)) + '</td>' +
+							'<td>' + (k.last_used_at ? E.escapeHtml(E.formatDate(k.last_used_at, true)) : '—') + '</td>' +
+							'<td>' + badge + '</td>' +
+							'<td style="text-align:right;">' + actions + '</td>' +
+							'</tr>';
+					}).join('');
+				}
+
+				function load() {
+					tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:28px; color:#898989;">Chargement des clés…</td></tr>';
+					MiraAPI.listKeys().then(function (res) {
+						if (res.ok && Array.isArray(res.data)) render(res.data);
+						else tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:28px; color:#ff8db5;">' + E.escapeHtml(E.errText(res.error, 'Impossible de charger les clés.')) + '</td></tr>';
+					});
+				}
+
+				document.getElementById('btn-generate').addEventListener('click', function (e) {
+					e.preventDefault();
+					var label = window.prompt('Nom de la clé (optionnel) :', 'Nouvelle clé');
+					if (label === null) return; // annulé
+					var self = this;
+					self.style.pointerEvents = 'none'; self.textContent = 'Génération…';
+					MiraAPI.createKey({ label: label || undefined }).then(function (res) {
+						self.style.pointerEvents = ''; self.textContent = '+ Générer une clé';
+						if (res.ok && res.data) {
+							if (res.data.full_key) showSecret(res.data.full_key);
+							E.toast('Clé créée.');
+							load();
+						} else {
+							E.toast(E.errText(res.error, 'Création impossible.'), 'err');
+						}
+					});
+				});
+
+				// Délégation pour Copier / Régénérer / Révoquer.
+				tbody.addEventListener('click', function (e) {
+					var a = e.target.closest('a[data-act]');
+					if (!a) return;
+					e.preventDefault();
+					var act = a.getAttribute('data-act');
+					if (act === 'copy') {
+						var p = a.getAttribute('data-prefix');
+						copy(p ? p + '••••' : '');
+						E.toast('Seul le préfixe est disponible. Le secret complet n\'est montré qu\'à la création.');
+						return;
+					}
+					var id = a.getAttribute('data-id');
+					if (act === 'revoke') {
+						if (!window.confirm('Révoquer cette clé ? Elle cessera immédiatement de fonctionner.')) return;
+						a.style.pointerEvents = 'none';
+						MiraAPI.revokeKey(id).then(function (res) {
+							if (res.ok) { E.toast('Clé révoquée.'); load(); }
+							else { a.style.pointerEvents = ''; E.toast(E.errText(res.error, 'Révocation impossible.'), 'err'); }
+						});
+					} else if (act === 'rotate') {
+						if (!window.confirm('Régénérer cette clé ? L\'ancienne clé sera révoquée et une nouvelle sera créée.')) return;
+						a.style.pointerEvents = 'none';
+						MiraAPI.rotateKey(id).then(function (res) {
+							a.style.pointerEvents = '';
+							if (res.ok && res.data) {
+								if (res.data.full_key) showSecret(res.data.full_key);
+								E.toast('Clé régénérée.'); load();
+							} else { E.toast(E.errText(res.error, 'Régénération impossible.'), 'err'); }
+						});
+					}
+				});
+
+				load();
+			});
+		</script>
+	</body>
+</html>
